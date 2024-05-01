@@ -3,10 +3,27 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
+}
 
+:root {
+  --text-white: #ffffff;
+  --button-normal: #BEDBB0;
+  --button-hover: #9DC888;
+  --theme-white: #FDFDFD;
+  --theme-black: #232323;
+  --theme-violet: #D6D8FF;
+  --back-input: #1F1F1F;
+  --violet-button-normal: #7B7EDE;
+  --violet-button-hover: #5255BC;
+  --violet-normal: #B8BCFD;
+  --violet-hover: #979CEA;
+  --radio-grey: #161616;
+  --radio-blue: #8FA1D0;
+  --radio-red: #E09CB5;
+  --radio-gren: #BEDBB0;
 }
 
 h1,
