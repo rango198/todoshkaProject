@@ -1,9 +1,7 @@
+import styles from "./Login.module.css";
+
 const LoginForm = () => {
-  return (
-    <div>
-      <h2>Login</h2>
-    </div>
-  );
+  return <div className={styles.block}></div>;
 };
 
 export default LoginForm;

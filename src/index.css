@@ -1,12 +1,35 @@
 body {
   /* background-image: url('./assets/background.png'); */
+  background: linear-gradient(
+      180deg,
+      rgba(196, 196, 196, 0) 25%,
+      #bedbb0 92.19%
+    )
+    no-repeat;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
+}
 
+:root {
+  --text-white: #ffffff;
+  --button-normal: #bedbb0;
+  --button-hover: #9dc888;
+  --theme-white: #fdfdfd;
+  --theme-black: #232323;
+  --theme-violet: #d6d8ff;
+  --back-input: #1f1f1f;
+  --violet-button-normal: #7b7ede;
+  --violet-button-hover: #5255bc;
+  --violet-normal: #b8bcfd;
+  --violet-hover: #979cea;
+  --radio-grey: #161616;
+  --radio-blue: #8fa1d0;
+  --radio-red: #e09cb5;
+  --radio-gren: #bedbb0;
 }
 
 h1,

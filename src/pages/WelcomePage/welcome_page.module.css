@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  max-width: 375px;
+  min-width: 320px;
+  margin: auto;
+  padding: 0 20px;
+
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: transparent;
+}
+.visually_hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    width: 473px;
+    /* height: 438px; */
+    padding: 0;
+  }
+}
