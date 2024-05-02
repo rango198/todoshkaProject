@@ -1,6 +1,6 @@
 import {
   HeaderContainer,
-  IconWrapper,
+  // IconWrapper,
   Navigation,
   StyledLink,
 } from "./Header.styled";
