@@ -1,0 +1,13 @@
+.block {
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  text-decoration: none;
+  font-size: 10px;
+}
+
+.link:global(.active) {
+  font-weight: bold;
+}
