@@ -1,16 +1,12 @@
-import { Container, StyledImage, Title } from '../HomePage/HomePage.styled';
-import example from '../../assets/example.png';
+import css from "./welcome_page.module.css";
+import Welcome from "../../components/Welcome/Welcome";
+
 const WelcomePage = () => {
   return (
-    <>
-      <div>
-        <h1>Welcome Page</h1>
-      </div>
-      <Container>
-        <Title>Welcome Page</Title>
-        <StyledImage src={example} alt="Example" />
-      </Container>
-    </>
+    <div className={css.container}>
+      <h1 className={css.visually_hidden}>Welcome Page</h1>
+      <Welcome />
+    </div>
   );
 };
 
