@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+
 import { lazy } from "react";
 
 // import WelcomePage from "./pages/WelcomePage/WelcomePage";
