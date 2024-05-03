@@ -1,0 +1,46 @@
+.profileContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.profileForm {
+  width: 287px;
+}
+.profileTitle {
+  margin-bottom: 24px;
+}
+.formData {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.profileInput {
+  position: absolute;
+  color: transparent;
+  width: 24px;
+  height: 24px;
+  bottom: -12px;
+}
+.profileImage {
+  width: 68px;
+  height: 68px;
+}
+.profileLabelAvatar {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+  width: 68px;
+}
+.profileLabelPassword {
+  position: relative;
+  width: 100%;
+}
+.profileButton {
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  position: absolute;
+}
