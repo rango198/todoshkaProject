@@ -22,12 +22,12 @@ const Welcome = () => {
         Pro - Don't wait, start achieving your goals now!
       </p>
       <div>
-        <NavLink to="/auth/:id">
+        <NavLink to="/auth/register">
           <button className={css.btn} type="button">
             Registration
           </button>
         </NavLink>
-        <NavLink to="/auth/:id">
+        <NavLink to="/auth/login">
           <button className={css.btn} type="button">
             Log In
           </button>
