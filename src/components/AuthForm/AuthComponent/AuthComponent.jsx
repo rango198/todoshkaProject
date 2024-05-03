@@ -27,10 +27,14 @@ const AuthComponent = () => {
       <Tabs selectedIndex={activeTab} onSelect={handleTabChange}>
         <TabList>
           <Tab>
-            <NavLink to="/auth/register">Registration</NavLink>
+            <NavLink className={styles.authLink} to="/auth/register">
+              Registration
+            </NavLink>
           </Tab>
           <Tab>
-            <NavLink to="/auth/login">Log In</NavLink>
+            <NavLink className={styles.authLink} to="/auth/login">
+              Log In
+            </NavLink>
           </Tab>
         </TabList>
 

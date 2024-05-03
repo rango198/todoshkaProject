@@ -5,3 +5,11 @@
   padding: 40px;
   background: #151515;
 }
+
+.authLink {
+  display: inline;
+  color: gray;
+}
+.authLink:active {
+  color: white;
+}
