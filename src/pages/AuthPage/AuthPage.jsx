@@ -1,9 +1,16 @@
+import { Suspense } from "react";
+import AuthComponent from "../../components/AuthForm/AuthComponent/AuthComponent";
+import styles from "./AuthPage.module.css";
+import { Outlet } from "react-router";
+
 const AuthPage = () => {
   return (
-    <div>
-      <h2>AuthPage</h2>
+    <div className={styles.authContainer}>
+      <AuthComponent />
+      <Suspense fallback={null}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };
-
 export default AuthPage;

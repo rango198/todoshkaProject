@@ -1,20 +1,13 @@
 import css from "./welcome.module.css";
 import start from "../../assets/img/png/Start-mob-2x.png";
-import Icon from "../Icon/Icon";
 import { NavLink } from "react-router-dom";
+import Icon from "../Icon/Icon";
 const Welcome = () => {
   return (
-    <>
+    <section>
       <img className={css.welcome_img} src={start} alt="Hello image"></img>
       <div className={css.logo}>
-        <div className={css.logo_icon}>
-          <Icon
-            styles={{ stroke: "#fff" }}
-            width={16}
-            height={20}
-            iconId={"icon-logo"}
-          />
-        </div>
+        <Icon id="logo" className={css.logo_icon} />
         Task Pro
       </div>
       <p className={css.text}>
@@ -22,18 +15,18 @@ const Welcome = () => {
         Pro - Don't wait, start achieving your goals now!
       </p>
       <div>
-        <NavLink to="/auth/:id">
+        <NavLink to="/auth/register">
           <button className={css.btn} type="button">
             Registration
           </button>
         </NavLink>
-        <NavLink to="/auth/:id">
+        <NavLink to="/auth/login">
           <button className={css.btn} type="button">
             Log In
           </button>
         </NavLink>
       </div>
-    </>
+    </section>
   );
 };
 export default Welcome;

@@ -1,0 +1,39 @@
+.container {
+  width: 100%;
+  max-width: 335px;
+  height: 80px;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+  padding-top: 258px;
+
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  color: rgba(22, 22, 22, 0.7);
+}
+
+.button_text {
+  font-size: 12px;
+  border: none;
+  padding: 0;
+  background: transparent;
+  color: #bedbb0;
+}
+@media screen and (min-width: 768px) {
+  .container {
+    width: 486px;
+    width: 100%;
+    max-width: 486px;
+    height: 72px;
+    font-size: 14px;
+  }
+  .button_text {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .container {
+    margin-top: 281px;
+  }
+}
