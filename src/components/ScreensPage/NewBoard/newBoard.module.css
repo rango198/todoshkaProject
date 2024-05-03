@@ -1,0 +1,13 @@
+.button_create {
+  display: flex;
+  margin: auto;
+  margin-top: 40px;
+  width: 335px;
+  height: 56px;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  /* margin-left: 20px; */
+  border-radius: 8px;
+  border-style: none;
+}

@@ -1,10 +1,9 @@
 import sprite from "../../assets/svg/sprite.svg";
-const Icon = ({ style, width, height, iconId }) => {
+const Icon = ({ id, className }) => {
   return (
-    <svg styles={style} width={width} height={height}>
-      <use href={`${sprite}#${iconId}`}></use>
+    <svg className={className}>
+      <use href={sprite + "#" + id}></use>
     </svg>
   );
 };
-// Icon.propTypes;
 export default Icon;
