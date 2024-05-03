@@ -8,6 +8,9 @@ const ModalContent = () => {
     case "add":
       return <div>Hello World</div>;
 
+    case "userbar":
+      return <div>UserBar</div>;
+
     default:
       return null;
   }

@@ -1,0 +1,13 @@
+.sidebar {
+  display: none;
+}
+
+@media screen and (min-width: 769px) {
+  .container {
+    display: flex;
+  }
+  .sidebar {
+    display: block;
+    width: 260px;
+  }
+}
