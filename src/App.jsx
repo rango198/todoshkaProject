@@ -18,6 +18,7 @@ const LoginPage = lazy(() => import("./pages/AuthPage/AuthFormPage/LoginPage"));
 const RegisterPage = lazy(
   () => import("./pages/AuthPage/AuthFormPage/RegisterPage")
 );
+const ScreensPage = lazy(() => import("./pages/ScreensPage/ScreensPage"));
 
 const App = () => {
   const modalStatus = useSelector(selectOpenModal);
@@ -38,6 +39,7 @@ const App = () => {
             <Route path="auth/register" element={<RegisterPage />} />
           </Route>
           <Route path="/home" element={<HomePage />} />
+          <Route path="/home/:boardName" element={<ScreensPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
