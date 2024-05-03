@@ -1,5 +1,7 @@
 import axios from "axios";
 
+const BASE_URL = "https://65c123aedc74300bce8d6244.mockapi.io/api";
+
 const $instance = axios.create({ baseURL: BASE_URL });
 
 export const setToken = (token) => {
@@ -26,8 +28,6 @@ export const logout = async ({ endPoint }) => {
   const { data } = await $instance.post(endPoint);
   return data;
 };
-
-// ====================== info_query
 
 export const getData = async ({ endPoint, getParams }) => {
   const { data } = await $instance.get(endPoint, {
