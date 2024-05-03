@@ -1,0 +1,49 @@
+.header {
+  background-color: #fcfcfc;
+  padding: 20px 18px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.box {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.menu_button {
+  background-color: transparent;
+  display: block;
+  border: none;
+  /* align-items: center; */
+}
+.menu_icon {
+  width: 24px;
+  height: 24px;
+  stroke: black;
+}
+.theme_button {
+  background-color: transparent;
+  display: flex;
+  gap: 4px;
+  border: none;
+  align-items: center;
+}
+.chevron_down {
+  width: 16px;
+  height: 16px;
+  stroke: black;
+}
+@media screen and (min-width: 376px) {
+  .menu_icon {
+    width: 32px;
+    height: 32px;
+  }
+}
+@media screen and (min-width: 769px) {
+  .menu_button {
+    display: none;
+  }
+  .box {
+    margin-left: auto;
+  }
+}
