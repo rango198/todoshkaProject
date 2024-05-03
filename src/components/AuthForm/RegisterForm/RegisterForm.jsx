@@ -16,41 +16,46 @@ function RegisterForm() {
     reset();
   };
   return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label className={styles.block}>
-          Enter your name:
-          <input
-            {...register("firstName", {
-              required: "Required field",
-            })}
-          />
-        </label>
-        <label className={styles.block}>
-          Enter your email:
-          <input type="email" {...register("email", { required: true })} />
-        </label>
-        <label className={styles.block}>
-          Create a password:
-          <input
-            type="password"
-            {...register("password", {
-              required: true,
-              minLength: {
-                value: 5,
-                message: "min 5 characters",
-              },
-            })}
-          />
-        </label>
-        <div style={{ height: 40 }}>
-          {errors?.firstName && <p>{errors?.firstName?.message || "Error!"}</p>}
-          {errors?.email && <p>{errors?.email?.message || "Error!"}</p>}
-          {errors?.password && <p>{errors?.password?.message || "Error!"}</p>}
-        </div>
-        <button type="submit">Register Now</button>
-      </form>
-    </div>
+    <form className={styles.main} onSubmit={handleSubmit(onSubmit)}>
+      <input
+        className={styles.input}
+        placeholder="Enter your name"
+        {...register("firstName", {
+          required: "Required field",
+        })}
+      />
+
+      <input
+        className={styles.input}
+        placeholder="Enter your email"
+        type="email"
+        {...register("email", { required: true })}
+      />
+
+      <input
+        placeholder="Create a password"
+        className={styles.input}
+        type="password"
+        {...register("password", {
+          required: true,
+          minLength: {
+            value: 5,
+            message: "min 5 characters",
+          },
+        })}
+      />
+
+      <div style={{ height: 20, color: "red" }}>
+        {errors?.firstName && <p>{errors?.firstName?.message || "Error!"}</p>}
+        {errors?.email && <p>{errors?.email?.message || "Error!"}</p>}
+        {errors?.password && <p>{errors?.password?.message || "Error!"}</p>}
+      </div>
+      <div className={styles.btn}>
+        <button className={styles.button} type="submit">
+          <p className={styles.buttonname}> Register Now</p>
+        </button>
+      </div>
+    </form>
   );
 }
 
