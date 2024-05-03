@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
+// import boardsReducer from './boards/slice';
 import {
   persistStore,
   persistReducer,
@@ -20,10 +21,11 @@ const persistConfig = {
 };
 
 const store = configureStore({
-  reducer: {
-    auth: persistReducer(persistConfig, authReducer),
-    service: persistReducer(persistConfig, serviceReducer),
-  },
+    reducer: {
+        auth: persistReducer(persistConfig, authReducer),
+        service: persistReducer(persistConfig, serviceReducer),
+        // boards: boardsReducer,
+    },
 
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
