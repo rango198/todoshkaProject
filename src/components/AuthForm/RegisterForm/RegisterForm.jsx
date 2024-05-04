@@ -1,7 +1,35 @@
 import { useForm } from "react-hook-form";
 import styles from "./Register.module.css";
+import Icon from ".//../../Icon/Icon";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useState } from "react";
 
-function RegisterForm() {
+const schema = yup.object({
+  name: yup.string().required("Required field"),
+  email: yup.string().required("Required field"),
+  password: yup
+    .string()
+
+    .required("Required field")
+    .min(5, "min 5 characters"),
+});
+
+const RegisterForm = () => {
+  const [svg, setSvg] = useState("eye");
+
+  const [inputType, setIputType] = useState("password");
+
+  const togglePassword = () => {
+    if (inputType === "password") {
+      setIputType("text");
+      setSvg(" ");
+    } else {
+      setIputType("password");
+      setSvg("eye");
+    }
+  };
+
   const {
     register,
     formState: { errors },
@@ -9,6 +37,7 @@ function RegisterForm() {
     reset,
   } = useForm({
     mode: "onBlur",
+    resolver: yupResolver(schema),
   });
 
   const onSubmit = (data) => {
@@ -31,19 +60,24 @@ function RegisterForm() {
         type="email"
         {...register("email", { required: true })}
       />
+      <div className={styles.inputwithicon}>
+        <input
+          placeholder="Create a password"
+          className={styles.input}
+          type={inputType}
+          {...register("password", {
+            required: true,
+            minLength: {
+              value: 5,
+              message: "min 5 characters",
+            },
+          })}
+        />
 
-      <input
-        placeholder="Create a password"
-        className={styles.input}
-        type="password"
-        {...register("password", {
-          required: true,
-          minLength: {
-            value: 5,
-            message: "min 5 characters",
-          },
-        })}
-      />
+        <div onClick={togglePassword}>
+          <Icon id="eye" src={svg} className={styles.svg_icon} />
+        </div>
+      </div>
 
       <div style={{ height: 20, color: "red" }}>
         {errors?.firstName && <p>{errors?.firstName?.message || "Error!"}</p>}
@@ -57,6 +91,6 @@ function RegisterForm() {
       </div>
     </form>
   );
-}
+};
 
 export default RegisterForm;

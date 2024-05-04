@@ -3,19 +3,31 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import styles from "./Login.module.css";
 import Icon from ".//../../Icon/Icon";
+import { useState } from "react";
 
-const schema = yup
-  .object({
-    email: yup.string().required("Required field"),
-    password: yup
-      .string()
+const schema = yup.object({
+  email: yup.string().required("Required field"),
+  password: yup
+    .string()
 
-      .required("Required field")
-      .min(5, "min 5 characters"),
-  })
-  .required();
+    .required("Required field")
+    .min(5, "min 5 characters"),
+});
 
 const LoginForm = () => {
+  const [svg, setSvg] = useState("eye");
+
+  const [inputType, setIputType] = useState("password");
+
+  const togglePassword = () => {
+    if (inputType === "password") {
+      setIputType("text");
+      setSvg(" ");
+    } else {
+      setIputType("password");
+      setSvg("eye");
+    }
+  };
   const {
     register,
     formState: { errors },
@@ -40,20 +52,24 @@ const LoginForm = () => {
         />
         <p style={{ color: "red" }}>{errors.email?.message}</p>
 
-        <input
-          className={styles.input}
-          type="password"
-          {...register("password")}
-          placeholder=" Create a password"
-        />
+        <div className={styles.inputwithicon}>
+          <input
+            className={styles.input}
+            type={inputType}
+            {...register("password")}
+            placeholder=" Create a password"
+          />
+
+          <div onClick={togglePassword}>
+            <Icon id="eye" className={styles.svg_icon} src={svg} />
+          </div>
+        </div>
+
         <p style={{ color: "red" }}>{errors.password?.message}</p>
 
         <button className={styles.btn} type="submit">
           Log in Now
         </button>
-        <div className={styles.svg}>
-          <Icon id="eye" className={styles.svg_icon} />
-        </div>
       </form>
     </div>
   );

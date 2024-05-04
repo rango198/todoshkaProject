@@ -1,4 +1,4 @@
-.title {
+/* .title {
   width: 106px;
   height: 27px;
   top: 24px;
@@ -9,7 +9,7 @@
 
   text-align: left;
   color: #ffffff;
-}
+} */
 .main {
   display: flex;
   flex-direction: column;
@@ -24,19 +24,29 @@
   border: 1px solid #bedbb0;
   box-shadow: 0px 4px 16px 0px #16161614;
   background: #1f1f1f;
-
-  /* padding: 14px 157px 14px 18px;
-  gap: 0px;
-  border-radius: 8px;
-  border: 1px;
-  opacity: 0.4px; */
+  color: #ffffff;
 }
+
 .button {
   width: 287px;
   height: 49px;
-
+  background: #bedbb0;
   gap: 0px;
   border-radius: 8px;
+}
 
-  /* background: #bedbb0; */
+.inputwithicon {
+  position: relative;
+}
+.svg_icon {
+  width: 18px;
+
+  position: absolute;
+  stroke: #fff;
+  right: 18px;
+
+  bottom: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
