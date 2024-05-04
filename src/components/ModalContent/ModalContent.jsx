@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { selectModalContent } from "../../redux/selectors/serviceSelector";
+import NeedHelpModal from "../Sidebar/needHelp/NeedHelp";
 
 const ModalContent = () => {
   const modalContent = useSelector(selectModalContent);
@@ -10,6 +11,9 @@ const ModalContent = () => {
 
     case "userbar":
       return <div>UserBar</div>;
+
+    case "help":
+      return <NeedHelpModal />;
 
     default:
       return null;
