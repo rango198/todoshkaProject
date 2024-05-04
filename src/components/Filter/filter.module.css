@@ -1,0 +1,159 @@
+.filter {
+  width: 300px;
+  padding: 24px;
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
+  background: #fcfcfc;
+  border-radius: 8px;
+  position: relative;
+}
+
+.close {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+
+.close_svg {
+  width: 18px;
+  height: 18px;
+  stroke: #161616;
+  transition: stroke 250ms linear;
+}
+
+.close_svg:hover {
+  stroke: #bedbb0;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  color: var(--main_text_color);
+  margin-bottom: 14px;
+}
+
+.hr {
+  border: none;
+  height: 1px;
+  background-color: #161616;
+  margin: 0;
+  margin-bottom: 14px;
+}
+
+.label_title {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--main_text_color);
+}
+
+.show_all_btn {
+  font-family: inherit;
+  font-size: 12px;
+  letter-spacing: -0.02em;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: var(--light_text);
+  border: none;
+  outline: none;
+  background-color: transparent;
+  transition: color 250ms linear;
+}
+
+.show_all_btn:hover {
+  color: var(--accent);
+}
+
+.radioDescription {
+  display: block;
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: -0.02em;
+  color: var(--light_text);
+  transition: color 250ms linear;
+}
+
+.radioDescription:hover {
+  color: var(--accent);
+}
+
+.label {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 8px;
+}
+
+.title_wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+/* ------------------------------ */
+.input {
+  display: none;
+}
+
+/* .label > div{
+   background-color: rgba(22, 22, 22, 0.3);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+
+} */
+.label > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.label > .grey {
+  background-color: grey;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+.label > div span {
+  border-radius: 50%;
+  display: block;
+  background: transparent;
+  width: 10px;
+  height: 10px;
+}
+
+.label > .blue {
+  background-color: #8fa1d0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+.label > .red {
+  background-color: #e09cb5;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+.label > .green {
+  background-color: #bedbb0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+.input:checked ~ div > span {
+  border: 2px solid var(--background_task_item);
+}
+
+.input:checked ~ span {
+  color: var(--main_text_color);
+}
