@@ -1,0 +1,22 @@
+.theme_button {
+  background-color: transparent;
+  display: flex;
+  gap: 4px;
+  border: none;
+  align-items: center;
+  color: var(--color-theme);
+  position: relative;
+}
+.chevron_down {
+  width: 16px;
+  height: 16px;
+  stroke: var(--color-theme);
+}
+.popover {
+  border-radius: 8px;
+  border: 1px solid #bedbb0;
+  position: absolute;
+  background-color: #fff;
+  /* width: 65px; */
+  padding: 18px 44px 18px 18px;
+}
