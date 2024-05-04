@@ -1,5 +1,5 @@
 .header {
-  background-color: #fcfcfc;
+  background-color: var(--bg-color);
   padding: 20px 18px;
   display: flex;
   justify-content: space-between;
@@ -19,7 +19,7 @@
 .menu_icon {
   width: 24px;
   height: 24px;
-  stroke: black;
+  stroke: var(--icon-stroke);
 }
 .theme_button {
   background-color: transparent;
@@ -27,12 +27,28 @@
   gap: 4px;
   border: none;
   align-items: center;
+  color: var(--color-theme);
 }
 .chevron_down {
   width: 16px;
   height: 16px;
-  stroke: black;
+  stroke: var(--color-theme);
 }
+
+.button_user {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  color: var(--color);
+}
+.icon_user {
+  width: 32px;
+  height: 32px;
+}
+
 @media screen and (min-width: 376px) {
   .menu_icon {
     width: 32px;
