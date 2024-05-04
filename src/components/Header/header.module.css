@@ -1,5 +1,10 @@
 .header {
-  background-color: #fcfcfc;
+<<<<<<< Updated upstream
+  background-color: var(--bg-color);
+=======
+  background-color: #fff;
+  /* background-color: var( --bg-color); */
+>>>>>>> Stashed changes
   padding: 20px 18px;
   display: flex;
   justify-content: space-between;
@@ -14,12 +19,17 @@
   background-color: transparent;
   display: block;
   border: none;
-  /* align-items: center; */
+  width: 24px;
+  height: 24px;
 }
 .menu_icon {
   width: 24px;
   height: 24px;
-  stroke: black;
+<<<<<<< Updated upstream
+  stroke: var(--icon-stroke);
+=======
+  stroke: #161616;
+>>>>>>> Stashed changes
 }
 .theme_button {
   background-color: transparent;
@@ -27,13 +37,39 @@
   gap: 4px;
   border: none;
   align-items: center;
+  color: var(--color-theme);
 }
 .chevron_down {
   width: 16px;
   height: 16px;
-  stroke: black;
+<<<<<<< Updated upstream
+  stroke: var(--color-theme);
+=======
+  stroke: #161616;
+>>>>>>> Stashed changes
+}
+
+.button_user {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+<<<<<<< Updated upstream
+  color: var(--color);
+=======
+>>>>>>> Stashed changes
+}
+.icon_user {
+  width: 32px;
+  height: 32px;
 }
 @media screen and (min-width: 376px) {
+  .menu_button {
+    width: 32px;
+    height: 32px;
+  }
   .menu_icon {
     width: 32px;
     height: 32px;

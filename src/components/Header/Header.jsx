@@ -4,18 +4,22 @@ import {
   setModalStatus,
 } from "../../redux/slice/servicesSlice";
 import Icon from "../Icon/Icon";
-// import {
-//   HeaderContainer,
-//   // IconWrapper,
-//   Navigation,
-//   StyledLink,
-// } from "./Header.styled";
 
 import css from "./header.module.css";
 import { useState } from "react";
-import { Navigation } from "./Navigation";
+import { Navigation } from "../Navigation/Navigation";
+<<<<<<< Updated upstream
+import { useTheme } from "../../hooks/useTheme";
 
 const Header = () => {
+  const { theme, setTheme } = useTheme();
+
+=======
+// import { useTheme } from "../../hooks/useTheme";
+
+const Header = () => {
+  // const { theme, setTheme } = useTheme;
+>>>>>>> Stashed changes
   const dispatch = useDispatch();
 
   const handleClick = () => {
@@ -46,18 +50,11 @@ const Header = () => {
         <button type="button" className={css.theme_button}>
           Theme <Icon id="chevron-down" className={css.chevron_down} />
         </button>
-        <button type="button" onClick={handleClick}>
-          UserBar
+        <button className={css.button_user} type="button" onClick={handleClick}>
+          UserName <Icon id="icon-user" className={css.icon_user} />
         </button>
       </div>
     </header>
-    // <HeaderContainer>
-    //   <Navigation>
-    //     <StyledLink to="/home" onClick={handleClick}>
-    //       Home
-    //     </StyledLink>
-    //   </Navigation>
-    // </HeaderContainer>
   );
 };
 

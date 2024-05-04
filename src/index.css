@@ -2,9 +2,21 @@ body {
   /* background-image: url('./assets/background.png'); */
   background: #f6f6f7;
   margin: 0;
-  font-family: 'PoppinsRegular', 'PoppinsMedium', 'PoppinsSemibold',
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family:
+    "PoppinsRegular",
+    "PoppinsMedium",
+    "PoppinsSemibold",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    "Oxygen",
+    "Ubuntu",
+    "Cantarell",
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   user-select: none;
@@ -39,10 +51,11 @@ body {
 }
 
 :root {
+<<<<<<< Updated upstream
   /* Fonts */
-  --font-regular: 'PoppinsRegular', sans-serif;
-  --font-medium: 'PoppinsMedium', sans-serif;
-  --font-semibold: 'PoppinsSemibold', sans-serif;
+  --font-regular: "PoppinsRegular", sans-serif;
+  --font-medium: "PoppinsMedium", sans-serif;
+  --font-semibold: "PoppinsSemibold", sans-serif;
 
   /* Dark theme */
   --color-dark: #161616;
@@ -85,6 +98,49 @@ body {
   --mobile-adaptive: 375px;
   --tablet: 768px;
   --desktop: 1440px;
+
+  html[data-theme="dark"] {
+    --bg-color: #151515;
+    /* --bg-color: #{--color-blue}; */
+  }
+}
+
+html[data-theme="dark"] {
+  --bg-color: #161616;
+  --icon-stroke: #fff;
+  --color: #fff;
+  --color-theme: rgba(255, 255, 255, 0.8);
+}
+
+html[data-theme="light"] {
+  --bg-color: #ffffff;
+  --color: #161616;
+  --color-theme: rgba(22, 22, 22, 0.8);
+  --icon-stroke: #161616;
+=======
+  --text-white: #ffffff;
+  --button-normal: #bedbb0;
+  --button-hover: #9dc888;
+  --theme-white: #fdfdfd;
+  --theme-black: #232323;
+  --theme-violet: #d6d8ff;
+  --back-input: #1f1f1f;
+  --violet-button-normal: #7b7ede;
+  --violet-button-hover: #5255bc;
+  --violet-normal: #b8bcfd;
+  --violet-hover: #979cea;
+  --radio-grey: #161616;
+  --radio-blue: #8fa1d0;
+  --radio-red: #e09cb5;
+  --radio-gren: #bedbb0;
+
+  html[data-theme="dark"] {
+    --bg-color: #151515;
+  }
+  html[data-theme="light"] {
+    --bg-color: ##ffffff;
+  }
+>>>>>>> Stashed changes
 }
 
 h1,
