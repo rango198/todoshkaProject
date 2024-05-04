@@ -77,7 +77,7 @@ const Modal = ({ open, onClose, children }) => {
         <StyledBackdrop onClick={handleBackdropClick}>
           <StyledModalContent>
             <CloseModalButton onClick={handleCloseUserModal}>
-              <Icon width={24} height={24} iconId={"icon-x-close"} />X
+              {/* <Icon width={24} height={24} iconId={"icon-x-close"} /> */}X
             </CloseModalButton>
             {children}
           </StyledModalContent>
