@@ -10,6 +10,34 @@ body {
   user-select: none;
 }
 
+/* Fonts */
+@font-face {
+  font-family: "PoppinsRegular";
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local("PoppinsRegular"),
+    url(./fonts/Poppins-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "PoppinsMedium";
+  font-style: normal;
+  font-weight: 500;
+  src:
+    local("PoppinsMedium"),
+    url(./fonts/Poppins-Medium.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "PoppinsSemibold";
+  font-style: normal;
+  font-weight: 600;
+  src:
+    local("PoppinsSemibold"),
+    url(./fonts/Poppins-SemiBold.ttf) format("truetype");
+}
+
 :root {
   /* Fonts */
   --font-regular: 'PoppinsRegular', sans-serif;
