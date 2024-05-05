@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { getTaskThunk } from "../../redux/thunk/servicesThunk";
 import Header from "../../components/Header/Header";
 import Sidebar from "../../components/Sidebar/Sidebar";
-import Board from "../../components/ScreensPage/Board/Board";
+import Board from "../../components/Screens/Board/Board";
 import css from "./HomePage.module.css";
 
 const HomePage = () => {
