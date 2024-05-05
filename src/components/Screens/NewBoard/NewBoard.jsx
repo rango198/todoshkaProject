@@ -1,8 +1,11 @@
 import { useState } from "react";
-import ButtonAdd from "../../ButtonAdd/ButtonAdd.jsx";
+
+import Modal from "../../Modal/Modal";
+import ButtonAdd from "../../ButtonAdd/ButtonAdd";
+import AddColumnModal from "../../AddColumnModal/AddColumModal";
+
 import css from "./NewBoard.module.css";
-import Modal from "../../Modal/Modal.jsx";
-import AddColumnModal from "../../AddColumnModal/AddColumModal.jsx";
+
 const NewBoard = () => {
   const [isAddColumnOpen, setIsAddColumnOpen] = useState(false);
   const toggleAddColumn = () => {

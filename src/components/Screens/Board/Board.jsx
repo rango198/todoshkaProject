@@ -1,7 +1,9 @@
 import { useState } from "react";
-import css from "./Board.module.css";
-import Modal from "../../Modal/Modal.jsx";
-import CreateNewBoardModal from "../../CreateNewBoardModal/CreateNewBoardModal.jsx";
+
+import Modal from "../../Modal/Modal";
+import CreateNewBoardModal from "../../CreateNewBoardModal/CreateNewBoardModal";
+
+import css from "./Board";
 
 const Board = () => {
   const [isAddBoardOpen, setIsAddBoardOpen] = useState(false);
