@@ -1,6 +1,6 @@
 import React from "react";
 import css from "./filter.module.css";
-import Icon from "../Icon/Icon";
+import ButtonClose from "../ButtonClose/ButtonClose";
 import { useDispatch } from "react-redux";
 import { setFilter } from "../../redux/slice/filterSlice";
 
@@ -17,9 +17,7 @@ const Filter = ({ onClose }) => {
 
   return (
     <div className={css.filter}>
-      <button onClick={onClose} className={css.close}>
-        <Icon id="close" className={css.close_svg} />
-      </button>
+      <ButtonClose onClick={onClose} />
       <p className={css.title}>Filters</p>
       <hr className={css.hr} />
       <div className={css.title_wrapper}>

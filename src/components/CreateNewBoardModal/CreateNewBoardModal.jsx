@@ -6,8 +6,8 @@ import sprite from "../../assets/svg/sprite.svg";
 import data from "../../assets/img/small/data.js";
 
 import ButtonAdd from "../ButtonAdd/ButtonAdd.jsx";
-import Icon from "../../components/Icon/Icon.jsx";
 import css from "./CreateNewBoard.module.css";
+import ButtonClose from "../ButtonClose/ButtonClose";
 
 const CreateNewBoardModal = ({ onClose }) => {
   const {
@@ -97,9 +97,7 @@ const CreateNewBoardModal = ({ onClose }) => {
 
         <ButtonAdd type="submit" title="Create" className={css.button} />
       </form>
-      <button onClick={handleClose} className={css.close}>
-        <Icon id="close" className={css.close_svg} />
-      </button>
+      <ButtonClose onClick={handleClose} />
     </div>
   );
 };

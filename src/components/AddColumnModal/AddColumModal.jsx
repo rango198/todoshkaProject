@@ -1,14 +1,13 @@
 // import React, { useState } from "react";
-import Icon from "../Icon/Icon";
+
 import css from "./AddColumModal.module.css";
 import ButtonAdd from "../ButtonAdd/ButtonAdd";
+import ButtonClose from "../ButtonClose/ButtonClose";
 
 const AddColumnModal = ({ onClose }) => {
   return (
     <div className={css.modal}>
-      <button className={css.close_btn} onClick={onClose}>
-        <Icon id="close" className={css.close_svg} />
-      </button>
+      <ButtonClose onClick={onClose} />
       <p className={css.title}>Add column</p>
       <form className={css.form}>
         <input

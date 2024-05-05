@@ -130,27 +130,3 @@
 .button:hover {
   background-color: #9dc888;
 }
-
-.close {
-  border: none;
-  outline: none;
-  background-color: transparent;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 14px;
-  right: 14px;
-}
-
-.close_svg {
-  width: 18px;
-  height: 18px;
-  stroke: #161616;
-  transition: stroke 250ms linear;
-}
-
-.close_svg:hover {
-  stroke: #bedbb0;
-}
