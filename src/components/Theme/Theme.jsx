@@ -36,7 +36,7 @@ const Theme = () => {
       ref={ref}
       speaker={<MenuPopover onSelect={handleSelectMenu} />}
     >
-      <Button className={css.theme_button}>
+      <Button className={css.theme_button} aria-label="theme">
         Theme <Icon id="chevron-down" className={css.chevron_down} />
       </Button>
     </Whisper>

@@ -38,8 +38,9 @@ const App = () => {
             <Route path="auth/login" element={<LoginPage />} />
             <Route path="auth/register" element={<RegisterPage />} />
           </Route>
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/home/:boardName" element={<ScreensPage />} />
+          <Route path="/home" element={<HomePage />}>
+            <Route path=":boardName" element={<ScreensPage />} />
+          </Route>
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>

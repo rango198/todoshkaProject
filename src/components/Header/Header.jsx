@@ -35,6 +35,7 @@ const Header = () => {
         type="button"
         className={css.menu_button}
         onClick={() => setOpen(!isOpen)}
+        aria-label="navigation"
       >
         <Icon id="menu" className={css.menu_icon} />
       </button>
@@ -44,7 +45,12 @@ const Header = () => {
         {/* <button type="button" className={css.theme_button}>
           Theme <Icon id="chevron-down" className={css.chevron_down} />
         </button> */}
-        <button className={css.button_user} type="button" onClick={handleClick}>
+        <button
+          className={css.button_user}
+          type="button"
+          onClick={handleClick}
+          aria-label="user-profile"
+        >
           UserName <Icon id="icon-user" className={css.icon_user} />
         </button>
       </div>

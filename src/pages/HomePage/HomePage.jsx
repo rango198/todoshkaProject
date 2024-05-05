@@ -1,11 +1,9 @@
 import { useDispatch } from "react-redux";
-// import example from "../../assets/example.png";
-// import { Container, StyledImage, Title } from "./HomePage.styled";
 import { useEffect } from "react";
 import { getTaskThunk } from "../../redux/thunk/servicesThunk";
+import { Outlet } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Sidebar from "../../components/Sidebar/Sidebar";
-import Board from "../../components/Screens/Board/Board";
 import css from "./HomePage.module.css";
 
 const HomePage = () => {
@@ -21,13 +19,9 @@ const HomePage = () => {
       </div>
       <div className={css.main}>
         <Header />
-        <Board />
+        <Outlet />
       </div>
     </div>
-    // <Container>
-    //   <Title>Home Page</Title>
-    //   <StyledImage src={example} alt="Example" />
-    // </Container>
   );
 };
 

@@ -2,12 +2,21 @@
   display: none;
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
   .container {
     display: flex;
   }
   .sidebar {
     display: block;
     width: 260px;
+  }
+  .main {
+    width: 1180px;
   }
 }
