@@ -42,6 +42,7 @@ const LoginForm = () => {
     console.log(JSON.stringify(data));
     reset();
   };
+
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>

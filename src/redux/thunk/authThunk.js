@@ -1,12 +1,14 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
-import { logout, signIn, signUp } from "../../service/api";
 
-export const signUpThunk = createAsyncThunk(
+import { createAsyncThunk } from "@reduxjs/toolkit";
+
+import { logout, login, register } from "../../service/api";
+
+export const registerThunk = createAsyncThunk(
   "user/register",
-  async ({ endPoint, params }, thunkAPI) => {
+  async (params, thunkAPI) => {
     try {
-      const response = await signUp(endPoint, params);
+      const response = await register(params);
       return response;
     } catch (error) {
       toast.error(`Error during user registration: ${error.message}`);
@@ -15,11 +17,11 @@ export const signUpThunk = createAsyncThunk(
   }
 );
 
-export const signInThunk = createAsyncThunk(
+export const loginThunk = createAsyncThunk(
   "user/login",
-  async ({ endPoint, params }, thunkAPI) => {
+  async (params, thunkAPI) => {
     try {
-      const response = await signIn(endPoint, params);
+      const response = await login(params);
       return response;
     } catch (error) {
       toast.error(`Incorrect email or password`);
@@ -30,9 +32,10 @@ export const signInThunk = createAsyncThunk(
 
 export const logoutThunk = createAsyncThunk(
   "user/logout",
-  async ({ endPoint, params }, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
-      const response = await logout(endPoint, params);
+      const response = await logout();
+      clearAuthHeader();
       return response;
     } catch (error) {
       toast.error(`Error during user logout: ${error.message}`);
@@ -40,3 +43,41 @@ export const logoutThunk = createAsyncThunk(
     }
   }
 );
+
+// export const currentUser = createAsyncThunk(
+//   "auth/current",
+//   async (params, thunkAPI) => {
+//     try {
+//       const res = await currentUser(params);
+//       return res.params;
+//     } catch (error) {
+//       toast.error(`Error during user logout: ${error.response.data.message}`);
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
+
+// export const updateUser = createAsyncThunk(
+//   "auth/update",
+//   async (params, thunkAPI) => {
+//     try {
+//       const res = await updateUser(params);
+//       return res.params;
+//     } catch (error) {
+//       toast.error(`Failed to update user data: ${error.message}`);
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
+
+// export const changeTheme = createAsyncThunk(
+//   "auth/theme",
+//   async (data, thunkAPI) => {
+//     try {
+//       const res = await changeTheme(data);
+//       return res.data.theme;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
