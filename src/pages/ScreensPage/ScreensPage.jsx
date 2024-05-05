@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import Board from "../../components/ScreensPage/Board/Board.jsx";
 import Icon from "../../components/Icon/Icon.jsx";
-import css from "./ScreensPage.module.css"; // ScreensPage
+import css from "./ScreenPage.module.css";
 import NewBoard from "../../components/ScreensPage/NewBoard/NewBoard.jsx";
 import Modal from "../../components/Modal/Modal.jsx";
 import Filter from "../../components/Filter/Filter.jsx";
