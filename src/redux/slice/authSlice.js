@@ -1,5 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { logoutThunk, loginThunk, registerThunk } from "../thunk/authThunk";
+import {
+  logoutThunk,
+  loginThunk,
+  registerThunk,
+  currentUserThunk,
+  updateUserThunk,
+  changeThemeThunk,
+} from "../thunk/authThunk";
 
 const initialState = {
   user: null,
@@ -61,6 +68,37 @@ const authSlice = createSlice({
       .addCase(logoutThunk.rejected, (state, action) => {
         state.error = action.payload;
         state.isLoading = false;
+      })
+      // Сurrunet user (refresh)
+      .addCase(currentUserThunk.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(currentUserThunk.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(currentUserThunk.rejected, (state, action) => {
+        state.error = action.payload;
+        state.isLoading = false;
+      })
+      // Udate user
+      .addCase(updateUserThunk.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(updateUserThunk.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(updateUserThunk.rejected, (state, action) => {
+        state.error = action.payload;
+        state.isLoading = false;
+      })
+      //Theme change
+      .addCase(changeThemeThunk.fulfilled, (state, action) => {
+        state.user.theme = action.payload; // theme is a property of user
+      })
+      .addCase(changeThemeThunk.rejected, (state, action) => {
+        state.error = action.payload;
       });
   },
 });

@@ -30,27 +30,27 @@ export const logout = async () => {
   return data;
 };
 
-// export const currentUser = async (params) => {
-//   const { data } = await $instance.get("users/current", params);
-//   const state = thunkAPI.getState();
-//   const persistedToken = state.auth.token;
-//   if (persistedToken === null) {
-//     return thunkAPI.rejectWithValue("Unable to fetch user");
-//   }
-//   setAccessToken(persistedToken);
-//   return data;
-// };
+export const currentUser = async (params) => {
+  const { data } = await $instance.get("users/current", params);
+  const state = thunkAPI.getState();
+  const persistedToken = state.auth.token;
+  if (persistedToken === null) {
+    return thunkAPI.rejectWithValue("Unable to fetch user");
+  }
+  setAccessToken(persistedToken);
+  return data;
+};
 
-// export const updateUser = async (params) => {
-//   const { data } = await $instance.put("users/update", params);
-//   return data;
-// };
+export const updateUser = async (params) => {
+  const { data } = await $instance.put("users/update", params);
+  return data;
+};
 
-// export const changeTheme = async (data) => {
-//   const { data } = await $instance.patch("users/theme", params);
-//   clearAccessToken();
-//   return data;
-// };
+export const changeTheme = async (params) => {
+  const { data } = await $instance.patch("users/theme", params);
+  clearAccessToken();
+  return data;
+};
 
 //============================================================
 
