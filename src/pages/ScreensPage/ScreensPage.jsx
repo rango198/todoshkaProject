@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import Board from "../../components/Screens/Board/Board";
-import Icon from "../../components/Icon/Icon.";
+import Icon from "../../components/Icon/Icon";
 
 import css from "./ScreenPage.module.css";
 
