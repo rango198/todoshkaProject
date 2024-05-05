@@ -10,3 +10,8 @@ export const selectIsLoggedIn = (state) => state.auth.isLogin;
 export const selectAuthToken = (state) => state.auth.token;
 export const selectIsLoading = (state) => state.auth.isLoading;
 export const selectAuthError = (state) => state.auth.error;
+
+export const selectUserTheme = (state) => {
+  const user = selectUser(state);
+  return user ? user.theme : undefined;
+};
