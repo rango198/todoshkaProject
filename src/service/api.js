@@ -64,3 +64,11 @@ export const deleteData = async ({ endPoint, deleteParams }) => {
   });
   return data;
 };
+
+//Это функция для EditProfile (Таня) не удалять!!!
+export const axiosPrivateFormData = axios.create({
+  baseURL: BASE_URL,
+  headers: {
+    "Content-Type": "multipart/form-data",
+  },
+});
