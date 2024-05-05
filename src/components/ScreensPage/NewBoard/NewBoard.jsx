@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ButtonAdd from "../../ButtonAdd/ButtonAdd.jsx";
-import css from "../NewBoard/NewBoard.module.css";
+import css from "./NewBoard.module.css";
 import Modal from "../../Modal/Modal.jsx";
 import AddColumnModal from "../../AddColumnModal/AddColumModal.jsx";
 const NewBoard = () => {
