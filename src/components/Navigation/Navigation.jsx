@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import Sidebar from "../Sidebar/Sidebar";
 
-import css from "./navigation.module.css";
+import css from "./Navigation.module.css";
 
 const navigationRoot = document.getElementById("navigation-root");
 
