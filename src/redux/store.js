@@ -13,6 +13,7 @@ import {
 } from "redux-persist";
 import { authReducer } from "./slice/authSlice";
 import { serviceReducer } from "./slice/servicesSlice";
+import { filterReducer } from "./slice/filterSlice";
 
 const persistConfig = {
   key: "root",
@@ -21,11 +22,12 @@ const persistConfig = {
 };
 
 const store = configureStore({
-    reducer: {
-        auth: persistReducer(persistConfig, authReducer),
-        service: persistReducer(persistConfig, serviceReducer),
-        // boards: boardsReducer,
-    },
+  reducer: {
+    auth: persistReducer(persistConfig, authReducer),
+    service: persistReducer(persistConfig, serviceReducer),
+    filter: filterReducer,
+    // boards: boardsReducer,
+  },
 
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

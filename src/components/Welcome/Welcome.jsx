@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import Icon from "../Icon/Icon";
 const Welcome = () => {
   return (
-    <section>
+    <div className={css.section_welcome}>
       <img className={css.welcome_img} src={start} alt="Hello image"></img>
       <div className={css.logo}>
         <Icon id="logo" className={css.logo_icon} />
@@ -26,7 +26,7 @@ const Welcome = () => {
           </button>
         </NavLink>
       </div>
-    </section>
+    </div>
   );
 };
 export default Welcome;
