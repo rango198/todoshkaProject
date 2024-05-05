@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 
-import Board from "../../components/ScreensPage/Board/Board.jsx";
-import Icon from "../../components/Icon/Icon.jsx";
+import Board from "../../components/Screens/Board/Board";
+import Icon from "../../components/Icon/Icon.";
+
 import css from "./ScreenPage.module.css";
-import NewBoard from "../../components/ScreensPage/NewBoard/NewBoard.jsx";
-import Modal from "../../components/Modal/Modal.jsx";
-import Filter from "../../components/Filter/Filter.jsx";
-import { getFilter } from "../../redux/selectors/serviceSelector.js";
+
+import NewBoard from "../../components/Screens/NewBoard/NewBoard";
+import Modal from "../../components/Modal/Modal";
+import Filter from "../../components/Filter/Filter";
+
+import { getFilter } from "../../redux/selectors/serviceSelector";
 import { useSelector } from "react-redux";
 
 const ScreensPage = () => {
