@@ -6,12 +6,11 @@ import { setModalContent, setModalStatus } from "./redux/slice/servicesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { selectOpenModal } from "./redux/selectors/serviceSelector";
 import ModalContent from "./components/ModalContent/ModalContent";
+import SharedLayout from "./components/SharedLayout/SharedLayout";
 
 const WelcomePage = lazy(() => import("./pages/WelcomePage/WelcomePage"));
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
-const SharedLayout = lazy(
-  () => import("./components/SharedLayout/SharedLayout")
-);
+
 const ErrorPage = lazy(() => import("./pages/ErrorPage/ErrorPage"));
 const AuthPage = lazy(() => import("./pages/AuthPage/AuthPage"));
 const LoginPage = lazy(() => import("./pages/AuthPage/AuthFormPage/LoginPage"));
@@ -38,9 +37,11 @@ const App = () => {
             <Route path="auth/login" element={<LoginPage />} />
             <Route path="auth/register" element={<RegisterPage />} />
           </Route>
+
           <Route path="/home" element={<HomePage />}>
             <Route path=":boardName" element={<ScreensPage />} />
           </Route>
+
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>

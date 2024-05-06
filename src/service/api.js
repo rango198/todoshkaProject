@@ -54,39 +54,23 @@ export const changeTheme = async (params) => {
 
 //============================================================
 
-export const getData = async ({ endPoint, getParams }) => {
-  const { data } = await $instance.get(endPoint, {
-    params: {
-      ...getParams,
-    },
-  });
+export const getData = async () => {
+  const { data } = await $instance.get("boards");
   return data;
 };
 
-export const addData = async ({ endPoint, postData, postParams }) => {
-  const { data } = await $instance.post(endPoint, postData, {
-    params: {
-      ...postParams,
-    },
-  });
+export const addData = async (body) => {
+  const { data } = await $instance.post("boards", body);
   return data;
 };
 
-export const editData = async ({ endPoint, putData, editParams }) => {
-  const { data } = await $instance.patch(endPoint, putData, {
-    params: {
-      ...editParams,
-    },
-  });
+export const editData = async (body) => {
+  const { data } = await $instance.patch(`boards/${body.id}`, body);
   return data;
 };
 
-export const deleteData = async ({ endPoint, deleteParams }) => {
-  const { data } = await $instance.delete(endPoint, {
-    params: {
-      ...deleteParams,
-    },
-  });
+export const deleteData = async (id) => {
+  const { data } = await $instance.delete(`boards/${id}`);
   return data;
 };
 

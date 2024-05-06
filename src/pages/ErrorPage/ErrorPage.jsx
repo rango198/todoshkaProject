@@ -1,4 +1,4 @@
-import { Container, Title } from "../HomePage/HomePage.styled";
+import { Container, Title } from "./ErrorPage.styled";
 
 const ErrorPage = () => {
   return (

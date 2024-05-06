@@ -1,10 +1,10 @@
-import { createSlice, isAnyOf } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 import {
-  addTaskThunk,
-  deleteTaskThunk,
-  editTaskThunk,
-  getTaskThunk,
+  addBoardThunk,
+  deleteBoardThunk,
+  editBoardThunk,
+  getBoardThunk,
 } from "../thunk/servicesThunk";
 
 const initialState = {
@@ -34,44 +34,61 @@ const serviceSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addMatcher(
-        isAnyOf(
-          getTaskThunk.pending,
-          addTaskThunk.pending,
-          editTaskThunk.pending,
-          deleteTaskThunk.pending
-        ),
-        (state) => {
-          state.error = null;
-          state.isLoading = true;
-        }
-      )
-      .addMatcher(
-        isAnyOf(
-          getTaskThunk.fulfilled,
-          addTaskThunk.fulfilled,
-          editTaskThunk.fulfilled,
-          deleteTaskThunk.fulfilled
-        ),
-        (state, action) => {
-          state.error = null;
-          state.isLoading = false;
-
-          state.task = action.payload.task;
-        }
-      )
-      .addMatcher(
-        isAnyOf(
-          getTaskThunk.rejected,
-          addTaskThunk.rejected,
-          editTaskThunk.rejected,
-          deleteTaskThunk.rejected
-        ),
-        (state, action) => {
-          state.isLoading = false;
-          state.error = action.payload;
-        }
-      );
+      // /////////////PENDING////////////
+      .addCase(getBoardThunk.pending, (state) => {
+        state.error = null;
+        state.isLoading = true;
+      })
+      .addCase(addBoardThunk.pending, (state) => {
+        state.error = null;
+        state.isLoading = true;
+      })
+      .addCase(editBoardThunk.pending, (state) => {
+        state.error = null;
+        state.isLoading = true;
+      })
+      .addCase(deleteBoardThunk.pending, (state) => {
+        state.error = null;
+        state.isLoading = true;
+      })
+      // //////////FULFILD///////////////////
+      .addCase(getBoardThunk.fulfilled, (state, action) => {
+        state.error = null;
+        state.isLoading = false;
+        state.task = action.payload.task;
+      })
+      .addCase(addBoardThunk.fulfilled, (state, action) => {
+        state.error = null;
+        state.isLoading = false;
+        state.task = action.payload.task;
+      })
+      .addCase(editBoardThunk.fulfilled, (state, action) => {
+        state.error = null;
+        state.isLoading = false;
+        state.task = action.payload.task;
+      })
+      .addCase(deleteBoardThunk.fulfilled, (state, action) => {
+        state.error = null;
+        state.isLoading = false;
+        state.task = action.payload.task;
+      })
+      // /////////////////REJECTED/////////////////
+      .addCase(getBoardThunk.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(addBoardThunk.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(editBoardThunk.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(deleteBoardThunk.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
   },
 });
 
