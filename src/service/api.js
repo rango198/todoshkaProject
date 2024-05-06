@@ -81,3 +81,8 @@ export const axiosPrivateFormData = axios.create({
     "Content-Type": "multipart/form-data",
   },
 });
+
+export const sendHelp = async (formData) => {
+  const { data } = await $instance.post("users/help", formData);
+  return data;
+};
