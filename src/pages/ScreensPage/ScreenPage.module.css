@@ -5,6 +5,8 @@
   padding-bottom: 24px;
   padding-left: 20px;
   padding-right: 16px;
+  background-color: var(--bg-color-body);
+  color: var(--color);
 }
 
 .title_container {
@@ -34,7 +36,7 @@
   height: 24px;
   font-size: 14px;
   font-weight: 500;
-  color: #161616;
+  color: var(--color);
 
   @media screen and (min-width: 768px) {
     height: 28px;
@@ -51,7 +53,7 @@
   font-size: 14px;
   font-weight: 500;
   gap: 6px;
-  color: var(--icon-filter);
+  color: var(--color-shadow);
   border: none;
   background: transparent;
 }
@@ -65,7 +67,7 @@
   align-items: center;
   justify-content: center;
   stroke-width: 1.7px;
-  stroke: rgba(22, 22, 22, 0.8);
+  stroke: var(--color-shadow);
 }
 .button_filter_icon:hover {
   stroke: #bedbb0;

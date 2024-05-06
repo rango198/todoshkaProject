@@ -18,12 +18,7 @@ const Theme = () => {
   const { theme, setTheme } = useTheme();
   const ref = React.useRef();
   function handleSelectMenu(eventKey, event) {
-    if (eventKey === 1) {
-      setTheme("dark");
-    }
-    if (eventKey === 2) {
-      setTheme("light");
-    }
+    setTheme(event.target.textContent.toLowerCase());
 
     console.log(eventKey);
     ref.current.close();

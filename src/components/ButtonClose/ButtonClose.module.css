@@ -14,9 +14,9 @@
 .close_svg {
   width: 18px;
   height: 18px;
-  stroke: #161616;
+  stroke: var(--color);
   transition: stroke 250ms linear;
 }
 .close_svg:hover {
-  stroke: #bedbb0;
+  stroke: var(--color-theme-active);
 }

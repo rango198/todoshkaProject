@@ -18,7 +18,7 @@
 .menu_icon {
   width: 24px;
   height: 24px;
-  stroke: var(--icon-stroke);
+  stroke: var(--color);
 }
 .theme_button {
   background-color: transparent;
