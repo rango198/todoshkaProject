@@ -1,5 +1,6 @@
 .container {
   height: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,12 +24,4 @@
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
-}
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 768px;
-    width: 473px;
-    /* height: 438px; */
-    padding: 0;
-  }
 }
