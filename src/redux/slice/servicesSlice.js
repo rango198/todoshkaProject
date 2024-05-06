@@ -4,11 +4,13 @@ import {
   addBoardThunk,
   deleteBoardThunk,
   editBoardThunk,
+  fetchSingleBoard,
   getBoardThunk,
 } from "../thunk/servicesThunk";
 
 const initialState = {
-  task: [],
+  boards: [],
+  selectedBoard: {},
   error: null,
   isLoading: false,
   openModal: false,
@@ -43,6 +45,10 @@ const serviceSlice = createSlice({
         state.error = null;
         state.isLoading = true;
       })
+      .addCase(fetchSingleBoard.pending, (state) => {
+        state.error = null;
+        state.isLoading = true;
+      })
       .addCase(editBoardThunk.pending, (state) => {
         state.error = null;
         state.isLoading = true;
@@ -54,23 +60,35 @@ const serviceSlice = createSlice({
       // //////////FULFILD///////////////////
       .addCase(getBoardThunk.fulfilled, (state, action) => {
         state.error = null;
+        state.boards = [...action.payload];
         state.isLoading = false;
-        state.task = action.payload.task;
       })
       .addCase(addBoardThunk.fulfilled, (state, action) => {
         state.error = null;
         state.isLoading = false;
-        state.task = action.payload.task;
+        state.boards.push(action.payload);
       })
+      .addCase(fetchSingleBoard.fulfilled, (state, action) => {
+        state.error = null;
+        state.isLoading = false;
+        if (action.payload.columns[0].hasOwnProperty("_id")) {
+          state.selectedBoard = action.payload;
+
+          return;
+        }
+        state.selectedBoard = action.payload;
+        state.selectedBoard.columns = [];
+      })
+
       .addCase(editBoardThunk.fulfilled, (state, action) => {
         state.error = null;
         state.isLoading = false;
-        state.task = action.payload.task;
+        state.boards = action.payload.boards;
       })
       .addCase(deleteBoardThunk.fulfilled, (state, action) => {
         state.error = null;
         state.isLoading = false;
-        state.task = action.payload.task;
+        state.boards = action.payload.boards;
       })
       // /////////////////REJECTED/////////////////
       .addCase(getBoardThunk.rejected, (state, action) => {
@@ -78,6 +96,10 @@ const serviceSlice = createSlice({
         state.error = action.payload;
       })
       .addCase(addBoardThunk.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(fetchSingleBoard.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       })
