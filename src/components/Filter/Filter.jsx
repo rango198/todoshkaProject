@@ -4,12 +4,16 @@ import ButtonClose from "../ButtonClose/ButtonClose";
 import { useDispatch } from "react-redux";
 import { setFilter } from "../../redux/slice/filterSlice";
 
+import RadioFilter from "../RadioButtons/RadioFilter.jsx";
+
 const Filter = ({ onClose }) => {
+  let priority = '';
+
   const dispatch = useDispatch();
 
-  const handleChange = (ev) => {
-    dispatch(setFilter(ev.target.value));
-  };
+  // const handleChange = (ev) => {
+  // //   dispatch(setFilter(ev.target.value));
+  // // };
 
   const resetFilter = () => {
     dispatch(setFilter("all"));
@@ -26,7 +30,13 @@ const Filter = ({ onClose }) => {
           Show all
         </button>
       </div>
-      <label className={css.label}>
+
+      <RadioFilter
+          onFilterChange={() => priority}
+          // onChange={handleChange}
+        />
+
+      {/* <label className={css.label}>
         <input
           onChange={handleChange}
           className={css.input}
@@ -77,7 +87,7 @@ const Filter = ({ onClose }) => {
           <span></span>
         </div>
         <span className={css.radioDescription}>High</span>
-      </label>
+      </label> */}
     </div>
   );
 };
