@@ -1,5 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { logoutThunk, signInThunk, signUpThunk } from "../thunk/authThunk";
+import {
+  logoutThunk,
+  loginThunk,
+  registerThunk,
+  currentUserThunk,
+  updateUserThunk,
+  changeThemeThunk,
+} from "../thunk/authThunk";
 
 const initialState = {
   user: null,
@@ -15,49 +22,83 @@ const authSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(signUpThunk.pending, (state) => {
+      //register
+      .addCase(registerThunk.pending, (state) => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(signUpThunk.fulfilled, (state, action) => {
+      .addCase(registerThunk.fulfilled, (state, action) => {
         state.user = action.payload.user;
-        state.token = action.payload.token;
+        state.token = action.payload.accessToken;
         state.isLogin = true;
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(signUpThunk.rejected, (state, action) => {
+      .addCase(registerThunk.rejected, (state, action) => {
         state.error = action.payload;
         state.isLoading = false;
       })
-      .addCase(signInThunk.pending, (state) => {
+      //login
+      .addCase(loginThunk.pending, (state) => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(signInThunk.fulfilled, (state, action) => {
+      .addCase(loginThunk.fulfilled, (state, action) => {
         state.user = action.payload.user;
-        state.token = action.payload.token;
+        state.token = action.payload.accessToken;
         state.isLogin = true;
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(signInThunk.rejected, (state, action) => {
+      .addCase(loginThunk.rejected, (state, action) => {
         state.error = action.payload;
         state.isLoading = false;
       })
+      //logout
       .addCase(logoutThunk.pending, (state) => {
         state.isLoading = true;
         state.error = null;
       })
       .addCase(logoutThunk.fulfilled, (state) => {
-        state.isLoading = false;
+        state.user = null;
+        state.accessToken = "";
         state.isLogin = false;
-        state.user = {};
-        state.token = "";
+        state.isLoading = false;
       })
       .addCase(logoutThunk.rejected, (state, action) => {
         state.error = action.payload;
         state.isLoading = false;
+      })
+      // Сurrunet user (refresh)
+      .addCase(currentUserThunk.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(currentUserThunk.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(currentUserThunk.rejected, (state, action) => {
+        state.error = action.payload;
+        state.isLoading = false;
+      })
+      // Udate user
+      .addCase(updateUserThunk.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(updateUserThunk.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(updateUserThunk.rejected, (state, action) => {
+        state.error = action.payload;
+        state.isLoading = false;
+      })
+      //Theme change
+      .addCase(changeThemeThunk.fulfilled, (state, action) => {
+        state.user.theme = action.payload; // theme is a property of user
+      })
+      .addCase(changeThemeThunk.rejected, (state, action) => {
+        state.error = action.payload;
       });
   },
 });

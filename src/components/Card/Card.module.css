@@ -1,0 +1,127 @@
+.wrapperCard {
+  display: block;
+  position: relative;
+  background-color: var(--bg-color-form-input);
+  border-radius: 8px;
+  width: 334px;
+  height: 100%;
+  padding: 14px 14px 14px 24px;
+  border-left: 4px solid #8fa1d0;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--color-white);
+  margin-bottom: 8px;
+}
+
+.description {
+  margin-bottom: 14px;
+  font-size: 12px;
+  line-height: 1.33333;
+  letter-spacing: -0.02em;
+  padding-right: 20px;
+  color: var(--color-icon-grey);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.description:after {
+  content: "...";
+}
+
+.fullText {
+  -webkit-line-clamp: unset;
+}
+
+.fullText:after {
+  content: "";
+}
+
+.line {
+  background-color: var(--color-sidebar-border);
+  border: none;
+  height: 1px;
+  margin-bottom: 14px;
+  margin-right: 6px;
+}
+
+.propertiesGroup {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.leftGroup {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+}
+
+.titleGroup,
+.deadlineGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.text {
+  font-size: 8px;
+  letter-spacing: -0.02em;
+  color: var(--color-icon-grey);
+}
+
+.priorityGroup {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.circle {
+  display: block;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  border: none;
+  margin: 0;
+  background-color: #8fa1d0;
+}
+
+.priority {
+  font-size: 10px;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.button {
+  background-color: var(--bg-color-form-input);
+  border: none;
+  padding: 0;
+}
+
+.iconsGroup {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: center;
+  align-items: flex-end;
+}
+.icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  stroke: var(--color-icon-grey);
+}
+
+.bellIkon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  stroke: var(--color-green);
+}

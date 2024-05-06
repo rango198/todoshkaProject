@@ -87,6 +87,20 @@ body {
   --desktop: 1440px;
 }
 
+html[data-theme="dark"] {
+  --bg-color: #161616;
+  --icon-stroke: #fff;
+  --color: #fff;
+  --color-theme: rgba(255, 255, 255, 0.8);
+}
+
+html[data-theme="light"] {
+  --bg-color: #ffffff;
+  --color: #161616;
+  --color-theme: rgba(22, 22, 22, 0.8);
+  --icon-stroke: #161616;
+}
+
 h1,
 h2,
 h3,

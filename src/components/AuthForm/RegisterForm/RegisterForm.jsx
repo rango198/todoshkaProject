@@ -1,24 +1,26 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
-import styles from "./Register.module.css";
-import Icon from ".//../../Icon/Icon";
+
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useState } from "react";
+
+import Icon from "../../Icon/Icon";
+import { toast } from "react-toastify";
+import styles from "./Register.module.css";
+
+import { useDispatch } from "react-redux";
+import { registerThunk } from "../../../redux/thunk/authThunk";
 
 const schema = yup.object({
   name: yup.string().required("Required field"),
   email: yup.string().required("Required field"),
-  password: yup
-    .string()
-
-    .required("Required field")
-    .min(5, "min 5 characters"),
+  password: yup.string().required("Required field").min(5, "min 5 characters"),
 });
 
 const RegisterForm = () => {
   const [svg, setSvg] = useState("eye");
-
   const [inputType, setIputType] = useState("password");
+  const dispatch = useDispatch();
 
   const togglePassword = () => {
     if (inputType === "password") {
@@ -41,15 +43,23 @@ const RegisterForm = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(JSON.stringify(data));
-    reset();
+    dispatch(registerThunk(data))
+      .unwrap()
+      .then(() => {
+        toast.success("Registration successful");
+        reset();
+      })
+      .catch((error) => {
+        toast.error(`Registration failed: ${error}`);
+      });
   };
+
   return (
     <form className={styles.main} onSubmit={handleSubmit(onSubmit)}>
       <input
         className={styles.input}
         placeholder="Enter your name"
-        {...register("firstName", {
+        {...register("name", {
           required: "Required field",
         })}
       />
@@ -86,7 +96,7 @@ const RegisterForm = () => {
       </div>
       <div className={styles.btn}>
         <button className={styles.button} type="submit">
-          <p className={styles.buttonname}> Register Now</p>
+          Register Now
         </button>
       </div>
     </form>

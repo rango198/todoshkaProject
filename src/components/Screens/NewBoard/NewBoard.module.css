@@ -1,7 +1,7 @@
 .button_create {
   display: flex;
-  margin: auto;
   margin-top: 40px;
+  gap: 8px;
   width: 335px;
   height: 56px;
   align-items: center;
@@ -10,4 +10,9 @@
   /* margin-left: 20px; */
   border-radius: 8px;
   border-style: none;
+  transition: background-color 250ms linear;
+}
+
+.button_create:hover {
+  background-color: #bedbb0;
 }

@@ -77,7 +77,7 @@ const Modal = ({ open, onClose, children }) => {
         <StyledBackdrop onClick={handleBackdropClick}>
           <StyledModalContent>
             <CloseModalButton onClick={handleCloseUserModal}>
-              {/* <Icon width={24} height={24} iconId={"icon-x-close"} /> */}X
+              <Icon id="close" />
             </CloseModalButton>
             {children}
           </StyledModalContent>
@@ -89,3 +89,41 @@ const Modal = ({ open, onClose, children }) => {
 };
 
 export default Modal;
+
+// import React, { useEffect } from "react";
+// import css from "./modal.module.css";
+// import { createPortal } from "react-dom";
+// import Icon from "../Icon/Icon.jsx";
+
+// const modalRoot = document.querySelector("#modal");
+
+// const Modal = ({ children, openModal }) => {
+//   useEffect(() => {
+//     const handleKeyDown = (e) => {
+//       if (e.code === "Escape") {
+//         openModal();
+//       }
+//     };
+
+//     window.addEventListener("keydown", handleKeyDown);
+
+//     return () => {
+//       window.removeEventListener("keydown", handleKeyDown);
+//     };
+//   }, [openModal]);
+
+//   const handleBackdropClick = (event) => {
+//     if (event.currentTarget === event.target) {
+//       openModal();
+//     }
+//   };
+
+//   return createPortal(
+//     <div className={css.backdrop} onClick={handleBackdropClick}>
+//       <div className={css.modal}>{children}</div>
+//     </div>,
+//     modalRoot
+//   );
+// };
+
+// export default Modal;
