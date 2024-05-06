@@ -14,13 +14,13 @@ const clearAccessToken = () => {
 
 export const register = async (params) => {
   const { data } = await $instance.post("users/register", params);
-  // setToken(data.token);
+  setAccessToken(data.token);
   return data;
 };
 
 export const login = async (params) => {
   const { data } = await $instance.post("users/login", params);
-  setAccessToken(res.data.accessToken);
+  setAccessToken(data.accessToken);
   return data;
 };
 
