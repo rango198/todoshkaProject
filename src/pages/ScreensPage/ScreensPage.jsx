@@ -11,8 +11,11 @@ import Filter from "../../components/Filter/Filter";
 
 import { getFilter } from "../../redux/selectors/serviceSelector";
 import { useSelector } from "react-redux";
+import { useTheme } from "../../hooks/useTheme";
 
 const ScreensPage = () => {
+  const { theme, setTheme } = useTheme();
+
   const [openFilter, setOpenFilter] = useState(false);
   const filter = useSelector(getFilter);
 

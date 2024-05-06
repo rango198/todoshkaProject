@@ -13,6 +13,7 @@ import { useTheme } from "../../hooks/useTheme";
 
 const Header = () => {
   const { theme, setTheme } = useTheme();
+
   const dispatch = useDispatch();
 
   const handleClick = () => {

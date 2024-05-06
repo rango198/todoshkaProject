@@ -2,9 +2,10 @@
   width: 300px;
   padding: 24px;
   box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
-  background: #fcfcfc;
+  background: var(--bg-theme);
   border-radius: 8px;
   position: relative;
+  color: var(--color);
 }
 
 .close {
@@ -23,7 +24,7 @@
 .close_svg {
   width: 18px;
   height: 18px;
-  stroke: #161616;
+  stroke: var(--color);
   transition: stroke 250ms linear;
 }
 
@@ -42,7 +43,7 @@
 .hr {
   border: none;
   height: 1px;
-  background-color: #161616;
+  background-color: var(--color-hr);
   margin: 0;
   margin-bottom: 14px;
 }
@@ -76,7 +77,7 @@
   cursor: pointer;
   font-size: 12px;
   letter-spacing: -0.02em;
-  color: var(--light_text);
+  color: var(--color-radioDescr);
   transition: color 250ms linear;
 }
 
@@ -155,5 +156,5 @@
 }
 
 .input:checked ~ span {
-  color: var(--main_text_color);
+  color: var(--color);
 }

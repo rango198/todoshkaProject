@@ -10,7 +10,7 @@
   margin: auto;
   align-items: center;
   justify-content: center;
-  color: rgba(22, 22, 22, 0.7);
+  color: var(--color-board);
 }
 
 .button_text {
@@ -18,7 +18,7 @@
   border: none;
   padding: 0;
   background: transparent;
-  color: #bedbb0;
+  color: var(--color-theme-active);
 }
 @media screen and (min-width: 768px) {
   .container {

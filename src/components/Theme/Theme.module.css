@@ -14,9 +14,9 @@
 }
 .popover {
   border-radius: 8px;
-  border: 1px solid #bedbb0;
+  border: 1px solid var(--color-theme-shadow);
   position: absolute;
-  background-color: #fff;
-  /* width: 65px; */
+  background-color: var(--bg-theme);
   padding: 18px 44px 18px 18px;
+  color: var(--color-theme);
 }
