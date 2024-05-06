@@ -58,7 +58,7 @@ const SidebarActive = ({ boards }) => {
             {/*тут потрібно буду додати дві модалки видалення і створення які будуть створені в окремому компоненті і імпортовані*/}
           </section>
           {/*{boards && (*/} {/*відмальовуєм коли користувач за лог*/}
-          <ul className={css.sidebarNewBoard}>
+          {/* <ul className={css.sidebarNewBoard}>
             <li className={css.sidebarNewBoardList}>
               <svg className={css.sidebarNewBoardSvg}>
                 <Icon id="project" />
@@ -88,7 +88,7 @@ const SidebarActive = ({ boards }) => {
                 <p className={css.sidebarItemNeon}>Neon Light Project</p>
               </li>
             </li>
-          </ul>
+          </ul> */}
           {/*)}*/}
         </div>
         <div>
