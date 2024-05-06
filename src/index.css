@@ -100,6 +100,7 @@ body {
 }
 
 html[data-theme="dark"] {
+  --color-font: #fff;
   --bg-color-body: #1f1f1f;
   --bg-color: #161616;
   --bg-theme: #151515;
@@ -111,8 +112,13 @@ html[data-theme="dark"] {
   --color-hr: rgba(255, 255, 255, 0.1);
   --color-radioDescr: rgba(255, 255, 255, 0.5);
   --color-board: rgba(255, 255, 255, 0.5);
+  --bg-sidebar: #121212;
+  --bg-button: #bedbb0;
+  --bg-button-active: #9dc888;
+  --sb-icon-stroke: #121212;
 }
 html[data-theme="light"] {
+  --color-font: #161616;
   --bg-color-body: #f6f6f7;
   --bg-color: #ffffff;
   --bg-theme: #fcfcfc;
@@ -124,9 +130,14 @@ html[data-theme="light"] {
   --color-hr: rgba(22, 22, 22, 0.1);
   --color-radioDescr: rgba(22, 22, 22, 0.5);
   --color-board: rgba(22, 22, 22, 0.7);
+  --bg-sidebar: #fff;
+  --bg-button: #bedbb0;
+  --bg-button-active: #9dc888;
+  --sb-icon-stroke: #fff;
 }
 
 html[data-theme="violet"] {
+  --color-font: #161616;
   --bg-color-body: #ecedfd;
   --bg-color: #ffffff;
   --bg-theme: #fcfcfc;
@@ -138,6 +149,10 @@ html[data-theme="violet"] {
   --color-hr: rgba(22, 22, 22, 0.1);
   --color-radioDescr: rgba(22, 22, 22, 0.5);
   --color-board: rgba(22, 22, 22, 0.7);
+  --bg-sidebar: #5255bc;
+  --bg-button: #7b7ede;
+  --bg-button-active: #5255bc;
+  --sb-icon-stroke: #fff;
 }
 
 h1,
