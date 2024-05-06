@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://todoshka-back-5xf7.onrender.com/api/";
+const BASE_URL = "http://localhost:3000/api/";
 
 const $instance = axios.create({ baseURL: BASE_URL });
 
@@ -81,3 +81,8 @@ export const axiosPrivateFormData = axios.create({
     "Content-Type": "multipart/form-data",
   },
 });
+
+export const sendHelp = async (formData) => {
+  const { data } = await $instance.post("users/help", formData);
+  return data;
+};
