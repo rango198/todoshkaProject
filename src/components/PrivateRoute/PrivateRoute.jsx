@@ -16,7 +16,7 @@ const PrivateRoute = () => {
   }
 
   if (!isLogin && !token) {
-    return <Navigate to="/WelcomPage" />;
+    return <Navigate to="/" />;
   }
 
   return <Outlet />;

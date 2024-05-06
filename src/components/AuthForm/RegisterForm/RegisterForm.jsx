@@ -10,8 +10,7 @@ import styles from "./Register.module.css";
 
 import { useDispatch } from "react-redux";
 import { registerThunk } from "../../../redux/thunk/authThunk";
-import { useSelector } from "react-redux";
-import { selectIsLoggedIn } from "../../../redux/selectors/selector";
+
 
 const schema = yup.object({
   name: yup.string().min(2).max(32).required("Required field"),
@@ -24,11 +23,6 @@ const schema = yup.object({
 });
 
 const RegisterForm = () => {
-  const login = useSelector(selectIsLoggedIn);
-  console.log("====================================");
-  console.log(login);
-  console.log("====================================");
-
   const [svg, setSvg] = useState("eye");
   const [inputType, setIputType] = useState("password");
   const dispatch = useDispatch();
