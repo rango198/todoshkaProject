@@ -4,7 +4,7 @@ import ButtonClose from "../ButtonClose/ButtonClose";
 import { useDispatch } from "react-redux";
 import { setFilter } from "../../redux/slice/filterSlice";
 
-import RadioFilter from "../RadioButtons/RadioFilter.jsx";
+import RadioFilter from "../RadioButtons/RadioFilter"
 
 const Filter = ({ onClose }) => {
   let priority = '';
