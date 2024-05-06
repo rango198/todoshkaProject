@@ -4,20 +4,20 @@ import * as yup from "yup";
 import styles from "./Login.module.css";
 import Icon from ".//../../Icon/Icon";
 import { useState } from "react";
+import { toast } from "react-toastify";
+import { loginThunk } from "../../../redux/thunk/authThunk";
+import { useDispatch } from "react-redux";
 
 const schema = yup.object({
   email: yup.string().required("Required field"),
-  password: yup
-    .string()
-
-    .required("Required field")
-    .min(5, "min 5 characters"),
+  password: yup.string().required("Required field").min(5, "min 5 characters"),
 });
 
 const LoginForm = () => {
   const [svg, setSvg] = useState("eye");
 
   const [inputType, setIputType] = useState("password");
+  const dispatch = useDispatch();
 
   const togglePassword = () => {
     if (inputType === "password") {
@@ -39,8 +39,15 @@ const LoginForm = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(JSON.stringify(data));
-    reset();
+    dispatch(loginThunk(data))
+      .unwrap()
+      .then(() => {
+        toast.success("Login successful");
+        reset();
+      })
+      .catch((error) => {
+        toast.error(`Login failed: ${error}`);
+      });
   };
 
   return (
