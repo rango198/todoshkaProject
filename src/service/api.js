@@ -20,7 +20,8 @@ export const register = async (params) => {
 
 export const login = async (params) => {
   const { data } = await $instance.post("users/login", params);
-  setAccessToken(res.data.accessToken);
+  setAccessToken(data.accessToken);
+  console.log(data);
   return data;
 };
 

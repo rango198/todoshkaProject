@@ -18,7 +18,7 @@ import { filterReducer } from "./slice/filterSlice";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["token"],
+  // whitelist: ["token"],
 };
 
 const store = configureStore({
