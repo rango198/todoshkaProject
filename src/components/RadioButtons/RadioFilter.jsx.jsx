@@ -7,8 +7,8 @@ const RadioFilter = ({ onFilterChange }) => {
       label: "Without priority",
       labelColor: "var(--color-icon-grey)",
       radioColor: {
-        static: "var(--color-light)",
-        onChecked: "var(--color-light)",
+        static: "rgba(255, 255, 255, 0.5)",
+        onChecked: "rgba(22, 22, 22, 0.3)",
       },
     },
     {
@@ -68,7 +68,7 @@ const RadioFilter = ({ onFilterChange }) => {
                 gap: "8px",
                 margin: "0",
                 height: "24px",
-                "& .MuiTypography-root": {
+                "&.MuiTypography-root": {
                   fontFamily: "Poppins",
                   fontSize: "12px",
                   color: labelColor,
