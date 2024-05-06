@@ -24,14 +24,18 @@ const AuthComponent = () => {
 
   return (
     <div className={styles.authPageContainer}>
-      <Tabs selectedIndex={activeTab} onSelect={handleTabChange}>
+      <Tabs
+        className={styles.reactTabsTabSelected}
+        selectedIndex={activeTab}
+        onSelect={handleTabChange}
+      >
         <TabList>
-          <Tab>
+          <Tab className={styles.reactTabsTab}>
             <NavLink className={styles.authLink} to="/auth/register">
               Registration
             </NavLink>
           </Tab>
-          <Tab>
+          <Tab className={styles.reactTabsTab}>
             <NavLink className={styles.authLink} to="/auth/login">
               Log In
             </NavLink>
