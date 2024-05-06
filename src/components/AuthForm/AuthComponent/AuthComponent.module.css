@@ -10,7 +10,8 @@
   display: inline;
   color: rgba(255, 255, 255, 0.3);
 }
-.authLink:active {
+
+.authLink:global(.active) {
   color: white;
 }
 .react-tabs {
