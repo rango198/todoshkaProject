@@ -1,12 +1,42 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
-import { addData, deleteData, editData, getData } from "../../service/api";
+import {
+  addBoard,
+  deleteBoard,
+  editBoard,
+  getAllBoards,
+  getSingleBoard,
+} from "../../service/api";
+
+// export const fetchAllBoards = createAsyncThunk(
+//   "boards/getAll",
+//   async (_, thunkAPI) => {
+//     try {
+//       const res = await getBoards();
+//       return res;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
+
+// export const createBoard = createAsyncThunk(
+//   "boards/create",
+//   async (data, thunkAPI) => {
+//     try {
+//       await addBoard(data);
+//       return;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
 
 export const getBoardThunk = createAsyncThunk(
   "service/getBoard",
   async (_, thunkAPI) => {
     try {
-      const response = await getData();
+      const response = await getAllBoards();
       return response;
     } catch (error) {
       console.log(error);
@@ -20,11 +50,24 @@ export const addBoardThunk = createAsyncThunk(
   "service/addBoard",
   async (body, thunkAPI) => {
     try {
-      const response = await addData(body);
+      const response = await addBoard(body);
       return response;
     } catch (error) {
       console.log(error);
       toast.error("Error add", error);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+export const fetchSingleBoard = createAsyncThunk(
+  "service/singleBoard",
+  async (id, thunkAPI) => {
+    try {
+      const { data } = await getSingleBoard(id);
+      return data;
+    } catch (error) {
+      toast.error(error.response.data.message);
+
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -34,7 +77,7 @@ export const editBoardThunk = createAsyncThunk(
   "service/editBoard",
   async (body, thunkAPI) => {
     try {
-      const response = await editData(body);
+      const response = await editBoard(body);
       return response;
     } catch (error) {
       console.log(error);
@@ -48,7 +91,7 @@ export const deleteBoardThunk = createAsyncThunk(
   "service/deleteBoard",
   async (id, thunkAPI) => {
     try {
-      const response = await deleteData(id);
+      const response = await deleteBoard(id);
       return response;
     } catch (error) {
       console.log(error);
