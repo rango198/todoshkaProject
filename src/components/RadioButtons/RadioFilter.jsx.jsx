@@ -1,16 +1,7 @@
-import { Box, FormControlLabel, RadioGroup, Radio,  } from "@mui/material";
+import { Box, FormControlLabel, RadioGroup, Radio } from "@mui/material";
 
 const RadioFilter = ({ onFilterChange }) => {
   const radio = [
-    {
-      value: "Without",
-      label: "Without priority",
-      labelColor: "var(--color-icon-grey)",
-      radioColor: {
-        static: "rgba(255, 255, 255, 0.5)",
-        onChecked: "rgba(22, 22, 22, 0.3)",
-      },
-    },
     {
       value: "Low",
       label: "Low",
@@ -36,6 +27,15 @@ const RadioFilter = ({ onFilterChange }) => {
       radioColor: {
         static: "var(--color-green)",
         onChecked: "var(--bg-color-form)",
+      },
+    },
+    {
+      value: "Without",
+      label: "Without priority",
+      labelColor: "var(--color-icon-grey)",
+      radioColor: {
+        static: "rgba(255, 255, 255, 0.5)",
+        onChecked: "rgba(22, 22, 22, 0.3)",
       },
     },
   ];
