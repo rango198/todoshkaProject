@@ -6,7 +6,7 @@
   z-index: 1;
   width: 225px;
   height: 100vh;
-  background-color: var(--color-icon-dark);
+  background-color: var(--bg-sidebar);
   /* transform: translateX(-100%); */
 }
 
@@ -35,7 +35,7 @@
 
   letter-spacing: -0.64px;
 
-  color: var(--color-white);
+  color: var(--color-font);
 }
 
 .sidebarItem {
@@ -76,22 +76,22 @@
   letter-spacing: -0.28px;
 
   margin-right: 77px;
-  color: var(--color-white);
+  color: var(--color-font);
 }
 
 .sidebarBoardButton {
   display: flex;
   padding: 0;
   border: none;
-  background: var(--color-icon-dark);
+  background-color: var(--bg-sidebar);
 }
 
 .sidebarBoardIcon {
   width: 40px;
   height: 36px;
 
-  fill: var(--color-green);
-  stroke: var(--color-icon-dark);
+  fill: var(--bg-button);
+  stroke: var(--sb-icon-stroke);
 }
 
 .sidebarNewBoard {
