@@ -14,6 +14,8 @@ const ModalContent = () => {
 
     case "help":
       return <NeedHelpModal />;
+    case "userInfo":
+      return <UserInfo />;
 
     default:
       return null;

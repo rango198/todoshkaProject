@@ -1,5 +1,5 @@
 .imgContainer {
-  background-image: url("../../assets/img/userAvatar.svg");
+  /* background-image: url("../../assets/img/userAvatar.svg"); */
   background-repeat: no-repeat;
   position: relative;
   z-index: 0;
@@ -71,7 +71,7 @@
 .modalContainer {
   max-width: 335px;
   padding: 24px;
-  background: black;
+  background: white;
   box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.05);
   border-radius: 8px;
   margin: 0 auto;
@@ -82,7 +82,7 @@
   align-items: center;
 }
 .textNameModal {
-  color: white;
+  color: black;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -104,7 +104,7 @@
   margin-bottom: 14px;
   padding: 0;
   opacity: 0.4;
-  color: #ffffff;
+  color: black;
 }
 
 .inputMail:hover,
@@ -118,7 +118,7 @@
   width: 18px;
 
   position: absolute;
-  stroke: white;
+  stroke: black;
   right: 18px;
 
   bottom: 0;
@@ -160,255 +160,10 @@
 .close_svg {
   width: 18px;
   height: 18px;
-  stroke: white;
+  stroke: black;
   transition: stroke 250ms linear;
 }
 
 .close_svg:hover {
   stroke: #bedbb0;
 }
-
-/*стили с макета
-
-/* Pop up
-
-position: relative;
-width: 335px;
-height: 440px;
-
-background: #fcfcfc;
-box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.05);
-border-radius: 8px;
-
-/* Edit profile */
-
-/* position: absolute;
-width: 96px;
-height: 27px;
-left: 24px;
-top: 24px;
-
-font-family: "Poppins";
-font-style: normal;
-font-weight: 500;
-font-size: 18px;
-line-height: 27px;
-/* identical to box height */
-/* letter-spacing: -0.02em;
-
-color: #161616; */
-
-/* input */
-
-/* box-sizing: border-box;
-
-position: absolute;
-width: 287px;
-height: 49px;
-left: 24px;
-top: 168px;
-
-border: 1px solid #bedbb0;
-border-radius: 8px; */
-
-/* Vector 4 */
-
-/* position: absolute;
-width: 0px;
-height: 17px;
-left: 61px;
-top: 16px;
-
-border: 1px solid #161616; */
-
-/* input */
-
-/* box-sizing: border-box;
-
-position: absolute;
-width: 287px;
-height: 49px;
-left: 24px;
-top: 231px;
-
-opacity: 0.4;
-border: 1px solid #bedbb0;
-border-radius: 8px; */
-
-/* input */
-
-/* box-sizing: border-box;
-
-position: absolute;
-width: 287px;
-height: 49px;
-left: 24px;
-top: 294px;
-
-opacity: 0.4;
-border: 1px solid #bedbb0;
-border-radius: 8px; */
-
-/* eye */
-
-/* position: absolute;
-width: 18px;
-height: 18px;
-left: 251px;
-top: 16px; */
-
-/* Vector */
-
-/* position: absolute;
-left: 4.17%;
-right: 4.17%;
-top: 16.67%;
-bottom: 16.67%;
-
-border: 1.3px solid #161616; */
-
-/* Vector */
-
-/* position: absolute;
-left: 37.5%;
-right: 37.5%;
-top: 37.5%;
-bottom: 37.5%;
-
-border: 1.3px solid #161616; */
-
-/* x-close */
-
-/* position: absolute;
-width: 18px;
-height: 18px;
-left: 303px;
-top: 14px; */
-
-/* Icon */
-
-/* position: absolute;
-left: 25%;
-right: 25%;
-top: 25%;
-bottom: 25%;
-
-border: 1.5px solid #161616; */
-
-/* Icon */
-
-/* position: absolute;
-left: 25%;
-right: 25%;
-top: 25%;
-bottom: 25%;
-
-border: 1.5px solid #161616; */
-
-/* block */
-
-/* box-sizing: border-box;
-
-position: absolute;
-width: 287px;
-height: 49px;
-left: calc(50% - 287px / 2);
-top: 367px;
-
-background: #bedbb0;
-box-shadow:
-  0px 4px 4px rgba(0, 0, 0, 0.25),
-  0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 8px; */
-
-/* plus */
-
-/* position: absolute;
-width: 28px;
-height: 28px;
-left: 136px;
-top: 10px; */
-
-/* Send */
-
-/* position: absolute;
-width: 35px;
-height: 21px;
-left: calc(50% - 35px / 2);
-top: 14px;
-
-font-family: "Poppins";
-font-style: normal;
-font-weight: 500;
-font-size: 14px;
-line-height: 21px;
-/* identical to box height */
-/* letter-spacing: -0.02em;
-
-color: #161616; */
-
-/* image */
-
-/* position: absolute;
-width: 68px;
-height: 79px;
-left: calc(50% - 68px / 2 + 0.5px);
-top: 75px; */
-
-/* Vector */
-
-/* position: absolute;
-width: 68px;
-height: 68px;
-left: calc(50% - 68px / 2);
-top: 0px;
-
-background: url(.jpg);
-border-radius: 8px; */
-
-/* plus */
-
-/* position: absolute;
-width: 24px;
-height: 24px;
-left: calc(50% - 24px / 2);
-top: 55px; */
-
-/* Vector */
-
-/* position: absolute;
-width: 24px;
-height: 24px;
-left: 0px;
-top: 0px;
-
-background: #bedbb0;
-border-radius: 6px; */
-
-/* plus */
-
-/* position: absolute;
-width: 10px;
-height: 10px;
-left: 7px;
-top: 7px; */
-
-/* Vector */
-
-/* position: absolute;
-left: 50%;
-right: 50%;
-top: 20.83%;
-bottom: 20.83%;
-
-border: 1px solid #161616; */
-
-/* Vector */
-
-/* position: absolute;
-left: 20.83%;
-right: 20.83%;
-top: 50%;
-bottom: 50%;
-
-border: 1px solid #161616;  */

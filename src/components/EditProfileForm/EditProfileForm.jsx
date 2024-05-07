@@ -7,12 +7,11 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import Icon from "../Icon/Icon";
 import sprite from "../../assets/svg/sprite.svg";
-import { useUserId } from "../../hooks/useUserId";
-import { useUserName } from "../../hooks/useUserName";
+import { useUserId, useUserName } from "../../hooks";
 
 import { editProfile } from "../../redux/thunk/reduxThunk";
-
-import { EditProfileSchema } from "../../shema/EditProfileSchema";
+// import { updateUserThunk } from "../../redux/thunk/authThunk";
+import { UserSchema } from "../../schema/UserSchema";
 import { useUserEmail } from "../../hooks/useUserEmail";
 
 const EditProfileForm = ({ userAvatar, onClose }) => {
@@ -36,7 +35,7 @@ const EditProfileForm = ({ userAvatar, onClose }) => {
       email: userEmail,
       password: "",
     },
-    resolver: yupResolver(EditProfileSchema),
+    resolver: yupResolver(UserSchema),
     mode: "onChange",
   });
 
