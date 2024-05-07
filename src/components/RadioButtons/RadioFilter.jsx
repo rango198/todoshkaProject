@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import { Box, FormControlLabel, RadioGroup, Radio } from "@mui/material";
 
 const RadioFilter = ({ onFilterChange, priority }) => {
@@ -10,7 +9,6 @@ const RadioFilter = ({ onFilterChange, priority }) => {
       value: "Without",
       label: "Without priority",
       labelColor: selectedValue === 'Without' ? '#fff' : 'var(--color-icon-grey)',
-      // labelColor: "var(--color-icon-grey)",
       radioColor: {
         static: "rgba(255, 255, 255, 0.5)",
         onChecked: "rgba(22, 22, 22, 0.3)",
@@ -30,7 +28,7 @@ const RadioFilter = ({ onFilterChange, priority }) => {
       label: "Medium",
       labelColor: selectedValue === 'Medium' ? '#fff' : 'var(--color-icon-grey)',
       radioColor: {
-        static: "var(--color-pink);",
+        static: "var(--color-pink)",
         onChecked: "var(--bg-color-form)",
       },
     },
@@ -65,7 +63,6 @@ const RadioFilter = ({ onFilterChange, priority }) => {
         value={selectedValue}
         name="radio-buttons-group"
         onChange={handleRadioChange}
-
         sx={{ display: "flex", flexDirection: "row", gap: "8px" }}
       >
         {radio.map((button) => {
@@ -79,7 +76,7 @@ const RadioFilter = ({ onFilterChange, priority }) => {
                 gap: "8px",
                 margin: "0",
                 height: "24px",
-                "&.MuiTypography-root": {
+                "& .MuiTypography-root": {
                   fontFamily: "Poppins",
                   fontSize: "12px",
                   color: labelColor,
