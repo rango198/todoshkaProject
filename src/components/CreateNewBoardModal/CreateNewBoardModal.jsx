@@ -1,26 +1,52 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { useForm } from "react-hook-form";
-
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import sprite from "../../assets/svg/sprite.svg";
 import data from "../../assets/img/small/data.js";
 
 import ButtonAdd from "../ButtonAdd/ButtonAdd.jsx";
 import css from "./CreateNewBoard.module.css";
 import ButtonClose from "../ButtonClose/ButtonClose";
+import { useNavigate } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { addBoardThunk, getBoardThunk } from "../../redux/thunk/servicesThunk";
+import { selectAllBoards } from "../../redux/selectors/serviceSelector";
+
+const TitleSchema = Yup.object({
+  title: Yup.string()
+    .min(3, "Too Short!")
+    .max(30, "Too Long!")
+    .required("Title is required"),
+}).required();
 
 const CreateNewBoardModal = ({ onClose }) => {
   const {
     register,
+    handleSubmit,
     setValue,
     // formState: { errors },
   } = useForm({
+    resolver: yupResolver(TitleSchema),
     mode: "onChange",
   });
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [selectedIcon, setSelectedIcon] = useState("icon-project");
   const [selectedBackgroundId, setSelectedBackgroundId] = useState("0");
+  const existingBoardTitles = useSelector(selectAllBoards);
 
+  useEffect(() => {
+    dispatch(getBoardThunk());
+  }, [dispatch]);
+
+  const handleTitleChange = (event) => {
+    setValue("title", event.target.value.toString());
+  };
   const handleIconSelect = (icon) => {
     setSelectedIcon(icon);
     setValue("icon", icon);
@@ -33,14 +59,14 @@ const CreateNewBoardModal = ({ onClose }) => {
 
   const renderIcons = () => {
     const icons = [
-      "project",
-      "star",
-      "loading",
-      "puzzle-piece",
-      "container",
-      "lightning",
-      "colors",
-      "hexagon",
+      "icon-project",
+      "icon-star",
+      "icon-loading",
+      "icon-puzzle",
+      "icon-container",
+      "icon-lightning",
+      "icon-colors",
+      "icon-hexagon",
     ];
 
     return icons.map((icon) => (
@@ -71,7 +97,34 @@ const CreateNewBoardModal = ({ onClose }) => {
       </div>
     ));
   };
+  const handleCreateBoard = (data) => {
+    const { title } = data;
 
+    const isExist = existingBoardTitles.some(
+      (item) => item.title.trim() === title.trim()
+    );
+
+    if (isExist) {
+      toast.error(`${data.title} already exists!`, {
+        theme: "colored",
+        autoClose: 2500,
+      });
+      return;
+    }
+
+    dispatch(addBoardThunk(data)).then((d) => {
+      navigate(d.payload._id);
+      setValue("title", "");
+      setValue("icon", "");
+      setValue("background", "");
+      onClose();
+    });
+
+    toast.success(`${data.title} has been successfully added to your boards!`, {
+      theme: "colored",
+      autoClose: 2500,
+    });
+  };
   const handleClose = () => {
     onClose();
   };
@@ -80,13 +133,14 @@ const CreateNewBoardModal = ({ onClose }) => {
     <div className={css.modal}>
       <h2 className={css.newBoardTitle}>New Board</h2>
 
-      <form>
+      <form onSubmit={handleSubmit(handleCreateBoard)}>
         <input
           id="newBoardInput"
           type="text"
           placeholder="Title"
           {...register("title")}
           className={css.input}
+          onChange={handleTitleChange}
         />
 
         <h3 className={css.iconTitle}>Icons</h3>

@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectOpenModal } from "./redux/selectors/serviceSelector";
 import ModalContent from "./components/ModalContent/ModalContent";
 import SharedLayout from "./components/SharedLayout/SharedLayout";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import PublicRoute from "./components/PrivateRoute/PublicRoute";
 
 const WelcomePage = lazy(() => import("./pages/WelcomePage/WelcomePage"));
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
@@ -25,10 +27,21 @@ const App = () => {
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<WelcomePage />} />
-          <Route path="/auth/:id" element={<AuthPage />} />
-          <Route path="/home" element={<HomePage />}>
-            <Route path=":boardName" element={<ScreensPage />} />
+          {/* <Route path="/auth/:id" element={<AuthPage />} /> */}
+
+          <Route element={<PublicRoute />}>
+            <Route path="auth/:id" element={<AuthPage />} />
           </Route>
+
+          {/* <Route path="/home" element={<HomePage />}>
+            <Route path=":boardName" element={<ScreensPage />} />
+          </Route> */}
+          <Route element={<PrivateRoute />}>
+            <Route path="/home" element={<HomePage />}>
+              <Route path=":boardName" element={<ScreensPage />} />
+            </Route>
+          </Route>
+
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>

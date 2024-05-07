@@ -9,11 +9,8 @@ import Theme from "../Theme/Theme";
 import css from "./header.module.css";
 import { useState } from "react";
 import { Navigation } from "../Navigation/Navigation";
-import { useTheme } from "../../hooks/useTheme";
 
 const Header = () => {
-  const { theme, setTheme } = useTheme();
-
   const dispatch = useDispatch();
 
   const handleClick = () => {
@@ -43,9 +40,6 @@ const Header = () => {
       {isOpen && <Navigation close={close} />}
       <div className={css.box}>
         <Theme />
-        {/* <button type="button" className={css.theme_button}>
-          Theme <Icon id="chevron-down" className={css.chevron_down} />
-        </button> */}
         <button
           className={css.button_user}
           type="button"

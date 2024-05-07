@@ -17,7 +17,7 @@
   align-items: center;
 }
 
-.input {
+/* .input {
   width: 287px;
   height: 49px;
   border-radius: 8px;
@@ -25,8 +25,28 @@
   box-shadow: 0px 4px 16px 0px #16161614;
   background: #1f1f1f;
   color: #ffffff;
+} */
+
+.input {
+  width: 287px;
+  height: 49px;
+  border-radius: 8px;
+  border: 1px solid #bedbb0;
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
+  background: #1f1f1f;
+  padding-left: 10px;
+  /* background: #f6f6f7; */
+  color: #fff;
 }
 
+.input::placeholder {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.5);
+  /* padding-left: 10px; */
+}
 .button {
   width: 287px;
   height: 49px;

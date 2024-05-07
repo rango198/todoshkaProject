@@ -14,16 +14,26 @@ const Board = () => {
 
   return (
     <>
-      <div className={css.container}>
+      <p className={css.container}>
         Before starting your project, it is essential{" "}
-        <button type="button" className={css.button_text} onClick={toggle}>
+        <button className={css.button_text} onClick={toggle}>
           {" "}
           to create a board{" "}
         </button>{" "}
         to visualize and track all the necessary tasks and milestones. This
         board serves as a powerful tool to organize the workflow and ensure
         effective collaboration among team members.
-      </div>
+      </p>
+      {isAddBoardOpen && (
+        <Modal onClose={toggle}>
+          <CreateNewBoardModal onClose={toggle} />
+        </Modal>
+      )}
+      {/* {isAddBoardOpen && (
+        <Modal open={toggle}>
+          <CreateNewBoardModal onClose={toggle} />
+        </Modal>
+      )} */}
       <Modal open={isAddBoardOpen} onClose={toggle}>
         <CreateNewBoardModal onClose={toggle} />
       </Modal>

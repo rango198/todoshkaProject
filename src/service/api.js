@@ -20,7 +20,7 @@ export const register = async (params) => {
 
 export const login = async (params) => {
   const { data } = await $instance.post("users/login", params);
-  setAccessToken(res.data.accessToken);
+  setAccessToken(data.accessToken);
   return data;
 };
 
@@ -52,24 +52,26 @@ export const changeTheme = async (params) => {
   return data;
 };
 
-//============================================================
-
-export const getData = async () => {
+export const getAllBoards = async () => {
   const { data } = await $instance.get("boards");
   return data;
 };
 
-export const addData = async (body) => {
+export const addBoard = async (body) => {
   const { data } = await $instance.post("boards", body);
   return data;
 };
+export const getSingleBoard = async (id) => {
+  const { data } = await $instance.get(`boards/${id}`);
+  return data;
+};
 
-export const editData = async (body) => {
+export const editBoard = async (body) => {
   const { data } = await $instance.patch(`boards/${body.id}`, body);
   return data;
 };
 
-export const deleteData = async (id) => {
+export const deleteBoard = async (id) => {
   const { data } = await $instance.delete(`boards/${id}`);
   return data;
 };
