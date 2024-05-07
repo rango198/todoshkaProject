@@ -7,11 +7,10 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import Icon from "../Icon/Icon";
 import sprite from "../../assets/svg/sprite.svg";
-import { useUserId } from "../../hooks/useUserId";
-import { useUserName } from "../../hooks/useUserName";
+import { useUserId, useUserName } from "../../hooks";
 
 import { editProfile } from "../../redux/thunk/reduxThunk";
-
+// import { updateUserThunk } from "../../redux/thunk/authThunk";
 import { EditProfileSchema } from "../../shema/EditProfileSchema";
 import { useUserEmail } from "../../hooks/useUserEmail";
 

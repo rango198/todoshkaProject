@@ -9,7 +9,7 @@ import {
 } from "../thunk/authThunk";
 
 const initialState = {
-  user: null,
+  user: { name: "", email: "", avatar: "", id: "" },
   token: "",
   isLogin: false,
   isLoading: false,
@@ -81,18 +81,22 @@ const authSlice = createSlice({
         state.error = action.payload;
         state.isLoading = false;
       })
-      // Udate user
+      //Udate user
       .addCase(updateUserThunk.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(updateUserThunk.fulfilled, (state, action) => {
-        state.user = action.payload;
+        state.user.name = action.payload.data.user.name;
+        state.user.email = action.payload.data.user.email;
+        state.user.avatar = action.payload.data.user.avatarUrl;
+        state.user.id = action.payload.data.user._id;
         state.isLoading = false;
       })
       .addCase(updateUserThunk.rejected, (state, action) => {
         state.error = action.payload;
         state.isLoading = false;
       })
+
       //Theme change
       .addCase(changeThemeThunk.fulfilled, (state, action) => {
         state.user.theme = action.payload; // theme is a property of user
