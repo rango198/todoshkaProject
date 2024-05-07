@@ -24,16 +24,6 @@ const Board = () => {
         board serves as a powerful tool to organize the workflow and ensure
         effective collaboration among team members.
       </p>
-      {isAddBoardOpen && (
-        <Modal onClose={toggle}>
-          <CreateNewBoardModal onClose={toggle} />
-        </Modal>
-      )}
-      {/* {isAddBoardOpen && (
-        <Modal open={toggle}>
-          <CreateNewBoardModal onClose={toggle} />
-        </Modal>
-      )} */}
       <Modal open={isAddBoardOpen} onClose={toggle}>
         <CreateNewBoardModal onClose={toggle} />
       </Modal>

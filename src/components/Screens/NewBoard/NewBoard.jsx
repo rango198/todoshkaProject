@@ -26,10 +26,10 @@ const NewBoard = () => {
   // const isLoading = useSelector(selectIsBoardsLoading);
 
   useEffect(() => {
-    if (params.boardId) {
-      dispatch(fetchSingleBoard(params.boardId));
+    if (params.boardName) {
+      dispatch(fetchSingleBoard(params.boardName));
     }
-  }, [dispatch, params.boardId]);
+  }, [dispatch, params.boardName]);
 
   return (
     <div className={css.task_list_container}>
