@@ -7,6 +7,7 @@ import {
   CloseModalButton,
   StyledBackdrop,
   StyledModalContent,
+  SvgClose,
 } from "./Modal.styled";
 import Icon from "../Icon/Icon";
 import {
@@ -77,7 +78,9 @@ const Modal = ({ open, onClose, children }) => {
         <StyledBackdrop onClick={handleBackdropClick}>
           <StyledModalContent>
             <CloseModalButton onClick={handleCloseUserModal}>
-              <Icon id="close" />
+              <SvgClose>
+                <Icon id="close" />
+              </SvgClose>
             </CloseModalButton>
             {children}
           </StyledModalContent>

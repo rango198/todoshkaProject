@@ -38,8 +38,17 @@ export const StyledModalContent = styled.div`
 export const CloseModalButton = styled.button`
   position: absolute;
   right: 3%;
-  top: 4%;
-
+  top: 3%;
+  padding-block: 0;
+  padding-inline: 0;
   border: none;
   background: transparent;
+`;
+
+export const SvgClose = styled.svg`
+  width: 18px;
+  height: 18px;
+  stroke: var(--color);
+  padding-block: 0;
+  padding-inline: 0;
 `;
