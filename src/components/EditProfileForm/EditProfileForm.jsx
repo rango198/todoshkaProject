@@ -11,7 +11,7 @@ import { useUserId, useUserName } from "../../hooks";
 
 import { editProfile } from "../../redux/thunk/reduxThunk";
 // import { updateUserThunk } from "../../redux/thunk/authThunk";
-import { EditProfileSchema } from "../../shema/EditProfileSchema";
+import { UserSchema } from "../../schema/UserSchema";
 import { useUserEmail } from "../../hooks/useUserEmail";
 
 const EditProfileForm = ({ userAvatar, onClose }) => {
@@ -35,7 +35,7 @@ const EditProfileForm = ({ userAvatar, onClose }) => {
       email: userEmail,
       password: "",
     },
-    resolver: yupResolver(EditProfileSchema),
+    resolver: yupResolver(UserSchema),
     mode: "onChange",
   });
 
