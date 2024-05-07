@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import css from "./filter.module.css";
 import ButtonClose from "../ButtonClose/ButtonClose";
 import { useDispatch } from "react-redux";
 import { setFilter } from "../../redux/slice/filterSlice";
 
-import RadioFilter from "../RadioButtons/RadioFilter.jsx";
+import RadioFilter from "../RadioButtons/RadioFilter";
 
 const Filter = ({ onClose }) => {
-  let priority = '';
+  // let priority = '';
 
   const dispatch = useDispatch();
+  const [priority, setPriority] = useState("all");
 
   // const handleChange = (ev) => {
   // //   dispatch(setFilter(ev.target.value));
@@ -17,6 +18,12 @@ const Filter = ({ onClose }) => {
 
   const resetFilter = () => {
     dispatch(setFilter("all"));
+    setPriority("all");
+  };
+
+  const handleFilterChange = (priority) => {
+    dispatch(setFilter(priority));
+    setPriority(priority);
   };
 
   return (
@@ -32,9 +39,9 @@ const Filter = ({ onClose }) => {
       </div>
 
       <RadioFilter
-          onFilterChange={() => priority}
-          // onChange={handleChange}
-        />
+        onFilterChange={handleFilterChange}
+        // onChange={handleChange}
+      />
 
       {/* <label className={css.label}>
         <input
