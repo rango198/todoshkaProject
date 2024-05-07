@@ -40,6 +40,7 @@ const Filter = ({ onClose }) => {
 
       <RadioFilter
         onFilterChange={handleFilterChange}
+        priority={priority}
         // onChange={handleChange}
       />
 

@@ -69,22 +69,48 @@ const CreateNewBoardModal = ({ onClose }) => {
       "icon-hexagon",
     ];
 
-    return icons.map((icon) => (
-      <svg
-        key={icon}
-        selected={selectedIcon === icon}
-        onClick={() => handleIconSelect(icon)}
-        className={css.iconStyle}
-      >
-        <use href={`${sprite}#${icon}`} />
-      </svg>
-    ));
-  };
+  
+    // return icons.map(icon => (
+    // <label key={icon} className={css.create_board_label}>
+    //   <input
+    //     type="radio"
+    //     name="icon"
+    //     value={icon}
+    //     className={css.create_board_field}
+    //     checked={selectedIcon === icon}
+    //     onClick={() => handleIconSelect(icon)}
+
+    //   />
+    //   <svg
+    //     className={`${css.create_board_icons} ${selectedIcon === icon ? css.radio_semi_stroke : ''
+    //       }`}
+    //     width="18"
+    //     height="18"
+    //   >
+    //     <use href={`${sprite}#${icon}`}></use>
+    //   </svg>
+    // </label>
+    //    ));
+      //  };
+
+  return icons.map((icon) => (
+    <svg
+      key={icon}
+      className={`${css.iconStyle} ${selectedIcon === icon ? css.selectedIcon : ''}`}
+      // selected={selectedIcon === icon}
+      onClick={() => handleIconSelect(icon)}
+      // className={css.iconStyle}
+    >
+      <use href={`${sprite}#${icon}`} />
+    </svg>
+  ));
+};
 
   const renderBackgrounds = () => {
     return data.map((item) => (
       <div
-        className={css.backgroundItem}
+      className={`${css.backgroundItem} ${selectedBackgroundId === item.id ? css.selected : ''}`}
+        // className={css.backgroundItem}
         key={item.id}
         selected={selectedBackgroundId === item.id}
         onClick={() => handleBackgroundSelect(item.id)}
@@ -144,7 +170,10 @@ const CreateNewBoardModal = ({ onClose }) => {
         />
 
         <h3 className={css.iconTitle}>Icons</h3>
+      
+
         <div className={css.iconWrap}>{renderIcons()}</div>
+
 
         <h3 className={css.backgroundTitle}>Background</h3>
         <div className={css.bgIcon}>{renderBackgrounds()}</div>
