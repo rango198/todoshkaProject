@@ -16,12 +16,6 @@ import serviceReducer from "./slice/servicesSlice";
 import filterReducer from "./slice/filterSlice";
 // import boardsReducer from "./boards/slice";
 
-const rootReducer = combineReducers({
-  auth: authReducer,
-  service: serviceReducer,
-  filter: filterReducer,
-  // boards: boardsReducer,
-});
 
 const persistConfig = {
   key: "root",
@@ -29,10 +23,14 @@ const persistConfig = {
   whitelist: ["token"],
 };
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
-
 const store = configureStore({
-  reducer: persistedReducer,
+  reducer: {
+    auth: persistReducer(persistConfig, authReducer),
+    service: persistReducer(persistConfig, serviceReducer),
+    filter: persistReducer(persistConfig, filterReducer),
+    // boards: persistReducer(persistConfig, boardsReducer),
+  },
+
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
