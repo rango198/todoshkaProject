@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -28,25 +28,26 @@ const CreateNewBoardModal = ({ onClose }) => {
     register,
     handleSubmit,
     setValue,
-    // formState: { errors },
+    formState: { errors },
   } = useForm({
     resolver: yupResolver(TitleSchema),
     mode: "onChange",
   });
-
+  console.log(errors);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [selectedIcon, setSelectedIcon] = useState("icon-project");
   const [selectedBackgroundId, setSelectedBackgroundId] = useState("0");
   const existingBoardTitles = useSelector(selectAllBoards);
 
-  useEffect(() => {
-    dispatch(getBoardThunk());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getBoardThunk());
+  // }, [dispatch]);
 
   const handleTitleChange = (event) => {
     setValue("title", event.target.value.toString());
   };
+  <p>{errors.title?.message}</p>;
   const handleIconSelect = (icon) => {
     setSelectedIcon(icon);
     setValue("icon", icon);
@@ -69,7 +70,6 @@ const CreateNewBoardModal = ({ onClose }) => {
       "icon-hexagon",
     ];
 
-  
     // return icons.map(icon => (
     // <label key={icon} className={css.create_board_label}>
     //   <input
@@ -91,25 +91,25 @@ const CreateNewBoardModal = ({ onClose }) => {
     //   </svg>
     // </label>
     //    ));
-      //  };
+    //  };
 
-  return icons.map((icon) => (
-    <svg
-      key={icon}
-      className={`${css.iconStyle} ${selectedIcon === icon ? css.selectedIcon : ''}`}
-      // selected={selectedIcon === icon}
-      onClick={() => handleIconSelect(icon)}
-      // className={css.iconStyle}
-    >
-      <use href={`${sprite}#${icon}`} />
-    </svg>
-  ));
-};
+    return icons.map((icon) => (
+      <svg
+        key={icon}
+        className={`${css.iconStyle} ${selectedIcon === icon ? css.selectedIcon : ""}`}
+        // selected={selectedIcon === icon}
+        onClick={() => handleIconSelect(icon)}
+        // className={css.iconStyle}
+      >
+        <use href={`${sprite}#${icon}`} />
+      </svg>
+    ));
+  };
 
   const renderBackgrounds = () => {
     return data.map((item) => (
       <div
-      className={`${css.backgroundItem} ${selectedBackgroundId === item.id ? css.selected : ''}`}
+        className={`${css.backgroundItem} ${selectedBackgroundId === item.id ? css.selected : ""}`}
         // className={css.backgroundItem}
         key={item.id}
         selected={selectedBackgroundId === item.id}
@@ -159,8 +159,9 @@ const CreateNewBoardModal = ({ onClose }) => {
     <div className={css.modal}>
       <h2 className={css.newBoardTitle}>New Board</h2>
 
-      <form onSubmit={handleSubmit(handleCreateBoard)}>
+      <form onSubmit={() => handleSubmit(handleCreateBoard)}>
         <input
+          name="title"
           id="newBoardInput"
           type="text"
           placeholder="Title"
@@ -168,12 +169,11 @@ const CreateNewBoardModal = ({ onClose }) => {
           className={css.input}
           onChange={handleTitleChange}
         />
+        <p>{errors.title?.message}</p>
 
         <h3 className={css.iconTitle}>Icons</h3>
-      
 
         <div className={css.iconWrap}>{renderIcons()}</div>
-
 
         <h3 className={css.backgroundTitle}>Background</h3>
         <div className={css.bgIcon}>{renderBackgrounds()}</div>
