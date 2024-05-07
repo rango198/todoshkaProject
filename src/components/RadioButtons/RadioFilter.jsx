@@ -1,11 +1,16 @@
+import React, { useState } from 'react';
+
 import { Box, FormControlLabel, RadioGroup, Radio } from "@mui/material";
 
-const RadioFilter = ({ onFilterChange }) => {
+const RadioFilter = ({ onFilterChange, priority }) => {
+  const [selectedValue, setSelectedValue] = useState(priority || 'Without');
+
   const radio = [
     {
       value: "Without",
       label: "Without priority",
-      labelColor: "var(--color-icon-grey)",
+      labelColor: selectedValue === 'Without' ? '#fff' : 'var(--color-icon-grey)',
+      // labelColor: "var(--color-icon-grey)",
       radioColor: {
         static: "rgba(255, 255, 255, 0.5)",
         onChecked: "rgba(22, 22, 22, 0.3)",
@@ -14,7 +19,7 @@ const RadioFilter = ({ onFilterChange }) => {
     {
       value: "Low",
       label: "Low",
-      labelColor: "var(--color-icon-grey)",
+      labelColor: selectedValue === 'Low' ? '#fff' : 'var(--color-icon-grey)',
       radioColor: {
         static: "var(--color-blue)",
         onChecked: "var(--bg-color-form)",
@@ -23,7 +28,7 @@ const RadioFilter = ({ onFilterChange }) => {
     {
       value: "Medium",
       label: "Medium",
-      labelColor: "var(--color-icon-grey)",
+      labelColor: selectedValue === 'Medium' ? '#fff' : 'var(--color-icon-grey)',
       radioColor: {
         static: "var(--color-pink);",
         onChecked: "var(--bg-color-form)",
@@ -32,13 +37,20 @@ const RadioFilter = ({ onFilterChange }) => {
     {
       value: "High",
       label: "High",
-      labelColor: "var(--color-icon-grey)",
+      labelColor: selectedValue === 'High' ? '#fff' : 'var(--color-icon-grey)',
       radioColor: {
         static: "var(--color-green)",
         onChecked: "var(--bg-color-form)",
       },
     },
   ];
+
+  const handleRadioChange = (event) => {
+    const selectedPriority = event.target.value;
+    setSelectedValue(selectedPriority);
+    onFilterChange(selectedPriority);
+  };
+
   return (
     <Box
       sx={{
@@ -50,11 +62,10 @@ const RadioFilter = ({ onFilterChange }) => {
     >
       <RadioGroup
         aria-labelledby="radio-buttons-group-label"
-        defaultValue="colorFilter"
+        value={selectedValue}
         name="radio-buttons-group"
-        onChange={(evt) => {
-          onFilterChange(evt.target.value);
-        }}
+        onChange={handleRadioChange}
+
         sx={{ display: "flex", flexDirection: "row", gap: "8px" }}
       >
         {radio.map((button) => {
