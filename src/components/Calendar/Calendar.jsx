@@ -1,46 +1,35 @@
-import { forwardRef, useState } from "react";
-import { format } from "date-fns";
-import DatePicker from "react-datepicker";
-import {
-    CalendarGlobalStyles,
-    TitleWrapper,
-} from "./StyledDatepicker.styled";
-import "react-datepicker/dist/react-datepicker-cssmodules.css";
+import React, { useState, forwardRef } from "react";
+import "react-datepicker/dist/react-datepicker.css";
+import ReactDatePicker from "react-datepicker";
+
+import sprite from "../../assets/svg/sprite.svg";
+import "./calendar.css";
 
 const Calendar = () => {
-    const [selectedDate, setSelectedDate] = useState(
-        Date.now()
-    );
+  const [startDate, setStartDate] = useState(new Date());
 
-    const CustomInput = forwardRef(
-        ({ value, onClick }, ref) => {
-            return (
-                <TitleWrapper
-                    onClick={onClick}
-                    ref={ref}
-                >
-                    {format(selectedDate, "dd-MM-yyyy")}
-                </TitleWrapper>
-            );
-        }
-    );
+  const CustomInput = forwardRef(({ value, onClick, className }, ref) => (
+    <button className={className} type="button" onClick={onClick} ref={ref}>
+      {value}
+    </button>
+  ));
 
-    return (
-        <>
-            <DatePicker
-                selected={selectedDate}
-                onChange={(date) => {
-                    setSelectedDate(date);
-                }}
-                customInput={<CustomInput />}
-                showTimeSelect
-                dateFormat={"dd MM yyyy"}
-                calendarStartDay={1}
-                formatWeekDay={(day) => day.substr(0, 1)}
-            />
-            <CalendarGlobalStyles />
-        </>
-    );
+  return (
+    <div>
+      <ReactDatePicker
+        locale="en-GB"
+        selected={startDate}
+        name="name"
+        onChange={(date) => setStartDate(date)}
+        minDate={new Date()}
+        customInput={<CustomInput value={startDate} />}
+        dateFormat="MMMM d"
+      />
+      <svg width={18} height={18}>
+        <use href={`${sprite}#chevron-down`} />
+      </svg>
+    </div>
+  );
 };
 
 export default Calendar;
