@@ -115,5 +115,5 @@ const serviceSlice = createSlice({
 });
 
 export const { setModalStatus, setModalContent } = serviceSlice.actions;
-
-export const serviceReducer = serviceSlice.reducer;
+const serviceReducer = serviceSlice.reducer;
+export default serviceReducer;
