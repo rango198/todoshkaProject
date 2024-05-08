@@ -1,3 +1,21 @@
+.title_wrap {
+  background-color: transparent;
+  margin: 0;
+  border-radius: 8px;
+}
+
+.title_board {
+  margin: 0;
+  height: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #161616;
+
+  @media screen and (min-width: 768px) {
+    height: 28px;
+    font-size: 18px;
+  }
+}
 .button_create {
   display: flex;
   margin-top: 40px;

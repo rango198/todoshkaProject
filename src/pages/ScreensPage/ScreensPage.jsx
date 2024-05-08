@@ -9,14 +9,30 @@ import NewBoard from "../../components/Screens/NewBoard/NewBoard";
 import Modal from "../../components/Modal/Modal";
 import Filter from "../../components/Filter/Filter";
 
-import { getFilter } from "../../redux/selectors/serviceSelector";
+import {
+  getFilter,
+  selectAllBoards,
+} from "../../redux/selectors/serviceSelector";
 import { useSelector } from "react-redux";
-import { useTheme } from "../../hooks/useTheme";
+// import { useTheme } from "../../hooks/useTheme";
+import { useNavigate } from "react-router";
+import {
+  selectCurrentUser,
+  selectIsLoggedIn,
+} from "../../redux/selectors/selector";
 
 const ScreensPage = () => {
-  const { theme, setTheme } = useTheme();
+  // const { theme, setTheme } = useTheme();
 
   const [openFilter, setOpenFilter] = useState(false);
+  const isBoards = useSelector(selectAllBoards);
+  const activeBoard = useSelector(selectIsLoggedIn);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (activeBoard) {
+      navigate(activeBoard);
+    }
+  }, []);
   const filter = useSelector(getFilter);
 
   const handleOpenFilter = () => {
@@ -34,9 +50,6 @@ const ScreensPage = () => {
       )}
       <div className={css.title_container}>
         <span className={css.title_wrap}>
-          <p className={css.title_board}>boardName</p>
-        </span>
-        <span className={css.title_wrap}>
           <button
             className={css.button_filter}
             type="button"
@@ -47,6 +60,7 @@ const ScreensPage = () => {
           </button>
         </span>
       </div>
+      {/* {isBoards.length === 0 ? <Board /> : <NewBoard />} */}
       <NewBoard />
       <Board />
     </div>

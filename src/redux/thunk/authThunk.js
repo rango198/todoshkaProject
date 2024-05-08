@@ -9,6 +9,7 @@ import {
   currentUser,
   updateUser,
   changeTheme,
+  sendHelp,
 } from "../../service/api";
 
 export const registerThunk = createAsyncThunk(
@@ -83,6 +84,18 @@ export const changeThemeThunk = createAsyncThunk(
     try {
       const res = await changeTheme(data);
       return res.data.theme;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const sendHelpThunk = createAsyncThunk(
+  "auth/needHelp",
+  async (data, thunkAPI) => {
+    try {
+      const res = await sendHelp(data);
+      return res;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
