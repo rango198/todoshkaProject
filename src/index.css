@@ -106,6 +106,21 @@ html[data-theme="dark"] {
   --bg-button: #bedbb0;
   --bg-button-active: #9dc888;
   --sb-icon-stroke: #121212;
+
+    /* Calendar */
+--calendar-background-color:  ##1f1f1f;
+--calendar-text-color: #fff;
+--calendar-input: #bedbb0;
+--calendar-month: rgba(255, 255, 255, 0.5);
+--calendar-day: rgba(255, 255, 255, 0.5);
+--calendar-navigation: #bedbb0;
+--calendar-day: #fff;
+--calendar-day-hover:  #bedbb0;;
+--calendar-active-day:  #1F1F1F;
+--calendar-day-selected:  #fff;
+--calendar-day-selected-background: #bedbb0;
+
+
 }
 
 html[data-theme="light"] {
@@ -125,6 +140,20 @@ html[data-theme="light"] {
   --bg-button: #bedbb0;
   --bg-button-active: #9dc888;
   --sb-icon-stroke: #fff;
+
+       /* Calendar */
+       --calendar-background-color: #fff; 
+       --calendar-text-color: #161616;;
+       --calendar-input: #bedbb0;
+       --calendar-month: rgba(22, 22, 22, 0.5);
+       --calendar-day:  rgba(255, 255, 255, 0.5);
+       --calendar-navigation: #bedbb0;
+       --calendar-day: #161616;
+       --calendar-day-hover:  #bedbb0;;
+       --calendar-active-day:  #161616;
+       --calendar-day-selected:  #161616;
+       --calendar-day-selected-background: #bedbb0;
+       
 }
 
 html[data-theme="violet"] {
@@ -144,6 +173,20 @@ html[data-theme="violet"] {
   --bg-button: #7b7ede;
   --bg-button-active: #5255bc;
   --sb-icon-stroke: #fff;
+
+     /* Calendar */
+--calendar-background-color: #fff;
+--calendar-text-color: #161616;
+--calendar-input: #5255bc;
+--calendar-month: rgba(22, 22, 22, 0.5);
+--calendar-day: #fff;
+--calendar-navigation: #5255bc;
+--calendar-day: #161616;
+--calendar-day-hover:  #5255bc;
+--calendar-active-day:  #FCFCFC;
+--calendar-day-selected:  #161616;
+--calendar-day-selected-background: #5255bc;
+
 }
 
 h1,

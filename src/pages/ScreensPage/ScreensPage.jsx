@@ -15,24 +15,24 @@ import {
 } from "../../redux/selectors/serviceSelector";
 import { useSelector } from "react-redux";
 // import { useTheme } from "../../hooks/useTheme";
-import { useNavigate } from "react-router";
-import {
-  selectCurrentUser,
-  selectIsLoggedIn,
-} from "../../redux/selectors/selector";
+// import { useNavigate } from "react-router";
+// import {
+//   selectCurrentUser,
+//   selectIsLoggedIn,
+//   } from "../../redux/selectors/selector";
 
 const ScreensPage = () => {
   // const { theme, setTheme } = useTheme();
 
   const [openFilter, setOpenFilter] = useState(false);
   const isBoards = useSelector(selectAllBoards);
-  const activeBoard = useSelector(selectIsLoggedIn);
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (activeBoard) {
-      navigate(activeBoard);
-    }
-  }, []);
+  // const isLoggedIn = useSelector(selectIsLoggedIn);
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   if (isLoggedIn) {
+  //     navigate(isBoards);
+  //   }
+  // }, []);
   const filter = useSelector(getFilter);
 
   const handleOpenFilter = () => {
@@ -60,9 +60,9 @@ const ScreensPage = () => {
           </button>
         </span>
       </div>
-      {/* {isBoards.length === 0 ? <Board /> : <NewBoard />} */}
-      <NewBoard />
-      <Board />
+      {isBoards.length === 0 ? <Board /> : <NewBoard />}
+      {/* <NewBoard />
+      <Board /> */}
     </div>
   );
 };

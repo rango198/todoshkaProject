@@ -43,8 +43,8 @@ export const currentUser = async (params) => {
   return data;
 };
 
-export const updateUser = async (params) => {
-  const { data } = await $instance.put("users/update", params);
+export const updateUser = async (formData) => {
+  const { data } = await $instance.put("users/update", formData);
   return data;
 };
 
@@ -77,14 +77,6 @@ export const deleteBoard = async (id) => {
   const { data } = await $instance.delete(`boards/${id}`);
   return data;
 };
-
-//Это функция для EditProfile (Таня) не удалять!!!
-export const axiosPrivateFormData = axios.create({
-  baseURL: BASE_URL,
-  headers: {
-    "Content-Type": "multipart/form-data",
-  },
-});
 
 export const sendHelp = async (formData) => {
   const { data } = await $instance.post("users/help", formData);

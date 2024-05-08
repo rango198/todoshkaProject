@@ -7,11 +7,12 @@
 .modalContainer {
   max-width: 335px;
   padding: 24px;
-  background: var(--bg-color-form);
+  background: var(--bg-theme);
 }
 
 .textNameModal {
-  color: var(--color-white);
+  color: var(--color-font);
+  font-family: "PoppinsMedium";
   font-size: 18px;
   line-height: 1.5;
   letter-spacing: -0.02em;
@@ -24,19 +25,18 @@
   height: 49px;
   border-radius: 8px;
   outline: none;
-  border: 1px solid var(--color-green);
+  border: 1px solid var(--bg-button);
   padding-inline: 0;
   padding-block: 0;
-  background-color: var(--bg-color-form);
+  background-color: var(--bg-theme);
   margin-bottom: 14px;
   padding: 0;
   opacity: 0.4;
-  font-style: normal;
-  font-weight: 400;
+  font-family: "PoppinsRegular";
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.02em;
-  color: var(--color-white);
+  color: var(--color-font);
   padding: 14px 18px;
 }
 
@@ -47,9 +47,8 @@
 }
 
 .inputMail::placeholder {
-  color: var(--color-white);
-  font-family: "Poppins";
-  font-weight: 400;
+  color: var(--color-font);
+  font-family: "PoppinsRegular";
   font-size: 14px;
   letter-spacing: -0.02em;
   line-height: 1.5;
@@ -62,20 +61,18 @@
   height: 120px;
   border-radius: 8px;
   outline: none;
-  border: 1px solid var(--color-green);
+  border: 1px solid var(--bg-button);
   padding-inline: 0;
   padding-block: 0;
   padding: 0;
-  background-color: var(--bg-color-form);
+  background-color: var(--bg-theme);
   margin-bottom: 24px;
   opacity: 0.4;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
+  font-family: "PoppinsRegular";
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.02em;
-  color: var(--color-white);
+  color: var(--color-font);
   padding: 14px 18px;
 }
 
@@ -86,9 +83,8 @@
 }
 
 .textAreaComment::placeholder {
-  color: var(--color-white);
-  font-family: "Poppins";
-  font-weight: 400;
+  color: var(--color-font);
+  font-family: "PoppinsRegular";
   font-size: 14px;
   letter-spacing: -0.02em;
   line-height: 1.5;
@@ -98,10 +94,9 @@
   width: 287px;
   height: 49px;
   border-radius: 8px;
-  background: var(--color-green);
+  background: var(--bg-button);
   border: none;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
+  font-family: "PoppinsMedium";
   font-size: 14px;
   letter-spacing: -0.02em;
   color: var(--color-dark);
@@ -109,7 +104,7 @@
 
 .buttonSend:hover,
 .buttonSend:focus {
-  background: var(--color-hover-green);
+  background: var(--bg-button-active);
 }
 
 .textAreaComment::-webkit-scrollbar {

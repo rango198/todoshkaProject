@@ -9,8 +9,8 @@ import {
 
 const PublicRoute = () => {
   const isLogin = useSelector(selectIsLoggedIn);
-  //   const token = false;
-  const token = useSelector(selectAuthToken);
+  const token = false;
+  // const token = useSelector(selectAuthToken);
 
   console.log(isLogin);
   console.log(token);
@@ -20,7 +20,7 @@ const PublicRoute = () => {
   }
 
   if (isLogin) {
-    return <Navigate to="/home" />;
+    return <Navigate to="/home/1" />;
   }
 
   return <Outlet />;

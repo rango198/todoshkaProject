@@ -1,9 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers } from "redux";
 import storage from "redux-persist/lib/storage";
-// import boardsReducer from './boards/slice';
+import { persistStore, persistReducer } from "redux-persist";
 import {
-  persistStore,
-  persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -11,22 +10,25 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import { authReducer } from "./slice/authSlice";
-import { serviceReducer } from "./slice/servicesSlice";
-import { filterReducer } from "./slice/filterSlice";
+
+import authReducer from "./slice/authSlice";
+import serviceReducer from "./slice/servicesSlice";
+import filterReducer from "./slice/filterSlice";
+// import boardsReducer from "./boards/slice";
+
 
 const persistConfig = {
   key: "root",
   storage,
-  // whitelist: ["token"],
+  whitelist: ["token"],
 };
 
 const store = configureStore({
   reducer: {
     auth: persistReducer(persistConfig, authReducer),
     service: persistReducer(persistConfig, serviceReducer),
-    filter: filterReducer,
-    // boards: boardsReducer,
+    filter: persistReducer(persistConfig, filterReducer),
+    // boards: persistReducer(persistConfig, boardsReducer),
   },
 
   middleware: (getDefaultMiddleware) =>

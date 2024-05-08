@@ -37,9 +37,11 @@ const App = () => {
             <Route path=":boardName" element={<ScreensPage />} />
           </Route> */}
           <Route element={<PrivateRoute />}>
-            <Route path="/home" element={<HomePage />} />
-            <Route path="/:boardName" element={<ScreensPage />} />
+            <Route path="/home" element={<HomePage />}>
+              <Route path=":boardName" element={<ScreensPage />} />
+            </Route>
           </Route>
+
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
