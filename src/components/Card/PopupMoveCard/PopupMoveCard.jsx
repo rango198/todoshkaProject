@@ -1,8 +1,8 @@
 import Icon from "../../Icon/Icon";
 import css from "./PopupMoveCard.module.css";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
-// const PopupMoveCard = ({ onClose, boards, onAttachTask }) => {
+// const PopupMoveCard = ({ onClose, columns, onAttachTask }) => {
 //   useEffect(() => {
 //     const handleEscapeKeyPress = (event) => {
 //       if (event.key === "Escape") {
@@ -25,20 +25,21 @@ import { useEffect } from "react";
 //     };
 //   }, [onClose]);
 
-//   const buttons = boards.map((board, index) => (
+//   const buttons = columns.map((board, index) => (
+//    <li key={index}>
 //     <button
-//       key={index}
 //       onClick={() => onAttachTask(board)}
 //       className={css.popupButton}
-//     >
-//       <p className={css.text}>{board}</p>
+//      >
+//       <span className={css.text}>{board}</span>
 //       <svg className={css.popupIcon}>
 //         <Icon id="broken-right" />
 //       </svg>
 //     </button>
+//    </li>
 //   ));
 
-//   return <div className={css.popup}>{buttons}</div>;
+//   return <ul className={css.popup}>{buttons}</ul>;
 // };
 
 // export default PopupMoveCard;
@@ -49,13 +50,13 @@ const PopupMoveCard = ({ onClose }) => {
   return (
     <div className={css.popup}>
       <button onClick={onClose} className={css.popupButton}>
-        <p className={css.text}>In progress</p>
+        <span className={css.text}>In progress</span>
         <svg className={css.popupIcon}>
           <Icon id="broken-right" />
         </svg>
       </button>
       <button onClick={onClose} className={css.popupButton}>
-        <p>Done</p>
+        <span>Done</span>
         <svg className={css.popupIcon}>
           <Icon id="broken-right" />
         </svg>

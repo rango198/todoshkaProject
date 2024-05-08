@@ -2,11 +2,7 @@ body {
   /* background-image: url('./assets/background.png'); */
   background: #f6f6f7;
   margin: 0;
-  font-family:
-    "PoppinsRegular",
-    "PoppinsMedium",
-    "PoppinsSemibold",
-    sans-serif;
+  font-family: "PoppinsRegular", "PoppinsMedium", "PoppinsSemibold", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   user-select: none;
@@ -107,20 +103,24 @@ html[data-theme="dark"] {
   --bg-button-active: #9dc888;
   --sb-icon-stroke: #121212;
 
-    /* Calendar */
---calendar-background-color:  ##1f1f1f;
---calendar-text-color: #fff;
---calendar-input: #bedbb0;
---calendar-month: rgba(255, 255, 255, 0.5);
---calendar-day: rgba(255, 255, 255, 0.5);
---calendar-navigation: #bedbb0;
---calendar-day: #fff;
---calendar-day-hover:  #bedbb0;;
---calendar-active-day:  #1F1F1F;
---calendar-day-selected:  #fff;
---calendar-day-selected-background: #bedbb0;
+  /* Calendar */
+  --calendar-background-color: ##1f1f1f;
+  --calendar-text-color: #fff;
+  --calendar-input: #bedbb0;
+  --calendar-month: rgba(255, 255, 255, 0.5);
+  --calendar-day: rgba(255, 255, 255, 0.5);
+  --calendar-navigation: #bedbb0;
+  --calendar-day: #fff;
+  --calendar-day-hover: #bedbb0;
+  --calendar-active-day: #1f1f1f;
+  --calendar-day-selected: #fff;
+  --calendar-day-selected-background: #bedbb0;
 
-
+  /*RadioButtons Filter*/
+  --datepicker-grey: rgba(255, 255, 255, 0.5);
+  --datepicker-grey-lable: rgba(255, 255, 255, 0.3);
+  --datepicker-checked: #151512;
+  --datepicker-focused: #fff;
 }
 
 html[data-theme="light"] {
@@ -141,19 +141,24 @@ html[data-theme="light"] {
   --bg-button-active: #9dc888;
   --sb-icon-stroke: #fff;
 
-       /* Calendar */
-       --calendar-background-color: #fff; 
-       --calendar-text-color: #161616;;
-       --calendar-input: #bedbb0;
-       --calendar-month: rgba(22, 22, 22, 0.5);
-       --calendar-day:  rgba(255, 255, 255, 0.5);
-       --calendar-navigation: #bedbb0;
-       --calendar-day: #161616;
-       --calendar-day-hover:  #bedbb0;;
-       --calendar-active-day:  #161616;
-       --calendar-day-selected:  #161616;
-       --calendar-day-selected-background: #bedbb0;
-       
+  /* Calendar */
+  --calendar-background-color: #fff;
+  --calendar-text-color: #161616;
+  --calendar-input: #bedbb0;
+  --calendar-month: rgba(22, 22, 22, 0.5);
+  --calendar-day: rgba(255, 255, 255, 0.5);
+  --calendar-navigation: #bedbb0;
+  --calendar-day: #161616;
+  --calendar-day-hover: #bedbb0;
+  --calendar-active-day: #161616;
+  --calendar-day-selected: #161616;
+  --calendar-day-selected-background: #bedbb0;
+
+  /*RadioButtons Filter*/
+  --datepicker-grey: rgba(22, 22, 22, 0.5);
+  --datepicker-grey-lable: rgba(22, 22, 22, 0.3);
+  --datepicker-checked: #ffffff;
+  --datepicker-focused: #161616;
 }
 
 html[data-theme="violet"] {
@@ -174,19 +179,24 @@ html[data-theme="violet"] {
   --bg-button-active: #5255bc;
   --sb-icon-stroke: #fff;
 
-     /* Calendar */
---calendar-background-color: #fff;
---calendar-text-color: #161616;
---calendar-input: #5255bc;
---calendar-month: rgba(22, 22, 22, 0.5);
---calendar-day: #fff;
---calendar-navigation: #5255bc;
---calendar-day: #161616;
---calendar-day-hover:  #5255bc;
---calendar-active-day:  #FCFCFC;
---calendar-day-selected:  #161616;
---calendar-day-selected-background: #5255bc;
+  /* Calendar */
+  --calendar-background-color: #fff;
+  --calendar-text-color: #161616;
+  --calendar-input: #5255bc;
+  --calendar-month: rgba(22, 22, 22, 0.5);
+  --calendar-day: #fff;
+  --calendar-navigation: #5255bc;
+  --calendar-day: #161616;
+  --calendar-day-hover: #5255bc;
+  --calendar-active-day: #fcfcfc;
+  --calendar-day-selected: #161616;
+  --calendar-day-selected-background: #5255bc;
 
+  /*RadioButtons Filter*/
+  --datepicker-grey: rgba(22, 22, 22, 0.5);
+  --datepicker-grey-lable: rgba(22, 22, 22, 0.3);
+  --datepicker-checked: #ffffff;
+  --datepicker-focused: #161616;
 }
 
 h1,
