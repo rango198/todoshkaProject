@@ -80,3 +80,12 @@ export const sendHelp = async (formData) => {
   const { data } = await $instance.post("users/help", formData);
   return data;
 };
+export const deleteColumn = async (id) => {
+  const { data } = await $instance.delete(`columns/${id}`);
+  return data;
+};
+
+export const deleteTask = async (id) => {
+  const { data } = await $instance.delete(`tasks/${id}`);
+  return data;
+};
