@@ -48,7 +48,9 @@ const Header = () => {
           onClick={handleClick}
           aria-label="user-profile"
         >
-          UserName <Icon id="icon-user" className={css.icon_user} />
+          {" "}
+          UserName
+          <div className={css.avatar}></div>
         </button> */}
         <UserInfo />
       </div>

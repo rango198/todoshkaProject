@@ -27,6 +27,13 @@
   margin: 0 auto;
   margin-bottom: 14px;
 }
+/* .avatar {
+  width: 32px;
+  height: 32px;
+  background-image: var(--background-image);
+  background-size: contain;
+  background-repeat: no-repeat;
+} */
 
 /* .profileInput {
   position: absolute;

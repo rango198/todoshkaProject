@@ -14,7 +14,7 @@ import { updateUserThunk } from "../../redux/thunk/authThunk";
 import { UserSchema } from "../../schema/UserSchema";
 import { useUserEmail } from "../../hooks/useUserEmail";
 
-const EditProfileForm = ({ userAvatar, onClose }) => {
+const Edit = () => {
   const dispatch = useDispatch();
 
   const [type, setType] = useState("password");
@@ -23,6 +23,7 @@ const EditProfileForm = ({ userAvatar, onClose }) => {
   const userEmail = useUserEmail();
   const [newAvatar, setNewAvatar] = useState(null);
   const [svg, setSvg] = useState("eye");
+  const userAvatar = "../../assets/img/userAvatar/user-dark.png";
 
   const {
     register,
@@ -72,32 +73,36 @@ const EditProfileForm = ({ userAvatar, onClose }) => {
 
     const userData = { userId, formData };
     dispatch(updateUserThunk(userData)).then(() => {
-      onClose();
+      //   onClose();
     });
     reset();
   };
 
-  const handleClose = () => {
-    console.log(typeof onClose);
-    onClose();
-  };
+  //   const handleClose = () => {
+  //     console.log(typeof onClose);
+  //     onClose();
+  //   };
 
   return (
     <div className={css.modalContainer}>
-      <button onClick={handleClose} className={css.closeModal}>
+      {/* <button onClick={handleClose} className={css.closeModal}>
         <Icon id="close" className={css.closeSvg} />
-      </button>
+      </button> */}
       <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
         <h2 className={css.textNameModal}>Edit profile</h2>
         <div className={css.formData}>
           <div className={css.imgContainer}>
-            <img
-              width="68px"
-              height="79px"
-              className={css.profileImag}
-              src={newAvatar || userAvatar}
-              alt="user"
-            />
+            {newAvatar ? (
+              <img
+                width="68px"
+                height="79px"
+                className={css.profileImag}
+                src={newAvatar}
+                alt="user"
+              />
+            ) : (
+              <div className={css.avatar}></div>
+            )}
 
             <label className={css.labelAvatar}>
               <input
@@ -145,4 +150,4 @@ const EditProfileForm = ({ userAvatar, onClose }) => {
     </div>
   );
 };
-export default EditProfileForm;
+export default Edit;

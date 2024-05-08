@@ -15,12 +15,11 @@ const MenuPopover = React.forwardRef(({ onSelect, ...rest }, ref) => (
 ));
 
 const Theme = () => {
-  const { theme, setTheme } = useTheme();
+  const { setTheme } = useTheme();
   const ref = React.useRef();
   function handleSelectMenu(eventKey, event) {
     setTheme(event.target.textContent.toLowerCase());
 
-    console.log(eventKey);
     ref.current.close();
   }
   return (

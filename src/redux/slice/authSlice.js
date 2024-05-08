@@ -9,7 +9,7 @@ import {
 } from "../thunk/authThunk";
 
 const initialState = {
-  user: { name: "", email: "", avatar: "", id: "" },
+  user: { name: "", email: "", avatar: "", id: "", theme: "" },
   token: "",
   isLogin: false,
   isLoading: false,
