@@ -9,13 +9,14 @@ import Icon from "../Icon/Icon";
 import sprite from "../../assets/svg/sprite.svg";
 import { useUserId, useUserName } from "../../hooks";
 
-import { editProfile } from "../../redux/thunk/reduxThunk";
-// import { updateUserThunk } from "../../redux/thunk/authThunk";
+// import { editProfile } from "../../redux/thunk/reduxThunk";
+import { updateUserThunk } from "../../redux/thunk/authThunk";
 import { UserSchema } from "../../schema/UserSchema";
 import { useUserEmail } from "../../hooks/useUserEmail";
 
 const EditProfileForm = ({ userAvatar, onClose }) => {
   const dispatch = useDispatch();
+
   const [type, setType] = useState("password");
   const userName = useUserName();
   const userId = useUserId();
@@ -70,17 +71,21 @@ const EditProfileForm = ({ userAvatar, onClose }) => {
     formData.append("password", data.password);
 
     const userData = { userId, formData };
-    dispatch(editProfile(userData)).then(() => {
+    dispatch(updateUserThunk(userData)).then(() => {
       onClose();
     });
     reset();
   };
   const handleClose = () => {
+    console.log(typeof onClose);
     onClose();
   };
 
   return (
     <div className={css.modalContainer}>
+      <button onClick={handleClose} className={css.closeModal}>
+        <Icon id="close" className={css.closeSvg} />
+      </button>
       <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
         <h2 className={css.textNameModal}>Edit profile</h2>
         <div className={css.formData}>
@@ -92,22 +97,23 @@ const EditProfileForm = ({ userAvatar, onClose }) => {
               src={newAvatar || userAvatar}
               alt="user"
             />
+
+            <label className={css.labelAvatar}>
+              <input
+                className={css.inputAvatar}
+                type="file"
+                {...register("avatar")}
+              />
+              <svg
+                className={css.svgPlus}
+                width="10px"
+                height="10px"
+                stroke="black"
+              >
+                <use href={sprite + "#plus"}></use>
+              </svg>
+            </label>
           </div>
-          <label className={css.labelAvatar}>
-            <input
-              className={css.inputAvatar}
-              type="file"
-              {...register("avatar")}
-            />
-            <svg
-              className={css.svgPlus}
-              width="10px"
-              height="10px"
-              stroke="black"
-            >
-              <use href={sprite + "#plus"}></use>
-            </svg>
-          </label>
           <input
             className={css.inputMail}
             autoComplete="off"
@@ -118,15 +124,15 @@ const EditProfileForm = ({ userAvatar, onClose }) => {
           <input className={css.inputMail} {...register("email")} />
           <span className={css.errorMessage}>{errors.email?.message}</span>
 
-          <div className={css.inputwithicon}>
+          <div className={css.inputEye}>
             <input
-              className={css.inputMail}
+              className={css.inputPassword}
               type={type}
               autoComplete="off"
               {...register("password")}
             />
             <div onClick={handleToggle}>
-              <Icon id="eye" src={svg} className={css.svg_icon} />
+              <Icon id="eye" src={svg} className={css.svgIcon} />
             </div>
             <span className={css.errorMessage}>{errors.password?.message}</span>
           </div>
@@ -135,9 +141,6 @@ const EditProfileForm = ({ userAvatar, onClose }) => {
           Send
         </button>
       </form>
-      <button onClick={handleClose} className={css.close}>
-        <Icon id="close" className={css.close_svg} />
-      </button>
     </div>
   );
 };
