@@ -13,7 +13,9 @@ import {
   getFilter,
   selectAllBoards,
 } from "../../redux/selectors/serviceSelector";
-import { useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import ButtonAdd from "../../components/ButtonAdd/ButtonAdd.jsx";
+import {setModalContent, setModalStatus} from "../../redux/slice/servicesSlice.js";
 // import { useTheme } from "../../hooks/useTheme";
 // import { useNavigate } from "react-router";
 // import {
@@ -23,7 +25,15 @@ import { useSelector } from "react-redux";
 
 const ScreensPage = () => {
   // const { theme, setTheme } = useTheme();
-
+  const dispatch = useDispatch();
+  const handleClickHelp = () => {
+    dispatch(
+        setModalContent({
+          action: "addColum",
+        })
+    );
+    dispatch(setModalStatus(true));
+  };
   const [openFilter, setOpenFilter] = useState(false);
   const isBoards = useSelector(selectAllBoards);
   // const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -42,12 +52,14 @@ const ScreensPage = () => {
     setOpenFilter(!openFilter);
   };
   return (
+
     <div className={css.screen}>
       {openFilter && (
         <Modal open={handleOpenFilter} onClose={toggleFilter}>
           <Filter onClose={toggleFilter} />
         </Modal>
       )}
+
       <div className={css.title_container}>
         <span className={css.title_wrap}>
           <button
@@ -60,7 +72,12 @@ const ScreensPage = () => {
           </button>
         </span>
       </div>
+      {/*<ButtonAdd title="Add" className={css.submBtn} onClick={handleClickHelp}>*/}
+      {/*  <Icon id="icon-icon-plus" />*/}
+      {/*</ButtonAdd>*/}
       {isBoards.length === 0 ? <Board /> : <NewBoard />}
+
+
       {/* <NewBoard />
       <Board /> */}
     </div>
