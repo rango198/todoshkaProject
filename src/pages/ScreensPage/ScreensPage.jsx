@@ -14,6 +14,8 @@ import {
   selectAllBoards,
 } from "../../redux/selectors/serviceSelector";
 import { useSelector } from "react-redux";
+import KanbanBoard from "../../components/newFolder/Board";
+
 // import { useTheme } from "../../hooks/useTheme";
 // import { useNavigate } from "react-router";
 // import {
@@ -63,6 +65,7 @@ const ScreensPage = () => {
       {isBoards.length === 0 ? <Board /> : <NewBoard />}
       {/* <NewBoard />
       <Board /> */}
+      <KanbanBoard />
     </div>
   );
 };
