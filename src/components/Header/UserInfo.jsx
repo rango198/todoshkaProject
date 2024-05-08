@@ -7,6 +7,7 @@ import {
 } from "../../redux/slice/servicesSlice";
 import Modal from "../Modal/Modal";
 import EditProfileForm from "../EditProfileForm/EditProfileForm";
+import css from "./UserInfo.module.css";
 
 const UserInfo = () => {
   const darkAvatar = "../../assets/img/userAvatar/user-dark.png";
@@ -67,13 +68,13 @@ const UserInfo = () => {
   }, [theme, userAvatarGet]);
 
   return (
-    <div>
-      <p>{userName}</p>
-      <button onClick={openModal}>
-        <img src={userAvatar} alt="user-avatar" />
+    <div className={css.userInfoContainer}>
+      <p className={css.userName}>{userName}</p>
+      <button className={css.button_user} onClick={openModal}>
+        <img className={css.icon_user} src={userAvatar} alt="user-avatar" />
       </button>
       <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <EditProfileForm userAvatar={userAvatar} onClose={closeModal} />
+        <EditProfileForm userAvatar={userAvatar} />
       </Modal>
     </div>
   );
