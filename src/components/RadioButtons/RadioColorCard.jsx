@@ -7,29 +7,29 @@ const RadioColorCard = ({ onColorChange, priorityColor }) => {
       value: 'Low',
       radioColor: {
         static: 'var(--color-blue)',
-        checked: 'var(--color-light)',
+        checked: 'var(--datepicker-checked)',
       },
     },
     {
       value: 'Medium',
       radioColor: {
         static: 'var(--color-pink)',
-        checked: 'var(--color-light)',
+        checked: 'var(--datepicker-checked)',
       },
     },
     {
       value: 'High',
       radioColor: {
         static: 'var(--color-green)',
-        checked: 'var(--color-light)',
-        additional: 'var(--color-light)',
+        checked: 'var(--datepicker-checked)',
+        additional: 'var(--datepicker-checked)',
       },
     },
     {
       value: 'Without',
       radioColor: {
-        static: 'var(--color-icon-grey)',
-        checked: 'var(--color-light)',
+        static: 'var(--datepicker-grey-lable)',
+        checked: 'var(--datepicker-checked)',
       },
     },
   ];
@@ -81,3 +81,15 @@ const RadioColorCard = ({ onColorChange, priorityColor }) => {
 };
 
 export default RadioColorCard;
+
+//green+
+
+//  --datepicker-checked(#151512)
+//  --datepicker-checked(#ffffff;)
+//  --datepicker-checked(#ffffff;)
+
+
+
+// --datepicker-grey-lable: rgba(255, 255, 255, 0.3);
+// --datepicker-grey-lable: rgba(22, 22, 22, 0.3);
+// --datepicker-grey-lable: rgba(22, 22, 22, 0.3);
