@@ -12,10 +12,15 @@ import Filter from "../../components/Filter/Filter";
 import {
   getFilter,
   selectAllBoards,
+  selectedBoard,
 } from "../../redux/selectors/serviceSelector";
+
 import {useDispatch, useSelector} from "react-redux";
 import ButtonAdd from "../../components/ButtonAdd/ButtonAdd.jsx";
 import {setModalContent, setModalStatus} from "../../redux/slice/servicesSlice.js";
+import { getBoardThunk } from "../../redux/thunk/servicesThunk";
+import { useNavigate } from "react-router-dom";
+
 // import { useTheme } from "../../hooks/useTheme";
 // import { useNavigate } from "react-router";
 // import {
@@ -25,6 +30,7 @@ import {setModalContent, setModalStatus} from "../../redux/slice/servicesSlice.j
 
 const ScreensPage = () => {
   // const { theme, setTheme } = useTheme();
+
   const dispatch = useDispatch();
   const handleClickHelp = () => {
     dispatch(
@@ -34,8 +40,16 @@ const ScreensPage = () => {
     );
     dispatch(setModalStatus(true));
   };
+
+  const { title, columns, background } = useSelector(selectedBoard);
+  const bgImage = background;
+
   const [openFilter, setOpenFilter] = useState(false);
   const isBoards = useSelector(selectAllBoards);
+  const activeBoard = useSelector((state) => state.auth.user.activeBoard);
+  const navigate = useNavigate();
+  const filter = useSelector(getFilter);
+  const dispatch = useDispatch();
   // const isLoggedIn = useSelector(selectIsLoggedIn);
   // const navigate = useNavigate();
   // useEffect(() => {
@@ -43,7 +57,6 @@ const ScreensPage = () => {
   //     navigate(isBoards);
   //   }
   // }, []);
-  const filter = useSelector(getFilter);
 
   const handleOpenFilter = () => {
     setOpenFilter(true);
@@ -61,6 +74,9 @@ const ScreensPage = () => {
       )}
 
       <div className={css.title_container}>
+        <span className={css.title_wrap}>
+          <p className={css.title_board}>{title}</p>
+        </span>
         <span className={css.title_wrap}>
           <button
             className={css.button_filter}
@@ -83,5 +99,4 @@ const ScreensPage = () => {
     </div>
   );
 };
-
 export default ScreensPage;

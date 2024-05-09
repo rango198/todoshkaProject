@@ -64,7 +64,8 @@ export const fetchSingleBoard = createAsyncThunk(
   "service/singleBoard",
   async (id, thunkAPI) => {
     try {
-      const { data } = await getSingleBoard(id);
+      const data = await getSingleBoard(id);
+      console.log(id);
       return data;
     } catch (error) {
       toast.error(error.response.data.message);

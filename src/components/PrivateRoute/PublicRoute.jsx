@@ -20,7 +20,7 @@ const PublicRoute = () => {
   }
 
   if (isLogin) {
-    return <Navigate to="/home/1" />;
+    return <Navigate to="/home" />;
   }
 
   return <Outlet />;

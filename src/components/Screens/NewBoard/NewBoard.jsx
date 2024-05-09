@@ -18,12 +18,10 @@ const NewBoard = () => {
   const params = useParams();
   const dispatch = useDispatch();
 
-  const { title } = useSelector(selectedBoard);
-  // const bgNumber = background;
   const toggleAddColumn = () => {
     setIsAddColumnOpen(!isAddColumnOpen);
   };
-  // const isLoading = useSelector(selectIsBoardsLoading);
+  const isLoading = useSelector(selectIsBoardsLoading);
 
   useEffect(() => {
     if (params.boardName) {
@@ -33,9 +31,6 @@ const NewBoard = () => {
 
   return (
     <div className={css.task_list_container}>
-      <span className={css.title_wrap}>
-        <p className={css.title_board}>{title}</p>
-      </span>
       <ButtonAdd
         onClick={toggleAddColumn}
         title="Add another column"

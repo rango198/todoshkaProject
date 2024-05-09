@@ -143,6 +143,7 @@ const serviceSlice = createSlice({
 
 
     },
+
 });
 
 export const {setModalStatus, setModalContent,addColumnSuccess} = serviceSlice.actions;

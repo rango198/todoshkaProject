@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -33,21 +33,21 @@ const CreateNewBoardModal = ({ onClose }) => {
     resolver: yupResolver(TitleSchema),
     mode: "onChange",
   });
-  console.log(errors);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [selectedIcon, setSelectedIcon] = useState("icon-project");
-  const [selectedBackgroundId, setSelectedBackgroundId] = useState("0");
+  const [selectedBackgroundId, setSelectedBackgroundId] = useState("defalt");
   const existingBoardTitles = useSelector(selectAllBoards);
 
-  // useEffect(() => {
-  //   dispatch(getBoardThunk());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(getBoardThunk());
+  }, [dispatch]);
 
   const handleTitleChange = (event) => {
     setValue("title", event.target.value.toString());
   };
-  <p>{errors.title?.message}</p>;
+
   const handleIconSelect = (icon) => {
     setSelectedIcon(icon);
     setValue("icon", icon);
@@ -70,29 +70,6 @@ const CreateNewBoardModal = ({ onClose }) => {
       "icon-hexagon",
     ];
 
-    // return icons.map(icon => (
-    // <label key={icon} className={css.create_board_label}>
-    //   <input
-    //     type="radio"
-    //     name="icon"
-    //     value={icon}
-    //     className={css.create_board_field}
-    //     checked={selectedIcon === icon}
-    //     onClick={() => handleIconSelect(icon)}
-
-    //   />
-    //   <svg
-    //     className={`${css.create_board_icons} ${selectedIcon === icon ? css.radio_semi_stroke : ''
-    //       }`}
-    //     width="18"
-    //     height="18"
-    //   >
-    //     <use href={`${sprite}#${icon}`}></use>
-    //   </svg>
-    // </label>
-    //    ));
-    //  };
-
     return icons.map((icon) => (
       <svg
         key={icon}
@@ -109,11 +86,11 @@ const CreateNewBoardModal = ({ onClose }) => {
   const renderBackgrounds = () => {
     return data.map((item) => (
       <div
-        className={`${css.backgroundItem} ${selectedBackgroundId === item.id ? css.selected : ""}`}
+        className={`${css.backgroundItem} ${selectedBackgroundId === item.name ? css.selected : ""}`}
         // className={css.backgroundItem}
         key={item.id}
-        selected={selectedBackgroundId === item.id}
-        onClick={() => handleBackgroundSelect(item.id)}
+        selected={selectedBackgroundId === item.name}
+        onClick={() => handleBackgroundSelect(item.name)}
       >
         <img
           className={css.backgroundImage}
@@ -151,15 +128,12 @@ const CreateNewBoardModal = ({ onClose }) => {
       autoClose: 2500,
     });
   };
-  const handleClose = () => {
-    onClose();
-  };
 
   return (
     <div className={css.modal}>
       <h2 className={css.newBoardTitle}>New Board</h2>
 
-      <form onSubmit={() => handleSubmit(handleCreateBoard)}>
+      <form onSubmit={handleSubmit(handleCreateBoard)}>
         <input
           name="title"
           id="newBoardInput"
@@ -180,7 +154,7 @@ const CreateNewBoardModal = ({ onClose }) => {
 
         <ButtonAdd type="submit" title="Create" className={css.button} />
       </form>
-      <ButtonClose onClick={handleClose} />
+      <ButtonClose onClick={onClose} />
     </div>
   );
 };
