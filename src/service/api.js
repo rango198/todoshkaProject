@@ -82,6 +82,15 @@ export const sendHelp = async (formData) => {
   const { data } = await $instance.post("users/help", formData);
   return data;
 };
+
+export const addColumn = async ({ title, id: board }) => {
+  try {
+    const { data } = await $instance.post("columns", { title, board });
+    return data;
+  } catch (error) {
+    throw new Error(error.response.data.message);
+  }
+};
 export const deleteColumn = async (id) => {
   const { data } = await $instance.delete(`columns/${id}`);
   return data;
