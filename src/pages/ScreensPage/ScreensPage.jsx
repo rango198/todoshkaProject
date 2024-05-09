@@ -25,7 +25,6 @@ import {
 import { getBoardThunk } from "../../redux/thunk/servicesThunk";
 import { useNavigate } from "react-router-dom";
 
-
 // import { useTheme } from "../../hooks/useTheme";
 // import { useNavigate } from "react-router";
 // import {
@@ -98,7 +97,6 @@ const ScreensPage = () => {
 
       {/* <NewBoard />
       <Board /> */}
-      <KanbanBoard />
     </div>
   );
 };

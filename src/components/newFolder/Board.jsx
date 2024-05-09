@@ -146,8 +146,8 @@ function KanbanBoard() {
           </div>
           <button onClick={createNewColumn}>Add Column</button>
         </div>
-
-        {createPortal(
+        {/* //////////////////////////// частина коду для двізуального дублювання колонки */}
+        {/* {createPortal(
           <DragOverlay>
             {activeColumn && (
               <ColumnContainer
@@ -171,7 +171,7 @@ function KanbanBoard() {
             )}
           </DragOverlay>,
           document.body
-        )}
+        )} */}
       </DndContext>
     </div>
   );
@@ -252,8 +252,6 @@ function KanbanBoard() {
 
     const isActiveAColumn = active.data.current?.type === "Column";
     if (!isActiveAColumn) return;
-
-    console.log("DRAG END");
 
     setColumns((columns) => {
       const activeColumnIndex = columns.findIndex((col) => col.id === activeId);

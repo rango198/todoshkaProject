@@ -44,7 +44,9 @@ function ColumnContainer({
         {/* Column title */}
         <div>
           <div>{tasks.length}</div>
-          {!editMode && column.title}
+          {!editMode && (
+            <span onClick={() => setEditMode(true)}>{column.title}</span>
+          )}
           {editMode && (
             <input
               value={column.title}
