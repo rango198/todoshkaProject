@@ -96,7 +96,7 @@
 .priority {
   font-size: 10px;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--color-white);
 }
 
 .button {
