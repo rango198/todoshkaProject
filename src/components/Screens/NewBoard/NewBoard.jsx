@@ -16,11 +16,8 @@ import { fetchSingleBoard } from "../../../redux/thunk/servicesThunk";
 const NewBoard = () => {
   const [isAddColumnOpen, setIsAddColumnOpen] = useState(false);
   const params = useParams();
-  console.log(params);
   const dispatch = useDispatch();
 
-  const { title, background } = useSelector(selectedBoard);
-  const bgNumber = background;
   const toggleAddColumn = () => {
     setIsAddColumnOpen(!isAddColumnOpen);
   };
@@ -29,16 +26,11 @@ const NewBoard = () => {
   useEffect(() => {
     if (params.boardName) {
       dispatch(fetchSingleBoard(params.boardName));
-    } else {
-      console.log("ID is undefined");
     }
   }, [dispatch, params.boardName]);
 
   return (
     <div className={css.task_list_container}>
-      <span className={css.title_wrap}>
-        <p className={css.title_board}>{title}</p>
-      </span>
       <ButtonAdd
         onClick={toggleAddColumn}
         title="Add another column"

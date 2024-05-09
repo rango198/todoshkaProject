@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { logout } from "../../service/api.js";
 import flower from "../../assets/img/png/flower.png";
@@ -13,9 +13,11 @@ import {
 } from "../../redux/slice/servicesSlice.js";
 import CreateNewBoardModal from "../CreateNewBoardModal/CreateNewBoardModal.jsx";
 import Modal from "../Modal/Modal.jsx";
+import { selectedBoard } from "../../redux/selectors/serviceSelector.js";
 
 const SidebarActive = ({ boards }) => {
   const dispatch = useDispatch();
+  const { title } = useSelector(selectedBoard);
   const [isAddBoardOpen, setIsAddBoardOpen] = useState(false);
   const toggleAddBoard = () => {
     setIsAddBoardOpen(!isAddBoardOpen);
@@ -45,7 +47,7 @@ const SidebarActive = ({ boards }) => {
             <h2 className={css.sidebarBoxTitle}>Task Pro</h2>
           </section>
           <div className={css.sidebarItem}>
-            <p className={css.sidebarItemTitle}>My boards</p>
+            <p className={css.sidebarItemTitle}>{title}</p>
           </div>
           <section className={css.sidebarBoard}>
             <p className={css.sidebarBoardItem}>Create a new board</p>
