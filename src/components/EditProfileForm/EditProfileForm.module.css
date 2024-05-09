@@ -36,6 +36,13 @@
   right: 50%;
   top: 15%;
 }
+/* .avatar {
+  width: 32px;
+  height: 32px;
+  background-image: var(--background-image);
+  background-size: contain;
+  background-repeat: no-repeat;
+} */
 
 .profileImage {
   width: 68px;

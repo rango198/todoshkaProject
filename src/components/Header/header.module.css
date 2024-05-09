@@ -43,9 +43,13 @@
   padding: 0;
   color: var(--color);
 }
-.icon_user {
+
+.avatar {
   width: 32px;
   height: 32px;
+  background-image: var(--background-image1);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 @media screen and (min-width: 768px) {

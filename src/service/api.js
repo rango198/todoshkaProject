@@ -48,7 +48,7 @@ export const updateUser = async (formData) => {
 
 export const changeTheme = async (params) => {
   const { data } = await $instance.patch("users/theme", params);
-  clearAccessToken();
+
   return data;
 };
 
