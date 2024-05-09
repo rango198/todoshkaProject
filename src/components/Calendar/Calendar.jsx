@@ -15,7 +15,7 @@ const Calendar = () => {
   ));
 
   return (
-    <div>
+    <div style={{display: 'flex', alignItems: 'flex-end' }}>
       <ReactDatePicker
         locale="en-GB"
         selected={startDate}
@@ -26,10 +26,9 @@ const Calendar = () => {
         dateFormat="MMMM d"
       />
       <svg width={18} height={18}>
-        <use href={`${sprite}#chevron-down`} />
+      <use href={`${sprite}#chevron-down`} style={{ stroke: 'var(--calendar-input)'}} />
       </svg>
-    </div>
-  );
+    </div>  );
 };
 
 export default Calendar;

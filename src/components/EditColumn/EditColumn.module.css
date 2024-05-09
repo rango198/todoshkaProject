@@ -1,0 +1,79 @@
+.wrapper {
+  padding: 24px;
+  position: relative;
+
+  border: 1px solid rgba(190, 219, 176, 0.5);
+  border-radius: 8px;
+
+  width: 320px;
+  height: 221px;
+  background-color: var(--calendar-background-color);
+}
+
+@media screen and (min-width: 375px) {
+  .wrapper {
+    width: 350px;
+  }
+}
+
+.title {
+  font-weight: 500;
+  font-size: 18px;
+
+  color: var(--main_text_color);
+  margin-bottom: 24px;
+}
+
+.input {
+  background-color: transparent;
+
+  margin-bottom: 24px;
+  width: 302px;
+  height: 49px;
+
+  padding: 14px 18px;
+
+  border: 1px solid var(--bg-button-active);
+  border-radius: 8px;
+
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
+  opacity: 0.4;
+
+  height: 21px;
+
+  color: var(--color-font);
+}
+
+.input::placeholder {
+  color: #161616;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.buttonSbt {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+
+  width: 302px;
+  height: 49px;
+
+  font-weight: 500;
+
+  background-color: var(--bg-button);
+  color: var(--color-font);
+
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+
+  transition: background-color 250ms linear;
+}
+
+.submBtn:hover {
+  background-color: var(--bg-button-active);
+}
