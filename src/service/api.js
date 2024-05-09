@@ -83,6 +83,8 @@ export const sendHelp = async (formData) => {
   return data;
 };
 
+
+//Column
 export const addColumn = async ({ title, id: board }) => {
   try {
     const { data } = await $instance.post("columns", { title, board });
@@ -91,12 +93,48 @@ export const addColumn = async ({ title, id: board }) => {
     throw new Error(error.response.data.message);
   }
 };
+
 export const deleteColumn = async (id) => {
   const { data } = await $instance.delete(`columns/${id}`);
+  return data;
+};
+export const editColumn = async (id, body) => {
+  const { data } = await $instance.put(`columns/${id}`, body);
+  return data;
+};
+
+/////////////////Tasks///////////////////////////////////////////
+
+// export const getAllTasks = async () => {
+//   const { data } = await $instance.get("tasks");
+//   return data;
+// };
+
+export const addTask = async (body) => {
+  const { data } = await $instance.post("tasks", body);
+  return data;
+};
+
+// export const getSingleTask = async (id) => {
+//   const { data } = await $instance.get(`tasks/${id}`);
+//   return data;
+// };
+
+export const editTask = async (body) => {
+  const { data } = await $instance.put(`tasks/${body.id}`, body);
   return data;
 };
 
 export const deleteTask = async (id) => {
   const { data } = await $instance.delete(`tasks/${id}`);
+  return data;
+};
+
+export const moveTask = async (id, source, destination) => {
+  const { data } = await $instance.patch(
+    `tasks/${id}/transfer`,
+    source,
+    destination
+  );
   return data;
 };
