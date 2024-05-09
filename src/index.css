@@ -99,15 +99,21 @@ html[data-theme="dark"] {
   --color-radioDescr: rgba(255, 255, 255, 0.5);
   --color-board: rgba(255, 255, 255, 0.5);
   --bg-sidebar: #121212;
-  --bg-button: #bedbb0;
-  --bg-button-active: #9dc888;
   --sb-icon-stroke: #121212;
 
+  /* Pop up */
+  --bg-color: #151515;
+  --color: #fff;
+  --color-placeholder: rgba(255, 255, 255, 0.5);
+  --bg-input: #1f1f1f;
+  --bg-button: #bedbb0;
+  --bg-button-active: #9dc888;
+  --button-color-square: #161616;
+  --button-plus: #fff;
 
   /* Icon Avatar Default */
   --background-image1: url(assets/img/userAvatar/user-dark1.png);
   --background-image: url(assets/img/userAvatar/user-dark.png);
-
 
   /* Calendar */
   --calendar-background-color: #1f1f1f;
@@ -127,7 +133,6 @@ html[data-theme="dark"] {
   --datepicker-grey-lable: rgba(255, 255, 255, 0.3);
   --datepicker-checked: #151512;
   --datepicker-focused: #fff;
-
 }
 
 html[data-theme="light"] {
@@ -144,10 +149,17 @@ html[data-theme="light"] {
   --color-radioDescr: rgba(22, 22, 22, 0.5);
   --color-board: rgba(22, 22, 22, 0.7);
   --bg-sidebar: #fff;
-  --bg-button: #bedbb0;
-  --bg-button-active: #9dc888;
   --sb-icon-stroke: #fff;
 
+  /* Pop up */
+  --bg-color: #fcfcfc;
+  --color: #161616;
+  --color-placeholder: rgba(22, 22, 22, 0.5);
+  --bg-input: rgba(22, 22, 22, 0.8);
+  --bg-button: #bedbb0;
+  --bg-button-active: #9dc888;
+  --button-color-square: #161616;
+  --button-plus: #fff;
 
   /* Icon Avatar Default */
   --background-image1: url(assets/img/userAvatar/user-light1.png);
@@ -166,14 +178,11 @@ html[data-theme="light"] {
   --calendar-day-selected: #161616;
   --calendar-day-selected-background: #bedbb0;
 
-
-
   /*RadioButtons Filter*/
   --datepicker-grey: rgba(22, 22, 22, 0.5);
   --datepicker-grey-lable: rgba(22, 22, 22, 0.3);
   --datepicker-checked: #ffffff;
   --datepicker-focused: #161616;
-
 }
 
 html[data-theme="violet"] {
@@ -190,14 +199,21 @@ html[data-theme="violet"] {
   --color-radioDescr: rgba(22, 22, 22, 0.5);
   --color-board: rgba(22, 22, 22, 0.7);
   --bg-sidebar: #5255bc;
+  --sb-icon-stroke: #fff;
+
+  /* Pop up */
+  --bg-color: #fcfcfc;
+  --color: #161616;
+  --color-placeholder: rgba(22, 22, 22, 0.5);
+  --bg-input: rgba(22, 22, 22, 0.8);
   --bg-button: #7b7ede;
   --bg-button-active: #5255bc;
-  --sb-icon-stroke: #fff;
+  --button-color-square: #fff;
+  --button-plus: #161616;
 
   /* Icon Avatar Default */
   --background-image1: url(assets/img/userAvatar/user-violet1.png);
   --background-image: url(assets/img/userAvatar/user-violet.png);
-
 
   /* Calendar */
   --calendar-background-color: #fff;
@@ -217,7 +233,6 @@ html[data-theme="violet"] {
   --datepicker-grey-lable: rgba(22, 22, 22, 0.3);
   --datepicker-checked: #ffffff;
   --datepicker-focused: #161616;
-
 }
 
 h1,
