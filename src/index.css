@@ -104,7 +104,7 @@ html[data-theme="dark"] {
   --sb-icon-stroke: #121212;
 
   /* Calendar */
-  --calendar-background-color: ##1f1f1f;
+  --calendar-background-color: #1f1f1f;
   --calendar-text-color: #fff;
   --calendar-input: #bedbb0;
   --calendar-month: rgba(255, 255, 255, 0.5);
