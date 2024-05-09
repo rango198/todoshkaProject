@@ -8,16 +8,16 @@ const RadioFilter = ({ onFilterChange, priority }) => {
     {
       value: "Without",
       label: "Without priority",
-      labelColor: selectedValue === 'Without' ? '#fff' : 'var(--color-icon-grey)',
+      labelColor: selectedValue === 'Without' ? 'var(--datepicker-focused)' : 'var(--datepicker-grey)',
       radioColor: {
-        static: "rgba(255, 255, 255, 0.5)",
-        onChecked: "rgba(22, 22, 22, 0.3)",
+        static: "var(--datepicker-grey-lable)",
+        onChecked: "var(--datepicker-checked)",
       },
     },
     {
       value: "Low",
       label: "Low",
-      labelColor: selectedValue === 'Low' ? '#fff' : 'var(--color-icon-grey)',
+      labelColor: selectedValue === 'Low' ? 'var(--datepicker-focused)' : 'var(--datepicker-grey)',
       radioColor: {
         static: "var(--color-blue)",
         onChecked: "var(--bg-color-form)",
@@ -26,7 +26,7 @@ const RadioFilter = ({ onFilterChange, priority }) => {
     {
       value: "Medium",
       label: "Medium",
-      labelColor: selectedValue === 'Medium' ? '#fff' : 'var(--color-icon-grey)',
+      labelColor: selectedValue === 'Medium' ? 'var(--datepicker-focused)' : 'var(--datepicker-grey)',
       radioColor: {
         static: "var(--color-pink)",
         onChecked: "var(--bg-color-form)",
@@ -35,7 +35,7 @@ const RadioFilter = ({ onFilterChange, priority }) => {
     {
       value: "High",
       label: "High",
-      labelColor: selectedValue === 'High' ? '#fff' : 'var(--color-icon-grey)',
+      labelColor: selectedValue === 'High' ? 'var(--datepicker-focused)' : 'var(--datepicker-grey)',
       radioColor: {
         static: "var(--color-green)",
         onChecked: "var(--bg-color-form)",
@@ -107,3 +107,20 @@ const RadioFilter = ({ onFilterChange, priority }) => {
 };
 
 export default RadioFilter;
+
+
+//   --datepicker-grey: rgba(255, 255, 255, 0.5);
+//   --datepicker-grey: rgba(22, 22, 22, 0.5);
+//   --datepicker-grey: rgba(22, 22, 22, 0.5);
+
+// --datepicker-grey-lable: rgba(255, 255, 255, 0.3);
+// --datepicker-grey-lable: rgba(22, 22, 22, 0.3);
+// --datepicker-grey-lable: rgba(22, 22, 22, 0.3);
+
+// --datepicker-checked: #151512;
+// --datepicker-checked: #ffffff;
+// --datepicker-checked: #ffffff;
+
+// --datepicker-focused: #fff;
+// --datepicker-focused: #161616;;
+// --datepicker-focused: #161616;;

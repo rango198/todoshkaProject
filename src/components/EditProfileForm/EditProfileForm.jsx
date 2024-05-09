@@ -77,18 +77,19 @@ const EditProfileForm = ({ userAvatar, onClose }) => {
     reset();
   };
 
-  const handleClose = () => {
-    console.log(typeof onClose);
-    onClose();
-  };
+  // const handleClose = () => {
+  //   console.log(typeof onClose);
+  //   onClose();
+  // };
+
 
   return (
     <div className={css.modalContainer}>
-      <button onClick={handleClose} className={css.closeModal}>
+      {/* <button onClick={handleClose} className={css.closeModal}>
         <Icon id="close" className={css.closeSvg} />
-      </button>
-      <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
-        <h2 className={css.textNameModal}>Edit profile</h2>
+      </button> */}
+      <h2 className={css.textNameModal}>Edit profile</h2>
+      <form className={css.formUser} onSubmit={handleSubmit(onSubmit)}>
         <div className={css.formData}>
           <div className={css.imgContainer}>
             <img
@@ -96,7 +97,7 @@ const EditProfileForm = ({ userAvatar, onClose }) => {
               height="79px"
               className={css.profileImag}
               src={newAvatar || userAvatar}
-              alt="user"
+              alt="user-avatar"
             />
 
             <label className={css.labelAvatar}>

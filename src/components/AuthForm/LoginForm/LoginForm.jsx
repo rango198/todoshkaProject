@@ -10,7 +10,11 @@ import { useDispatch } from "react-redux";
 
 const schema = yup.object({
   email: yup.string().required("Required field"),
-  password: yup.string().required("Required field").min(5, "min 5 characters"),
+  password: yup
+    .string()
+    .required("Required field")
+    .min(8, "min 8 characters")
+    .max(64),
 });
 
 const LoginForm = () => {

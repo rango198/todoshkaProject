@@ -103,12 +103,14 @@ html[data-theme="dark"] {
   --bg-button-active: #9dc888;
   --sb-icon-stroke: #121212;
 
+
   /* Icon Avatar Default */
   --background-image1: url(assets/img/userAvatar/user-dark1.png);
   --background-image: url(assets/img/userAvatar/user-dark.png);
 
+
   /* Calendar */
-  --calendar-background-color: ##1f1f1f;
+  --calendar-background-color: #1f1f1f;
   --calendar-text-color: #fff;
   --calendar-input: #bedbb0;
   --calendar-month: rgba(255, 255, 255, 0.5);
@@ -119,6 +121,13 @@ html[data-theme="dark"] {
   --calendar-active-day: #1f1f1f;
   --calendar-day-selected: #fff;
   --calendar-day-selected-background: #bedbb0;
+
+  /*RadioButtons Filter*/
+  --datepicker-grey: rgba(255, 255, 255, 0.5);
+  --datepicker-grey-lable: rgba(255, 255, 255, 0.3);
+  --datepicker-checked: #151512;
+  --datepicker-focused: #fff;
+
 }
 
 html[data-theme="light"] {
@@ -139,6 +148,7 @@ html[data-theme="light"] {
   --bg-button-active: #9dc888;
   --sb-icon-stroke: #fff;
 
+
   /* Icon Avatar Default */
   --background-image1: url(assets/img/userAvatar/user-light1.png);
   --background-image: url(assets/img/userAvatar/user-light.png);
@@ -155,6 +165,15 @@ html[data-theme="light"] {
   --calendar-active-day: #161616;
   --calendar-day-selected: #161616;
   --calendar-day-selected-background: #bedbb0;
+
+
+
+  /*RadioButtons Filter*/
+  --datepicker-grey: rgba(22, 22, 22, 0.5);
+  --datepicker-grey-lable: rgba(22, 22, 22, 0.3);
+  --datepicker-checked: #ffffff;
+  --datepicker-focused: #161616;
+
 }
 
 html[data-theme="violet"] {
@@ -179,6 +198,7 @@ html[data-theme="violet"] {
   --background-image1: url(assets/img/userAvatar/user-violet1.png);
   --background-image: url(assets/img/userAvatar/user-violet.png);
 
+
   /* Calendar */
   --calendar-background-color: #fff;
   --calendar-text-color: #161616;
@@ -191,6 +211,13 @@ html[data-theme="violet"] {
   --calendar-active-day: #fcfcfc;
   --calendar-day-selected: #161616;
   --calendar-day-selected-background: #5255bc;
+
+  /*RadioButtons Filter*/
+  --datepicker-grey: rgba(22, 22, 22, 0.5);
+  --datepicker-grey-lable: rgba(22, 22, 22, 0.3);
+  --datepicker-checked: #ffffff;
+  --datepicker-focused: #161616;
+
 }
 
 h1,
