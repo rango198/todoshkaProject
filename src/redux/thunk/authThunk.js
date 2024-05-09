@@ -43,7 +43,7 @@ export const logoutThunk = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await logout();
-      clearAuthHeader();
+      // clearAuthHeader();
       return response;
     } catch (error) {
       toast.error(`Error during user logout: ${error.message}`);

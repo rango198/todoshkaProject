@@ -1,10 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { logout } from "../../service/api.js";
+
 import flower from "../../assets/img/png/flower.png";
 import flowerTwoX from "../../assets/img/png/flower@2x.png";
 import flowerThreeX from "../../assets/img/png/flower@3x.png";
-
+import { logoutThunk } from "../../redux/thunk/authThunk.js";
 import css from "./Sidebar.module.css";
 import Icon from "../Icon/Icon";
 import {
@@ -32,10 +33,12 @@ const SidebarActive = ({ boards }) => {
     dispatch(setModalStatus(true));
   };
 
-  const handleClickLogout = () => {
-    console.log("Click");
-  };
+  // const handleClickLogout = () => {
+  //   console.log("Click");
+  // };
 
+  const handleClickLogout = () => dispatch(logoutThunk());
+  // const onLogout = () => dispatch(logout());
   return (
     <div>
       <aside className={css.sidebar}>
