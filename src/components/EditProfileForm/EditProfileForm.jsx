@@ -82,7 +82,6 @@ const EditProfileForm = ({ userAvatar, onClose }) => {
   //   onClose();
   // };
 
-
   return (
     <div className={css.modalContainer}>
       {/* <button onClick={handleClose} className={css.closeModal}>
@@ -94,7 +93,7 @@ const EditProfileForm = ({ userAvatar, onClose }) => {
           <div className={css.imgContainer}>
             <img
               width="68px"
-              height="79px"
+              height="68px"
               className={css.profileImag}
               src={newAvatar || userAvatar}
               alt="user-avatar"
