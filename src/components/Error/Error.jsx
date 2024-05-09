@@ -3,8 +3,6 @@ import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 import img from '../../assets/img/error/error.png'
-
-import Calendar from '../Calendar/Calendar';
 import css from './Error.module.css'
 
 const Error = () => {
@@ -20,11 +18,8 @@ const Error = () => {
             <p className={css.text}><Link to={goBack}>Go to Home Page</Link></p>
         </div>
         <img src={img} alt="error page" />
-   
+
      </div>
-
-
-
     )
 }
 
