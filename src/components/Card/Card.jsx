@@ -1,17 +1,20 @@
 // import { useState, useEffect } from "react";
 // import { useSelector } from "react-redux";
 
+// import DeletePopup from "../DeletePopup/DeletePopup";
 // import PopupMoveCard from "./PopupMoveCard/PopupMoveCard";
 // import Icon from "../Icon/Icon";
 // import css from "./Card.module.css";
 
-// const Card = () => {
+// const Card = ({task}) => {
+
 //   const task = useSelector((state) => state.task); // Припустила що дані про одну таску зберігаються у Redux під ключем "task"
-//   //const boards = useSelector((state) => state.boards); Отримати список дошок з Redux store для відображення значка перемістити
+//   //const columns = useSelector((state) => state.columns); Отримати список колонок з Redux store для відображення значка перемістити
 
 //   const [currentDate, setCurrentDate] = useState(new Date());
 //   const [showPopup, setShowPopup] = useState(false);
 //   const [showFullText, setShowFullText] = useState(false);
+//   const [showPopupDelete, setShowPopupDelete] = useState(false);
 
 //   const handleClickPopup = () => {
 //     setShowPopup(!showPopup);
@@ -22,9 +25,14 @@
 //     console.log("click");
 //   };
 
-//   const handleClickDelete = () => {
-//     console.log("click");
-//   };
+// const handleClickDelete = () => {
+//   setShowPopupDelete(true);
+//   console.log("click");
+// };
+
+// const handleCloseDelete = () => {
+//   setShowPopupDelete(!showPopupDelete);
+// };
 
 //   const handleFullText = () => {
 //     setShowFullText(!showFullText);
@@ -108,7 +116,7 @@
 //               <Icon id="bell" />
 //             </svg>
 //           )}
-//           {/*{boards.length > 1 && /*показуємо кнопку якщо є хоча б дві дошки*/}
+//           {/*{columns.length > 1 && /*показуємо кнопку якщо є хоча б дві колонки*/}
 //           <button onClick={handleClickPopup} className={css.button}>
 //             <svg className={css.icon}>
 //               <Icon id="broken-right" />
@@ -126,6 +134,7 @@
 //               <Icon id="trash" />
 //             </svg>
 //           </button>
+//           {showPopupDelete && <DeletePopup onClose={handleCloseDelete} id={task.id} type="task"}/>}
 //         </div>
 //       </div>
 //     </div>
@@ -137,6 +146,7 @@
 // Базовий код, щоб подивитись вигляд поп-ап вікна з данними
 
 import { useState } from "react";
+import DeletePopup from "../DeletePopup/DeletePopup";
 import PopupMoveCard from "./PopupMoveCard/PopupMoveCard";
 import Icon from "../Icon/Icon";
 import css from "./Card.module.css";
@@ -144,8 +154,9 @@ import css from "./Card.module.css";
 const Card = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [showFullText, setShowFullText] = useState(false);
+  const [showPopupDelete, setShowPopupDelete] = useState(false);
 
-  //const boards = useSelector((state) => state.boards); Отримати список дошок з Redux store
+  //const columns = useSelector((state) => state.columns); Отримати список колонок з Redux store
 
   const handleClickPopup = () => {
     setShowPopup(!showPopup);
@@ -157,7 +168,12 @@ const Card = () => {
   };
 
   const handleClickDelete = () => {
+    setShowPopupDelete(true);
     console.log("click");
+  };
+
+  const handleCloseDelete = () => {
+    setShowPopupDelete(!showPopupDelete);
   };
 
   const handleFullText = () => {
@@ -195,7 +211,7 @@ const Card = () => {
           <svg className={css.bellIkon}>
             <Icon id="bell" />
           </svg>
-          {/*{boards.length > 1 && /*показуємо кнопку якщо є хоча б дві дошки*/}
+          {/*{columns.length > 1 && /*показуємо кнопку якщо є хоча б дві колонки*/}
           <button onClick={handleClickPopup} className={css.button}>
             <svg className={css.icon}>
               <Icon id="broken-right" />
@@ -213,6 +229,7 @@ const Card = () => {
               <Icon id="trash" />
             </svg>
           </button>
+          {showPopupDelete && <DeletePopup onClose={handleCloseDelete} />}
         </div>
       </div>
     </div>

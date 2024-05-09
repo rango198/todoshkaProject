@@ -1,0 +1,25 @@
+.userInfoContainer {
+  display: flex;
+  flex-direction: row;
+}
+.button_user {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  color: var(--color);
+}
+.icon_user {
+  width: 79px;
+  height: 32px;
+}
+.userName {
+  color: var(--color-theme);
+  font-size: 14px;
+}
+.icon_user {
+  background-image: url("../../assets/img/userAvatar/user2x-min.png");
+  background-repeat: no-repeat;
+}

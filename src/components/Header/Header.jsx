@@ -9,7 +9,7 @@ import Theme from "../Theme/Theme";
 import css from "./header.module.css";
 import { useState } from "react";
 import { Navigation } from "../Navigation/Navigation";
-// import EditProfileForm from "../EditProfileForm/EditProfileForm";
+
 import UserInfo from "./UserInfo";
 
 const Header = () => {
@@ -52,7 +52,6 @@ const Header = () => {
         </button> */}
         <UserInfo />
       </div>
-      {/* <EditProfileForm /> */}
     </header>
   );
 };
