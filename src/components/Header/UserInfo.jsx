@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
 import { useTheme, useUserAvatar, useUserName } from "../../hooks";
+import { useDispatch } from "react-redux";
+import {
+  setModalContent,
+  setModalStatus,
+} from "../../redux/slice/servicesSlice";
 import Modal from "../Modal/Modal";
 import EditProfileForm from "../EditProfileForm/EditProfileForm";
 import css from "./UserInfo.module.css";
+
 const UserInfo = () => {
   const darkAvatar = "../../assets/img/userAvatar/user-dark.png";
   const ligthAvatar = "../../assets/img/userAvatar/user-light.png";
@@ -10,12 +16,21 @@ const UserInfo = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [userAvatar, setUserAvatar] = useState(darkAvatar);
-
+  const dispatch = useDispatch();
   const userName = useUserName();
   const userAvatarGet = useUserAvatar();
   const theme = useTheme();
 
   const openModal = () => {
+    const handleClick = () => {
+      dispatch(
+        setModalContent({
+          action: "editProfile",
+        })
+      );
+      dispatch(setModalStatus(true));
+    };
+    handleClick();
     setIsModalOpen(true);
   };
 
@@ -53,13 +68,13 @@ const UserInfo = () => {
   }, [theme, userAvatarGet]);
 
   return (
-    <div>
-      <h2>{userName}</h2>
-      <button onClick={openModal}>
-        <img src={userAvatar} alt="user-avatar" />
+    <div className={css.userInfoContainer}>
+      <p className={css.userName}>{userName}</p>
+      <button className={css.button_user} onClick={openModal}>
+        <img className={css.icon_user} src={userAvatar} alt="user-avatar" />
       </button>
       <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <EditProfileForm userAvatar={userAvatar} onClose={closeModal} />
+        <EditProfileForm userAvatar={userAvatar} />
       </Modal>
     </div>
   );

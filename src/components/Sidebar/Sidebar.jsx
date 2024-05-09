@@ -1,21 +1,29 @@
-import { useDispatch } from "react-redux";
+
+
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 import { logout } from "../../service/api.js";
+
 import flower from "../../assets/img/png/flower.png";
 import flowerTwoX from "../../assets/img/png/flower@2x.png";
 import flowerThreeX from "../../assets/img/png/flower@3x.png";
-
+import { logoutThunk } from "../../redux/thunk/authThunk.js";
 import css from "./Sidebar.module.css";
 import Icon from "../Icon/Icon";
 import {
   setModalContent,
   setModalStatus,
 } from "../../redux/slice/servicesSlice.js";
+import CreateNewBoardModal from "../CreateNewBoardModal/CreateNewBoardModal.jsx";
+import Modal from "../Modal/Modal.jsx";
+import { selectedBoard } from "../../redux/selectors/serviceSelector.js";
 
 const SidebarActive = ({ boards }) => {
   const dispatch = useDispatch();
-
-  const handleClickBoard = () => {
-    console.log("Click");
+  const { title } = useSelector(selectedBoard);
+  const [isAddBoardOpen, setIsAddBoardOpen] = useState(false);
+  const toggleAddBoard = () => {
+    setIsAddBoardOpen(!isAddBoardOpen);
   };
 
   const handleClickHelp = () => {
@@ -27,10 +35,12 @@ const SidebarActive = ({ boards }) => {
     dispatch(setModalStatus(true));
   };
 
-  const handleClickLogout = () => {
-    console.log("Click");
-  };
+  // const handleClickLogout = () => {
+  //   console.log("Click");
+  // };
 
+  const handleClickLogout = () => dispatch(logoutThunk());
+  // const onLogout = () => dispatch(logout());
   return (
     <div>
       <aside className={css.sidebar}>
@@ -42,12 +52,12 @@ const SidebarActive = ({ boards }) => {
             <h2 className={css.sidebarBoxTitle}>Task Pro</h2>
           </section>
           <div className={css.sidebarItem}>
-            <p className={css.sidebarItemTitle}>My boards</p>
+            <p className={css.sidebarItemTitle}>{title}</p>
           </div>
           <section className={css.sidebarBoard}>
             <p className={css.sidebarBoardItem}>Create a new board</p>
             <button
-              onClick={handleClickBoard}
+              onClick={toggleAddBoard}
               className={css.sidebarBoardButton}
               type="button"
             >
@@ -55,6 +65,9 @@ const SidebarActive = ({ boards }) => {
                 <Icon id="icon-icon-plus" />
               </svg>
             </button>
+            <Modal open={isAddBoardOpen} onClose={toggleAddBoard}>
+              <CreateNewBoardModal onClose={toggleAddBoard} />
+            </Modal>
             {/*тут потрібно буду додати дві модалки видалення і створення які будуть створені в окремому компоненті і імпортовані*/}
           </section>
           {/*{boards && (*/} {/*відмальовуєм коли користувач за лог*/}

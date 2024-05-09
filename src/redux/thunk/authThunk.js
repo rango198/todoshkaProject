@@ -43,7 +43,7 @@ export const logoutThunk = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await logout();
-      clearAuthHeader();
+      // clearAuthHeader();
       return response;
     } catch (error) {
       toast.error(`Error during user logout: ${error.message}`);
@@ -67,10 +67,10 @@ export const currentUserThunk = createAsyncThunk(
 
 export const updateUserThunk = createAsyncThunk(
   "auth/update",
-  async (params, thunkAPI) => {
+  async (userData, thunkAPI) => {
     try {
-      const res = await updateUser(params);
-      return res.params;
+      const { data } = await updateUser(userData.formData);
+      return data;
     } catch (error) {
       toast.error(`Failed to update user data: ${error.message}`);
       return thunkAPI.rejectWithValue(error.message);

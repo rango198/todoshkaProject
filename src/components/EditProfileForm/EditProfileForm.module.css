@@ -1,44 +1,77 @@
+.modalContainer {
+  max-width: 335px;
+  padding: 24px;
+  background: white;
+  box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.05);
+  border-radius: 8px;
+  margin: 0 auto;
+  /* position: relative; */
+}
+.textNameModal {
+  color: black;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  margin-bottom: 117px;
+  text-align: left;
+}
+.formUser {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* position: relative; */
+}
 .imgContainer {
-  /* background-image: url("../../assets/img/userAvatar.svg"); */
-  background-repeat: no-repeat;
-  position: relative;
+  /* background-image: url("../../assets/img/userAvatar.svg");
+  background-repeat: no-repeat; */
+  width: 68px;
+  height: 68px;
+  position: absolute;
   z-index: 0;
   display: flex;
   align-items: center;
+  left: 40%;
+  right: 50%;
+  top: 15%;
 }
-.errorMessage {
-  color: red;
-  font-size: 12px;
-}
-.profileInput {
-  position: absolute;
+/* .avatar {
+  width: 32px;
+  height: 32px;
+  background-image: var(--background-image);
+  background-size: contain;
+  background-repeat: no-repeat;
+} */
 
-  box-sizing: border-box;
-  width: 287px;
-  height: 49px;
-  border-radius: 8px;
-  border: 1px solid #bedbb0;
-  box-shadow: 0px 4px 16px 0px #16161614;
-  background: transparent;
-  padding: 14px 24px;
-}
 .profileImage {
   width: 68px;
-  height: 79px;
-  align-items: center;
+  height: 68px;
+  justify-content: center;
+  margin: 0 auto;
 }
-
+labelAvatar {
+  position: absolute;
+  left: 30%;
+  bottom: -18%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7px;
+  background-color: #bedbb0;
+  border-radius: 6px;
+}
 .inputAvatar {
   position: absolute;
   z-index: 1;
-  left: 25%;
-  right: 25%;
-  top: 25%;
+  left: 50%;
+  right: 50%;
+  top: 80%;
   bottom: 25%;
-  color: transparent;
+  color: black;
   width: 24px;
   height: 24px;
-  margin-bottom: 14px;
+
   visibility: hidden;
 }
 
@@ -49,48 +82,27 @@
   display: inline-block;
   cursor: pointer;
 }
-.inputAvatar:hover,
-.inputAvatar:focus {
-  background: #9dc888;
-}
+
 .svgPlus {
   background-color: #bedbb0;
   border: 1px solid #bedbb0;
-  border-radius: 3px;
+  border-radius: 5px;
   width: 24px;
   height: 24px;
-}
-.eye {
+  padding: 5px;
   position: absolute;
-  width: 18px;
-  height: 18px;
-  left: 251px;
-  top: 16px;
+  z-index: 1;
+  left: 40%;
+  right: 50%;
+  top: 85%;
+  bottom: 60%;
+  color: #161616;
 }
-/* ////////////////////////////////////////////////////////////// */
-.modalContainer {
-  max-width: 335px;
-  padding: 24px;
-  background: white;
-  box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.05);
-  border-radius: 8px;
-  margin: 0 auto;
+.svgPlus:hover,
+.svgPlus:focus {
+  background: #9dc888;
 }
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.textNameModal {
-  color: black;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
-  margin-bottom: 24px;
-  text-align: left;
-}
+
 .inputMail {
   box-sizing: border-box;
   width: 287px;
@@ -102,7 +114,7 @@
   padding-block: 0;
   background: transparent;
   margin-bottom: 14px;
-  padding: 0;
+  padding: 18px 14px;
   opacity: 0.4;
   color: black;
 }
@@ -111,20 +123,41 @@
 .inputMail:focus {
   opacity: 1;
 }
-.inputwithicon {
+.inputPassword {
+  box-sizing: border-box;
+  width: 287px;
+  height: 49px;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid #bedbb0;
+  padding-inline: 0;
+  padding-block: 0;
+  background: transparent;
+  margin-bottom: 14px;
+  padding: 18px 14px;
+  opacity: 0.4;
+  color: black;
   position: relative;
 }
-.svg_icon {
+.inputEye {
+  position: relative;
+}
+.svgIcon {
   width: 18px;
 
   position: absolute;
-  stroke: black;
+  stroke: #161616;
   right: 18px;
+  position: absolute;
+  top: 50%;
 
+  transform: translateY(-60%);
   bottom: 0;
   height: 100%;
-  display: flex;
-  align-items: center;
+}
+.errorMessage {
+  color: red;
+  font-size: 12px;
 }
 .buttonSend {
   width: 287px;
@@ -144,7 +177,7 @@
   background: #9dc888;
   border-color: #151515;
 }
-.close {
+.closeModal {
   border: none;
   outline: none;
   background-color: transparent;
@@ -155,15 +188,32 @@
   position: absolute;
   top: 14px;
   right: 14px;
+
   cursor: pointer;
 }
-.close_svg {
+.closeSvg {
   width: 18px;
   height: 18px;
   stroke: black;
   transition: stroke 250ms linear;
 }
 
-.close_svg:hover {
+.closeSvg:hover {
   stroke: #bedbb0;
+}
+
+@media screen and (min-width: 375px) {
+}
+
+@media screen and (min-width: 768px) {
+  .modalContainer {
+    max-width: 400px;
+  }
+  .inputMail,
+  .inputPassword,
+  .buttonSend {
+    width: 352px;
+  }
+}
+@media screen and (min-width: 1440px) {
 }

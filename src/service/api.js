@@ -14,7 +14,7 @@ const clearAccessToken = () => {
 
 export const register = async (params) => {
   const { data } = await $instance.post("users/register", params);
-  setAccessToken(data.token);
+  setAccessToken(data.accessToken);
   return data;
 };
 
@@ -26,6 +26,8 @@ export const login = async (params) => {
 
 export const logout = async () => {
   const { data } = await $instance.post("users/logout");
+  console.log(data);
+
   clearAccessToken();
   return data;
 };
@@ -41,14 +43,14 @@ export const currentUser = async (params) => {
   return data;
 };
 
-export const updateUser = async (params) => {
-  const { data } = await $instance.put("users/update", params);
+export const updateUser = async (formData) => {
+  const { data } = await $instance.put("users/update", formData);
   return data;
 };
 
 export const changeTheme = async (params) => {
   const { data } = await $instance.patch("users/theme", params);
-  clearAccessToken();
+
   return data;
 };
 
@@ -76,15 +78,25 @@ export const deleteBoard = async (id) => {
   return data;
 };
 
-//Это функция для EditProfile (Таня) не удалять!!!
-export const axiosPrivateFormData = axios.create({
-  baseURL: BASE_URL,
-  headers: {
-    "Content-Type": "multipart/form-data",
-  },
-});
-
 export const sendHelp = async (formData) => {
   const { data } = await $instance.post("users/help", formData);
+  return data;
+};
+
+export const addColumn = async ({ title, id: board }) => {
+  try {
+    const { data } = await $instance.post("columns", { title, board });
+    return data;
+  } catch (error) {
+    throw new Error(error.response.data.message);
+  }
+};
+export const deleteColumn = async (id) => {
+  const { data } = await $instance.delete(`columns/${id}`);
+  return data;
+};
+
+export const deleteTask = async (id) => {
+  const { data } = await $instance.delete(`tasks/${id}`);
   return data;
 };

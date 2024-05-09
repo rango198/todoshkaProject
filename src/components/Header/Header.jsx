@@ -10,6 +10,8 @@ import css from "./header.module.css";
 import { useState } from "react";
 import { Navigation } from "../Navigation/Navigation";
 
+import UserInfo from "./UserInfo";
+
 const Header = () => {
   const dispatch = useDispatch();
 
@@ -40,14 +42,17 @@ const Header = () => {
       {isOpen && <Navigation close={close} />}
       <div className={css.box}>
         <Theme />
-        <button
+        {/* <button
           className={css.button_user}
           type="button"
           onClick={handleClick}
           aria-label="user-profile"
         >
-          UserName <Icon id="icon-user" className={css.icon_user} />
-        </button>
+          {" "}
+          UserName
+          <div className={css.avatar}></div>
+        </button> */}
+        <UserInfo />
       </div>
     </header>
   );
