@@ -3,7 +3,7 @@ import css from "./buttonAdd.module.css";
 
 const ButtonAdd = ({ title, className, onClick }) => {
   return (
-    <button onClick={onClick} className={className} type="button">
+    <button onClick={onClick} className={className}>
       <span className={css.button_icon_bg}>
         <Icon id="plus" className={css.button_icon} />
       </span>

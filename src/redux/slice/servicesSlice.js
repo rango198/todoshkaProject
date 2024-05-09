@@ -71,13 +71,7 @@ const serviceSlice = createSlice({
       .addCase(fetchSingleBoard.fulfilled, (state, action) => {
         state.error = null;
         state.isLoading = false;
-        if (action.payload.columns[0].hasOwnProperty("_id")) {
-          state.selectedBoard = action.payload;
-
-          return;
-        }
         state.selectedBoard = action.payload;
-        state.selectedBoard.columns = [];
       })
 
       .addCase(editBoardThunk.fulfilled, (state, action) => {
