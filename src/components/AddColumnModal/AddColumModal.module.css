@@ -76,3 +76,25 @@
     width: 100%;
   } */
 }
+.button_icon_bg {
+  align-items: center;
+  background-color: #161616;
+  border-radius: 6px;
+  display: flex;
+  height: 28px;
+  justify-content: center;
+  padding: 7px;
+  width: 28px;
+}
+.button_icon {
+  width: 14px;
+  height: 14px;
+  stroke: #ffffff;
+}
+
+.button_title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #161616;
+  margin: 0;
+}

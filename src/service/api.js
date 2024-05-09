@@ -26,6 +26,8 @@ export const login = async (params) => {
 
 export const logout = async () => {
   const { data } = await $instance.post("users/logout");
+  console.log(data);
+
   clearAccessToken();
   return data;
 };
@@ -80,8 +82,24 @@ export const sendHelp = async (formData) => {
   const { data } = await $instance.post("users/help", formData);
   return data;
 };
+
+
+//Column
+export const addColumn = async ({ title, id: board }) => {
+  try {
+    const { data } = await $instance.post("columns", { title, board });
+    return data;
+  } catch (error) {
+    throw new Error(error.response.data.message);
+  }
+};
+
 export const deleteColumn = async (id) => {
   const { data } = await $instance.delete(`columns/${id}`);
+  return data;
+};
+export const editColumn = async (id, body) => {
+  const { data } = await $instance.put(`columns/${id}`, body);
   return data;
 };
 
