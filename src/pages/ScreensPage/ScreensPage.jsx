@@ -15,9 +15,12 @@ import {
   selectedBoard,
 } from "../../redux/selectors/serviceSelector";
 
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ButtonAdd from "../../components/ButtonAdd/ButtonAdd.jsx";
-import {setModalContent, setModalStatus} from "../../redux/slice/servicesSlice.js";
+import {
+  setModalContent,
+  setModalStatus,
+} from "../../redux/slice/servicesSlice.js";
 import { getBoardThunk } from "../../redux/thunk/servicesThunk";
 import { useNavigate } from "react-router-dom";
 
@@ -30,13 +33,18 @@ import { useNavigate } from "react-router-dom";
 
 const ScreensPage = () => {
   // const { theme, setTheme } = useTheme();
+  const [openFilter, setOpenFilter] = useState(false);
+  const isBoards = useSelector(selectAllBoards);
+  const activeBoard = useSelector((state) => state.auth.user.activeBoard);
+  const navigate = useNavigate();
+  const filter = useSelector(getFilter);
 
   const dispatch = useDispatch();
   const handleClickHelp = () => {
     dispatch(
-        setModalContent({
-          action: "addColum",
-        })
+      setModalContent({
+        action: "addColum",
+      })
     );
     dispatch(setModalStatus(true));
   };
@@ -44,12 +52,6 @@ const ScreensPage = () => {
   const { title, columns, background } = useSelector(selectedBoard);
   const bgImage = background;
 
-  const [openFilter, setOpenFilter] = useState(false);
-  const isBoards = useSelector(selectAllBoards);
-  const activeBoard = useSelector((state) => state.auth.user.activeBoard);
-  const navigate = useNavigate();
-  const filter = useSelector(getFilter);
-  const dispatch = useDispatch();
   // const isLoggedIn = useSelector(selectIsLoggedIn);
   // const navigate = useNavigate();
   // useEffect(() => {
@@ -65,7 +67,6 @@ const ScreensPage = () => {
     setOpenFilter(!openFilter);
   };
   return (
-
     <div className={css.screen}>
       {openFilter && (
         <Modal open={handleOpenFilter} onClose={toggleFilter}>
@@ -92,7 +93,6 @@ const ScreensPage = () => {
       {/*  <Icon id="icon-icon-plus" />*/}
       {/*</ButtonAdd>*/}
       {isBoards.length === 0 ? <Board /> : <NewBoard />}
-
 
       {/* <NewBoard />
       <Board /> */}
