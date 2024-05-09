@@ -14,7 +14,7 @@ const clearAccessToken = () => {
 
 export const register = async (params) => {
   const { data } = await $instance.post("users/register", params);
-  setAccessToken(data.token);
+  setAccessToken(data.accessToken);
   return data;
 };
 
@@ -26,8 +26,6 @@ export const login = async (params) => {
 
 export const logout = async () => {
   const { data } = await $instance.post("users/logout");
-  console.log(data);
-
   clearAccessToken();
   return data;
 };
