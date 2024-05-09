@@ -54,16 +54,38 @@ export const logoutThunk = createAsyncThunk(
 
 export const currentUserThunk = createAsyncThunk(
   "auth/current",
-  async (params, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
-      const res = await currentUser(params);
-      return res.params;
+      const { auth } = thunkAPI.getState();
+      const res = await currentUser(auth.token);
+      return res;
     } catch (error) {
       toast.error(`Error during user logout: ${error.response.data.message}`);
       return thunkAPI.rejectWithValue(error.message);
     }
+  },
+  {
+    condition: (_, { getState }) => {
+      const { auth } = getState();
+      if (!auth.token) {
+        return false;
+      }
+    },
   }
 );
+
+// export const currentUserThunk = createAsyncThunk(
+//   "auth/current",
+//   async (params, thunkAPI) => {
+//     try {
+//       const res = await currentUser(params);
+//       return res.params;
+//     } catch (error) {
+//       toast.error(`Error during user logout: ${error.response.data.message}`);
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
 
 export const updateUserThunk = createAsyncThunk(
   "auth/update",
