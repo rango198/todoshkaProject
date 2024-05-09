@@ -83,6 +83,13 @@ export const sendHelp = async (formData) => {
   return data;
 };
 
+
+export const deleteTask = async (id) => {
+  const { data } = await $instance.delete(`tasks/${id}`);
+  return data;
+};
+
+//Column
 export const addColumn = async ({ title, id: board }) => {
   try {
     const { data } = await $instance.post("columns", { title, board });
@@ -91,12 +98,13 @@ export const addColumn = async ({ title, id: board }) => {
     throw new Error(error.response.data.message);
   }
 };
+
 export const deleteColumn = async (id) => {
   const { data } = await $instance.delete(`columns/${id}`);
   return data;
 };
 
-export const deleteTask = async (id) => {
-  const { data } = await $instance.delete(`tasks/${id}`);
+export const editColumn = async (id, body) => {
+  const { data } = await $instance.put(`columns/${id}`, body);
   return data;
 };
