@@ -91,7 +91,7 @@ export const updateUserThunk = createAsyncThunk(
   "auth/update",
   async (userData, thunkAPI) => {
     try {
-      const { data } = await updateUser(userData.formData);
+      const data = await updateUser(userData.formData);
       return data;
     } catch (error) {
       toast.error(`Failed to update user data: ${error.message}`);

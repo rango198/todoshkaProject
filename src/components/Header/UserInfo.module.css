@@ -20,6 +20,22 @@
   font-size: 14px;
 }
 .icon_user {
-  background-image: url("../../assets/img/userAvatar/user2x-min.png");
+  /* background-image: url("../../assets/img/userAvatar/user2x-min.png");
+  background-repeat: no-repeat; */
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  background-image: var(--background-image);
+  background-size: contain;
   background-repeat: no-repeat;
+}
+
+.img_box {
+  width: 32px;
+  height: 32px;
 }

@@ -15,7 +15,7 @@ export const StyledBackdrop = styled.div`
 
 export const StyledModalContent = styled.div`
   position: relative;
-  background: white;
+  background: var(--bg-color);
   max-height: 90vh;
   overflow-y: auto;
 

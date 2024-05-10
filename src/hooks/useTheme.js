@@ -12,9 +12,10 @@ export const useTheme = () => {
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
+    dispatch(changeThemeThunk({ theme }));
   }, [theme]);
 
-  dispatch(changeThemeThunk({ theme }));
+  // dispatch(changeThemeThunk({ theme }));
 
   return { theme, setTheme };
 };

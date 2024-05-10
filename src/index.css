@@ -109,7 +109,9 @@ html[data-theme="dark"] {
   --bg-button: #bedbb0;
   --bg-button-active: #9dc888;
   --button-color-square: #161616;
+  --bg-button-plus: #bedbb0;
   --button-plus: #fff;
+  --button-color: #161616;
 
   /* Icon Avatar Default */
   --background-image1: url(assets/img/userAvatar/user-dark1.png);
@@ -159,7 +161,9 @@ html[data-theme="light"] {
   --bg-button: #bedbb0;
   --bg-button-active: #9dc888;
   --button-color-square: #161616;
+  --bg-button-plus: #bedbb0;
   --button-plus: #fff;
+  --button-color: #161616;
 
   /* Icon Avatar Default */
   --background-image1: url(assets/img/userAvatar/user-light1.png);
@@ -209,7 +213,9 @@ html[data-theme="violet"] {
   --bg-button: #7b7ede;
   --bg-button-active: #5255bc;
   --button-color-square: #fff;
+  --bg-button-plus: #b8bcfd;
   --button-plus: #161616;
+  --button-color: #fff;
 
   /* Icon Avatar Default */
   --background-image1: url(assets/img/userAvatar/user-violet1.png);
