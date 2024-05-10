@@ -17,13 +17,13 @@ const Calendar = () => {
   return (
     <div style={{display: 'flex', alignItems: 'flex-end' }}>
       <ReactDatePicker
-        locale="en-GB"
+        // locale="en-GB"
         selected={startDate}
         name="name"
         onChange={(date) => setStartDate(date)}
         minDate={new Date()}
         customInput={<CustomInput value={startDate} />}
-        dateFormat="MMMM d"
+        dateFormat="MMMM, d"
       />
       <svg width={18} height={18}>
       <use href={`${sprite}#chevron-down`} style={{ stroke: 'var(--calendar-input)'}} />

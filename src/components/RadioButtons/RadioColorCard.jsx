@@ -1,6 +1,8 @@
 import { Box, RadioGroup, FormControlLabel, Radio } from '@mui/material';
 
-const RadioColorCard = ({ onColorChange, priorityColor }) => {
+// const RadioColorCard = ({ onColorChange, currentPriority }) => {
+  const RadioColorCard = () => {
+
   const radio = [
  
     {
@@ -44,9 +46,9 @@ const RadioColorCard = ({ onColorChange, priorityColor }) => {
     >
       <RadioGroup
         aria-labelledby="radio-buttons-group-label"
-        defaultValue={priorityColor}
+        // defaultValue={currentPriority}
         name="radio-buttons-group"
-        onChange={evt => onColorChange(evt.target.value)}
+        // onChange={evt => onColorChange(evt.target.value)}
         sx={{ display: 'flex', gap: '8px' }}
         row
       >
