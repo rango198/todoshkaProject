@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://todoshka-back-5xf7.onrender.com/api/";
+const BASE_URL = "http://localhost:3000/api/";
 
 const $instance = axios.create({ baseURL: BASE_URL });
 
@@ -12,6 +12,7 @@ const clearAccessToken = () => {
   $instance.defaults.headers.common.Authorization = "";
 };
 
+// =================AUTH=========================
 export const register = async (params) => {
   const { data } = await $instance.post("users/register", params);
   setAccessToken(data.accessToken);
@@ -27,7 +28,6 @@ export const login = async (params) => {
 export const logout = async () => {
   const { data } = await $instance.post("users/logout");
   console.log(data);
-
   clearAccessToken();
   return data;
 };
@@ -47,13 +47,13 @@ export const updateUser = async (formData) => {
   const { data } = await $instance.put("users/update", formData);
   return data;
 };
-
+// =================THEME=========================
 export const changeTheme = async (params) => {
   const { data } = await $instance.patch("users/theme", params);
 
   return data;
 };
-
+// =================BOARDS=========================
 export const getAllBoards = async () => {
   const { data } = await $instance.get("boards");
   return data;
@@ -63,6 +63,7 @@ export const addBoard = async (body) => {
   const { data } = await $instance.post("boards", body);
   return data;
 };
+
 export const getSingleBoard = async (id) => {
   const { data } = await $instance.get(`boards/${id}`);
   return data;
@@ -77,20 +78,25 @@ export const deleteBoard = async (id) => {
   const { data } = await $instance.delete(`boards/${id}`);
   return data;
 };
-
+// ==================HELP========================
 export const sendHelp = async (formData) => {
   const { data } = await $instance.post("users/help", formData);
   return data;
 };
-
-
-//Column
-export const addColumn = async ({ title, id: board }) => {
+// ==================COLUMNS=====================
+export const addColumn = async ({ title, boardId }) => {
+  if (!title || !boardId) {
+    throw new Error("Title and Board ID are required to create a column");
+  }
   try {
-    const { data } = await $instance.post("columns", { title, board });
+    const body = {
+      title: title,
+      board: boardId,
+    };
+    const { data } = await $instance.post("columns", body);
     return data;
   } catch (error) {
-    throw new Error(error.response.data.message);
+    throw new Error(error.response.data.message || "An error occurred");
   }
 };
 
@@ -98,12 +104,12 @@ export const deleteColumn = async (id) => {
   const { data } = await $instance.delete(`columns/${id}`);
   return data;
 };
+
 export const editColumn = async (id, body) => {
   const { data } = await $instance.put(`columns/${id}`, body);
   return data;
 };
-
-/////////////////Tasks///////////////////////////////////////////
+// =================TASKS======================
 
 // export const getAllTasks = async () => {
 //   const { data } = await $instance.get("tasks");

@@ -1,6 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { deleteColumnAsync, editColumnAsync } from "../thunk/columnsThunk";
+import {
+  deleteColumnAsync,
+  editColumnAsync,
+  addColumnAsync,
+} from "../thunk/columnsThunk";
 
 const columnDeleteSlice = createSlice({
   name: "columnDelete",
@@ -8,10 +12,25 @@ const columnDeleteSlice = createSlice({
     columns: [],
     loading: false,
     error: null,
+    modalContent: {
+      endPoint: null,
+      action: null,
+      recordDataEdit: null,
+      recordDataAdd: null,
+      editedData: null,
+    },
   },
-  reducers: {},
+  reducers: {
+    setModalStatus: (state, action) => {
+      state.openModal = action.payload;
+    },
+    setModalContent: (state, action) => {
+      state.modalContent = { ...state.modalContent, ...action.payload };
+    },
+  },
   extraReducers: (builder) => {
     builder
+      //deleteColumn
       .addCase(deleteColumnAsync.pending, (state) => {
         state.loading = true;
       })
@@ -23,12 +42,15 @@ const columnDeleteSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
-      .addCase(editColumnAsync.pending, state => {
+      //editColumn
+      .addCase(editColumnAsync.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
       .addCase(editColumnAsync.fulfilled, (state, { payload }) => {
-        const index = state.columns.findIndex(column => column._id === payload._id);
+        const index = state.columns.findIndex(
+          (column) => column._id === payload._id
+        );
         state.columns[index].title = payload.title;
         state.loading = false;
       })
@@ -36,8 +58,23 @@ const columnDeleteSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       })
+      //addColumn
+      .addCase(addColumnAsync.pending, (state) => {
+        state.error = null;
+        state.loading = true;
+      })
+      .addCase(addColumnAsync.fulfilled, (state, action) => {
+        state.columns.push(action.payload);
+        state.loading = false;
+        state.error = null;
+      })
+      .addCase(addColumnAsync.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      });
   },
 });
 
-export const { setLoading } = columnDeleteSlice.actions;
+export const { setLoading, setModalStatus, setModalContent } =
+  columnDeleteSlice.actions;
 export const columnsReducer = columnDeleteSlice.reducer;

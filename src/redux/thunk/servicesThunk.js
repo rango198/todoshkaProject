@@ -6,7 +6,6 @@ import {
   editBoard,
   getAllBoards,
   getSingleBoard,
-    addColumn,
 } from "../../service/api";
 
 // export const fetchAllBoards = createAsyncThunk(
@@ -102,21 +101,4 @@ export const deleteBoardThunk = createAsyncThunk(
       return thunkAPI.rejectWithValue(error.message);
     }
   }
-);
-
-export const addColumnThunk = createAsyncThunk(
-    'service/addColumn',
-    async ( data, thunkAPI) => {
-        try {
-            const testData = {
-                title: data.title,
-                // сюда вставляем id борда до якого додаєм колонку, поки ще так щоб потестить - колонка додаэться в базу
-                id:'663bb99afc2f51b3c179afdd'
-            }
-            const res = await addColumn(testData);
-            return res;
-        } catch (error) {
-            return thunkAPI.rejectWithValue(error.message);
-        }
-    }
 );
