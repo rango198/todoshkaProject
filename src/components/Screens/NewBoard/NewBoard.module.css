@@ -34,3 +34,11 @@
 .button_create:hover {
   background-color: #bedbb0;
 }
+
+/* .container {
+  display: flex;
+} */
+
+.columns_container {
+  display: flex;
+}
