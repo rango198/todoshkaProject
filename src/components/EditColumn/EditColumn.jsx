@@ -7,10 +7,10 @@ import ButtonAdd from "../ButtonAdd/ButtonAdd";
 import ButtonClose from "../ButtonClose/ButtonClose";
 
 import { editColumnAsync } from "../../redux/thunk/columnsThunk";
-import { selectedColumn } from "../../redux/selectors/serviceSelector";
 
 import css from "./EditColumn.module.css";
 import { editColumn } from "../../service/api";
+import { selectedColumn } from "../../redux/selectors/serviceSelector";
 
 const EditColumn = ({ onClose }) => {
   const { register, handleSubmit, setValue } = useForm();
