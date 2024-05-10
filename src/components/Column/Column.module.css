@@ -1,5 +1,5 @@
 .container {
-  background-color: #e9e0e0;
+  background-color: var(--bg-color-body);
 }
 .column_header {
   padding: 16px;
@@ -10,9 +10,22 @@
   width: 334px;
   background-color: #121212;
   border-radius: 8px;
+  margin-right: 20px;
 }
 
+.btn_container {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+.btn {
+  background: inherit;
+  border: none;
+  padding: 0;
+}
 .icon_svg {
-  height: 22px;
-  width: 22px;
+  width: 18px;
+  height: 18px;
+  stroke: var(--color-shadow);
 }
