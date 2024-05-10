@@ -3,20 +3,24 @@ import css from "./EditProfileForm.module.css";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import Icon from "../Icon/Icon";
 import sprite from "../../assets/svg/sprite.svg";
 import { useUserId, useUserName } from "../../hooks";
 
-// import { editProfile } from "../../redux/thunk/reduxThunk";
 import { updateUserThunk } from "../../redux/thunk/authThunk";
 import { UserSchema } from "../../schema/UserSchema";
 import { useUserEmail } from "../../hooks/useUserEmail";
+import { selectUserAvatar } from "../../redux/selectors/selector";
+import {
+  setModalContent,
+  setModalStatus,
+} from "../../redux/slice/servicesSlice";
 
-const EditProfileForm = ({ userAvatar, onClose }) => {
+const EditProfileForm = () => {
   const dispatch = useDispatch();
-
+  const avatarURL = useSelector(selectUserAvatar);
   const [type, setType] = useState("password");
   const userName = useUserName();
   const userId = useUserId();
@@ -71,9 +75,14 @@ const EditProfileForm = ({ userAvatar, onClose }) => {
     formData.append("password", data.password);
 
     const userData = { userId, formData };
-    dispatch(updateUserThunk(userData)).then(() => {
-      onClose();
-    });
+    dispatch(updateUserThunk(userData));
+    dispatch(setModalContent({ action: null, recordDataEdit: null }));
+    dispatch(setModalStatus(false));
+    //   .then(() => {
+    //   closeModal();
+    // });
+    // closeModal();
+
     reset();
   };
 
@@ -84,20 +93,21 @@ const EditProfileForm = ({ userAvatar, onClose }) => {
 
   return (
     <div className={css.modalContainer}>
-      {/* <button onClick={handleClose} className={css.closeModal}>
-        <Icon id="close" className={css.closeSvg} />
-      </button> */}
       <h2 className={css.textNameModal}>Edit profile</h2>
       <form className={css.formUser} onSubmit={handleSubmit(onSubmit)}>
         <div className={css.formData}>
           <div className={css.imgContainer}>
-            <img
-              width="68px"
-              height="68px"
-              className={css.profileImag}
-              src={newAvatar || userAvatar}
-              alt="user-avatar"
-            />
+            {avatarURL ? (
+              <div className={css.profileImag}>
+                <img
+                  className={css.icon_user}
+                  src={newAvatar || avatarURL}
+                  alt="user-avatar"
+                />
+              </div>
+            ) : (
+              <div className={css.avatar}></div>
+            )}
 
             <label className={css.labelAvatar}>
               <input

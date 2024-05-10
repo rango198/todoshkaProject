@@ -5,9 +5,6 @@ import EditProfileForm from "../EditProfileForm/EditProfileForm";
 
 import AddColumnModal from "../AddColumnModal/AddColumModal.jsx";
 
-import Edit from "../EditProfileForm/Edit";
-
-
 const ModalContent = () => {
   const modalContent = useSelector(selectModalContent);
 
@@ -15,18 +12,14 @@ const ModalContent = () => {
     case "add":
       return <div>Hello World</div>;
 
-    case "userbar":
-      return <Edit />;
-    // return <div>UserBar</div>;
-
     case "help":
       return <NeedHelpModal />;
 
     case "editProfile":
       return <EditProfileForm />;
-    case "addColum":
-      return <AddColumnModal/>
 
+    case "addColum":
+      return <AddColumnModal />;
 
     default:
       return null;
