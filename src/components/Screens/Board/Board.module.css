@@ -5,9 +5,8 @@
   font-size: 12px;
   font-weight: 400;
   text-align: center;
-  padding-top: 258px;
-
   margin: auto;
+  margin-top: 258px;
   align-items: center;
   justify-content: center;
   color: var(--color-board);
@@ -32,8 +31,15 @@
     font-size: 14px;
   }
 }
-/* @media screen and (min-width: 1440px) {
+@media screen and (min-width: 768) {
   .container {
-    margin-top: 281px;
+    height: 72px;
+    margin-top: 247px;
   }
-} */
+}
+@media screen and (min-width: 1440px) {
+  .container {
+    height: 72px;
+    margin-top: 368px;
+  }
+}

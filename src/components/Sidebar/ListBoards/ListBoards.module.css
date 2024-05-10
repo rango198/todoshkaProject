@@ -1,0 +1,87 @@
+.sidebarNewBoard {
+  margin-top: 40px;
+  padding-left: 14px;
+  border-right: 4px solid var(--color-green);
+  border-radius: 4px 0px 0px 4px;
+  background-color: var(--bg-color);
+}
+.sidebarNewBoardNeon {
+  margin-top: 4px;
+  padding: 20px 20px 20px 14px;
+  border-right: 4px solid var(--color-green);
+  border-radius: 4px 0px 0px 4px;
+  margin-bottom: 40px;
+}
+
+.sidebarNewBoardList {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+}
+.sidebarNewBoardList:hover,
+.sidebarNewBoardList:active {
+  background-color: var(--bg-color-body);
+}
+
+.sidebarNewBoardSvg {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  stroke: var(--color-shadow);
+}
+
+.sidebarNewBoardItem {
+  font-family: var(--font-medium);
+  font-size: 14px;
+  letter-spacing: -0.28px;
+  margin-right: auto;
+
+  color: var(--color-font);
+}
+
+.sidebarNewBoardButton {
+  height: 16px;
+  border: none;
+  padding: 0;
+  margin-right: 8px;
+  background-color: transparent;
+}
+
+.sidebarNewBoardButtonCurrent {
+  height: 16px;
+  border: none;
+  padding: 0;
+  margin-right: 24px;
+  background-color: transparent;
+}
+
+.sidebarNewBoardIcon {
+  width: 16px;
+  height: 16px;
+  fill: transparent;
+  /* stroke: var(--color-theme); */
+  stroke-width: 1.5px;
+  stroke: var(--color-shadow);
+  /* stroke: currentColor; */
+}
+
+.sidebarLogout {
+  padding: 0 0 24px 24px;
+}
+
+.sidebarLogoutButton {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: none;
+  color: var(--color-white);
+  background-color: var(--color-icon-dark);
+  font-family: var(--font-medium);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.sidebarLogoutIcon {
+  stroke: var(--color-green);
+}
