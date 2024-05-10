@@ -4,6 +4,9 @@ import Modal from "../../Modal/Modal";
 import ButtonAdd from "../../ButtonAdd/ButtonAdd";
 import AddColumnModal from "../../AddColumnModal/AddColumModal";
 
+import Column from "../../Column/Column";
+import { getAllColumns } from "../../../redux/selectors/columnsSelector";
+
 import css from "./NewBoard.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -22,6 +25,7 @@ const NewBoard = () => {
     setIsAddColumnOpen(!isAddColumnOpen);
   };
   const isLoading = useSelector(selectIsBoardsLoading);
+  const columns = useSelector(getAllColumns);
 
   useEffect(() => {
     if (params.boardName) {
@@ -30,15 +34,20 @@ const NewBoard = () => {
   }, [dispatch, params.boardName]);
 
   return (
-    <div className={css.task_list_container}>
+    <div className={css.container}>
       <ButtonAdd
         onClick={toggleAddColumn}
         title="Add another column"
         className={css.button_create}
       />
-      <Modal open={isAddColumnOpen} onClose={toggleAddColumn}>
-        <AddColumnModal onClose={toggleAddColumn} />
-      </Modal>
+      <div className={css.columns_container}>
+        <Modal open={isAddColumnOpen} onClose={toggleAddColumn}>
+          <AddColumnModal onClose={toggleAddColumn} />
+        </Modal>
+        {columns.map((column) => (
+          <Column key={column._id} column={column} />
+        ))}
+      </div>
     </div>
   );
 };

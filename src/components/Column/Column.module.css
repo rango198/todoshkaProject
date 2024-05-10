@@ -1,0 +1,18 @@
+.container {
+  background-color: #e9e0e0;
+}
+.column_header {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 56px;
+  width: 334px;
+  background-color: #121212;
+  border-radius: 8px;
+}
+
+.icon_svg {
+  height: 22px;
+  width: 22px;
+}
