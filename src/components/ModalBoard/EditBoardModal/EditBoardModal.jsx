@@ -1,44 +1,36 @@
 import React, { useEffect, useState } from "react";
-
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as Yup from "yup";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import sprite from "../../assets/svg/sprite.svg";
-import data from "../../assets/img/small/data.js";
-
-import ButtonAdd from "../ButtonAdd/ButtonAdd.jsx";
-import css from "./CreateNewBoard.module.css";
-import ButtonClose from "../ButtonClose/ButtonClose";
-import { useNavigate } from "react-router";
+import sprite from "../../../assets/svg/sprite.svg";
+import data from "../../../assets/img/small/data.js";
+import ButtonAdd from "../../ButtonAdd/ButtonAdd.jsx";
+import css from "./EditBoard.module.css";
+import ButtonClose from "../../ButtonClose/ButtonClose";
+// import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { addBoardThunk, getBoardThunk } from "../../redux/thunk/servicesThunk";
-import { selectAllBoards } from "../../redux/selectors/serviceSelector";
+import {
+  editBoardThunk,
+  getBoardThunk,
+} from "../../../redux/thunk/servicesThunk";
+import { selectedBoard } from "../../../redux/selectors/serviceSelector";
 
-const TitleSchema = Yup.object({
-  title: Yup.string()
-    .min(3, "Too Short!")
-    .max(30, "Too Long!")
-    .required("Title is required"),
-}).required();
+const EditBoardModal = ({ onClose }) => {
+  const { register, handleSubmit, setValue } = useForm();
 
-const CreateNewBoardModal = ({ onClose }) => {
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(TitleSchema),
-    mode: "onChange",
-  });
+  // const navigate = useNavigate();
 
-  const navigate = useNavigate();
+  const [selectedIcon, setSelectedIcon] = useState("");
+  const [selectedBackgroundId, setSelectedBackgroundId] = useState("");
   const dispatch = useDispatch();
-  const [selectedIcon, setSelectedIcon] = useState("icon-project");
-  const [selectedBackgroundId, setSelectedBackgroundId] = useState("defalt");
-  const existingBoardTitles = useSelector(selectAllBoards);
+  const editBoard = useSelector(selectedBoard);
+
+  useEffect(() => {
+    setValue("title", editBoard.title);
+    setValue("icon", editBoard.icon);
+    setValue("background", editBoard.background);
+    setSelectedIcon(editBoard.icon);
+    setSelectedBackgroundId(editBoard.background);
+  }, [editBoard.background, editBoard.icon, editBoard.title, setValue]);
 
   useEffect(() => {
     dispatch(getBoardThunk());
@@ -100,40 +92,28 @@ const CreateNewBoardModal = ({ onClose }) => {
       </div>
     ));
   };
-  const handleCreateBoard = (data) => {
-    const { title } = data;
+  const handleEditBoard = (data) => {
+    const { title, icon, background } = data;
 
-    const isExist = existingBoardTitles.some(
-      (item) => item.title.trim() === title.trim()
-    );
-
-    if (isExist) {
-      toast.error(`${data.title} already exists!`, {
-        theme: "colored",
-        autoClose: 2500,
-      });
-      return;
+    let newBoard = {};
+    if (title === editBoard.title) {
+      newBoard = {
+        icon: data.icon,
+        background: data.background,
+      };
+    } else {
+      newBoard = { title, icon, background };
     }
 
-    dispatch(addBoardThunk(data)).then((d) => {
-      navigate(d.payload._id);
-      setValue("title", "");
-      setValue("icon", "");
-      setValue("background", "");
-      onClose();
-    });
-
-    toast.success(`${data.title} has been successfully added to your boards!`, {
-      theme: "colored",
-      autoClose: 2500,
-    });
+    dispatch(editBoardThunk([editBoard._id, newBoard]));
+    onClose();
   };
 
   return (
     <div className={css.modal}>
-      <h2 className={css.newBoardTitle}>New Board</h2>
+      <h2 className={css.newBoardTitle}>Edit Board</h2>
 
-      <form onSubmit={handleSubmit(handleCreateBoard)}>
+      <form onSubmit={handleSubmit(handleEditBoard)}>
         <input
           name="title"
           id="newBoardInput"
@@ -143,7 +123,6 @@ const CreateNewBoardModal = ({ onClose }) => {
           className={css.input}
           onChange={handleTitleChange}
         />
-        <p>{errors.title?.message}</p>
 
         <h3 className={css.iconTitle}>Icons</h3>
 
@@ -152,10 +131,10 @@ const CreateNewBoardModal = ({ onClose }) => {
         <h3 className={css.backgroundTitle}>Background</h3>
         <div className={css.bgIcon}>{renderBackgrounds()}</div>
 
-        <ButtonAdd type="submit" title="Create" className={css.button} />
+        <ButtonAdd type="submit" title="Edit" className={css.button} />
       </form>
       <ButtonClose onClick={onClose} />
     </div>
   );
 };
-export default CreateNewBoardModal;
+export default EditBoardModal;

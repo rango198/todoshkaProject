@@ -68,6 +68,7 @@ const serviceSlice = createSlice({
         state.isLoading = false;
         state.boards.push(action.payload);
       })
+
       //   .addCase(fetchSingleBoard.fulfilled, (state, action) => {
       //     state.error = null;
       //     state.isLoading = false;

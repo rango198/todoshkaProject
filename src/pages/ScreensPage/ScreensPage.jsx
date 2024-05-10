@@ -89,13 +89,7 @@ const ScreensPage = () => {
           </button>
         </span>
       </div>
-      {/*<ButtonAdd title="Add" className={css.submBtn} onClick={handleClickHelp}>*/}
-      {/*  <Icon id="icon-icon-plus" />*/}
-      {/*</ButtonAdd>*/}
       {isBoards.length === 0 ? <Board /> : <NewBoard />}
-
-      {/* <NewBoard />
-      <Board /> */}
     </div>
   );
 };

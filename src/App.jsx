@@ -8,6 +8,8 @@ import ModalContent from "./components/ModalContent/ModalContent";
 import SharedLayout from "./components/SharedLayout/SharedLayout";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import PublicRoute from "./components/PrivateRoute/PublicRoute";
+import { currentUserThunk } from "./redux/thunk/authThunk";
+import { useEffect } from "react";
 
 const WelcomePage = lazy(() => import("./pages/WelcomePage/WelcomePage"));
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
@@ -18,6 +20,11 @@ const ScreensPage = lazy(() => import("./pages/ScreensPage/ScreensPage"));
 const App = () => {
   const modalStatus = useSelector(selectOpenModal);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(currentUserThunk());
+  }, [dispatch]);
+
   const handleCloseModal = () => {
     dispatch(setModalStatus(false));
     dispatch(setModalContent({ action: null, recordDataEdit: null }));

@@ -1,8 +1,6 @@
 import { useState } from "react";
-
 import Modal from "../../Modal/Modal";
-import CreateNewBoardModal from "../../CreateNewBoardModal/CreateNewBoardModal";
-
+import CreateNewBoardModal from "../../ModalBoard/CreateNewBoardModal/CreateNewBoardModal";
 import css from "./Board.module.css";
 
 const Board = () => {

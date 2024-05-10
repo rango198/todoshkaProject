@@ -32,16 +32,27 @@ export const logout = async () => {
   return data;
 };
 
-export const currentUser = async (params) => {
-  const { data } = await $instance.get("users/current", params);
-  const state = thunkAPI.getState();
-  const persistedToken = state.auth.token;
-  if (persistedToken === null) {
-    return thunkAPI.rejectWithValue("Unable to fetch user");
+export const currentUser = async (token) => {
+  setAccessToken(token);
+  try {
+    const { data } = await $instance.get("users/current");
+    return data;
+  } catch (error) {
+    setAccessToken();
+    throw error;
   }
-  setAccessToken(persistedToken);
-  return data;
 };
+
+// export const currentUser = async (params) => {
+//   const { data } = await $instance.get("users/current", params);
+//   const state = thunkAPI.getState();
+//   const persistedToken = state.auth.token;
+//   if (persistedToken === null) {
+//     return thunkAPI.rejectWithValue("Unable to fetch user");
+//   }
+//   setAccessToken(persistedToken);
+//   return data;
+// };
 
 export const updateUser = async (formData) => {
   const { data } = await $instance.put("users/update", formData);
@@ -70,7 +81,8 @@ export const getSingleBoard = async (id) => {
 };
 
 export const editBoard = async (body) => {
-  const { data } = await $instance.patch(`boards/${body.id}`, body);
+  const [id, board] = body;
+  const { data } = await $instance.put(`boards/${id}`, { ...board });
   return data;
 };
 

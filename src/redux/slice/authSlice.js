@@ -76,10 +76,12 @@ const authSlice = createSlice({
       .addCase(currentUserThunk.fulfilled, (state, action) => {
         state.user = action.payload;
         state.isLoading = false;
+        state.isLogin = true;
       })
       .addCase(currentUserThunk.rejected, (state, action) => {
         state.error = action.payload;
         state.isLoading = false;
+        state.token = "";
       })
       //Update user
       .addCase(updateUserThunk.pending, (state) => {
