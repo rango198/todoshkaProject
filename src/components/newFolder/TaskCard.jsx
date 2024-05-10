@@ -15,10 +15,10 @@ function TaskCard({ task, deleteTask, updateTask }) {
       disabled: editMode,
     });
 
-  const style = {
-    transition,
-    transform: transform ? `translate3d(${transform.x}px, 0, 0)` : undefined,
-  };
+  // const style = {
+  //   transition,
+  //   transform: transform ? `translate3d(${transform.x}px, 0, 0)` : undefined,
+  // };
 
   const toggleEditMode = () => {
     setEditMode((prev) => !prev);
@@ -27,7 +27,23 @@ function TaskCard({ task, deleteTask, updateTask }) {
 
   if (editMode) {
     return (
-      <div ref={setNodeRef} style={style}>
+      <div
+        ref={setNodeRef}
+        style={{
+          backgroundColor: "#322a61",
+          padding: "0.625rem",
+          height: "100px",
+          minHeight: "100px",
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "row",
+          textAlign: "left",
+          borderRadius: "0.75rem",
+
+          cursor: "grab",
+          position: "relative",
+        }}
+      >
         <textarea
           {...attributes}
           {...listeners}
@@ -49,7 +65,6 @@ function TaskCard({ task, deleteTask, updateTask }) {
   return (
     <div
       ref={setNodeRef}
-      style={style}
       {...attributes}
       {...listeners}
       onClick={toggleEditMode}

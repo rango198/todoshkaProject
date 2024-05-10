@@ -39,16 +39,69 @@ function ColumnContainer({
   };
 
   return (
-    <div ref={setNodeRef} style={style}>
+    <div
+      ref={setNodeRef}
+      // style={style}
+      style={{
+        ...style,
+        backgroundColor: "#231c2b",
+        width: "350px",
+        height: "500px",
+        maxHeight: "500px",
+        borderRadius: "0.375rem",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       <div {...attributes} {...listeners}>
         {/* Column title */}
-        <div>
-          <div>{tasks.length}</div>
+        <div style={{ display: "flex", margin: "10px" }}>
+          <p
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "#231c2b",
+              padding: "5px 10px",
+              fontSize: "0.875rem",
+              borderRadius: "9999px",
+            }}
+          >
+            {tasks.length}
+          </p>
           {!editMode && (
-            <span onClick={() => setEditMode(true)}>{column.title}</span>
+            <span
+              style={{
+                width: "100%",
+                backgroundColor: "#231c2b",
+                fontSize: "1rem",
+                height: "60px",
+                cursor: "grab",
+                borderRadius: "0.375rem",
+                borderBottomLeftRadius: "0",
+                padding: "0.75rem",
+                fontWeight: "bold",
+                border: "4px solid #301212",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
+              onClick={() => setEditMode(true)}
+            >
+              {column.title}
+            </span>
           )}
+
           {editMode && (
             <input
+              style={{
+                backgroundColor: "#251a29",
+                focusBorderColor: "#212121",
+                border: "1px solid",
+                borderRadius: "0.375rem",
+                outline: "none",
+                padding: "20px",
+              }}
               value={column.title}
               onChange={(e) => updateColumn(column.id, e.target.value)}
               autoFocus
@@ -61,14 +114,23 @@ function ColumnContainer({
               }}
             />
           )}
+          <button
+            style={{
+              backgroundColor: "#251a29",
+              "&:hover": {
+                color: "white",
+                backgroundColor: "#251a29",
+              },
+              borderRadius: "0.375rem",
+              padding: "15px 10px",
+            }}
+            onClick={() => {
+              deleteColumn(column.id);
+            }}
+          >
+            Delete
+          </button>
         </div>
-        <button
-          onClick={() => {
-            deleteColumn(column.id);
-          }}
-        >
-          Delete
-        </button>
       </div>
 
       {/* Column task container */}
@@ -86,6 +148,17 @@ function ColumnContainer({
       </div>
       {/* Column footer */}
       <button
+        style={{
+          display: "flex",
+          gap: "0.5rem",
+          alignItems: "center",
+          border: "2px solid #212121",
+          borderRadius: "0.375rem",
+          padding: "1rem",
+          borderXColor: "#212121",
+          backgroundColor: "#5d4266",
+          fontSize: "16px",
+        }}
         onClick={() => {
           createTask(column.id);
         }}

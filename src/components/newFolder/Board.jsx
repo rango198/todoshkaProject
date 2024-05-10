@@ -117,15 +117,33 @@ function KanbanBoard() {
   );
 
   return (
-    <div style={{ displey: "flex" }}>
+    <div
+      style={{
+        margin: "auto",
+        display: "flex",
+        minHheight: "100vh",
+        width: "100%",
+        alignItems: "center",
+        overflowX: "auto",
+        overflowYy: "hidden",
+        paddingLeft: "40px",
+      }}
+    >
       <DndContext
         sensors={sensors}
         onDragStart={onDragStart}
         onDragEnd={onDragEnd}
         onDragOver={onDragOver}
       >
-        <div style={{ width: "100%", padding: "50px" }}>
-          <div style={{ display: "flex", gap: "50px" }}>
+        <div
+          style={{
+            padding: "50px",
+            margin: "auto",
+            display: "flex",
+            gap: "4px",
+          }}
+        >
+          <div style={{ display: "flex", gap: "4px" }}>
             <SortableContext
               items={columnsId}
               strategy={horizontalListSortingStrategy}
@@ -144,7 +162,25 @@ function KanbanBoard() {
               ))}
             </SortableContext>
           </div>
-          <button onClick={createNewColumn}>Add Column</button>
+          <button
+            onClick={createNewColumn}
+            style={{
+              height: "60px",
+              width: "350px",
+              minWidth: "350px",
+              cursor: "pointer",
+              borderradius: "0.5rem",
+              backgroundColor: "#231c2b",
+              border: "2px solid #2c0f0f",
+              padding: "1rem",
+              boxShadow: "0 0 0 3px #fca5d4",
+              transition: "box-shadow 0.3s ease",
+              display: "flex",
+              gap: "0.5rem",
+            }}
+          >
+            Add Column
+          </button>
         </div>
         {/* //////////////////////////// частина коду для двізуального дублювання колонки */}
         {/* {createPortal(
