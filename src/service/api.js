@@ -80,7 +80,8 @@ export const getSingleBoard = async (id) => {
 };
 
 export const editBoard = async (body) => {
-  const { data } = await $instance.patch(`boards/${body.id}`, body);
+  const [id, board] = body;
+  const { data } = await $instance.put(`boards/${id}`, { ...board });
   return data;
 };
 

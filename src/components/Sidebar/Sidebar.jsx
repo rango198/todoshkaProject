@@ -1,5 +1,3 @@
-
-
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { logout } from "../../service/api.js";
@@ -14,13 +12,17 @@ import {
   setModalContent,
   setModalStatus,
 } from "../../redux/slice/servicesSlice.js";
-import CreateNewBoardModal from "../CreateNewBoardModal/CreateNewBoardModal.jsx";
+import CreateNewBoardModal from "../ModalBoard/CreateNewBoardModal/CreateNewBoardModal.jsx";
 import Modal from "../Modal/Modal.jsx";
-import { selectedBoard } from "../../redux/selectors/serviceSelector.js";
+import {
+  selectAllBoards,
+  selectedBoard,
+} from "../../redux/selectors/serviceSelector.js";
+import ListBoards from "./ListBoards/ListBoards.jsx";
 
-const SidebarActive = ({ boards }) => {
+const SidebarActive = () => {
+  const boards = useSelector(selectAllBoards);
   const dispatch = useDispatch();
-  const { title } = useSelector(selectedBoard);
   const [isAddBoardOpen, setIsAddBoardOpen] = useState(false);
   const toggleAddBoard = () => {
     setIsAddBoardOpen(!isAddBoardOpen);
@@ -34,11 +36,6 @@ const SidebarActive = ({ boards }) => {
     );
     dispatch(setModalStatus(true));
   };
-
-  // const handleClickLogout = () => {
-  //   console.log("Click");
-  // };
-
   const handleClickLogout = () => dispatch(logoutThunk());
   // const onLogout = () => dispatch(logout());
   return (
@@ -52,7 +49,7 @@ const SidebarActive = ({ boards }) => {
             <h2 className={css.sidebarBoxTitle}>Task Pro</h2>
           </section>
           <div className={css.sidebarItem}>
-            <p className={css.sidebarItemTitle}>{title}</p>
+            <p className={css.sidebarItemTitle}>My boards</p>
           </div>
           <section className={css.sidebarBoard}>
             <p className={css.sidebarBoardItem}>Create a new board</p>
@@ -68,41 +65,8 @@ const SidebarActive = ({ boards }) => {
             <Modal open={isAddBoardOpen} onClose={toggleAddBoard}>
               <CreateNewBoardModal onClose={toggleAddBoard} />
             </Modal>
-            {/*тут потрібно буду додати дві модалки видалення і створення які будуть створені в окремому компоненті і імпортовані*/}
           </section>
-          {/*{boards && (*/} {/*відмальовуєм коли користувач за лог*/}
-          {/* <ul className={css.sidebarNewBoard}>
-            <li className={css.sidebarNewBoardList}>
-              <svg className={css.sidebarNewBoardSvg}>
-                <Icon id="project" />
-              </svg>
-              <p className={css.sidebarNewBoardItem}>Project office</p>
-              <button className={css.sidebarNewBoardButton} type="button">
-                <svg className={css.sidebarNewBoardIcon}>
-                  <Icon id="pencil" />
-                </svg>
-              </button>
-              <button
-                className={css.sidebarNewBoardButtonCurrent}
-                type="button"
-              >
-                <svg className={css.sidebarNewBoardIcon}>
-                  <Icon id="trash" />
-                </svg>
-              </button>
-            </li>
-          </ul>
-          <ul className={css.sidebarNewBoardNeon}>
-            <li className={css.sidebarNewBoardList}>
-              <svg className={css.sidebarNewBoardIcon}>
-                <Icon id="puzzle-piece" />
-              </svg>
-              <li className={css.sidebarNewBoardList}>
-                <p className={css.sidebarItemNeon}>Neon Light Project</p>
-              </li>
-            </li>
-          </ul> */}
-          {/*)}*/}
+          <ListBoards boards={boards} />
         </div>
         <div>
           <section className={css.sidebarHelp}>

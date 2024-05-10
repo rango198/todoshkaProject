@@ -6,7 +6,8 @@ import {
   editBoard,
   getAllBoards,
   getSingleBoard,
-    addColumn,
+  addColumn,
+  updateUser,
 } from "../../service/api";
 
 // export const fetchAllBoards = createAsyncThunk(
@@ -65,7 +66,6 @@ export const fetchSingleBoard = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const data = await getSingleBoard(id);
-      console.log(id);
       return data;
     } catch (error) {
       toast.error(error.response.data.message);
@@ -79,44 +79,46 @@ export const editBoardThunk = createAsyncThunk(
   "service/editBoard",
   async (body, thunkAPI) => {
     try {
-      const response = await editBoard(body);
-
-      return response;
+      // const [id, board] = body;
+      const data = await editBoard(body);
+      return data;
     } catch (error) {
-      console.log(error);
-      toast.error("Error edit ", error);
+      toast.error("Error edit", error);
+
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
+// ${body.id}`, body)
+
 export const deleteBoardThunk = createAsyncThunk(
   "service/deleteBoard",
   async (id, thunkAPI) => {
     try {
-      const response = await deleteBoard(id);
-      return response;
+      await deleteBoard(id);
+      return id;
     } catch (error) {
-      console.log(error);
-      toast.error("Error delete", error);
+      toast.error(error.response.data.message);
+
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
 export const addColumnThunk = createAsyncThunk(
-    'service/addColumn',
-    async ( data, thunkAPI) => {
-        try {
-            const testData = {
-                title: data.title,
-                // сюда вставляем id борда до якого додаєм колонку, поки ще так щоб потестить - колонка додаэться в базу
-                id:'663bb99afc2f51b3c179afdd'
-            }
-            const res = await addColumn(testData);
-            return res;
-        } catch (error) {
-            return thunkAPI.rejectWithValue(error.message);
-        }
+  "service/addColumn",
+  async (data, thunkAPI) => {
+    try {
+      const testData = {
+        title: data.title,
+        // сюда вставляем id борда до якого додаєм колонку, поки ще так щоб потестить - колонка додаэться в базу
+        id: "663bb99afc2f51b3c179afdd",
+      };
+      const res = await addColumn(testData);
+      return res;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
+  }
 );

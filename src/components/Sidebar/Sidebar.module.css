@@ -44,7 +44,7 @@
 }
 
 .sidebarItemTitle {
-  font-family: var(--font-regular);
+  stroke: var(--color-shadow);
   font-size: 12px;
   letter-spacing: -0.24px;
 
@@ -63,10 +63,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  padding: 14px 18px 14px 14px;
-  border-top: solid 1px var(--color-sidebar-border);
-  border-bottom: solid 1px var(--color-sidebar-border);
+  margin: 0 24px;
+  padding: 14px 0;
+  border-top: solid 1.5px var(--bg-color-body);
+  border-bottom: solid 1.5px var(--bg-color-body);
 }
 
 .sidebarBoardItem {
@@ -92,63 +92,6 @@
 
   fill: var(--bg-button);
   stroke: var(--sb-icon-stroke);
-}
-
-.sidebarNewBoard {
-  margin-top: 40px;
-  padding: 20px 0 20px 14px;
-  border-right: 4px solid var(--color-green);
-  border-radius: 4px 0px 0px 4px;
-}
-.sidebarNewBoardNeon {
-  margin-top: 4px;
-  padding: 20px 20px 20px 14px;
-  border-right: 4px solid var(--color-green);
-  border-radius: 4px 0px 0px 4px;
-  margin-bottom: 40px;
-}
-
-.sidebarNewBoardList {
-  display: flex;
-  align-items: center;
-}
-
-.sidebarNewBoardSvg {
-  width: 18px;
-  height: 18px;
-  margin-right: 4px;
-  stroke: var(--color-white);
-}
-
-.sidebarNewBoardItem {
-  font-family: var(--font-medium);
-  font-size: 14px;
-  letter-spacing: -0.28px;
-  margin-right: auto;
-
-  color: var(--color-white);
-}
-
-.sidebarNewBoardButton {
-  height: 16px;
-  border: none;
-  padding: 0;
-  margin-right: 8px;
-  background-color: var(--color-icon-dark);
-}
-
-.sidebarNewBoardButtonCurrent {
-  height: 16px;
-  border: none;
-  padding: 0;
-  margin-right: 14px;
-  background-color: var(--color-icon-dark);
-}
-
-.sidebarNewBoardIcon {
-  width: 16px;
-  height: 16px;
-  stroke: var(--color-icon-grey);
 }
 
 .sidebarHelp {
