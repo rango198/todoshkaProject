@@ -6,7 +6,6 @@ import {
   editBoardThunk,
   fetchSingleBoard,
   getBoardThunk,
-  // addColumnThunk,
 } from "../thunk/servicesThunk";
 
 const initialState = {
@@ -34,9 +33,6 @@ const serviceSlice = createSlice({
     setModalContent: (state, action) => {
       state.modalContent = { ...state.modalContent, ...action.payload };
     },
-    // addColumnSuccess: (state, action) => {
-    //     state.columns.unshift(action.payload);
-    // },
   },
   extraReducers: (builder) => {
     builder
@@ -61,11 +57,6 @@ const serviceSlice = createSlice({
         state.error = null;
         state.isLoading = true;
       })
-      // .addCase(addColumnThunk.pending, (state) => {
-      //     state.error = null;
-      //     state.isLoading = true;
-      // })
-
       // //////////FULFILD///////////////////
       .addCase(getBoardThunk.fulfilled, (state, action) => {
         state.error = null;
@@ -77,44 +68,43 @@ const serviceSlice = createSlice({
         state.isLoading = false;
         state.boards.push(action.payload);
       })
+
+      //   .addCase(fetchSingleBoard.fulfilled, (state, action) => {
+      //     state.error = null;
+      //     state.isLoading = false;
+      //     if (action.payload.columns[0].hasOwnProperty("_id")) {
+      //       state.selectedBoard = action.payload;
+      //       return;
+      //     }
+      //     state.selectedBoard = action.payload;
+      //     state.selectedBoard.columns = [];
+      //   })
+
       .addCase(fetchSingleBoard.fulfilled, (state, action) => {
         state.error = null;
         state.isLoading = false;
-        if (action.payload.columns[0]) {
+        if (
+          action.payload.columns &&
+          action.payload.columns[0] &&
+          action.payload.columns[0].hasOwnProperty("_id")
+        ) {
           state.selectedBoard = action.payload;
-
-          return;
+        } else {
+          state.selectedBoard = action.payload;
+          state.selectedBoard.columns = [];
         }
-        state.selectedBoard = action.payload;
-        state.selectedBoard.columns = [];
       })
 
       .addCase(editBoardThunk.fulfilled, (state, action) => {
+        state.error = null;
         state.isLoading = false;
-        state.selectedBoard.title = action.payload.title;
-        state.selectedBoard.icon = action.payload.icon;
-        state.selectedBoard.background = action.payload.background;
-        const idx = state.boards.findIndex(
-          (el) => el._id === action.payload._id
-        );
-        state.boards[idx] = action.payload;
+        state.boards = action.payload.boards;
       })
       .addCase(deleteBoardThunk.fulfilled, (state, action) => {
+        state.error = null;
         state.isLoading = false;
-        const idx = state.boards.findIndex((el) => el._id === action.payload);
-        state.boards.splice(idx, 1);
-        if (state.selectedBoard._id === action.payload) {
-          state.selectedBoard = {};
-        }
+        state.boards.push(action.payload);
       })
-
-      // .addCase(addColumnThunk.fulfilled, (state, action) => {
-      //     state.isLoading = false;
-      //     state.error = null;
-      //     // Вызываем редюсер addColumnSuccess для обновления состояния
-      //     serviceSlice.caseReducers.addColumnSuccess(state, action); // Используем существующий редюсер
-      // })
-
       // /////////////////REJECTED/////////////////
       .addCase(getBoardThunk.rejected, (state, action) => {
         state.isLoading = false;
@@ -136,10 +126,6 @@ const serviceSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       });
-    // .addCase(addColumnThunk.rejected, (state, action) => {
-    //        state.isLoading = false;
-    //        state.error = action.payload;
-    //    });
   },
 });
 
