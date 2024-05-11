@@ -1,8 +1,8 @@
-.form {
+/* .form {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 
 .modalContainer {
   max-width: 335px;
@@ -21,7 +21,7 @@
   margin-bottom: 24px;
 }
 
-.inputMail {
+.inputEdit {
   box-sizing: border-box;
   width: 287px;
   height: 49px;
@@ -42,24 +42,24 @@
   padding: 14px 18px;
 }
 
-.inputMail:hover,
-.inputMail:focus,
-.inputMail:active {
+.inputEdit:hover,
+.inputEdit:focus,
+.inputEdit:active {
   opacity: 1;
 }
 
-.inputMail::placeholder {
+.inputEdit::placeholder {
   color: var(--color-font);
   font-size: 14px;
   letter-spacing: -0.02em;
   line-height: 1.5;
 }
 
-.textAreaComment {
+.textAreaDescription {
   box-sizing: border-box;
   resize: none;
   width: 287px;
-  height: 120px;
+  height: 154px;
   border-radius: 8px;
   outline: none;
   border: 1px solid var(--bg-button);
@@ -77,13 +77,13 @@
   font-family: "PoppinsRegular";
 }
 
-.textAreaComment:hover,
-.textAreaComment:focus,
-.textAreaComment:active {
+.textAreaDescription:hover,
+.textAreaDescription:focus,
+.textAreaDescription:active {
   opacity: 1;
 }
 
-.textAreaComment::placeholder {
+.textAreaDescription::placeholder {
   color: var(--color-font);
   font-family: "PoppinsRegular";
   font-size: 14px;
@@ -91,7 +91,45 @@
   line-height: 1.5;
 }
 
-.buttonSend {
+.textAreaDescription::-webkit-scrollbar {
+  width: 0;
+}
+
+.calendarContainer {
+  position: relative;
+}
+
+.labelDiv {
+  margin: 0 0 14px;
+}
+
+.deadlineDiv {
+  margin: 0 0 40px;
+}
+
+.textLabel {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  opacity: 0.4;
+  margin-bottom: 4px;
+  color: var(--color-font);
+}
+
+.textDeadline {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  opacity: 0.4;
+  color: var(--color-font);
+  margin-bottom: 4px;
+}
+
+.buttonEdit {
   width: 287px;
   height: 49px;
   border-radius: 8px;
@@ -101,13 +139,13 @@
   font-size: 14px;
   letter-spacing: -0.02em;
   color: var(--color-dark);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
 }
 
-.buttonSend:hover,
-.buttonSend:focus {
+.buttonEdit:hover,
+.buttonEdit:focus {
   background: var(--bg-button-active);
-}
-
-.textAreaComment::-webkit-scrollbar {
-  width: 0;
 }
