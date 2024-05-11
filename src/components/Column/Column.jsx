@@ -28,6 +28,7 @@ const Column = ({ column }) => {
     dispatch(
       setModalContent({
         action: "addCard",
+        AddId: { _id },
       })
     );
     dispatch(setModalStatus(true));
@@ -62,15 +63,15 @@ const Column = ({ column }) => {
           )}
         </div>
       </div>
-      {tasks && tasks.length > 0 && (
-        <ul>
-          {tasks?.map((taskId, index) => (
-            <li key={tasks._Id}>
-              <Card task={tasks.find((el) => el._id === taskId)} />
-            </li>
-          ))}
-        </ul>
-      )}
+
+      <ul>
+        {tasks?.map((task) => (
+          <li key={task._id}>
+            <Card task={task} />
+          </li>
+        ))}
+      </ul>
+
       {isModalOpen && (
         <Modal open={isModalOpen} onClose={toggleModal}>
           <EditColumn id={_id} title={title} onClose={toggleModal} />

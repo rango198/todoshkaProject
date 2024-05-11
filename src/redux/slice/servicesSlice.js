@@ -29,7 +29,7 @@ const initialState = {
     endPoint: null,
     action: null,
     recordDataEdit: null,
-    recordDataAdd: null,
+    AddId: null,
     editedData: null,
   },
 };
@@ -216,10 +216,25 @@ const serviceSlice = createSlice({
       })
       //--------------Fulfilled-------------------
       .addCase(addTaskAsync.fulfilled, (state, action) => {
-        state.isLoading = true;
+        state.isLoading = false; // Зміна isLoading на false, оскільки завантаження завершене.
         state.error = null;
-        state.tasks.push(action.payload);
+
+        const task = action.payload; // Отримуємо завдання з action.payload
+
+        // Знаходимо стовпець, до якого потрібно додати завдання
+        const columnIndex = state.selectedBoard.columns.findIndex(
+          (column) => column._id === task.colum_id
+        );
+
+        // Додаємо завдання до відповідного стовпця
+        if (columnIndex !== -1) {
+          state.selectedBoard.columns[columnIndex].tasks.push(task);
+        } else {
+          // Якщо не вдалося знайти стовпець за його id, можливо, потрібно обробити помилку.
+          state.error = "Column not found"; // Наприклад, встановлюємо помилку.
+        }
       })
+
       .addCase(editTaskAsync.fulfilled, (state, action) => {
         state.isLoading = true;
         state.error = null;

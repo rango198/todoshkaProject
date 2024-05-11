@@ -9,7 +9,7 @@ import css from "./ListBoards.module.css";
 const ListBoards = ({ boards }) => {
   // const boards = useSelector(selectAllBoards);
   const currentBoard = useSelector(selectedBoard);
-  console.log(boards);
+
   return (
     <ul className={css.sidebarNewBoard}>
       {boards.map(({ title, icon, _id }) => (
