@@ -4,6 +4,7 @@ import NeedHelpModal from "../Sidebar/needHelp/NeedHelp";
 import EditProfileForm from "../EditProfileForm/EditProfileForm";
 
 import AddColumnModal from "../AddColumnModal/AddColumModal.jsx";
+import EditCardModal from "../Card/EditCardModal/EditCardModal.jsx";
 
 const ModalContent = () => {
   const modalContent = useSelector(selectModalContent);
@@ -20,6 +21,9 @@ const ModalContent = () => {
 
     case "addColum":
       return <AddColumnModal />;
+
+    case "editCard":
+      return <EditCardModal />;
 
     default:
       return null;
