@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
-//import { useSelector } from "react-redux";
-
+import { useSelector } from "react-redux";
+import { selectedColumn } from "../../redux/selectors/serviceSelector";
 import DeletePopup from "../DeletePopup/DeletePopup";
 import PopupMoveCard from "./PopupMoveCard/PopupMoveCard";
 import Icon from "../Icon/Icon";
 import css from "./Card.module.css";
 
 const Card = ({ task }) => {
-  //const task = useSelector((state) => state.task); // Припустила що дані про одну таску зберігаються у Redux під ключем "task"
+  // const task = useSelector((state) => state.task); // Припустила що дані про одну таску зберігаються у Redux під ключем "task"
   //const columns = useSelector((state) => state.columns); Отримати список колонок з Redux store для відображення значка перемістити
+  const columns = useSelector(selectedColumn);
+  const { _id, title, description, priority, deadline, column } = task;
 
-  const { _id, title, description, priority, owner, deadline, column } = task;
   const [currentDate, setCurrentDate] = useState(new Date());
   const [showPopup, setShowPopup] = useState(false);
   const [showFullText, setShowFullText] = useState(false);
@@ -59,7 +60,7 @@ const Card = ({ task }) => {
 
   let priorityColor;
 
-  switch (priority) {
+  switch (task.priority) {
     case "Without priority":
       priorityColor = "rgba(255, 255, 255, 0.3)";
       break;
@@ -88,12 +89,12 @@ const Card = ({ task }) => {
 
   return (
     <div className={css.wrapperCard} style={wrapperCardStyle}>
-      <h4 className={css.title}>{title}</h4>
+      <h4 className={css.title}>{task.title}</h4>
       <p
         className={`${css.description} ${showFullText ? css.fullText : ""}`}
         onClick={handleFullText}
       >
-        {description}
+        {task.description}
       </p>
       <hr className={css.line} />
       <div className={css.propertiesGroup}>
@@ -102,27 +103,27 @@ const Card = ({ task }) => {
             <p className={css.text}>Priority</p>
             <div className={css.priorityGroup}>
               <hr className={css.circle} style={circleStyle}></hr>
-              <p className={css.priority}>{priority}</p>
+              <p className={css.priority}>{task.priority}</p>
             </div>
           </div>
           <div className={css.deadlineGroup}>
             <p className={css.text}>Deadline</p>
-            <p className={css.priority}>{formatDate(deadline)}</p>
+            <p className={css.priority}>{formatDate(task.deadline)}</p>
           </div>
         </div>
         <div className={css.iconsGroup}>
-          {formatDate(deadline) === currentDate.toLocaleDateString() && (
+          {formatDate(task.deadline) === currentDate.toLocaleDateString() && (
             <svg className={css.bellIkon}>
               <Icon id="bell" />
             </svg>
           )}
-          {/*{columns.length > 1 && /*показуємо кнопку якщо є хоча б дві колонки*/}
-          <button onClick={handleClickPopup} className={css.button}>
-            <svg className={css.icon}>
-              <Icon id="broken-right" />
-            </svg>
-          </button>
-          {/* } */}
+          {columns.length > 1 && (
+            <button onClick={handleClickPopup} className={css.button}>
+              <svg className={css.icon}>
+                <Icon id="broken-right" />
+              </svg>
+            </button>
+          )}
           {showPopup && <PopupMoveCard onClose={handleClickPopup} />}
           <button onClick={handleClickEdit} className={css.button}>
             <svg className={css.icon}>
@@ -135,7 +136,7 @@ const Card = ({ task }) => {
             </svg>
           </button>
           {showPopupDelete && (
-            <DeletePopup onClose={handleCloseDelete} id={_id} type="task" />
+            <DeletePopup onClose={handleCloseDelete} id={task.id} type="task" />
           )}
         </div>
       </div>
@@ -152,13 +153,19 @@ export default Card;
 // import PopupMoveCard from "./PopupMoveCard/PopupMoveCard";
 // import Icon from "../Icon/Icon";
 // import css from "./Card.module.css";
+// import { useDispatch } from "react-redux";
+// import {
+//   setModalContent,
+//   setModalStatus,
+// } from "../../redux/slice/servicesSlice";
 
 // const Card = () => {
 //   const [showPopup, setShowPopup] = useState(false);
 //   const [showFullText, setShowFullText] = useState(false);
 //   const [showPopupDelete, setShowPopupDelete] = useState(false);
 
-//   // const columns = useSelector((state) => state.columns); Отримати список колонок з Redux store
+//   const dispatch = useDispatch();
+//   //const columns = useSelector((state) => state.columns); Отримати список колонок з Redux store
 
 //   const handleClickPopup = () => {
 //     setShowPopup(!showPopup);
@@ -167,6 +174,12 @@ export default Card;
 
 //   const handleClickEdit = () => {
 //     console.log("click");
+//     dispatch(
+//       setModalContent({
+//         action: "editCard",
+//       })
+//     );
+//     dispatch(setModalStatus(true));
 //   };
 
 //   const handleClickDelete = () => {
@@ -213,13 +226,13 @@ export default Card;
 //           <svg className={css.bellIkon}>
 //             <Icon id="bell" />
 //           </svg>
-//           {columns.length > 1 && (
-//             <button onClick={handleClickPopup} className={css.button}>
-//               <svg className={css.icon}>
-//                 <Icon id="broken-right" />
-//               </svg>
-//             </button>
-//           )}
+//           {/*{columns.length > 1 && /*показуємо кнопку якщо є хоча б дві колонки*/}
+//           <button onClick={handleClickPopup} className={css.button}>
+//             <svg className={css.icon}>
+//               <Icon id="broken-right" />
+//             </svg>
+//           </button>
+//           {/* } */}
 //           {showPopup && <PopupMoveCard onClose={handleClickPopup} />}
 //           <button onClick={handleClickEdit} className={css.button}>
 //             <svg className={css.icon}>
