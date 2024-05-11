@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
 import { addColumnAsync } from "../../redux/thunk/columnsThunk";
-import { setModalStatus } from "../../redux/slice/columnsSlice";
 import { selectedBoard } from "../../redux/selectors/serviceSelector";
-
 import { useForm } from "react-hook-form";
 import ButtonClose from "../ButtonClose/ButtonClose";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import Icon from "../Icon/Icon.jsx";
 import css from "./AddColumModal.module.css";
+import {
+  setModalContent,
+  setModalStatus,
+} from "../../redux/slice/servicesSlice";
 
 const AddColumnModal = () => {
   const dispatch = useDispatch();
@@ -20,28 +21,18 @@ const AddColumnModal = () => {
   console.log("Board ID:", boardId);
 
   const { register, handleSubmit } = useForm();
-  const [errorMessage, setErrorMessage] = useState(null);
+  // const [errorMessage, setErrorMessage] = useState(null);
 
   const onClose = () => {
+    dispatch(setModalContent({ action: null, recordDataEdit: null }));
     dispatch(setModalStatus(false));
   };
 
   const onSubmit = async (data) => {
-    try {
-      const { title } = data;
+    const { title } = data;
 
-      const response = await dispatch(addColumnAsync({ title, boardId }));
-
-      if (response.error) {
-        setErrorMessage(response.payload);
-      } else {
-        toast.success(`Column created with title ${title}`);
-        onClose();
-      }
-    } catch (error) {
-      console.error(error);
-      toast.error("Error adding column");
-    }
+    dispatch(addColumnAsync({ title, boardId }));
+    onClose();
   };
 
   return (
@@ -50,19 +41,17 @@ const AddColumnModal = () => {
       <p className={css.title}>Add column</p>
       <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
         <input
-          {...register("title")}
+          {...register("title", { required: true })}
           className={css.input}
           type="text"
-          placeholder="Enter column title"
+          placeholder="Введіть назву стовпця"
         />
-        {errorMessage && <span className={css.error}>{errorMessage}</span>}
         <button className={css.submBtn} type="submit">
           <span className={css.button_icon_bg}>
             <Icon id="plus" className={css.button_icon} />
           </span>
           <span className={css.button_title}>Add</span>
         </button>
-        {errorMessage && <p>{errorMessage}</p>}
       </form>
     </div>
   );

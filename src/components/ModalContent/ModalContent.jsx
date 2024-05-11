@@ -9,8 +9,8 @@ const ModalContent = () => {
   const modalContent = useSelector(selectModalContent);
 
   switch (modalContent.action) {
-    case "add":
-      return <div>Hello World</div>;
+    case "addColumn":
+      return <AddColumnModal />;
 
     case "help":
       return <NeedHelpModal />;

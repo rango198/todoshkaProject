@@ -12,22 +12,8 @@ const columnDeleteSlice = createSlice({
     columns: [],
     loading: false,
     error: null,
-    modalContent: {
-      endPoint: null,
-      action: null,
-      recordDataEdit: null,
-      recordDataAdd: null,
-      editedData: null,
-    },
   },
-  reducers: {
-    setModalStatus: (state, action) => {
-      state.openModal = action.payload;
-    },
-    setModalContent: (state, action) => {
-      state.modalContent = { ...state.modalContent, ...action.payload };
-    },
-  },
+
   extraReducers: (builder) => {
     builder
       //deleteColumn
@@ -75,6 +61,5 @@ const columnDeleteSlice = createSlice({
   },
 });
 
-export const { setLoading, setModalStatus, setModalContent } =
-  columnDeleteSlice.actions;
+export const { setLoading } = columnDeleteSlice.actions;
 export const columnsReducer = columnDeleteSlice.reducer;
