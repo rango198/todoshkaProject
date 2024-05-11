@@ -156,3 +156,11 @@ export const moveTask = async (id, source, destination) => {
   );
   return data;
 };
+
+// export const moveTask = async (id, body) => {
+//   const { data } = await $instance.patch(
+//     `tasks/${id}/transfer`,
+//     body
+//   );
+//   return data;
+// };
