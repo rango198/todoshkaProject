@@ -35,15 +35,15 @@ const NewBoard = () => {
 
   return (
     <div className={css.container}>
-      <ButtonAdd
-        onClick={toggleAddColumn}
-        title="Add another column"
-        className={css.button_create}
-      />
       <div className={css.columns_container}>
         {columns?.map((column) => (
           <Column key={column._id} column={column} />
         ))}
+        <ButtonAdd
+          onClick={toggleAddColumn}
+          title="Add another column"
+          className={css.button_create}
+        />
       </div>
     </div>
   );
