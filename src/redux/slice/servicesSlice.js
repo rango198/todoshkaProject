@@ -98,12 +98,21 @@ const serviceSlice = createSlice({
       .addCase(editBoardThunk.fulfilled, (state, action) => {
         state.error = null;
         state.isLoading = false;
-        state.boards = action.payload.boards;
+        state.selectedBoard.title = action.payload.title;
+        state.selectedBoard.icon = action.payload.icon;
+        state.selectedBoard.background = action.payload.background;
+        const idx = state.boards.findIndex(
+          (el) => el._id === action.payload._id
+        );
+        state.boards[idx] = action.payload;
       })
       .addCase(deleteBoardThunk.fulfilled, (state, action) => {
-        state.error = null;
         state.isLoading = false;
-        state.boards.push(action.payload);
+        const idx = state.boards.findIndex((el) => el._id === action.payload);
+        state.boards.splice(idx, 1);
+        if (state.selectedBoard._id === action.payload) {
+          state.selectedBoard = {};
+        }
       })
       // /////////////////REJECTED/////////////////
       .addCase(getBoardThunk.rejected, (state, action) => {
