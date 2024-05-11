@@ -1,3 +1,6 @@
+.container {
+  height: 100hv;
+}
 .sidebar {
   display: none;
 }
@@ -11,9 +14,10 @@
 @media screen and (min-width: 1440px) {
   .container {
     display: flex;
+    align-items: stretch;
   }
   .sidebar {
-    display: block;
+    display: flex;
     width: 260px;
   }
   .main {
