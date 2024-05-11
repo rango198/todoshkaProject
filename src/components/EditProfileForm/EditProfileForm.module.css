@@ -146,6 +146,10 @@ labelAvatar {
   color: var(--color-placeholder);
   position: relative;
 }
+.inputPassword:hover,
+.inputPassword:focus {
+  opacity: 1;
+}
 .inputEye {
   position: relative;
 }
