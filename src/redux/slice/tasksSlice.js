@@ -12,27 +12,12 @@ const initialState = {
   board: null,
   loading: false,
   error: null,
-  openModal: false,
-  modalContent: {
-    endPoint: null,
-    action: null,
-    recordDataEdit: null,
-    recordDataAdd: null,
-    editedData: null,
-  },
 };
 
 const tasksSlice = createSlice({
   name: "tasks",
   initialState,
-  reducers: {
-    setModalStatus: (state, action) => {
-      state.openModal = action.payload;
-    },
-    setModalContent: (state, action) => {
-      state.modalContent = { ...state.modalContent, ...action.payload };
-    },
-  },
+
   extraReducers: (builder) => {
     builder
       //-----------Pending--------------
