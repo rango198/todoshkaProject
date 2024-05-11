@@ -6,7 +6,7 @@ import Modal from "../Modal/Modal";
 import EditColumn from "../EditColumn/EditColumn";
 
 import css from "./Column.module.css";
-import Icon from "../Icon/Icon.jsx";
+import Icon from "../Icon/Icon";
 
 const Column = ({ column }) => {
   const { _id, title, tasks, owner, board } = column;
@@ -17,12 +17,16 @@ const Column = ({ column }) => {
     <div className={css.container}>
       <div className={css.column_header}>
         <span>{title}</span>
-        <div>
-          <button onClick={toggleModal}>
-            <Icon id="pencil" className={css.icon_svg} />
+        <div className={css.btn_container}>
+          <button type="button" className={css.btn} onClick={toggleModal}>
+            <svg className={css.icon_svg}>
+              <Icon id="pencil" />
+            </svg>
           </button>
-          <button onClick={toggleModal}>
-            <Icon id="trash" className={css.icon_svg} />
+          <button type="button" className={css.btn} onClick={toggleModal}>
+            <svg className={css.icon_svg}>
+              <Icon id="trash" />
+            </svg>
           </button>
         </div>
       </div>

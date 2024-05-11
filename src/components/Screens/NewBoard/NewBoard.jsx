@@ -40,10 +40,10 @@ const NewBoard = () => {
         title="Add another column"
         className={css.button_create}
       />
+      <Modal open={isAddColumnOpen} onClose={toggleAddColumn}>
+        <AddColumnModal onClose={toggleAddColumn} />
+      </Modal>
       <div className={css.columns_container}>
-        <Modal open={isAddColumnOpen} onClose={toggleAddColumn}>
-          <AddColumnModal onClose={toggleAddColumn} />
-        </Modal>
         {columns.map((column) => (
           <Column key={column._id} column={column} />
         ))}
