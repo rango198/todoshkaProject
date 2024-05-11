@@ -1,8 +1,9 @@
 import { useDispatch } from "react-redux";
 
-import { deleteTask, deleteColumn, deleteBoard } from "../../service/api";
-
 import css from "./DeletePopup.module.css";
+import { deleteBoardThunk } from "../../redux/thunk/servicesThunk";
+import { deleteColumnAsync } from "../../redux/thunk/columnsThunk";
+import { deleteTaskAsync } from "../../redux/thunk/tasksThunk";
 
 const DeletePopup = ({ onClose, type, id }) => {
   const dispatch = useDispatch();
@@ -10,11 +11,11 @@ const DeletePopup = ({ onClose, type, id }) => {
   const handleDelete = () => {
     // визначення типу об"єкту для видалення
     if (type === "task") {
-      dispatch(deleteTask(id));
+      dispatch(deleteTaskAsync(id));
     } else if (type === "column") {
-      dispatch(deleteColumn(id));
+      dispatch(deleteColumnAsync(id));
     } else if (type === "board") {
-      dispatch(deleteBoard(id));
+      dispatch(deleteBoardThunk(id));
     }
     onClose();
   };
