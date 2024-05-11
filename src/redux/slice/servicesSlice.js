@@ -166,19 +166,23 @@ const serviceSlice = createSlice({
       })
       //editColumn
       .addCase(editColumnAsync.pending, (state) => {
-        state.isLoading = true;
         state.error = null;
+        state.isLoading = true;
       })
-      .addCase(editColumnAsync.fulfilled, (state, { payload }) => {
-        const index = state.columns.findIndex(
-          (column) => column._id === payload._id
-        );
-        state.columns[index].title = payload.title;
+      .addCase(editColumnAsync.fulfilled, (state, action) => {
         state.isLoading = false;
+        const idx = state.selectedBoard.columns.findIndex(
+          (el) => el._id === action.payload._id
+        );
+        state.selectedBoard.columns[idx] = {
+          ...state.selectedBoard.columns[idx],
+          ...action.payload,
+        };
       })
+
       .addCase(editColumnAsync.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.error.message;
+        state.error = action.payload;
       })
       //addColumn
       .addCase(addColumnAsync.pending, (state) => {

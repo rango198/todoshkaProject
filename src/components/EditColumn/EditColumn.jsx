@@ -1,62 +1,38 @@
-import React, { useEffect } from "react";
-
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+
 import { useDispatch, useSelector } from "react-redux";
+
+import { selectedColumn } from "../../redux/selectors/serviceSelector";
+import { editColumnAsync } from "../../redux/thunk/columnsThunk";
 
 import ButtonAdd from "../ButtonAdd/ButtonAdd";
 import ButtonClose from "../ButtonClose/ButtonClose";
 
-// import { setModalStatus } from "../../redux/slice/columnsSlice";
-import { editColumnAsync } from "../../redux/thunk/columnsThunk";
-import { selectedColumn } from "../../redux/selectors/serviceSelector";
 import css from "./EditColumn.module.css";
 
 const EditColumn = ({ onClose }) => {
   const { register, handleSubmit, setValue } = useForm();
-
   const dispatch = useDispatch();
 
+  const editColumn = useSelector(selectedColumn)
 
-  const editColumn = useSelector(selectedColumn);
-  
+useEffect(() => {
+  setValue('title', editColumn.title)
 
-  useEffect(() => {
-    setValue("title", editColumn.title);
-  }, [editColumn.title, setValue]);
+}, [editColumn.title, setValue])
 
-  useEffect(() => {
-    dispatch(editColumnAsync());
-  }, [dispatch]);
+const handleTitleChange = (evt) => {
+  setValue("title", evt.target.value.toString());
+};
 
-  
-  const handleTitleChange = (evt) => {
-    setValue("title", evt.target.value.toString());
-  };
+const handleEditColumn = (data) => {
+  const { title } = data;
 
-  const handleEditColumn = (data) => {
-    const { title } = data;
+  dispatch(editColumnAsync([editColumn._id, { title }]));
+  onClose(); 
+};
 
-    let newColumn = {};
-    if (title === editColumn.title) {
-      newColumn = {
-        title: data.title,
-      };
-    } else {
-      newColumn = { title };
-    }
-
-    dispatch(editColumnAsync([editColumn._id, newColumn]));
-    onClose();
-  };
-
-  // const handleEditColumn = (data) => {
-  //   const { title } = data;
-  //   if (column) {
-  //     const newColumn = { ...column, title };
-  //     dispatch(editColumnAsync([column._id, newColumn]));
-  //   }
-  //   onClose();
-  // };
 
   return (
     <div className={css.wrapper}>
