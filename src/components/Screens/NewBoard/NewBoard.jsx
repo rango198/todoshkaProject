@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ButtonAdd from "../../ButtonAdd/ButtonAdd";
 import Column from "../../Column/Column";
-import { getAllColumns } from "../../../redux/selectors/columnsSelector";
+
 import css from "./NewBoard.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
@@ -10,6 +10,7 @@ import {
   setModalContent,
   setModalStatus,
 } from "../../../redux/slice/servicesSlice";
+import { selectedColumn } from "../../../redux/selectors/serviceSelector";
 
 const NewBoard = () => {
   const params = useParams();
@@ -24,7 +25,7 @@ const NewBoard = () => {
     dispatch(setModalStatus(true));
   };
 
-  const columns = useSelector(getAllColumns);
+  const columns = useSelector(selectedColumn);
 
   useEffect(() => {
     if (params.boardName) {
@@ -40,7 +41,7 @@ const NewBoard = () => {
         className={css.button_create}
       />
       <div className={css.columns_container}>
-        {columns.map((column) => (
+        {columns?.map((column) => (
           <Column key={column._id} column={column} />
         ))}
       </div>

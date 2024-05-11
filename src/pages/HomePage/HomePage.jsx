@@ -23,8 +23,8 @@ const HomePage = () => {
         </div>
         <div className={css.main}>
           <Header />
-          {/* <ScreensPage /> */}
-          <NewBoard />
+          <ScreensPage />
+          {/* <NewBoard /> */}
         </div>
       </Suspense>
     </div>

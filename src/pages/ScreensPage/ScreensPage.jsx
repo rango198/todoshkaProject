@@ -89,8 +89,8 @@ const ScreensPage = () => {
           </button>
         </span>
       </div>
-      {/* {isBoards.length === 0 ? <Board /> : <NewBoard />} */}
-      {isBoards.length === 0 ? <Board /> : <Outlet />}
+      {isBoards.length === 0 ? <Board /> : <NewBoard />}
+      {/* {isBoards.length === 0 ? <Board /> : <Outlet />} */}
     </div>
   );
 };
