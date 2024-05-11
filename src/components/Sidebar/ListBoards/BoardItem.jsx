@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { deleteBoardThunk } from "../../../redux/thunk/servicesThunk";
+
+// import { deleteBoardThunk } from "../../../redux/thunk/servicesThunk";
+
 import Icon from "../../Icon/Icon";
 import Modal from "../../Modal/Modal";
 import EditBoardModal from "../../ModalBoard/EditBoardModal/EditBoardModal";

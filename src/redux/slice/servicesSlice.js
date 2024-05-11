@@ -69,34 +69,33 @@ const serviceSlice = createSlice({
         state.boards.push(action.payload);
       })
 
-      //   .addCase(fetchSingleBoard.fulfilled, (state, action) => {
-      //     state.error = null;
-      //     state.isLoading = false;
-      //     if (action.payload.columns[0].hasOwnProperty("_id")) {
-      //       state.selectedBoard = action.payload;
-      //       return;
-      //     }
-      //     state.selectedBoard = action.payload;
-      //     state.selectedBoard.columns = [];
-      //   })
-
       .addCase(fetchSingleBoard.fulfilled, (state, action) => {
         state.error = null;
         state.isLoading = false;
-        if (
-          action.payload.columns &&
-          action.payload.columns[0] &&
-          action.payload.columns[0].hasOwnProperty("_id")
-        ) {
+        if (action.payload.columns[0]) {
           state.selectedBoard = action.payload;
-        } else {
-          state.selectedBoard = action.payload;
-          state.selectedBoard.columns = [];
+          return;
         }
+        state.selectedBoard = action.payload;
+        state.selectedBoard.columns = [];
       })
 
+      // .addCase(fetchSingleBoard.fulfilled, (state, action) => {
+      //   state.error = null;
+      //   state.isLoading = false;
+      //   if (
+      //     action.payload.columns &&
+      //     action.payload.columns[0] &&
+      //     action.payload.columns[0].hasOwnProperty("_id")
+      //   ) {
+      //     state.selectedBoard = action.payload;
+      //   } else {
+      //     state.selectedBoard = action.payload;
+      //     state.selectedBoard.columns = [];
+      //   }
+      // })
+
       .addCase(editBoardThunk.fulfilled, (state, action) => {
-        state.error = null;
         state.isLoading = false;
         state.selectedBoard.title = action.payload.title;
         state.selectedBoard.icon = action.payload.icon;
