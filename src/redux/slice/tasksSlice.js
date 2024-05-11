@@ -13,12 +13,13 @@ const initialState = {
   loading: false,
   error: null,
   openModal: false,
-  // modalContent: {
-  //   action: null,
-  //   recordDataEdit: null,
-  //   recordDataAdd: null,
-  //   editedData: null,
-  // },
+  modalContent: {
+    endPoint: null,
+    action: null,
+    recordDataEdit: null,
+    recordDataAdd: null,
+    editedData: null,
+  },
 };
 
 const tasksSlice = createSlice({
@@ -27,6 +28,9 @@ const tasksSlice = createSlice({
   reducers: {
     setModalStatus: (state, action) => {
       state.openModal = action.payload;
+    },
+    setModalContent: (state, action) => {
+      state.modalContent = { ...state.modalContent, ...action.payload };
     },
   },
   extraReducers: (builder) => {
