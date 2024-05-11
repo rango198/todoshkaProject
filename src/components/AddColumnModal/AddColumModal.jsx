@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
+
 import { addColumnAsync } from "../../redux/thunk/columnsThunk";
 import { selectedBoard } from "../../redux/selectors/serviceSelector";
-import { useForm } from "react-hook-form";
-import ButtonClose from "../ButtonClose/ButtonClose";
-// import { toast } from "react-toastify";
-import Icon from "../Icon/Icon.jsx";
+
 import css from "./AddColumModal.module.css";
+import ButtonAdd from "../ButtonAdd/ButtonAdd";
+import ButtonClose from "../ButtonClose/ButtonClose";
+
 import {
   setModalContent,
   setModalStatus,
@@ -16,12 +17,7 @@ const AddColumnModal = () => {
   const dispatch = useDispatch();
   const board = useSelector(selectedBoard);
   const boardId = board?._id;
-
-  console.log("selectedBoard:", board);
-  console.log("Board ID:", boardId);
-
   const { register, handleSubmit } = useForm();
-  // const [errorMessage, setErrorMessage] = useState(null);
 
   const onClose = () => {
     dispatch(setModalContent({ action: null, recordDataEdit: null }));
@@ -38,20 +34,15 @@ const AddColumnModal = () => {
   return (
     <div className={css.modal}>
       <ButtonClose onClick={onClose} />
-      <p className={css.title}>Add column</p>
+      <h2 className={css.title}>Add column</h2>
       <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
         <input
           {...register("title", { required: true })}
           className={css.input}
           type="text"
-          placeholder="Введіть назву стовпця"
+          placeholder="Title"
         />
-        <button className={css.submBtn} type="submit">
-          <span className={css.button_icon_bg}>
-            <Icon id="plus" className={css.button_icon} />
-          </span>
-          <span className={css.button_title}>Add</span>
-        </button>
+        <ButtonAdd className={css.buttonSbt} type="submit" title="Add" />
       </form>
     </div>
   );
