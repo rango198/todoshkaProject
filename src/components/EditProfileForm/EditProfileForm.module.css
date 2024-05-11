@@ -108,6 +108,7 @@ labelAvatar {
 .svgPlus:hover,
 .svgPlus:focus {
   background: var(--bg-button-active);
+  border: 1px solid var(--bg-button-active);
 }
 
 .inputMail {
@@ -116,7 +117,7 @@ labelAvatar {
   height: 49px;
   border-radius: 8px;
   outline: none;
-  border: 1px solid #bedbb0;
+  border: 1px solid var(--bg-button-plus);
   padding-inline: 0;
   padding-block: 0;
   background: transparent;
@@ -129,6 +130,7 @@ labelAvatar {
 .inputMail:hover,
 .inputMail:focus {
   opacity: 1;
+  border: 1px solid var(--bg-button-active);
 }
 .inputPassword {
   box-sizing: border-box;
@@ -136,7 +138,7 @@ labelAvatar {
   height: 49px;
   border-radius: 8px;
   outline: none;
-  border: 1px solid #bedbb0;
+  border: 1px solid var(--bg-button-plus);
   padding-inline: 0;
   padding-block: 0;
   background: transparent;
@@ -146,9 +148,17 @@ labelAvatar {
   color: var(--color-placeholder);
   position: relative;
 }
+
+.inputPassword:hover,
+.inputPassword:focus {
+  opacity: 1;
+  border: 1px solid var(--bg-button-active);
+}
+
 .inputEye {
   position: relative;
 }
+
 .svgIcon {
   width: 18px;
   position: absolute;

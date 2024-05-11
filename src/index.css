@@ -98,8 +98,17 @@ html[data-theme="dark"] {
   --color-hr: rgba(255, 255, 255, 0.1);
   --color-radioDescr: rgba(255, 255, 255, 0.5);
   --color-board: rgba(255, 255, 255, 0.5);
+
+  /* SideBar */
   --bg-sidebar: #121212;
   --sb-icon-stroke: #121212;
+  --bg-help: #1f1f1f;
+  --bg-image-logo: url(assets/img/logo/logo-light.png);
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-fonts: #fff;
+  --color-link: #bedbb0;
+  --logout-icon: #bedbb0;
+  --color-item: rgba(255, 255, 255, 0.5);
 
   /* Pop up */
   --bg-color: #151515;
@@ -114,7 +123,7 @@ html[data-theme="dark"] {
   --button-color: #161616;
 
   /* Icon Avatar Default */
-  --background-image1: url(assets/img/userAvatar/user-dark1.png);
+
   --background-image: url(assets/img/userAvatar/user-dark.png);
 
   /* Calendar */
@@ -150,8 +159,18 @@ html[data-theme="light"] {
   --color-hr: rgba(22, 22, 22, 0.1);
   --color-radioDescr: rgba(22, 22, 22, 0.5);
   --color-board: rgba(22, 22, 22, 0.7);
+
+  /* SideBar */
+  --bg-button-plus: #b8bcfd;
   --bg-sidebar: #fff;
-  --sb-icon-stroke: #fff;
+  --sb-icon-stroke: #121212;
+  --bg-help: rgba(236, 237, 253, 0.4);
+  --bg-image-logo: url(assets/img/logo/logo-light.png);
+  --color-border: rgba(22, 22, 22, 0.1);
+  --color-fonts: #161616;
+  --color-link: #bedbb0;
+  --logout-icon: #bedbb0;
+  --color-item: rgba(22, 22, 22, 0.5);
 
   /* Pop up */
   --bg-color: #fcfcfc;
@@ -166,7 +185,7 @@ html[data-theme="light"] {
   --button-color: #161616;
 
   /* Icon Avatar Default */
-  --background-image1: url(assets/img/userAvatar/user-light1.png);
+
   --background-image: url(assets/img/userAvatar/user-light.png);
 
   /* Calendar */
@@ -202,8 +221,18 @@ html[data-theme="violet"] {
   --color-hr: rgba(22, 22, 22, 0.1);
   --color-radioDescr: rgba(22, 22, 22, 0.5);
   --color-board: rgba(22, 22, 22, 0.7);
+
+  /* SideBar */
+  --bg-button-plus: #b8bcfd;
   --bg-sidebar: #5255bc;
   --sb-icon-stroke: #fff;
+  --bg-help: rgba(236, 237, 253, 0.4);
+  --bg-image-logo: url(assets/img/logo/logo-violet.png);
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-fonts: #fff;
+  --color-link: #5255bc;
+  --logout-icon: #fff;
+  --color-item: rgba(255, 255, 255, 0.5);
 
   /* Pop up */
   --bg-color: #fcfcfc;
@@ -218,7 +247,7 @@ html[data-theme="violet"] {
   --button-color: #fff;
 
   /* Icon Avatar Default */
-  --background-image1: url(assets/img/userAvatar/user-violet1.png);
+
   --background-image: url(assets/img/userAvatar/user-violet.png);
 
   /* Calendar */

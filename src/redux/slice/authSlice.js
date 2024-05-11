@@ -88,7 +88,6 @@ const authSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(updateUserThunk.fulfilled, (state, action) => {
-        console.log("action.payload:", action.payload);
         state.user.name = action.payload.name;
         state.user.email = action.payload.email;
         state.user.avatarURL = action.payload.avatarURL;

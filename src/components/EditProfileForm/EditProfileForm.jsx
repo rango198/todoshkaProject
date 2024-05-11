@@ -78,18 +78,8 @@ const EditProfileForm = () => {
     dispatch(updateUserThunk(userData));
     dispatch(setModalContent({ action: null, recordDataEdit: null }));
     dispatch(setModalStatus(false));
-    //   .then(() => {
-    //   closeModal();
-    // });
-    // closeModal();
-
     reset();
   };
-
-  // const handleClose = () => {
-  //   console.log(typeof onClose);
-  //   onClose();
-  // };
 
   return (
     <div className={css.modalContainer}>

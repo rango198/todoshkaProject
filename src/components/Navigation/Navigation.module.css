@@ -8,12 +8,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  min-width: 320px;
+  max-width: 768px;
 }
 
 .box_menu {
   position: fixed;
   top: 0;
   left: 0;
-  width: 225px;
-  background: #fff;
+  width: 200px;
+}
+
+@media screen and (min-width: 375px) {
+  .box_menu {
+    width: 260px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .overlay {
+    min-width: 1440px;
+  }
 }

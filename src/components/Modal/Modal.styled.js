@@ -51,4 +51,7 @@ export const SvgClose = styled.svg`
   stroke: var(--color);
   padding-block: 0;
   padding-inline: 0;
+  &:hover {
+    stroke: var(--bg-button-active);
+  }
 `;

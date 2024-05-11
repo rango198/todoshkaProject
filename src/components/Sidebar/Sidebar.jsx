@@ -43,16 +43,14 @@ const SidebarActive = () => {
       <aside className={css.sidebar}>
         <div>
           <section className={css.sidebarBox}>
-            <svg className={css.sidebarBoxIcon}>
-              <Icon id="logo" />
-            </svg>
+            <div className={css.logo}></div>
             <h2 className={css.sidebarBoxTitle}>Task Pro</h2>
           </section>
           <div className={css.sidebarItem}>
             <p className={css.sidebarItemTitle}>My boards</p>
           </div>
           <section className={css.sidebarBoard}>
-            <p className={css.sidebarBoardItem}>Create a new board</p>
+            <p className={css.sidebarBoardSubItem}>Create a new board</p>
             <button
               onClick={toggleAddBoard}
               className={css.sidebarBoardButton}
@@ -70,7 +68,7 @@ const SidebarActive = () => {
         </div>
         <div>
           <section className={css.sidebarHelp}>
-            <div>
+            <div className={css.img_help}>
               <picture>
                 <source
                   srcSet={`${flower} 1x, ${flowerTwoX} 2x,${flowerThreeX} 3x`}
