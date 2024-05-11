@@ -32,9 +32,9 @@ const EditBoardModal = ({ onClose }) => {
     setSelectedBackgroundId(editBoard.background);
   }, [editBoard.background, editBoard.icon, editBoard.title, setValue]);
 
-  useEffect(() => {
-    dispatch(getBoardThunk());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getBoardThunk());
+  // }, [dispatch]);
 
   const handleTitleChange = (event) => {
     setValue("title", event.target.value.toString());
