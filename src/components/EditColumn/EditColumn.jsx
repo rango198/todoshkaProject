@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,52 +6,55 @@ import { useDispatch, useSelector } from "react-redux";
 import ButtonAdd from "../ButtonAdd/ButtonAdd";
 import ButtonClose from "../ButtonClose/ButtonClose";
 
+// import { setModalStatus } from "../../redux/slice/columnsSlice";
 import { editColumnAsync } from "../../redux/thunk/columnsThunk";
-
-import css from "./EditColumn.module.css";
-import { editColumn } from "../../service/api";
 import { selectedColumn } from "../../redux/selectors/serviceSelector";
+import css from "./EditColumn.module.css";
 
 const EditColumn = ({ onClose }) => {
   const { register, handleSubmit, setValue } = useForm();
 
   const dispatch = useDispatch();
 
-  const column = useSelector(selectedColumn);
+
+  const editColumn = useSelector(selectedColumn);
+  
 
   useEffect(() => {
-    if (column) {
-      setValue("title", column.title);
-    }
-  }, [column, setValue]);
+    setValue("title", editColumn.title);
+  }, [editColumn.title, setValue]);
 
-  // useEffect(() => {
-  //   setValue("title", editColumn.title);
-  // }, [ediColumn.title, setValue]);
+  useEffect(() => {
+    dispatch(editColumnAsync());
+  }, [dispatch]);
 
-  // useEffect(() => {
-  //   dispatch(editColumnAsync());
-  // }, [dispatch]);
-
+  
   const handleTitleChange = (evt) => {
     setValue("title", evt.target.value.toString());
   };
 
   const handleEditColumn = (data) => {
     const { title } = data;
-    if (column) {
-      const newColumn = { ...column, title };
-      dispatch(editColumnAsync([column._id, newColumn]));
+
+    let newColumn = {};
+    if (title === editColumn.title) {
+      newColumn = {
+        title: data.title,
+      };
+    } else {
+      newColumn = { title };
     }
+
+    dispatch(editColumnAsync([editColumn._id, newColumn]));
     onClose();
   };
 
   // const handleEditColumn = (data) => {
   //   const { title } = data;
-
-  //   let newColumn = { title };
-
-  //   dispatch(editColumnAsync([editColumn._id, newColumn]));
+  //   if (column) {
+  //     const newColumn = { ...column, title };
+  //     dispatch(editColumnAsync([column._id, newColumn]));
+  //   }
   //   onClose();
   // };
 

@@ -40,7 +40,7 @@ const Column = ({ column }) => {
         </ul>
       )}
       {isModalOpen && (
-        <Modal onClose={toggleModal}>
+        <Modal open={isModalOpen} onClose={toggleModal}>
           <EditColumn id={_id} title={title} onClose={toggleModal} />
         </Modal>
       )}

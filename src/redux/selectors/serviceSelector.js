@@ -5,5 +5,7 @@ export const selectedBoard = (state) => state.service.selectedBoard;
 export const selectIsBoardsLoading = (state) => state.service.isLoading;
 export const getFilter = (state) => state.filter.filter;
 
+
 export const selectedColumn = (state) => state.service.columns;
 export const selectedTask = (state) => state.service.tasks;
+
