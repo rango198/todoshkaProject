@@ -54,10 +54,15 @@ const RegisterForm = () => {
         toast.success("Registration successful");
         reset();
       })
-      .catch((error) => {
-        toast.error(`Registration failed: ${error}`);
+      .catch(() => {
+        toast.error("Email has already in use");
       });
   };
+
+  // if (error.response.status === 409) {
+  //   toast.error("Email has already in use");
+  //
+  // }
 
   return (
     <form className={styles.main} onSubmit={handleSubmit(onSubmit)}>
