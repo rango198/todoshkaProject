@@ -1,6 +1,7 @@
 .container {
-  background-color: var(--bg-color-body);
+  background-color: transparent;
 }
+
 .column_header {
   padding: 16px;
   display: flex;
@@ -19,11 +20,13 @@
   justify-content: center;
   align-items: center;
 }
+
 .btn {
   background: inherit;
   border: none;
   padding: 0;
 }
+
 .icon_svg {
   width: 18px;
   height: 18px;
