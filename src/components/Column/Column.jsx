@@ -1,11 +1,13 @@
 import { useState } from "react";
-//import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 
 import {
   setModalContent,
   setModalStatus,
 } from "../../redux/slice/servicesSlice";
+
+import { selectedColumn } from "../../redux/selectors/serviceSelector";
 
 import Card from "../Card/Card";
 import Modal from "../Modal/Modal";
@@ -21,6 +23,8 @@ const Column = ({ column }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showPopupDelete, setShowPopupDelete] = useState(false);
   const toggleModal = () => setIsModalOpen((state) => !state);
+
+  const columnId = useSelector(selectedColumn);
 
   const dispatch = useDispatch();
 
@@ -67,7 +71,7 @@ const Column = ({ column }) => {
       <ul className={css.container_task}>
         {tasks?.map((task) => (
           <li className={css.item_task} key={task._id}>
-            <Card task={task} />
+            <Card task={task} columnId={columnId} />
           </li>
         ))}
       </ul>
