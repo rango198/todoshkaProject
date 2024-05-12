@@ -2,11 +2,12 @@
   max-height: 122px;
   overflow: auto;
   margin-top: 40px;
-  padding-left: 14px;
-  border-right: 4px solid var(--color-green);
-  border-radius: 4px 0px 0px 4px;
-  background-color: var(--bg-color);
+  /* padding-left: 14px; */
+  /* border-right: 4px solid var(--color-green);
+  border-radius: 4px 0px 0px 4px; */
+  background-color: transparent;
 }
+
 
 /* .scroll-box {
   width: 300px;
@@ -26,10 +27,15 @@
   display: flex;
   align-items: center;
   padding: 20px 0;
+  color: var(--color-item);
 }
 .sidebarNewBoardList:hover,
 .sidebarNewBoardList:active {
-  background-color: var(--bg-color-body);
+  background-color: var(--bg-card);
+  opacity: 0.4;
+  border-right: 4px solid var(--border-cart);
+  border-radius: 4px 0px 0px 4px;
+  color: var(--color-fonts);
 }
 
 .sidebarNewBoardSvg {
@@ -44,8 +50,7 @@
   font-size: 14px;
   letter-spacing: -0.28px;
   margin-right: auto;
-
-  color: var(--color-font);
+  color: var(--color-item);
 }
 
 .sidebarNewBoardButton {

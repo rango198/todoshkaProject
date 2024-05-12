@@ -20,3 +20,15 @@
   padding: 18px 44px 18px 18px;
   color: var(--color-theme);
 }
+
+.dark:active {
+  color: #bedbb0;
+}
+
+.light:active {
+  color: #bedbb0;
+}
+
+.violet:active {
+  color: #5255bc;
+}
