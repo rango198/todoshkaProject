@@ -1,32 +1,42 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-
 import {
   setModalContent,
   setModalStatus,
 } from "../../redux/slice/servicesSlice";
 
+
 import { selectedColumn } from "../../redux/selectors/serviceSelector";
 
+
 import Card from "../Card/Card";
-import Modal from "../Modal/Modal";
-import EditColumn from "../EditColumn/EditColumn";
 import DeletePopup from "../DeletePopup/DeletePopup";
 import ButtonAdd from "../ButtonAdd/ButtonAdd";
-
 import css from "./Column.module.css";
 import Icon from "../Icon/Icon";
 
 const Column = ({ column }) => {
-  const { _id, title, tasks, owner, board } = column;
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [showPopupDelete, setShowPopupDelete] = useState(false);
-  const toggleModal = () => setIsModalOpen((state) => !state);
+  const { _id, title, tasks } = column;
+
 
   const columnId = useSelector(selectedColumn);
 
+
+  const [showPopupDelete, setShowPopupDelete] = useState(false);
+
   const dispatch = useDispatch();
+
+  const editColumn = (id) => {
+    dispatch(
+      setModalContent({
+        action: "editColumn",
+        AddId: { id },
+        recordDataEdit: { title },
+      })
+    );
+    dispatch(setModalStatus(true));
+  };
 
   const toggleAddCard = () => {
     dispatch(
@@ -40,7 +50,6 @@ const Column = ({ column }) => {
 
   const handleClickDelete = () => {
     setShowPopupDelete(true);
-    console.log("click");
   };
 
   const handleCloseDelete = () => {
@@ -52,7 +61,11 @@ const Column = ({ column }) => {
       <div className={css.column_header}>
         <span>{title}</span>
         <div className={css.btn_container}>
-          <button type="button" className={css.btn} onClick={toggleModal}>
+          <button
+            type="button"
+            className={css.btn}
+            onClick={() => editColumn(_id)}
+          >
             <svg className={css.icon_svg}>
               <Icon id="pencil" />
             </svg>
@@ -70,17 +83,11 @@ const Column = ({ column }) => {
 
       <ul className={css.container_task}>
         {tasks?.map((task) => (
-          <li className={css.item_task} key={task._id}>
-            <Card task={task} columnId={columnId} />
+          <li key={task._id} className={css.item_task}>
+            <Card task={task} />
           </li>
         ))}
       </ul>
-
-      {isModalOpen && (
-        <Modal open={isModalOpen} onClose={toggleModal}>
-          <EditColumn id={_id} title={title} onClose={toggleModal} />
-        </Modal>
-      )}
       <ButtonAdd
         onClick={toggleAddCard}
         title="Add another card"

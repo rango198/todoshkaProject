@@ -1,54 +1,56 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { useDispatch, useSelector } from "react-redux";
-import { selectedColumn } from "../../redux/selectors/serviceSelector";
+import {
+  selectModalContent,
+  selectedColumn,
+} from "../../redux/selectors/serviceSelector";
 import { editColumnAsync } from "../../redux/thunk/columnsThunk";
 
 import ButtonAdd from "../ButtonAdd/ButtonAdd";
 import ButtonClose from "../ButtonClose/ButtonClose";
 
 import css from "./EditColumn.module.css";
+import {
+  setModalContent,
+  setModalStatus,
+} from "../../redux/slice/servicesSlice";
 
-const EditColumn = ({ onClose }) => {
+const EditColumn = () => {
   const dispatch = useDispatch();
-  const [valueInput, setValueInput] = useState("");
-  const columns = useSelector(selectedColumn);
 
-  const editColumn = columns.find((column) => column);
-  const { _id, title } = editColumn;
+  const editTitle = useSelector(selectModalContent);
+  const title = editTitle.recordDataEdit.title;
+  const id = editTitle.AddId.id;
 
-  const handleTitleChange = (evt) => {
-    setValueInput(evt.target.value.toString());
+  const inputRef = useRef(null);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = {
+      title: inputRef.current.value,
+    };
+    
+    dispatch(editColumnAsync([id, { title: data.title }]));
   };
-  useEffect(() => {
-    setValueInput(title);
-  }, [title, setValueInput]);
 
-  const handleEditColumn = (e) => {
-    e.preventDefault();
-    if (!valueInput.length) {
-      return;
-    }
-
-    dispatch(editColumnAsync([_id, { title: valueInput }]));
-    setValueInput("");
-    e.target.reset();
-    onClose();
+  const onClose = () => {
+    dispatch(setModalContent({ action: null, recordDataEdit: null }));
+    dispatch(setModalStatus(false));
   };
 
   return (
     <div className={css.wrapper}>
       <ButtonClose onClick={onClose} />
       <h2 className={css.title}>Edit column</h2>
-      <form onSubmit={handleEditColumn}>
+      <form onSubmit={handleSubmit}>
         <input
+          defaultValue={title}
+          ref={inputRef}
           className={css.input}
-          id="newColumn"
           name="title"
           type="text"
-          placeholder={title}
-          onChange={handleTitleChange}
         />
         <ButtonAdd className={css.buttonSbt} type="submit" title="Add" />
       </form>

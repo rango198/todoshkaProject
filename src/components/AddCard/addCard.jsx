@@ -9,10 +9,7 @@ import ButtonAdd from "../ButtonAdd/ButtonAdd";
 import RadioColorCard from "../RadioButtons/RadioColorCard";
 import Calendar from "../Calendar/Calendar";
 import * as yup from "yup";
-import {
-  selectModalContent,
-  selectedColumn,
-} from "../../redux/selectors/serviceSelector";
+import { selectModalContent } from "../../redux/selectors/serviceSelector";
 import {
   setModalContent,
   setModalStatus,
@@ -22,26 +19,25 @@ const AddCardSchema = yup
   .object({
     title: yup.string().required("Title is required"),
     description: yup.string(),
-    labelColor: yup.string(),
+    priority: yup.string(),
   })
   .required();
 
 const AddCard = () => {
-  // const columns = useSelector(selectedColumn);
   const { AddId } = useSelector(selectModalContent);
   const columnId = AddId._id;
   const dispatch = useDispatch();
-  const [deadlineDate, setDeadlineDate] = useState(new Date());
-  const [priority, setPriority] = useState(); // Стейт для даты дедлайна
+  const [deadline, setDeadline] = useState(new Date());
+  const [priority, setPriority] = useState("Without"); // Стейт для даты дедлайна
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ resolver: yupResolver(AddCardSchema) });
 
-  const handleDateChange = (date) => {
-    setDeadlineDate(date);
+  const handleDateChange = (startDate) => {
+    setDeadline(startDate);
   };
 
   const onSubmit = (data) => {
@@ -51,15 +47,17 @@ const AddCard = () => {
       title,
       description,
       priority: priority || "Without",
-      // Добавление даты дедлайна в новую задачу
       column: columnId,
+      deadline,
     };
+    console.log("New Task:", newTask);
+
     dispatch(addTaskAsync(newTask));
     dispatch(setModalStatus(false));
     dispatch(setModalContent({ action: null, recordDataEdit: null }));
   };
 
-  const handleClikc = (value) => {
+  const handleClick = (value) => {
     setPriority(value);
   };
 
@@ -88,14 +86,14 @@ const AddCard = () => {
         </label>
         <div className={css.labelDiv}>
           <p className={css.textLabel}>Label color</p>
-          <RadioColorCard click={handleClikc} />
+          <RadioColorCard click={handleClick} />
         </div>
         <div className={css.deadlineDiv}>
           <p className={css.textDeadline}>Deadline</p>
           <Calendar
-            selected={deadlineDate}
+            selected={deadline}
             onChange={handleDateChange}
-            dateFormat="MMMM d"
+            dateFormat="EEEE MMMM dd"
           />
         </div>
         <ButtonAdd

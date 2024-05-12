@@ -72,12 +72,15 @@
   height: 56px;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-green);
+  background-color: var(--bg-button);
+  /* margin-left: 20px; */
+
   border-radius: 8px;
   border-style: none;
   transition: background-color 250ms linear;
+  
 }
 
 .button_create:hover {
-  background-color: var(--color-hover-green);
+  background-color: var(--bg-button-active);
 }

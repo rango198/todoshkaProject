@@ -149,6 +149,19 @@ html[data-theme="dark"] {
   --datepicker-grey-lable: rgba(255, 255, 255, 0.3);
   --datepicker-checked: #151512;
   --datepicker-focused: #fff;
+
+  /*BTN AnotherColumn*/
+  --bg-another-column: #161616;
+  --btn-color-anothet-column: #fff;
+  --btn-icon-bg-anothet-column: #fff;
+  --btn-icon-another-column: #161616;
+  --hover-another-column: #9dc888;
+  --hover-title-another-column: #161616;
+--hover-stroke-another-column: #fff; 
+
+--btn-add: #bedbb0;
+
+
 }
 
 html[data-theme="light"] {
@@ -215,7 +228,19 @@ html[data-theme="light"] {
   --datepicker-grey-lable: rgba(22, 22, 22, 0.3);
   --datepicker-checked: #ffffff;
   --datepicker-focused: #161616;
+
+    /*BTN AnotherColumn*/
+    --bg-another-column: #fcfcfc;
+    --btn-color-anothet-column: #161616;
+    --btn-icon-bg-anothet-column: #161616;
+    --btn-icon-another-column: #fcfcfc;
+    --hover-another-column: #9dc888;
+    --hover-title-another-column: #161616;
+
+    --btn-add: #bedbb0;;
+
 }
+
 
 html[data-theme="violet"] {
   --color-font: #161616;
@@ -281,6 +306,17 @@ html[data-theme="violet"] {
   --datepicker-grey-lable: rgba(22, 22, 22, 0.3);
   --datepicker-checked: #ffffff;
   --datepicker-focused: #161616;
+
+    /*BTN AnotherColumn*/
+    --bg-another-column: #fcfcfc;
+    --btn-color-anothet-column: #161616;
+    --btn-icon-bg-anothet-column: #5255bc;
+    --btn-icon-another-column: #fcfcfc;
+    --hover-another-column: #7b7ede;
+    --hover-title-another-column:  #fff;
+
+    --btn-add:#5255bc;
+
 }
 
 h1,

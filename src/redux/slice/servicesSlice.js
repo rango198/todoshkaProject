@@ -171,13 +171,13 @@ const serviceSlice = createSlice({
       })
       .addCase(editColumnAsync.fulfilled, (state, action) => {
         state.isLoading = false;
-        const idx = state.selectedBoard.columns.findIndex(
-          (el) => el._id === action.payload._id
+        const { _id, title } = action.payload;
+        const columnIndex = state.selectedBoard.columns.findIndex(
+          (el) => el._id === _id
         );
-        state.selectedBoard.columns[idx] = {
-          ...state.selectedBoard.columns[idx],
-          ...action.payload,
-        };
+        if (columnIndex !== -1) {
+          state.selectedBoard.columns[columnIndex].title = title;
+        }
       })
 
       .addCase(editColumnAsync.rejected, (state, action) => {

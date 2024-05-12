@@ -12,7 +12,7 @@
   font-weight: 500;
   font-size: 18px;
   letter-spacing: -0.02em;
-  color: var(--main_text_color);
+  color: var(--color-font);
   margin-bottom: 24px;
 }
 
@@ -27,18 +27,19 @@
   background-color: transparent;
   border: 1px solid var(--bg-button-active);
   box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
+  outline: none;
+
 }
 
 .input::placeholder {
-  color: #161616;
-}
-
-.input::placeholder {
-  color: #161616;
+  color: var(--color-font);
+  line-height: 1.5;
 }
 
 .input:focus {
   outline: none;
+  opacity: 1;
+
   /* box-shadow: 0 4px 16px 0 var(--accent); */
 }
 @media screen and (min-width: 375px) {
@@ -83,7 +84,7 @@
   width: 302px;
   height: 49px;
   font-weight: 500;
-  background-color: var(--bg-button);
+  background-color: var(--btn-add);
   color: var(--color-font);
 
   cursor: pointer;
@@ -95,5 +96,5 @@
 }
 
 .buttonSbt:hover {
-  background-color: #9dc888;
+  background-color: var(--hover-another-column);
 }

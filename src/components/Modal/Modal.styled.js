@@ -14,6 +14,7 @@ export const StyledBackdrop = styled.div`
 `;
 
 export const StyledModalContent = styled.div`
+  width: calc(100% - 40px);
   position: relative;
   background: var(--bg-color);
   max-height: 90vh;
@@ -33,6 +34,14 @@ export const StyledModalContent = styled.div`
   }
 
   border-radius: 8px;
+
+  @media screen and (min-width: 375px) and (max-width: 767px) {
+    max-width: 335px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 400px;
+  }
 `;
 
 export const CloseModalButton = styled.button`

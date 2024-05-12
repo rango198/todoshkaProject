@@ -80,7 +80,7 @@ const RadioFilter = ({ onFilterChange, priority }) => {
                 margin: "0",
                 height: "24px",
                 "& .MuiTypography-root": {
-                  fontFamily: "Poppins",
+                  fontFamily: "PoppinsRegular",
                   fontSize: "12px",
                   color: labelColor,
                 },

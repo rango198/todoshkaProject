@@ -25,29 +25,29 @@
 }
 
 .input {
-  background-color: transparent;
-
-  margin-bottom: 24px;
   width: 302px;
   height: 49px;
-
-  padding: 14px 18px;
-
-  border: 1px solid var(--bg-button-active);
-  border-radius: 8px;
-
-  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
   opacity: 0.4;
-
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
   color: var(--color-font);
+  background-color: transparent;
+  border: 1px solid var(--bg-button-active);
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
+  outline: none;
 }
 
 .input::placeholder {
-  color: #161616;
+  color: var(--color-font);
+  line-height: 1.5;
 }
 
 .input:focus {
   outline: none;
+  opacity: 1;
+
+  /* box-shadow: 0 4px 16px 0 var(--accent); */
 }
 
 .buttonSbt {

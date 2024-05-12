@@ -8,6 +8,7 @@
 }
 
 .modal {
+  box-sizing: border-box;
   border: 1px solid var(--modal-border);
   box-sizing: border-box;
   position: absolute;

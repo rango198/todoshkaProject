@@ -8,12 +8,11 @@
   width: 287px;
   height: 49px;
   border-radius: 8px;
-  border: 1px solid #bedbb0;
-  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
+  border: 1px solid var(--color-green);
+  box-shadow: 0 4px 16px 0 var(--color-text-grey);
   background: #1f1f1f;
   padding-left: 10px;
-  /* background: #f6f6f7; */
-  color: #fff;
+  color: var(--color);
 }
 
 .input::placeholder {
@@ -21,8 +20,7 @@
   font-weight: 400;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: rgba(255, 255, 255, 0.5);
-  /* padding-left: 10px; */
+  color: var(--color-icon-grey);
 }
 
 .inputwithicon {
@@ -33,17 +31,32 @@
   width: 287px;
   height: 49px;
   border-radius: 8px;
-  background: #bedbb0;
+  background: var(--color-green);
 }
+
 .svg_icon {
   width: 18px;
-
   position: absolute;
-  stroke: #fff;
+  stroke: var(--color);
   right: 18px;
   margin-top: 18px;
   bottom: 0;
   height: 100%;
-  /* display: flex;
-  align-items: center; */
+}
+@media screen and (min-width: 768px) {
+  .input {
+    border: 1px solid var(--color-green);
+    border-radius: 8px;
+    width: 344px;
+    height: 49px;
+    box-shadow: 0 4px 16px 0 var(--color-text-grey);
+    background: var(--bg-color-form-input);
+    color: var(--color);
+  }
+  .btn {
+    border-radius: 8px;
+    width: 344px;
+    height: 49px;
+    background: var(--color-green);
+  }
 }
