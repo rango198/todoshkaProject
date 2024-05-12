@@ -6,8 +6,8 @@ import {
 } from "../../../redux/selectors/serviceSelector";
 import css from "./ListBoards.module.css";
 
-const ListBoards = () => {
-  const boards = useSelector(selectAllBoards);
+const ListBoards = ({ boards }) => {
+  // const boards = useSelector(selectAllBoards);
   const currentBoard = useSelector(selectedBoard);
 
   return (

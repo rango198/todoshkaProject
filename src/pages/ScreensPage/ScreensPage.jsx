@@ -22,7 +22,7 @@ import {
   setModalStatus,
 } from "../../redux/slice/servicesSlice.js";
 import { getBoardThunk } from "../../redux/thunk/servicesThunk";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 // import { useTheme } from "../../hooks/useTheme";
 // import { useNavigate } from "react-router";
@@ -90,6 +90,7 @@ const ScreensPage = () => {
         </span>
       </div>
       {isBoards.length === 0 ? <Board /> : <NewBoard />}
+      {/* {isBoards.length === 0 ? <Board /> : <Outlet />} */}
     </div>
   );
 };

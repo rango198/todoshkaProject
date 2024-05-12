@@ -150,11 +150,13 @@ labelAvatar {
   position: relative;
 }
 
+
 .inputPassword:hover,
 .inputPassword:focus {
   opacity: 1;
   border: 1px solid var(--bg-button-active);
 }
+
 
 .inputEye {
   position: relative;

@@ -20,7 +20,7 @@
   font-weight: 500;
   font-size: 18px;
 
-  color: var(--main_text_color);
+  color: var(--color-font);
   margin-bottom: 24px;
 }
 
@@ -38,8 +38,6 @@
 
   box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
   opacity: 0.4;
-
-  height: 21px;
 
   color: var(--color-font);
 }

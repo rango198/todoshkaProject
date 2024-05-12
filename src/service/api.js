@@ -117,10 +117,16 @@ export const deleteColumn = async (id) => {
   return data;
 };
 
-export const editColumn = async (id, body) => {
-  const { data } = await $instance.put(`columns/${id}`, body);
+export const editColumn = async (body) => {
+  const [id, column] = body;
+  const { data } = await $instance.put(`columns/${id}`, column);
   return data;
 };
+
+// export const editColumn = async (id, body) => {
+//   const { data } = await $instance.put(`columns/${id}`, body);
+//   return data;
+// };
 // =================TASKS======================
 
 // export const getAllTasks = async () => {

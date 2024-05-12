@@ -1,10 +1,19 @@
 .sidebarNewBoard {
+  max-height: 122px;
+  overflow: auto;
   margin-top: 40px;
   /* padding-left: 14px; */
   /* border-right: 4px solid var(--color-green);
   border-radius: 4px 0px 0px 4px; */
   background-color: transparent;
 }
+
+
+/* .scroll-box {
+  width: 300px;
+  height: 200px;
+  overflow: auto;
+} */
 
 .sidebarNewBoardNeon {
   margin-top: 4px;

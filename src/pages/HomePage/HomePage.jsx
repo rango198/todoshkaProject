@@ -7,6 +7,10 @@ import Loader from "../../components/Loader/Loader";
 import ScreensPage from "../ScreensPage/ScreensPage";
 import { useDispatch } from "react-redux";
 import { getBoardThunk } from "../../redux/thunk/servicesThunk";
+import NewBoard from "../../components/Screens/NewBoard/NewBoard";
+
+// import { useDispatch } from "react-redux";
+// import { getBoardThunk } from "../../redux/thunk/servicesThunk";
 
 const HomePage = () => {
   const { theme, setTheme } = useTheme();
@@ -23,6 +27,9 @@ const HomePage = () => {
         <div className={css.main}>
           <Header />
           <ScreensPage />
+          {/* <NewBoard /> */}
+          {}
+          {/* <AddCard /> */}
         </div>
       </Suspense>
     </div>

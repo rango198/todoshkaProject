@@ -1,10 +1,12 @@
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.modalContainer {
+.modal {
+  /* padding: 24px;
+  position: relative;
+  border: 1px solid rgba(190, 219, 176, 0.5);
+  border-radius: 8px;
+  max-width: 335px;
+  /* max-width: 100%; 
+  height: 522px;
+  background-color: #fcfcfc; */
   max-width: 335px;
   padding: 24px;
   background: var(--bg-theme);
@@ -12,7 +14,7 @@
   border-radius: 8px;
 }
 
-.textNameModal {
+.title {
   color: var(--color-font);
   font-family: "PoppinsMedium";
   font-size: 18px;
@@ -20,8 +22,7 @@
   letter-spacing: -0.02em;
   margin-bottom: 24px;
 }
-
-.inputMail {
+.input {
   box-sizing: border-box;
   width: 287px;
   height: 49px;
@@ -42,24 +43,24 @@
   padding: 14px 18px;
 }
 
-.inputMail:hover,
-.inputMail:focus,
-.inputMail:active {
-  opacity: 1;
-}
-
-.inputMail::placeholder {
+.input::placeholder {
   color: var(--color-font);
   font-size: 14px;
   letter-spacing: -0.02em;
   line-height: 1.5;
 }
 
+.input:hover,
+.input:focus,
+.input:active {
+  opacity: 1;
+}
+
 .textAreaComment {
   box-sizing: border-box;
   resize: none;
   width: 287px;
-  height: 120px;
+  height: 154px;
   border-radius: 8px;
   outline: none;
   border: 1px solid var(--bg-button);
@@ -76,22 +77,23 @@
   padding: 14px 18px;
   font-family: "PoppinsRegular";
 }
-
 .textAreaComment:hover,
-.textAreaComment:focus,
-.textAreaComment:active {
+.textAreaComment:focus .textAreaComment:focus {
   opacity: 1;
 }
-
-.textAreaComment::placeholder {
-  color: var(--color-font);
-  font-family: "PoppinsRegular";
-  font-size: 14px;
-  letter-spacing: -0.02em;
-  line-height: 1.5;
+.errorMessage {
+  color: red;
+  font-size: 12px;
 }
-
-.buttonSend {
+/* .radioFilter {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 120px;
+  gap: 8 px;
+  margin-bottom: 14px;
+} */
+.buttonAdd {
   width: 287px;
   height: 49px;
   border-radius: 8px;
@@ -101,13 +103,36 @@
   font-size: 14px;
   letter-spacing: -0.02em;
   color: var(--color-dark);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
 }
 
-.buttonSend:hover,
-.buttonSend:focus {
-  background: var(--bg-button-active);
+.buttonAdd:hover,
+.buttonAdd:focus {
+  background: #9dc888;
+  border-color: #151515;
+}
+/* .button_icon_bg {
+  align-items: center;
+  background-color: #161616;
+  border-radius: 6px;
+  display: flex;
+  height: 28px;
+  justify-content: center;
+  padding: 7px;
+  width: 28px;
+}
+.button_icon {
+  width: 14px;
+  height: 14px;
+  stroke: #ffffff;
 }
 
-.textAreaComment::-webkit-scrollbar {
-  width: 0;
-}
+.button_title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #161616;
+  margin: 0;
+} */
