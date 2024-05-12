@@ -1,11 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import {
   addBoard,
   deleteBoard,
   editBoard,
   getAllBoards,
   getSingleBoard,
+  addColumn,
   updateUser,
 } from "../../service/api";
 
@@ -41,7 +42,7 @@ export const getBoardThunk = createAsyncThunk(
       return response;
     } catch (error) {
       console.log(error);
-      toast.error("Error get ", error);
+      // toast.error("Error get ", error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -55,7 +56,7 @@ export const addBoardThunk = createAsyncThunk(
       return response;
     } catch (error) {
       console.log(error);
-      toast.error("Error add", error);
+      // toast.error("Error add", error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -67,7 +68,7 @@ export const fetchSingleBoard = createAsyncThunk(
       const data = await getSingleBoard(id);
       return data;
     } catch (error) {
-      toast.error(error.response.data.message);
+      // toast.error(error.response.data.message);
 
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -82,8 +83,8 @@ export const editBoardThunk = createAsyncThunk(
       const data = await editBoard(body);
       return data;
     } catch (error) {
-      toast.error("Error edit", error);
-
+      console.log(error);
+      // toast.error("Error edit ", error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -98,8 +99,25 @@ export const deleteBoardThunk = createAsyncThunk(
       await deleteBoard(id);
       return id;
     } catch (error) {
-      toast.error(error.response.data.message);
+      console.log(error);
+      // toast.error("Error delete", error);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
+export const addColumnThunk = createAsyncThunk(
+  "service/addColumn",
+  async (data, thunkAPI) => {
+    try {
+      const testData = {
+        title: data.title,
+        // сюда вставляем id борда до якого додаєм колонку, поки ще так щоб потестить - колонка додаэться в базу
+        id: "663bb99afc2f51b3c179afdd",
+      };
+      const res = await addColumn(testData);
+      return res;
+    } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }

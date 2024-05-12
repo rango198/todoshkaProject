@@ -11,15 +11,19 @@ import styles from "./Register.module.css";
 import { useDispatch } from "react-redux";
 import { registerThunk } from "../../../redux/thunk/authThunk";
 
-
 const schema = yup.object({
   name: yup.string().min(2).max(32).required("Required field"),
-  email: yup.string().email().required("Required field"),
+  email: yup
+    .string()
+    .email()
+    .required("Required field")
+    .matches(/^.*[!@#$%^&*()\-_=+{};:,<.>]/),
+
   password: yup
     .string()
     .required("Required field")
     .min(8, "min 8 characters")
-    .max(64),
+    .max(64, "min 64 characters"),
 });
 
 const RegisterForm = () => {
@@ -73,8 +77,11 @@ const RegisterForm = () => {
         className={styles.input}
         placeholder="Enter your email"
         type="email"
-        {...register("email", { required: true })}
+        {...register("email", {
+          required: true,
+        })}
       />
+
       <div className={styles.inputwithicon}>
         <input
           placeholder="Create a password"
@@ -90,7 +97,7 @@ const RegisterForm = () => {
         </div>
       </div>
 
-      <div style={{ height: 20, color: "red" }}>
+      <div style={{ height: 15, color: "red" }}>
         {errors?.name && <p>{errors?.name?.message || "Error!"}</p>}
         {errors?.email && <p>{errors?.email?.message || "Error!"}</p>}
         {errors?.password && <p>{errors?.password?.message || "Error!"}</p>}
