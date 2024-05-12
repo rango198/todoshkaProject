@@ -343,6 +343,13 @@ html {
   box-sizing: inherit;
 }
 
+.background-color-body {
+  background-color: var(--bg-color-body);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
 
 .background-air {
   background-image: url("./assets/img/desk/air-desk-1x.webp");
