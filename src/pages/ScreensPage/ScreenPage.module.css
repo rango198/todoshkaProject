@@ -1,7 +1,8 @@
 .screen {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 100vh;
+  padding-top: 14px;
   padding-bottom: 24px;
   padding-left: 20px;
   padding-right: 16px;
@@ -14,7 +15,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 14px;
+  /* padding-top: 14px; */
 
   @media screen and (min-width: 768px) {
     padding: 20px 32px;
@@ -73,36 +74,32 @@
   stroke: #bedbb0;
 }
 .submBtn {
+  display: inline-flex;
+  gap: 8px;
+  padding: 14px 0px;
 
-    display: inline-flex;
-    gap: 8px;
-    padding: 14px 0px;
-
-    justify-content: center;
-    align-items: center;
-    border: none;
-    border-radius: 8px;
-    fill: var(--color-white);
-    stroke: var(--color-icon-dark);
-    background: var(--bg-button);
-    color: var(--bg-sidebar);
-    font-family: 'PoppinsMedium', sans-serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    letter-spacing: -0.28px;
-    height: 56px;
-    transition: color 250ms linear;
-
-
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 8px;
+  fill: var(--color-white);
+  stroke: var(--color-icon-dark);
+  background: var(--bg-button);
+  color: var(--bg-sidebar);
+  font-family: "PoppinsMedium", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.28px;
+  height: 56px;
+  transition: color 250ms linear;
+}
+@media screen and (min-width: 375px) {
+  .submBtn {
+    width: 334px;
   }
-  @media screen and (min-width: 375px) {
-    .submBtn {
-     width: 334px;
-    }
-  }
-
+}
 
 .submBtn:hover {
   background-color: #9dc888;

@@ -18,7 +18,7 @@
 }
 .button_create {
   display: flex;
-  margin-top: 40px;
+  /*  margin-top: 40px;*/
   gap: 8px;
   width: 335px;
   height: 56px;
@@ -33,4 +33,15 @@
 
 .button_create:hover {
   background-color: #bedbb0;
+}
+
+/* .container {
+  display: flex;
+  flex-direction: row;
+} */
+
+.columns_container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
 }

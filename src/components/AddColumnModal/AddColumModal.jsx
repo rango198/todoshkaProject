@@ -1,73 +1,51 @@
+import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+
+import { addColumnAsync } from "../../redux/thunk/columnsThunk";
+import { selectedBoard } from "../../redux/selectors/serviceSelector";
+
 import css from "./AddColumModal.module.css";
-// import ButtonAdd from "../ButtonAdd/ButtonAdd";
-// import ButtonClose from "../ButtonClose/ButtonClose";
-import { toast } from 'react-toastify';
-import { useDispatch } from "react-redux";
-import { useState } from 'react';
-import { setModalStatus } from "../../redux/slice/servicesSlice.js";
-import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router-dom';
+import ButtonAdd from "../ButtonAdd/ButtonAdd";
+import ButtonClose from "../ButtonClose/ButtonClose";
 
-import {addColumnThunk} from "../../redux/thunk/servicesThunk.js";
-import Icon from "../Icon/Icon.jsx";
-
-
-
+import {
+  setModalContent,
+  setModalStatus,
+} from "../../redux/slice/servicesSlice";
 
 const AddColumnModal = () => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const board = useSelector(selectedBoard);
+  const boardId = board?._id;
+  const { register, handleSubmit } = useForm();
 
-    // const { boardId } = useParams();
-    const { register, handleSubmit } = useForm();
-    const [errorMessage, setErrorMessage] = useState(null);
+  const onClose = () => {
+    dispatch(setModalContent({ action: null, recordDataEdit: null }));
+    dispatch(setModalStatus(false));
+  };
 
-    const onSubmit = async (data) => {
-        try {
-            const response = await dispatch(addColumnThunk(data));
-            dispatch(setModalStatus(false));
-            if (response.error) {
-                setErrorMessage(response.payload);
-            } else {
-                toast.success(`Column created with title ${response}`);
+  const onSubmit = async (data) => {
+    const { title } = data;
 
-            }
-        } catch (error) {
-            console.error(error);
-            toast.error('Error adding column');
-        }
-    };
+    dispatch(addColumnAsync({ title, boardId }));
+    onClose();
+  };
 
-
-    // const handleChange = (e) => {
-    //     setTitle(e.target.value);
-    //     setErrorMessage('');
-    // };
-
-    return (
-        <div className={css.modal}>
-            {/*<ButtonClose onClick={onClose} />*/}
-            <p className={css.title}>Add column</p>
-            <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
-                <input
-                    {...register('title')}
-                    defaultValue="test"
-                    className={css.input}
-                    type="text"
-                    placeholder="Title"
-                />
-                {errorMessage && <span className={css.error}>{errorMessage}</span>}
-                <button className={css.submBtn} type="submit">
-                   <span className={css.button_icon_bg}>
-        <Icon id="plus" className={css.button_icon}/>
-      </span>
-                    <span className={css.button_title}>Add</span>
-                </button>
-                {errorMessage && (
-                    <p>{errorMessage}</p>
-                )}
-            </form>
-        </div>
-    );
+  return (
+    <div className={css.modal}>
+      <ButtonClose onClick={onClose} />
+      <h2 className={css.title}>Add column</h2>
+      <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
+        <input
+          {...register("title", { required: true })}
+          className={css.input}
+          type="text"
+          placeholder="Title"
+        />
+        <ButtonAdd className={css.buttonSbt} type="submit" title="Add" />
+      </form>
+    </div>
+  );
 };
 
 export default AddColumnModal;

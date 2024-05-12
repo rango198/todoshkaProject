@@ -5,7 +5,7 @@
   border: none;
   align-items: center;
   color: var(--color-theme);
-  position: relative;
+  /* position: relative; */
 }
 .chevron_down {
   width: 16px;
@@ -19,4 +19,16 @@
   background-color: var(--bg-theme);
   padding: 18px 44px 18px 18px;
   color: var(--color-theme);
+}
+
+.dark:active {
+  color: #bedbb0;
+}
+
+.light:active {
+  color: #bedbb0;
+}
+
+.violet:active {
+  color: #5255bc;
 }

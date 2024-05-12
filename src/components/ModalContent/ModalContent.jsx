@@ -4,29 +4,29 @@ import NeedHelpModal from "../Sidebar/needHelp/NeedHelp";
 import EditProfileForm from "../EditProfileForm/EditProfileForm";
 
 import AddColumnModal from "../AddColumnModal/AddColumModal.jsx";
-
-import Edit from "../EditProfileForm/Edit";
-
-
+import EditCardModal from "../Card/EditCardModal/EditCardModal.jsx";
+import AddCard from "../AddCard/addCard";
 const ModalContent = () => {
   const modalContent = useSelector(selectModalContent);
 
   switch (modalContent.action) {
-    case "add":
-      return <div>Hello World</div>;
+    case "addCard":
+      return <AddCard />;
 
-    case "userbar":
-      return <Edit />;
-    // return <div>UserBar</div>;
+    case "addColumn":
+      return <AddColumnModal />;
 
     case "help":
       return <NeedHelpModal />;
 
     case "editProfile":
       return <EditProfileForm />;
-    case "addColum":
-      return <AddColumnModal/>
 
+    case "addColum":
+      return <AddColumnModal />;
+
+    case "editCard":
+      return <EditCardModal />;
 
     default:
       return null;

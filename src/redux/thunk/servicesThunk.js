@@ -7,6 +7,7 @@ import {
   getAllBoards,
   getSingleBoard,
   addColumn,
+  updateUser,
 } from "../../service/api";
 
 // export const fetchAllBoards = createAsyncThunk(
@@ -65,7 +66,6 @@ export const fetchSingleBoard = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const data = await getSingleBoard(id);
-      console.log(id);
       return data;
     } catch (error) {
       // toast.error(error.response.data.message);
@@ -79,9 +79,9 @@ export const editBoardThunk = createAsyncThunk(
   "service/editBoard",
   async (body, thunkAPI) => {
     try {
-      const response = await editBoard(body);
-
-      return response;
+      // const [id, board] = body;
+      const data = await editBoard(body);
+      return data;
     } catch (error) {
       console.log(error);
       // toast.error("Error edit ", error);
@@ -90,12 +90,14 @@ export const editBoardThunk = createAsyncThunk(
   }
 );
 
+// ${body.id}`, body)
+
 export const deleteBoardThunk = createAsyncThunk(
   "service/deleteBoard",
   async (id, thunkAPI) => {
     try {
-      const response = await deleteBoard(id);
-      return response;
+      await deleteBoard(id);
+      return id;
     } catch (error) {
       console.log(error);
       // toast.error("Error delete", error);

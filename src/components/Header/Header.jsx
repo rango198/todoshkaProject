@@ -1,8 +1,3 @@
-import { useDispatch } from "react-redux";
-import {
-  setModalContent,
-  setModalStatus,
-} from "../../redux/slice/servicesSlice";
 import Icon from "../Icon/Icon";
 import Theme from "../Theme/Theme";
 
@@ -13,17 +8,6 @@ import { Navigation } from "../Navigation/Navigation";
 import UserInfo from "./UserInfo";
 
 const Header = () => {
-  const dispatch = useDispatch();
-
-  const handleClick = () => {
-    dispatch(
-      setModalContent({
-        action: "userbar",
-      })
-    );
-    dispatch(setModalStatus(true));
-  };
-
   const [isOpen, setOpen] = useState(false);
   const close = () => {
     setOpen(false);
@@ -42,16 +26,6 @@ const Header = () => {
       {isOpen && <Navigation close={close} />}
       <div className={css.box}>
         <Theme />
-        {/* <button
-          className={css.button_user}
-          type="button"
-          onClick={handleClick}
-          aria-label="user-profile"
-        >
-          {" "}
-          UserName
-          <div className={css.avatar}></div>
-        </button> */}
         <UserInfo />
       </div>
     </header>

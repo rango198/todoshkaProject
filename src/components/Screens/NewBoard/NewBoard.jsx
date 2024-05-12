@@ -1,27 +1,31 @@
 import { useEffect, useState } from "react";
-
-import Modal from "../../Modal/Modal";
 import ButtonAdd from "../../ButtonAdd/ButtonAdd";
-import AddColumnModal from "../../AddColumnModal/AddColumModal";
+import Column from "../../Column/Column";
 
 import css from "./NewBoard.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  selectIsBoardsLoading,
-  selectedBoard,
-} from "../../../redux/selectors/serviceSelector";
 import { useParams } from "react-router";
 import { fetchSingleBoard } from "../../../redux/thunk/servicesThunk";
+import {
+  setModalContent,
+  setModalStatus,
+} from "../../../redux/slice/servicesSlice";
+import { selectedColumn } from "../../../redux/selectors/serviceSelector";
 
 const NewBoard = () => {
-  const [isAddColumnOpen, setIsAddColumnOpen] = useState(false);
   const params = useParams();
   const dispatch = useDispatch();
 
   const toggleAddColumn = () => {
-    setIsAddColumnOpen(!isAddColumnOpen);
+    dispatch(
+      setModalContent({
+        action: "addColumn",
+      })
+    );
+    dispatch(setModalStatus(true));
   };
-  const isLoading = useSelector(selectIsBoardsLoading);
+
+  const columns = useSelector(selectedColumn);
 
   useEffect(() => {
     if (params.boardName) {
@@ -30,15 +34,17 @@ const NewBoard = () => {
   }, [dispatch, params.boardName]);
 
   return (
-    <div className={css.task_list_container}>
-      <ButtonAdd
-        onClick={toggleAddColumn}
-        title="Add another column"
-        className={css.button_create}
-      />
-      <Modal open={isAddColumnOpen} onClose={toggleAddColumn}>
-        <AddColumnModal onClose={toggleAddColumn} />
-      </Modal>
+    <div className={css.container}>
+      <div className={css.columns_container}>
+        {columns?.map((column) => (
+          <Column key={column._id} column={column} />
+        ))}
+        <ButtonAdd
+          onClick={toggleAddColumn}
+          title="Add another column"
+          className={css.button_create}
+        />
+      </div>
     </div>
   );
 };

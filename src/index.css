@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   user-select: none;
+  height: 100vh;
 }
 
 /* Fonts */
@@ -93,13 +94,26 @@ html[data-theme="dark"] {
   --color-theme: rgba(255, 255, 255, 0.5);
   --color-theme-active: #bedbb0;
   --color-theme-shadow: #bedbb0;
+  --active: #bedbb0;
   --color: #fff;
   --color-shadow: rgba(255, 255, 255, 0.8);
   --color-hr: rgba(255, 255, 255, 0.1);
   --color-radioDescr: rgba(255, 255, 255, 0.5);
   --color-board: rgba(255, 255, 255, 0.5);
+
+  /* SideBar */
   --bg-sidebar: #121212;
   --sb-icon-stroke: #121212;
+  --bg-help: #1f1f1f;
+  --bg-image-logo: url(assets/img/logo/logo-light.png);
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-fonts: #fff;
+  --color-link: #bedbb0;
+  --logout-icon: #bedbb0;
+  --color-item: rgba(255, 255, 255, 0.5);
+  --modal-border: rgba(190, 219, 176, 0.5);
+  --bg-card: #1f1f1f;
+  --border-cart: #bedbb0;
 
   /* Pop up */
   --bg-color: #151515;
@@ -109,10 +123,12 @@ html[data-theme="dark"] {
   --bg-button: #bedbb0;
   --bg-button-active: #9dc888;
   --button-color-square: #161616;
+  --bg-button-plus: #bedbb0;
   --button-plus: #fff;
+  --button-color: #161616;
 
   /* Icon Avatar Default */
-  --background-image1: url(assets/img/userAvatar/user-dark1.png);
+
   --background-image: url(assets/img/userAvatar/user-dark.png);
 
   /* Calendar */
@@ -143,13 +159,27 @@ html[data-theme="light"] {
   --color-theme: #161616;
   --color-theme-active: #bedbb0;
   --color-theme-shadow: #bedbb0;
+  --active: #bedbb0;
   --color: #161616;
   --color-shadow: rgba(22, 22, 22, 0.8);
   --color-hr: rgba(22, 22, 22, 0.1);
   --color-radioDescr: rgba(22, 22, 22, 0.5);
   --color-board: rgba(22, 22, 22, 0.7);
+
+  /* SideBar */
+  --bg-button-plus: #b8bcfd;
   --bg-sidebar: #fff;
-  --sb-icon-stroke: #fff;
+  --sb-icon-stroke: #121212;
+  --bg-help: rgba(236, 237, 253, 0.4);
+  --bg-image-logo: url(assets/img/logo/logo-light.png);
+  --color-border: rgba(22, 22, 22, 0.1);
+  --color-fonts: #161616;
+  --color-link: #bedbb0;
+  --logout-icon: #bedbb0;
+  --color-item: rgba(22, 22, 22, 0.5);
+  --modal-border: #fcfcfc;
+  --bg-card: #f6f6f7;
+  --border-cart: #bedbb0;
 
   /* Pop up */
   --bg-color: #fcfcfc;
@@ -159,10 +189,12 @@ html[data-theme="light"] {
   --bg-button: #bedbb0;
   --bg-button-active: #9dc888;
   --button-color-square: #161616;
+  --bg-button-plus: #bedbb0;
   --button-plus: #fff;
+  --button-color: #161616;
 
   /* Icon Avatar Default */
-  --background-image1: url(assets/img/userAvatar/user-light1.png);
+
   --background-image: url(assets/img/userAvatar/user-light.png);
 
   /* Calendar */
@@ -193,13 +225,27 @@ html[data-theme="violet"] {
   --color-theme: #161616;
   --color-theme-active: #5255bc;
   --color-theme-shadow: #ecedfd;
+  --active: #5255bc;
   --color: #161616;
   --color-shadow: rgba(22, 22, 22, 0.8);
   --color-hr: rgba(22, 22, 22, 0.1);
   --color-radioDescr: rgba(22, 22, 22, 0.5);
   --color-board: rgba(22, 22, 22, 0.7);
+
+  /* SideBar */
+  --bg-button-plus: #b8bcfd;
   --bg-sidebar: #5255bc;
   --sb-icon-stroke: #fff;
+  --bg-help: rgba(236, 237, 253, 0.4);
+  --bg-image-logo: url(assets/img/logo/logo-violet.png);
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-fonts: #fff;
+  --color-link: #5255bc;
+  --logout-icon: #fff;
+  --color-item: rgba(255, 255, 255, 0.5);
+  --modal-border: #fcfcfc;
+  --bg-card: rgba(255, 255, 255, 0.5);
+  --border-cart: #fff;
 
   /* Pop up */
   --bg-color: #fcfcfc;
@@ -209,10 +255,12 @@ html[data-theme="violet"] {
   --bg-button: #7b7ede;
   --bg-button-active: #5255bc;
   --button-color-square: #fff;
+  --bg-button-plus: #b8bcfd;
   --button-plus: #161616;
+  --button-color: #fff;
 
   /* Icon Avatar Default */
-  --background-image1: url(assets/img/userAvatar/user-violet1.png);
+
   --background-image: url(assets/img/userAvatar/user-violet.png);
 
   /* Calendar */

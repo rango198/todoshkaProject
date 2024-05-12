@@ -1,5 +1,3 @@
-
-
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { logout } from "../../service/api.js";
@@ -14,13 +12,17 @@ import {
   setModalContent,
   setModalStatus,
 } from "../../redux/slice/servicesSlice.js";
-import CreateNewBoardModal from "../CreateNewBoardModal/CreateNewBoardModal.jsx";
+import CreateNewBoardModal from "../ModalBoard/CreateNewBoardModal/CreateNewBoardModal.jsx";
 import Modal from "../Modal/Modal.jsx";
-import { selectedBoard } from "../../redux/selectors/serviceSelector.js";
+import {
+  selectAllBoards,
+  selectedBoard,
+} from "../../redux/selectors/serviceSelector.js";
+import ListBoards from "./ListBoards/ListBoards.jsx";
 
-const SidebarActive = ({ boards }) => {
+const SidebarActive = () => {
+  const boards = useSelector(selectAllBoards);
   const dispatch = useDispatch();
-  const { title } = useSelector(selectedBoard);
   const [isAddBoardOpen, setIsAddBoardOpen] = useState(false);
   const toggleAddBoard = () => {
     setIsAddBoardOpen(!isAddBoardOpen);
@@ -34,11 +36,6 @@ const SidebarActive = ({ boards }) => {
     );
     dispatch(setModalStatus(true));
   };
-
-  // const handleClickLogout = () => {
-  //   console.log("Click");
-  // };
-
   const handleClickLogout = () => dispatch(logoutThunk());
   // const onLogout = () => dispatch(logout());
   return (
@@ -46,20 +43,19 @@ const SidebarActive = ({ boards }) => {
       <aside className={css.sidebar}>
         <div>
           <section className={css.sidebarBox}>
-            <svg className={css.sidebarBoxIcon}>
-              <Icon id="logo" />
-            </svg>
+            <div className={css.logo}></div>
             <h2 className={css.sidebarBoxTitle}>Task Pro</h2>
           </section>
           <div className={css.sidebarItem}>
-            <p className={css.sidebarItemTitle}>{title}</p>
+            <p className={css.sidebarItemTitle}>My boards</p>
           </div>
           <section className={css.sidebarBoard}>
-            <p className={css.sidebarBoardItem}>Create a new board</p>
+            <p className={css.sidebarBoardSubItem}>Create a new board</p>
             <button
               onClick={toggleAddBoard}
               className={css.sidebarBoardButton}
               type="button"
+              aria-label="add board"
             >
               <svg className={css.sidebarBoardIcon}>
                 <Icon id="icon-icon-plus" />
@@ -68,45 +64,12 @@ const SidebarActive = ({ boards }) => {
             <Modal open={isAddBoardOpen} onClose={toggleAddBoard}>
               <CreateNewBoardModal onClose={toggleAddBoard} />
             </Modal>
-            {/*тут потрібно буду додати дві модалки видалення і створення які будуть створені в окремому компоненті і імпортовані*/}
           </section>
-          {/*{boards && (*/} {/*відмальовуєм коли користувач за лог*/}
-          {/* <ul className={css.sidebarNewBoard}>
-            <li className={css.sidebarNewBoardList}>
-              <svg className={css.sidebarNewBoardSvg}>
-                <Icon id="project" />
-              </svg>
-              <p className={css.sidebarNewBoardItem}>Project office</p>
-              <button className={css.sidebarNewBoardButton} type="button">
-                <svg className={css.sidebarNewBoardIcon}>
-                  <Icon id="pencil" />
-                </svg>
-              </button>
-              <button
-                className={css.sidebarNewBoardButtonCurrent}
-                type="button"
-              >
-                <svg className={css.sidebarNewBoardIcon}>
-                  <Icon id="trash" />
-                </svg>
-              </button>
-            </li>
-          </ul>
-          <ul className={css.sidebarNewBoardNeon}>
-            <li className={css.sidebarNewBoardList}>
-              <svg className={css.sidebarNewBoardIcon}>
-                <Icon id="puzzle-piece" />
-              </svg>
-              <li className={css.sidebarNewBoardList}>
-                <p className={css.sidebarItemNeon}>Neon Light Project</p>
-              </li>
-            </li>
-          </ul> */}
-          {/*)}*/}
+          <ListBoards boards={boards} />
         </div>
         <div>
           <section className={css.sidebarHelp}>
-            <div>
+            <div className={css.img_help}>
               <picture>
                 <source
                   srcSet={`${flower} 1x, ${flowerTwoX} 2x,${flowerThreeX} 3x`}
@@ -124,7 +87,11 @@ const SidebarActive = ({ boards }) => {
                 support team.
               </p>
             </div>
-            <button onClick={handleClickHelp} className={css.sidebarHelpbutton}>
+            <button
+              onClick={handleClickHelp}
+              className={css.sidebarHelpbutton}
+              aria-label="help"
+            >
               <svg className={css.sidebarHelpIcon}>
                 <Icon id="help_circle" />
               </svg>
@@ -136,6 +103,7 @@ const SidebarActive = ({ boards }) => {
               onClick={handleClickLogout}
               className={css.sidebarLogoutButton}
               type="button"
+              aria-label="logout"
             >
               <svg className={css.sidebarLogoutIcon} width={32} height={32}>
                 <Icon id="log-out" />

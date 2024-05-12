@@ -1,12 +1,15 @@
 .sidebar {
   /* position: fixed; */
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   top: 0;
   right: 0;
   z-index: 1;
-  width: 225px;
+  width: 200px;
   height: 100vh;
   background-color: var(--bg-sidebar);
+  padding: 14px 0 24px 14px;
   /* transform: translateX(-100%); */
 }
 
@@ -18,37 +21,42 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 14px 0 0 14px;
   margin-bottom: 70px;
 }
 
-.sidebarBoxIcon {
+.logo {
   width: 32px;
   height: 32px;
-  fill: var(--color-white);
-  stroke: var(--bg-color-form-input);
+  background-image: var(--bg-image-logo);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .sidebarBoxTitle {
   font-size: 16px;
   font-family: var(--font-semibold);
-
   letter-spacing: -0.64px;
-
-  color: var(--sb-color-text);
+  color: var(--color-fonts);
 }
 
 .sidebarItem {
-  padding-left: 14px;
+
+  padding-left: 24px;
+
   margin-bottom: 8px;
 }
 
 .sidebarItemTitle {
-  font-family: var(--font-regular);
   font-size: 12px;
   letter-spacing: -0.24px;
-
-  color: var(--color-icon-grey);
+  color: var(--color-item);
+}
+.sidebarBoardSubItem {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--color-fonts);
+  width: 76px;
 }
 .sidebarItemNeon {
   font-family: var(--font-regular);
@@ -56,27 +64,24 @@
   letter-spacing: -0.24px;
 
   color: var(--color-icon-grey);
-  margin-left: 8px;
 }
 
 .sidebarBoard {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  padding: 14px 18px 14px 14px;
-  border-top: solid 1px var(--color-sidebar-border);
-  border-bottom: solid 1px var(--color-sidebar-border);
+  margin-right: 14px;
+  padding: 14px 0;
+  border-top: solid 1.5px var(--color-border);
+  border-bottom: solid 1.5px var(--color-border);
 }
 
 .sidebarBoardItem {
   font-family: var(--font-medium);
   font-size: 14px;
-
   letter-spacing: -0.28px;
-
   margin-right: 77px;
-  color: var(--color-font);
+  color: var(--color-fonts);
 }
 
 .sidebarBoardButton {
@@ -94,87 +99,33 @@
   stroke: var(--sb-icon-stroke);
 }
 
-.sidebarNewBoard {
-  margin-top: 40px;
-  padding: 20px 0 20px 14px;
-  border-right: 4px solid var(--color-green);
-  border-radius: 4px 0px 0px 4px;
-}
-.sidebarNewBoardNeon {
-  margin-top: 4px;
-  padding: 20px 20px 20px 14px;
-  border-right: 4px solid var(--color-green);
-  border-radius: 4px 0px 0px 4px;
-  margin-bottom: 40px;
-}
-
-.sidebarNewBoardList {
-  display: flex;
-  align-items: center;
-}
-
-.sidebarNewBoardSvg {
-  width: 18px;
-  height: 18px;
-  margin-right: 4px;
-  stroke: var(--color-white);
-}
-
-.sidebarNewBoardItem {
-  font-family: var(--font-medium);
-  font-size: 14px;
-  letter-spacing: -0.28px;
-  margin-right: auto;
-
-  color: var(--color-white);
-}
-
-.sidebarNewBoardButton {
-  height: 16px;
-  border: none;
-  padding: 0;
-  margin-right: 8px;
-  background-color: var(--color-icon-dark);
-}
-
-.sidebarNewBoardButtonCurrent {
-  height: 16px;
-  border: none;
-  padding: 0;
-  margin-right: 14px;
-  background-color: var(--color-icon-dark);
-}
-
-.sidebarNewBoardIcon {
-  width: 16px;
-  height: 16px;
-  stroke: var(--color-icon-grey);
-}
-
 .sidebarHelp {
-  margin: 0 14px 24px 14px;
-  padding: 14px 14px 15px 15px;
+  margin-top: 40px;
+  margin-bottom: 24px;
+  margin-right: 14px;
   border-radius: 8px;
-  background-color: var(--sb-need-help);
+  background-color: var(--bg-help);
+}
+.img_help {
+  padding: 14px 0 14px 14px;
 }
 
 .sidebarHelpBox {
-  margin: 14px 0 19px 0;
+  margin: 0 14px 18px 15px;
 }
 
 .sidebarHelpBoxItem {
   font-family: var(--font-regular);
-  font-size: 14px;
-  line-height: 1.42;
-  letter-spacing: -0.28px;
-
-  color: var(--color-white);
+  font-size: 12px;
+  line-height: 133%;
+  letter-spacing: -0.02em;
+  color: var(--color-fonts);
 }
 
 .sidebarHelpBoxLink {
   font-family: var(--font-regular);
 
-  color: var(--color-green);
+  color: var(--color-link);
 }
 
 .sidebarHelpbutton {
@@ -183,24 +134,20 @@
   gap: 8px;
   background-color: initial;
   border: none;
+  padding: 0 0 14px 14px;
 }
 
 .sidebarHelpIcon {
   width: 20px;
   height: 20px;
-  stroke: var(--color-white);
+  stroke: var(--color-fonts);
 }
 
 .sidebarHelpNeedHelp {
   font-family: var(--font-medium);
   font-size: 12px;
   letter-spacing: -0.24px;
-
-  color: var(--color-white);
-}
-
-.sidebarLogout {
-  padding: 0 0 24px 24px;
+  color: var(--color-fonts);
 }
 
 .sidebarLogoutButton {
@@ -208,20 +155,55 @@
   align-items: center;
   gap: 16px;
   border: none;
-  color: var(--color-white);
-  background-color: var(--color-icon-dark);
+  color: var(--color-fonts);
+  background-color: transparent;
   font-family: var(--font-medium);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   line-height: normal;
 }
 
 .sidebarLogoutIcon {
-  stroke: var(--color-green);
+  stroke: var(--logout-icon);
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 375px) {
+  .sidebar {
+    width: 225px;
+    /* height: 100%; */
+  }
+}
+@media screen and (min-width: 768px) {
+  .sidebarBoard {
+    margin-right: 24px;
+  }
+  .sidebarHelp {
+    margin-right: 24px;
+  }
   .sidebar {
     width: 260px;
+    padding: 24px 0 24px 24px;
+  }
+  .sidebarHelpBoxItem {
+    font-family: var(--font-regular);
+    font-size: 14px;
+    line-height: 143%;
+    letter-spacing: -0.02em;
+    color: var(--color-fonts);
+  }
+  .img_help {
+    padding: 20px 0 20px 14px;
+  }
+  .sidebarHelpBox {
+    margin: 0 20px 18px 20px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .sidebar {
+    height: 100%;
+  }
+  .sidebarLogoutButton {
+    font-size: 16px;
   }
 }

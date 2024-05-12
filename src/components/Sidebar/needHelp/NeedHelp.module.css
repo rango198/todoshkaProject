@@ -8,6 +8,8 @@
   max-width: 335px;
   padding: 24px;
   background: var(--bg-theme);
+  border: 1px solid var(--bg-button-active);
+  border-radius: 8px;
 }
 
 .textNameModal {
@@ -48,7 +50,6 @@
 
 .inputMail::placeholder {
   color: var(--color-font);
-  font-family: "PoppinsRegular";
   font-size: 14px;
   letter-spacing: -0.02em;
   line-height: 1.5;
@@ -68,12 +69,12 @@
   background-color: var(--bg-theme);
   margin-bottom: 24px;
   opacity: 0.4;
-  font-family: "PoppinsRegular";
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.02em;
   color: var(--color-font);
   padding: 14px 18px;
+  font-family: "PoppinsRegular";
 }
 
 .textAreaComment:hover,

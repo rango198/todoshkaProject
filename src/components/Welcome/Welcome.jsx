@@ -16,7 +16,7 @@ const Welcome = () => {
       </p>
       <div>
         <NavLink to="/auth/register">
-          <button className={css.btn} type="button">
+          <button className={css.btn} type="button" autoFocus>
             Registration
           </button>
         </NavLink>

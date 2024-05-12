@@ -15,7 +15,7 @@ export const StyledBackdrop = styled.div`
 
 export const StyledModalContent = styled.div`
   position: relative;
-  background: white;
+  background: var(--bg-color);
   max-height: 90vh;
   overflow-y: auto;
 
@@ -32,13 +32,13 @@ export const StyledModalContent = styled.div`
     background-color: var(--dark-blue);
   }
 
-  border-radius: 10px;
+  border-radius: 8px;
 `;
 
 export const CloseModalButton = styled.button`
   position: absolute;
-  right: 3%;
-  top: 3%;
+  right: 14px;
+  top: 14px;
   padding-block: 0;
   padding-inline: 0;
   border: none;
@@ -51,4 +51,7 @@ export const SvgClose = styled.svg`
   stroke: var(--color);
   padding-block: 0;
   padding-inline: 0;
+  &:hover {
+    stroke: var(--bg-button-active);
+  }
 `;

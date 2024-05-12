@@ -22,7 +22,7 @@ import {
   setModalStatus,
 } from "../../redux/slice/servicesSlice.js";
 import { getBoardThunk } from "../../redux/thunk/servicesThunk";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 // import { useTheme } from "../../hooks/useTheme";
 // import { useNavigate } from "react-router";
@@ -89,13 +89,8 @@ const ScreensPage = () => {
           </button>
         </span>
       </div>
-      {/*<ButtonAdd title="Add" className={css.submBtn} onClick={handleClickHelp}>*/}
-      {/*  <Icon id="icon-icon-plus" />*/}
-      {/*</ButtonAdd>*/}
       {isBoards.length === 0 ? <Board /> : <NewBoard />}
-
-      {/* <NewBoard />
-      <Board /> */}
+      {/* {isBoards.length === 0 ? <Board /> : <Outlet />} */}
     </div>
   );
 };
