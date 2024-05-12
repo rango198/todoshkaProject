@@ -91,9 +91,11 @@ const AddCard = () => {
         <div className={css.deadlineDiv}>
           <p className={css.textDeadline}>Deadline</p>
           <Calendar
-            selected={deadline}
-            onChange={handleDateChange}
-            dateFormat="EEEE MMMM dd"
+            // selected={deadline}
+            // onChange={handleDateChange}
+            // dateFormat="EEEE MMMM dd"
+            date={deadline}
+            changeDate={setDeadline}
           />
         </div>
         <ButtonAdd

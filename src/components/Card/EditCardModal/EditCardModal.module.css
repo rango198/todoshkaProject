@@ -10,11 +10,6 @@
   background: var(--bg-theme);
   border: 1px solid var(--bg-button-active);
   border-radius: 8px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 999;
 }
 
 .textNameModal {
