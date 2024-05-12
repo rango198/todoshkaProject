@@ -65,7 +65,6 @@ const App = () => {
       <Modal open={modalStatus} onClose={handleCloseModal}>
         {<ModalContent />}
       </Modal>
-      <ToastContainer />
     </>
   );
 };
