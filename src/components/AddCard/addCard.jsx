@@ -40,7 +40,6 @@ const AddCard = () => {
   const {
     register,
     handleSubmit,
-
     formState: { errors },
   } = useForm();
 
@@ -64,11 +63,6 @@ const AddCard = () => {
     // Диспатч экшена для добавления задачи
     dispatch(addTaskAsync(newTask));
   };
-
-  // Функция для обновления выбранной радиокнопки
-  //   const handleRadioChange = (selectedPriority) => {
-  //     setRadioChoose(selectedPriority);
-  //   };
 
   // Функция для обновления выбранной даты дедлайна
 
