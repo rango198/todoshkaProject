@@ -1,5 +1,6 @@
 .authContainer {
-  max-width: 375px;
+  /* max-width: 375px;
+  min-width: 320px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,7 +17,7 @@
 
 @media screen and (min-width: 375px) {
   .authContainer {
-    max-width: 375px;
+    /* max-width: 375px; */
   }
 }
 
@@ -24,10 +25,7 @@
 
 @media screen and (min-width: 768px) {
   .authContainer {
-    max-width: 768px;
-  }
-  .authPageContainer {
-    max-width: 424px;
+    /* max-width: 768px; */
   }
 }
 
@@ -35,6 +33,6 @@
 
 @media screen and (min-width: 1440px) {
   .authContainer {
-    max-width: 1440px;
+    /* max-width: 1440px; */
   }
 }

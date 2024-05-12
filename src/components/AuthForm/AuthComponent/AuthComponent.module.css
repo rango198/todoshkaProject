@@ -1,5 +1,5 @@
 .authPageContainer {
-  /* width: 335px; */
+  min-width: 320px;
   height: fit-content;
   border-radius: 8px;
   padding: 40px;
@@ -30,7 +30,7 @@
   letter-spacing: -0.36px;
   padding-right: 14px;
   cursor: pointer;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
 }
 
 .reactTabsTabSelected {
@@ -68,4 +68,22 @@
 }
 .activeTab {
   color: #fff;
+}
+
+@media screen and (min-width: 375px) {
+  .authPageContainer {
+    max-width: 375px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .authPageContainer {
+    max-width: 440px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .authPageContainer {
+    max-width: 464px;
+  }
 }
