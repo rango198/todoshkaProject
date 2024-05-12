@@ -1,8 +1,9 @@
 .container {
   height: 680px;
+  max-width: 348px;
   display: flex;
   flex-direction: column;
-  background-color: var(--bg-color-body);
+  background-color: transparent;
 }
 
 .container_task {
@@ -10,6 +11,7 @@
   display: flex;
   gap: 8px;
   max-height: 480px;
+  max-width: 348px;
   overflow-y: auto; /* вертикал скролл активуемо */
   overflow-x: hidden; /* горизонт скролл скриваемо*/
   background-color: inherit;
@@ -25,6 +27,10 @@
 .container_task::-webkit-scrollbar-thumb {
   background: #161616; /* Колір повзунка */
   border-radius: 4px; /* радіус кутів повзунка */
+}
+
+.item_task {
+  margin-right: 4px;
 }
 
 .column_header {
