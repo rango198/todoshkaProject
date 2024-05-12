@@ -1,3 +1,4 @@
+import moment from "moment/moment";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { selectedColumn } from "../../redux/selectors/serviceSelector";
@@ -7,8 +8,6 @@ import Icon from "../Icon/Icon";
 import css from "./Card.module.css";
 
 const Card = ({ task }) => {
-  // const task = useSelector((state) => state.task); // Припустила що дані про одну таску зберігаються у Redux під ключем "task"
-  //const columns = useSelector((state) => state.columns); Отримати список колонок з Redux store для відображення значка перемістити
   const columns = useSelector(selectedColumn);
   const { _id, title, description, priority, deadline, column } = task;
 
@@ -48,14 +47,18 @@ const Card = ({ task }) => {
     return () => clearInterval(interval);
   }, []);
 
-  const formatDate = (dateString) => {
-    // перетворюємо дату на дд/мм/рр
-    const date = new Date(dateString);
-    const day = date.getDate().toString().padStart(2, "0");
-    const month = (date.getMonth() + 1).toString().padStart(2, "0");
-    const year = date.getFullYear();
+  // const formatDate = (dateString) => {
+  //   // перетворюємо дату на дд/мм/рр
+  //   const date = new Date(dateString);
+  //   const day = date.getDate().toString().padStart(2, "0");
+  //   const month = (date.getMonth() + 1).toString().padStart(2, "0");
+  //   const year = date.getFullYear();
 
-    return `${day}/${month}/${year}`;
+  //   return `${day}/${month}/${year}`;
+  // };
+
+  const formatDate = (dateString) => {
+    return moment(dateString).format("DD/MM/YYYY");
   };
 
   let priorityColor;
@@ -89,12 +92,12 @@ const Card = ({ task }) => {
 
   return (
     <div className={css.wrapperCard} style={wrapperCardStyle}>
-      <h4 className={css.title}>{task.title}</h4>
+      <h4 className={css.title}>{title}</h4>
       <p
         className={`${css.description} ${showFullText ? css.fullText : ""}`}
         onClick={handleFullText}
       >
-        {task.description}
+        {description}
       </p>
       <hr className={css.line} />
       <div className={css.propertiesGroup}>
@@ -103,16 +106,16 @@ const Card = ({ task }) => {
             <p className={css.text}>Priority</p>
             <div className={css.priorityGroup}>
               <hr className={css.circle} style={circleStyle}></hr>
-              <p className={css.priority}>{task.priority}</p>
+              <p className={css.priority}>{priority}</p>
             </div>
           </div>
           <div className={css.deadlineGroup}>
             <p className={css.text}>Deadline</p>
-            <p className={css.priority}>{formatDate(task.deadline)}</p>
+            <p className={css.priority}>{formatDate(deadline)}</p>
           </div>
         </div>
         <div className={css.iconsGroup}>
-          {formatDate(task.deadline) === currentDate.toLocaleDateString() && (
+          {moment(deadline).isSame(currentDate, "day") && (
             <svg className={css.bellIkon}>
               <Icon id="bell" />
             </svg>
@@ -127,7 +130,7 @@ const Card = ({ task }) => {
           {showPopup && <PopupMoveCard onClose={handleClickPopup} />}
           <button onClick={handleClickEdit} className={css.button}>
             <svg className={css.icon}>
-              <Icon id="pensil" />
+              <Icon id="pencil" />
             </svg>
           </button>
           <button onClick={handleClickDelete} className={css.button}>
@@ -136,7 +139,7 @@ const Card = ({ task }) => {
             </svg>
           </button>
           {showPopupDelete && (
-            <DeletePopup onClose={handleCloseDelete} id={task.id} type="task" />
+            <DeletePopup onClose={handleCloseDelete} id={_id} type="task" />
           )}
         </div>
       </div>
