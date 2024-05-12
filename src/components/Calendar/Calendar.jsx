@@ -8,6 +8,7 @@ import "./calendar.css";
 const Calendar = () => {
   const [startDate, setStartDate] = useState(new Date());
   const getDateFormat = (startDate) => {
+    console.log("startDate:", startDate);
     const today = new Date();
     const tomorrow = new Date();
     tomorrow.setDate(today.getDate() + 1);
@@ -45,7 +46,7 @@ const Calendar = () => {
         minDate={new Date()}
         customInput={<CustomInput />}
         dateFormat={getDateFormat(startDate)}
-        shouldCloseOnSelect={false}
+        // shouldCloseOnSelect={false}
       />
       <svg width={18} height={18}>
         <use
