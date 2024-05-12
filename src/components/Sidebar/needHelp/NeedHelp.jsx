@@ -4,6 +4,7 @@ import css from "./NeedHelp.module.css";
 import { useState } from "react";
 import { sendHelpThunk } from "../../../redux/thunk/authThunk";
 import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const NeedHelpModal = () => {
   const dispatch = useDispatch();
@@ -35,6 +36,7 @@ const NeedHelpModal = () => {
             color: "var(--color-font)",
             fontFamily: "PoppinsMedium",
           },
+          icon: "👍",
         });
       } else {
         toast.success("Your message has been successfully sent.", {
@@ -47,9 +49,6 @@ const NeedHelpModal = () => {
           },
           progressStyle: {
             backgroundColor: "var(--bg-button-active)",
-          },
-          iconColor: {
-            fill: "var(--bg-button-active)",
           },
         });
         dispatch(setModalStatus(false));
