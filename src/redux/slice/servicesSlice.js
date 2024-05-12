@@ -242,8 +242,21 @@ const serviceSlice = createSlice({
       })
       .addCase(deleteTaskAsync.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.error = null;
-        state.tasks = action.payload.tasks;
+        const { taskId, columnIndex } = action.payload;
+
+        const columnIndexToDelete = state.selectedBoard.columns.findIndex(
+          (column) => column._id === columnIndex
+        );
+
+        if (columnIndexToDelete !== -1) {
+          const column = state.selectedBoard.columns[columnIndexToDelete];
+          const taskIndex = column.tasks.findIndex(
+            (task) => task._id === taskId
+          );
+          if (taskIndex !== -1) {
+            column.tasks.splice(taskIndex, 1);
+          }
+        }
       })
       .addCase(moveTaskAsync.fulfilled, (state, action) => {
         state.isLoading = false;
