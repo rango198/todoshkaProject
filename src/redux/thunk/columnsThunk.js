@@ -20,7 +20,7 @@ export const editColumnAsync = createAsyncThunk(
       const response = await editColumn(body);
       return response;
     } catch (error) {
-      toast.error("Error edit", error);
+      // toast.error("Error edit", error);
 
 
       return thunkAPI.rejectWithValue(error.message);

@@ -14,13 +14,13 @@ import {
   selectedColumn,
 } from "../../redux/selectors/serviceSelector";
 
-// const AddCardSchema = yup
-//   .object({
-//     title: yup.string().required("Title is required"),
-//     description: yup.string(),
-//     labelColor: yup.string().required(""),
-//   })
-//   .required();
+const AddCardSchema = yup
+  .object({
+    title: yup.string().required("Title is required"),
+    description: yup.string(),
+    labelColor: yup.string(),
+  })
+  .required();
 
 const AddCard = () => {
   const columns = useSelector(selectedColumn);
@@ -40,7 +40,6 @@ const AddCard = () => {
   const {
     register,
     handleSubmit,
-
     formState: { errors },
   } = useForm();
 
@@ -64,11 +63,6 @@ const AddCard = () => {
     // Диспатч экшена для добавления задачи
     dispatch(addTaskAsync(newTask));
   };
-
-  // Функция для обновления выбранной радиокнопки
-  //   const handleRadioChange = (selectedPriority) => {
-  //     setRadioChoose(selectedPriority);
-  //   };
 
   // Функция для обновления выбранной даты дедлайна
 
@@ -102,15 +96,15 @@ const AddCard = () => {
         <div className={css.labelDiv}>
           <p className={css.textLabel}>Label color</p>
           <RadioColorCard click={handleClikc} />
-          {/* onFilterChange={handleRadioChange} */}
-          {/* priority={radioChoose} */}
         </div>
-
-        <Calendar
-          selected={deadlineDate}
-          onChange={handleDateChange}
-          dateFormat="MMMM d"
-        />
+        <div className={css.deadlineDiv}>
+          <p className={css.textDeadline}>Deadline</p>
+          <Calendar
+            selected={deadlineDate}
+            onChange={handleDateChange}
+            dateFormat="MMMM d"
+          />
+        </div>
         <ButtonAdd
           className={css.buttonAdd}
           title="Add"

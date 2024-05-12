@@ -34,6 +34,7 @@
     "redux-persist": "^6.0.0",
     "rsuite": "^5.60.1",
     "styled-components": "^6.1.9",
+    "toast": "^0.5.4",
     "yup": "^1.4.0"
   },
   "devDependencies": {
