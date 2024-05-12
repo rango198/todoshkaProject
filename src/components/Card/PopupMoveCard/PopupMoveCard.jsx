@@ -1,68 +1,73 @@
+import { useSelector } from "react-redux";
+import { selectedColumn } from "../../../redux/selectors/serviceSelector";
 import Icon from "../../Icon/Icon";
 import css from "./PopupMoveCard.module.css";
-// import { useEffect } from "react";
+import { useEffect } from "react";
 
-// const PopupMoveCard = ({ onClose, columns, onAttachTask }) => {
-//   useEffect(() => {
-//     const handleEscapeKeyPress = (event) => {
-//       if (event.key === "Escape") {
-//         onClose();
-//       }
-//     };
+const PopupMoveCard = ({ onClose, onAttachTask }) => {
+  const columns = useSelector(selectedColumn);
+  console.log(columns);
 
-//     const handleClickOutside = (event) => {
-//       if (!event.currentTarget.closest(`.${css.popup}`)) {
-//         onClose();
-//       }
-//     };
+  useEffect(() => {
+    const handleEscapeKeyPress = (event) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
 
-//     document.addEventListener("keydown", handleEscapeKeyPress);
-//     document.addEventListener("click", handleClickOutside);
+    const handleClickOutside = (event) => {
+      if (!event.currentTarget.closest(`.${css.popup}`)) {
+        onClose();
+      }
+    };
 
-//     return () => {
-//       document.removeEventListener("keydown", handleEscapeKeyPress);
-//       document.removeEventListener("click", handleClickOutside);
-//     };
-//   }, [onClose]);
+    document.addEventListener("keydown", handleEscapeKeyPress);
+    document.addEventListener("click", handleClickOutside);
 
-//   const buttons = columns.map((board, index) => (
-//    <li key={index}>
-//     <button
-//       onClick={() => onAttachTask(board)}
-//       className={css.popupButton}
-//      >
-//       <span className={css.text}>{board}</span>
-//       <svg className={css.popupIcon}>
-//         <Icon id="broken-right" />
-//       </svg>
-//     </button>
-//    </li>
-//   ));
+    return () => {
+      document.removeEventListener("keydown", handleEscapeKeyPress);
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [onClose]);
 
-//   return <ul className={css.popup}>{buttons}</ul>;
-// };
-
-// export default PopupMoveCard;
-
-// Базовий код, щоб подивитись вигляд поп-ап вікна з данними
-
-const PopupMoveCard = ({ onClose }) => {
-  return (
-    <div className={css.popup}>
-      <button onClick={onClose} className={css.popupButton}>
-        <span className={css.text}>In progress</span>
+  const buttons = columns.map((column, index) => (
+    <li key={index} className={css.item}>
+      <span className={css.text}>{column.title}</span>
+      <button
+        onClick={() => onAttachTask(column.title)}
+        className={css.popupButton}
+      >
         <svg className={css.popupIcon}>
           <Icon id="broken-right" />
         </svg>
       </button>
-      <button onClick={onClose} className={css.popupButton}>
-        <span>Done</span>
-        <svg className={css.popupIcon}>
-          <Icon id="broken-right" />
-        </svg>
-      </button>
-    </div>
-  );
+    </li>
+  ));
+
+  return <ul className={css.popup}>{buttons}</ul>;
 };
 
 export default PopupMoveCard;
+
+//Базовий код, щоб подивитись вигляд поп-ап вікна з данними
+
+// const PopupMoveCard = ({ onClose }) => {
+//   return (
+//     <div className={css.popup}>
+//       <button onClick={onClose} className={css.popupButton}>
+//         <span className={css.text}>In progress</span>
+//         <svg className={css.popupIcon}>
+//           <Icon id="broken-right" />
+//         </svg>
+//       </button>
+//       <button onClick={onClose} className={css.popupButton}>
+//         <span>Done</span>
+//         <svg className={css.popupIcon}>
+//           <Icon id="broken-right" />
+//         </svg>
+//       </button>
+//     </div>
+//   );
+// };
+
+// export default PopupMoveCard;

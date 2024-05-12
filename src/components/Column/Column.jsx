@@ -64,9 +64,9 @@ const Column = ({ column }) => {
         </div>
       </div>
 
-      <ul>
+      <ul className={css.container_task}>
         {tasks?.map((task) => (
-          <li key={task._id}>
+          <li className={css.item_task} key={task._id}>
             <Card task={task} />
           </li>
         ))}

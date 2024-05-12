@@ -58,8 +58,8 @@
   border-radius: 8px;
 }
 
-labelAvatar {
-  /* position: absolute; */
+/* labelAvatar {
+  position: absolute;
   left: 30%;
   bottom: -18%;
   display: flex;
@@ -68,7 +68,7 @@ labelAvatar {
   padding: 7px;
   background-color: #bedbb0;
   border-radius: 6px;
-}
+} */
 .inputAvatar {
   position: absolute;
   z-index: 1;
@@ -150,13 +150,11 @@ labelAvatar {
   position: relative;
 }
 
-
 .inputPassword:hover,
 .inputPassword:focus {
   opacity: 1;
   border: 1px solid var(--bg-button-active);
 }
-
 
 .inputEye {
   position: relative;

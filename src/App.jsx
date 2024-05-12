@@ -11,6 +11,7 @@ import PublicRoute from "./components/PrivateRoute/PublicRoute";
 import { currentUserThunk } from "./redux/thunk/authThunk";
 import { useEffect } from "react";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const WelcomePage = lazy(() => import("./pages/WelcomePage/WelcomePage"));
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
