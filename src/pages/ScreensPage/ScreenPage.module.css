@@ -6,7 +6,7 @@
   padding-bottom: 24px;
   padding-left: 20px;
   padding-right: 16px;
-  background-color: var(--bg-color-body);
+  /* background-color: var(--bg-color-body); */
   color: var(--color);
 }
 
@@ -58,6 +58,7 @@
   border: none;
   background: transparent;
 }
+
 .button_filter:hover {
   stroke: #bedbb0;
 }
@@ -70,9 +71,11 @@
   stroke-width: 1.7px;
   stroke: var(--color-shadow);
 }
+
 .button_filter_icon:hover {
   stroke: #bedbb0;
 }
+
 .submBtn {
   display: inline-flex;
   gap: 8px;
@@ -95,6 +98,7 @@
   height: 56px;
   transition: color 250ms linear;
 }
+
 @media screen and (min-width: 375px) {
   .submBtn {
     width: 334px;

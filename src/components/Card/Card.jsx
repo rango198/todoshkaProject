@@ -2,6 +2,7 @@ import moment from "moment/moment";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { selectedColumn } from "../../redux/selectors/serviceSelector";
+import EditCardModal from "./EditCardModal/EditCardModal";
 import DeletePopup from "../DeletePopup/DeletePopup";
 import PopupMoveCard from "./PopupMoveCard/PopupMoveCard";
 import Icon from "../Icon/Icon";
@@ -9,25 +10,24 @@ import css from "./Card.module.css";
 
 const Card = ({ task }) => {
   const columns = useSelector(selectedColumn);
-  const { _id, title, description, priority, deadline, column } = task;
+  const { _id, title, description, priority, deadline } = task;
 
   const [currentDate, setCurrentDate] = useState(new Date());
   const [showPopup, setShowPopup] = useState(false);
+  const [showPopupEdit, setShowPopupEdit] = useState(false);
   const [showFullText, setShowFullText] = useState(false);
   const [showPopupDelete, setShowPopupDelete] = useState(false);
 
   const handleClickPopup = () => {
     setShowPopup(!showPopup);
-    console.log("Click");
   };
 
   const handleClickEdit = () => {
-    console.log("click");
+    setShowPopupEdit(!showPopupEdit);
   };
 
   const handleClickDelete = () => {
     setShowPopupDelete(true);
-    console.log("click");
   };
 
   const handleCloseDelete = () => {
@@ -133,6 +133,7 @@ const Card = ({ task }) => {
               <Icon id="pencil" />
             </svg>
           </button>
+          {showPopupEdit && <EditCardModal onClose={handleClickEdit} />}
           <button onClick={handleClickDelete} className={css.button}>
             <svg className={css.icon}>
               <Icon id="trash" />
@@ -148,110 +149,3 @@ const Card = ({ task }) => {
 };
 
 export default Card;
-
-// Базовий код, щоб подивитись вигляд поп-ап вікна з данними
-
-// import { useState } from "react";
-// import DeletePopup from "../DeletePopup/DeletePopup";
-// import PopupMoveCard from "./PopupMoveCard/PopupMoveCard";
-// import Icon from "../Icon/Icon";
-// import css from "./Card.module.css";
-// import { useDispatch } from "react-redux";
-// import {
-//   setModalContent,
-//   setModalStatus,
-// } from "../../redux/slice/servicesSlice";
-
-// const Card = () => {
-//   const [showPopup, setShowPopup] = useState(false);
-//   const [showFullText, setShowFullText] = useState(false);
-//   const [showPopupDelete, setShowPopupDelete] = useState(false);
-
-//   const dispatch = useDispatch();
-//   //const columns = useSelector((state) => state.columns); Отримати список колонок з Redux store
-
-//   const handleClickPopup = () => {
-//     setShowPopup(!showPopup);
-//     console.log("Click");
-//   };
-
-//   const handleClickEdit = () => {
-//     console.log("click");
-//     dispatch(
-//       setModalContent({
-//         action: "editCard",
-//       })
-//     );
-//     dispatch(setModalStatus(true));
-//   };
-
-//   const handleClickDelete = () => {
-//     setShowPopupDelete(true);
-//     console.log("click");
-//   };
-
-//   const handleCloseDelete = () => {
-//     setShowPopupDelete(!showPopupDelete);
-//   };
-
-//   const handleFullText = () => {
-//     setShowFullText(!showFullText);
-//   };
-
-//   return (
-//     <div className={css.wrapperCard}>
-//       <h4 className={css.title}>The Watch Spot Design</h4>
-//       <p
-//         className={`${css.description} ${showFullText ? css.fullText : ""}`}
-//         onClick={handleFullText}
-//       >
-//         Create a visually stunning and eye-catching watch dial design that
-//         embodies our brand's essence of sleek aesthetics and modern elegance.
-//         Your design should be unique, innovative, and reflective of the latest
-//         trends in watch design.
-//       </p>
-//       <hr className={css.line} />
-//       <div className={css.propertiesGroup}>
-//         <div className={css.leftGroup}>
-//           <div className={css.titleGroup}>
-//             <p className={css.text}>Priority</p>
-//             <div className={css.priorityGroup}>
-//               <hr className={css.circle}></hr>
-//               <p className={css.priority}>Without</p>
-//             </div>
-//           </div>
-//           <div className={css.deadlineGroup}>
-//             <p className={css.text}>Deadline</p>
-//             <p className={css.priority}>12/05/2023</p>
-//           </div>
-//         </div>
-//         <div className={css.iconsGroup}>
-//           <svg className={css.bellIkon}>
-//             <Icon id="bell" />
-//           </svg>
-//           {/*{columns.length > 1 && /*показуємо кнопку якщо є хоча б дві колонки*/}
-//           <button onClick={handleClickPopup} className={css.button}>
-//             <svg className={css.icon}>
-//               <Icon id="broken-right" />
-//             </svg>
-//           </button>
-//           {/* } */}
-//           {showPopup && <PopupMoveCard onClose={handleClickPopup} />}
-//           <button onClick={handleClickEdit} className={css.button}>
-//             <svg className={css.icon}>
-//               <Icon id="pensil" />
-//             </svg>
-//           </button>
-//           <button onClick={handleClickDelete} className={css.button}>
-//             <svg className={css.icon}>
-//               <Icon id="trash" />
-//             </svg>
-//           </button>
-//           {showPopupDelete && <DeletePopup onClose={handleCloseDelete} />}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Card;

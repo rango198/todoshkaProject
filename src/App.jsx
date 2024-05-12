@@ -32,18 +32,26 @@ const App = () => {
   };
   return (
     <>
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<WelcomePage />} />
-          {/* <Route path="/auth/:id" element={<AuthPage />} /> */}
 
           <Route element={<PublicRoute />}>
             <Route path="auth/:id" element={<AuthPage />} />
           </Route>
 
-          {/* <Route path="/home" element={<HomePage />}>
-            <Route path=":boardName" element={<ScreensPage />} />
-          </Route> */}
           <Route element={<PrivateRoute />}>
             <Route path="/home" element={<HomePage />}>
               <Route path=":boardName" element={<ScreensPage />} />

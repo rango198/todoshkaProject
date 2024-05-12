@@ -223,7 +223,7 @@ const serviceSlice = createSlice({
 
         // Знаходимо стовпець, до якого потрібно додати завдання
         const columnIndex = state.selectedBoard.columns.findIndex(
-          (column) => column._id === task.colum_id
+          (column) => column._id === task.column
         );
 
         // Додаємо завдання до відповідного стовпця
@@ -242,17 +242,16 @@ const serviceSlice = createSlice({
       })
       .addCase(deleteTaskAsync.fulfilled, (state, action) => {
         state.isLoading = false;
-        const { taskId, columnIndex } = action.payload;
+        const { _id, column_id } = action.payload;
 
-        const columnIndexToDelete = state.selectedBoard.columns.findIndex(
-          (column) => column._id === columnIndex
+        const idx = state.selectedBoard.columns.findIndex(
+          (column) => column._id === column_id
         );
 
-        if (columnIndexToDelete !== -1) {
-          const column = state.selectedBoard.columns[columnIndexToDelete];
-          const taskIndex = column.tasks.findIndex(
-            (task) => task._id === taskId
-          );
+        if (idx !== -1) {
+          const column = state.selectedBoard.columns[idx];
+
+          const taskIndex = column.tasks.findIndex((task) => task._id === _id);
           if (taskIndex !== -1) {
             column.tasks.splice(taskIndex, 1);
           }
