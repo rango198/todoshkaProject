@@ -7,11 +7,7 @@ import { useTheme } from "../../hooks/useTheme";
 const MenuPopover = React.forwardRef(({ onSelect, ...rest }, ref) => (
   <Popover ref={ref} {...rest} full className={css.popover}>
     <Dropdown.Menu onSelect={onSelect}>
-      <Dropdown.Item
-        eventKey={1}
-        className={css.dark}
-        // style={{ color: theme === "dark" ? "tomato" : "none" }}
-      >
+      <Dropdown.Item eventKey={1} className={css.dark}>
         Dark
       </Dropdown.Item>
       <Dropdown.Item eventKey={2} className={css.light}>

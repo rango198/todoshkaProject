@@ -2,12 +2,8 @@
   max-height: 122px;
   overflow: auto;
   margin-top: 40px;
-  /* padding-left: 14px; */
-  /* border-right: 4px solid var(--color-green);
-  border-radius: 4px 0px 0px 4px; */
   background-color: transparent;
 }
-
 
 /* .scroll-box {
   width: 300px;
@@ -27,15 +23,12 @@
   display: flex;
   align-items: center;
   padding: 20px 0;
-  color: var(--color-item);
 }
 .sidebarNewBoardList:hover,
 .sidebarNewBoardList:active {
   background-color: var(--bg-card);
-  opacity: 0.4;
   border-right: 4px solid var(--border-cart);
   border-radius: 4px 0px 0px 4px;
-  color: var(--color-fonts);
 }
 
 .sidebarNewBoardSvg {
@@ -51,6 +44,10 @@
   letter-spacing: -0.28px;
   margin-right: auto;
   color: var(--color-item);
+}
+.sidebarNewBoardItem:hover,
+.sidebarNewBoardItem:active {
+  color: var(--color-fonts);
 }
 
 .sidebarNewBoardButton {
@@ -73,10 +70,8 @@
   width: 16px;
   height: 16px;
   fill: transparent;
-  /* stroke: var(--color-theme); */
   stroke-width: 1.5px;
-  stroke: var(--color-shadow);
-  /* stroke: currentColor; */
+  stroke: var(--color-item);
 }
 
 .sidebarLogout {
