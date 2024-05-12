@@ -10,6 +10,7 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import PublicRoute from "./components/PrivateRoute/PublicRoute";
 import { currentUserThunk } from "./redux/thunk/authThunk";
 import { useEffect } from "react";
+import { ToastContainer } from "react-toastify";
 
 const WelcomePage = lazy(() => import("./pages/WelcomePage/WelcomePage"));
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
@@ -46,15 +47,11 @@ const App = () => {
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<WelcomePage />} />
-          {/* <Route path="/auth/:id" element={<AuthPage />} /> */}
 
           <Route element={<PublicRoute />}>
             <Route path="auth/:id" element={<AuthPage />} />
           </Route>
 
-          {/* <Route path="/home" element={<HomePage />}>
-            <Route path=":boardName" element={<ScreensPage />} />
-          </Route> */}
           <Route element={<PrivateRoute />}>
             <Route path="/home" element={<HomePage />}>
               <Route path=":boardName" element={<ScreensPage />} />
