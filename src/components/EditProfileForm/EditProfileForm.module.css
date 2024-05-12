@@ -5,6 +5,7 @@
   background: var(--bg-color);
   box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.05);
   border-radius: 8px;
+  border: 1px solid var(--modal-border);
   margin: 0 auto;
   color: var(--color);
   /* position: relative; */

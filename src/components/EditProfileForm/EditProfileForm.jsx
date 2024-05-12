@@ -96,7 +96,9 @@ const EditProfileForm = () => {
                 />
               </div>
             ) : (
-              <div className={css.avatar}></div>
+              <div className={css.avatar}>
+                {/* <img className={css.icon_user} src={newAvatar} /> */}
+              </div>
             )}
 
             <label className={css.labelAvatar}>

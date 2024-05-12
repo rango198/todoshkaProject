@@ -55,6 +55,7 @@ const SidebarActive = () => {
               onClick={toggleAddBoard}
               className={css.sidebarBoardButton}
               type="button"
+              aria-label="add board"
             >
               <svg className={css.sidebarBoardIcon}>
                 <Icon id="icon-icon-plus" />
@@ -86,7 +87,11 @@ const SidebarActive = () => {
                 support team.
               </p>
             </div>
-            <button onClick={handleClickHelp} className={css.sidebarHelpbutton}>
+            <button
+              onClick={handleClickHelp}
+              className={css.sidebarHelpbutton}
+              aria-label="help"
+            >
               <svg className={css.sidebarHelpIcon}>
                 <Icon id="help_circle" />
               </svg>
@@ -98,6 +103,7 @@ const SidebarActive = () => {
               onClick={handleClickLogout}
               className={css.sidebarLogoutButton}
               type="button"
+              aria-label="logout"
             >
               <svg className={css.sidebarLogoutIcon} width={32} height={32}>
                 <Icon id="log-out" />

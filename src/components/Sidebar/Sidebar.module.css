@@ -9,8 +9,7 @@
   width: 200px;
   height: 100vh;
   background-color: var(--bg-sidebar);
-  padding: 14px 14px 24px 14px;
-
+  padding: 14px 0 24px 14px;
   /* transform: translateX(-100%); */
 }
 
@@ -68,7 +67,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* margin: 0 24px; */
+  margin-right: 14px;
   padding: 14px 0;
   border-top: solid 1.5px var(--color-border);
   border-bottom: solid 1.5px var(--color-border);
@@ -98,8 +97,9 @@
 }
 
 .sidebarHelp {
+  margin-top: 40px;
   margin-bottom: 24px;
-  /* padding: 14px 14px 15px 15px; */
+  margin-right: 14px;
   border-radius: 8px;
   background-color: var(--bg-help);
 }
@@ -171,9 +171,15 @@
   }
 }
 @media screen and (min-width: 768px) {
+  .sidebarBoard {
+    margin-right: 24px;
+  }
+  .sidebarHelp {
+    margin-right: 24px;
+  }
   .sidebar {
     width: 260px;
-    padding: 24px 24px 24px 24px;
+    padding: 24px 0 24px 24px;
   }
   .sidebarHelpBoxItem {
     font-family: var(--font-regular);
