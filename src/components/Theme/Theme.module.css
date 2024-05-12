@@ -21,14 +21,17 @@
   color: var(--color-theme);
 }
 
-.dark:active {
+.dark:active,
+.dark:hover {
   color: #bedbb0;
 }
 
-.light:active {
+.light:active,
+.light:hover {
   color: #bedbb0;
 }
 
-.violet:active {
+.violet:active,
+.violet:hover {
   color: #5255bc;
 }
