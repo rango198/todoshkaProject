@@ -71,7 +71,7 @@ const Card = ({ task, columnId }) => {
 
   switch (task.priority) {
     case "Without priority":
-      priorityColor = "rgba(255, 255, 255, 0.3)";
+      priorityColor = "var(--datepicker-grey)";
       break;
     case "Low":
       priorityColor = "#8fa1d0";
@@ -84,7 +84,7 @@ const Card = ({ task, columnId }) => {
       break;
     default:
       // Якщо пріоритет не знайдено, встановимо колір за замовчуванням
-      priorityColor = "rgba(255, 255, 255, 0.3)";
+      priorityColor = "var(--datepicker-grey)";
       break;
   }
 

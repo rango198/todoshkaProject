@@ -72,6 +72,6 @@
   transition: background-color 250ms linear;
 }
 
-.submBtn:hover {
+.buttonSbt:hover {
   background-color: var(--bg-button-active);
 }

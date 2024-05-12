@@ -1,19 +1,21 @@
 .wrapperCard {
   display: block;
   position: relative;
-  background-color: var(--bg-color-form-input);
+  background-color: var(--back-another-column);
   border-radius: 8px;
   width: 334px;
   height: 100%;
   padding: 14px 14px 14px 24px;
   border-left: 4px solid #8fa1d0;
+
+  margin-bottom: 8px;
 }
 
 .title {
   font-weight: 600;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: var(--color-white);
+  color: var(--color-font);
   margin-bottom: 8px;
 }
 
@@ -22,8 +24,7 @@
   font-size: 12px;
   line-height: 1.33333;
   letter-spacing: -0.02em;
-  padding-right: 20px;
-  color: var(--color-icon-grey);
+  color: var(--calendar-month);
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -44,7 +45,7 @@
 }
 
 .line {
-  background-color: var(--color-sidebar-border);
+  background-color: var(--color-border-card);
   border: none;
   height: 1px;
   margin-bottom: 14px;
@@ -74,7 +75,7 @@
 .text {
   font-size: 8px;
   letter-spacing: -0.02em;
-  color: var(--color-icon-grey);
+  color: var(--calendar-month);
 }
 
 .priorityGroup {
@@ -96,13 +97,17 @@
 .priority {
   font-size: 10px;
   letter-spacing: -0.02em;
-  color: var(--color-white);
+  color: var(--calendar-text-color);
 }
 
 .button {
-  background-color: var(--bg-color-form-input);
+  /* background-color: var(--bg-color-form-input); */
   border: none;
   padding: 0;
+  background: inherit;
+  padding: 0;
+
+
 }
 
 .iconsGroup {
@@ -116,7 +121,9 @@
   display: block;
   width: 16px;
   height: 16px;
-  stroke: var(--color-icon-grey);
+  stroke:  var(--calendar-month);
+
+
 }
 
 .bellIkon {

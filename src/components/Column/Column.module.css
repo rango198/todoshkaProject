@@ -40,7 +40,7 @@
   align-items: center;
   height: 56px;
   width: 334px;
-  background-color: #121212;
+  background-color: var(--back-another-column);
   border-radius: 8px;
   margin-bottom: 10px;
 }

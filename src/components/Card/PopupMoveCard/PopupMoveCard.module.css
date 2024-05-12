@@ -1,7 +1,7 @@
 .popup {
   border-radius: 8px;
-  box-shadow: 0px 0px 1px 0 rgba(249, 247, 247, 0.936);
-  background-color: var(--bg-color-form-input);
+  box-shadow: 0px 0px 1px 0 var(--color-theme-shadow);
+  background-color: var(--back-another-column);
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -11,15 +11,17 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .item {
   display: flex;
   justify-content: space-between;
   cursor: pointer;
   align-items: center;
+  color: var(--calendar-month);
 }
 
 .item:hover {
-  color: var(--color-hover-green);
+  color: var(--hover-another-column);
 }
 
 .popupButton {
@@ -30,7 +32,7 @@
 }
 
 .item:hover .popupIcon {
-  stroke: var(--color-hover-green);
+  stroke: var(--hover-another-column);
 }
 
 .text {
@@ -45,4 +47,8 @@
   width: 16px;
   height: 16px;
   stroke: var(--color-icon-grey);
+}
+
+.popupIcon:hover{
+  stroke: var(--hover-another-column);
 }
