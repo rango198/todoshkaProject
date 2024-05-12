@@ -13,11 +13,7 @@ import { registerThunk } from "../../../redux/thunk/authThunk";
 
 const schema = yup.object({
   name: yup.string().min(2).max(32).required("Required field"),
-  email: yup
-    .string()
-    .email()
-    .required("Required field")
-    .matches(/^.*[!@#$%^&*()\-_=+{};:,<.>]/),
+  email: yup.string().email().required("Required field"),
 
   password: yup
     .string()
