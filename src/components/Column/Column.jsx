@@ -64,7 +64,7 @@ const Column = ({ column }) => {
         </div>
       </div>
 
-      <ul>
+      <ul className={css.container_task}>
         {tasks?.map((task) => (
           <li key={task._id}>
             <Card task={task} />
