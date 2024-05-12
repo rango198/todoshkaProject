@@ -1,4 +1,4 @@
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
@@ -19,7 +19,11 @@ export const registerThunk = createAsyncThunk(
       const response = await register(params);
       return response;
     } catch (error) {
-      toast.error(`Error during user registration: ${error.message}`);
+      // toast.error(`Error during user registration: ${error.message}`);
+      // if (error.response.status === 409) {
+      //   toast.error("Email has already in use");
+      //   console.log(error.response.data);
+      // }
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -32,7 +36,7 @@ export const loginThunk = createAsyncThunk(
       const response = await login(params);
       return response;
     } catch (error) {
-      toast.error(`Incorrect email or password`);
+      // toast.error(`Incorrect email or password`);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -46,7 +50,7 @@ export const logoutThunk = createAsyncThunk(
       // clearAuthHeader();
       return response;
     } catch (error) {
-      toast.error(`Error during user logout: ${error.message}`);
+      // toast.error(`Error during user logout: ${error.message}`);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -60,7 +64,7 @@ export const currentUserThunk = createAsyncThunk(
       const res = await currentUser(auth.token);
       return res;
     } catch (error) {
-      toast.error(`Error during user logout: ${error.response.data.message}`);
+      // toast.error(`Error during user logout: ${error.response.data.message}`);
       return thunkAPI.rejectWithValue(error.message);
     }
   },
@@ -94,7 +98,7 @@ export const updateUserThunk = createAsyncThunk(
       const { data } = await updateUser(userData.formData);
       return data;
     } catch (error) {
-      toast.error(`Failed to update user data: ${error.message}`);
+      // toast.error(`Failed to update user data: ${error.message}`);
       return thunkAPI.rejectWithValue(error.message);
     }
   }

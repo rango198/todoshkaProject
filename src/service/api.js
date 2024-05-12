@@ -26,7 +26,6 @@ export const login = async (params) => {
 
 export const logout = async () => {
   const { data } = await $instance.post("users/logout");
-  console.log(data);
 
   clearAccessToken();
   return data;
