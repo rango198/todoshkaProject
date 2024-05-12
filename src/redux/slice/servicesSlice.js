@@ -223,7 +223,7 @@ const serviceSlice = createSlice({
 
         // Знаходимо стовпець, до якого потрібно додати завдання
         const columnIndex = state.selectedBoard.columns.findIndex(
-          (column) => column._id === task.colum_id
+          (column) => column._id === task.column
         );
 
         // Додаємо завдання до відповідного стовпця
