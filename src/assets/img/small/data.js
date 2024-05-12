@@ -17,7 +17,7 @@ import tree from "./tree-small.png";
 import yacht from "./yacht-small.png";
 
 const data = [
-  { id: "0", image: defalt, name: "defalt" },
+  { id: "0", image: defalt, name: "default" },
   { id: "1", image: air, name: "air" },
   { id: "2", image: ballons, name: "ballons" },
   { id: "3", image: canyon, name: "canyon" },
