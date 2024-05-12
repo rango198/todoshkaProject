@@ -1,12 +1,18 @@
-import { useSelector } from "react-redux";
+import { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { moveTaskAsync } from "../../../redux/thunk/tasksThunk";
 import { selectedColumn } from "../../../redux/selectors/serviceSelector";
+import { selectAuthToken } from "../../../redux/selectors/selector";
+
 import Icon from "../../Icon/Icon";
 import css from "./PopupMoveCard.module.css";
-import { useEffect } from "react";
 
-const PopupMoveCard = ({ onClose, onAttachTask }) => {
+const PopupMoveCard = ({ taskId, onClose }) => {
   const columns = useSelector(selectedColumn);
-  console.log(columns);
+  const dispatch = useDispatch();
+  const popupRef = useRef(null);
+  let sourceColumnId = null;
 
   useEffect(() => {
     const handleEscapeKeyPress = (event) => {
@@ -16,7 +22,7 @@ const PopupMoveCard = ({ onClose, onAttachTask }) => {
     };
 
     const handleClickOutside = (event) => {
-      if (!event.currentTarget.closest(`.${css.popup}`)) {
+      if (popupRef.current && !event.target.closest(`.${css.popup}`)) {
         onClose();
       }
     };
@@ -30,11 +36,48 @@ const PopupMoveCard = ({ onClose, onAttachTask }) => {
     };
   }, [onClose]);
 
-  const buttons = columns.map((column, index) => (
-    <li key={index} className={css.item}>
+  const accessToken = useSelector(selectAuthToken);
+
+  const handleMoveTask = async (
+    sourceColumnId,
+    destinationColumnId,
+    taskId
+  ) => {
+    try {
+      await dispatch(
+        moveTaskAsync({
+          sourceColumnId,
+          destinationColumnId,
+          taskId,
+          accessToken,
+        })
+      );
+      onClose();
+    } catch (error) {
+      console.error("Error moving task:", error);
+    }
+  };
+
+  const columnContainingTask = columns.find((column) =>
+    column.tasks.some((task) => task._id === taskId)
+  );
+
+  if (columnContainingTask) {
+    sourceColumnId = columnContainingTask._id;
+  } else {
+    console.error("The column containing the task was not found.");
+  }
+
+  const buttons = columns.map((column) => (
+    <li key={column._id} className={css.item}>
       <span className={css.text}>{column.title}</span>
       <button
-        onClick={() => onAttachTask(column.title)}
+        onClick={() => {
+          console.log("source:", sourceColumnId);
+          console.log("destination:", column._id);
+          console.log("Task ID:", taskId);
+          handleMoveTask(sourceColumnId, column._id, taskId);
+        }}
         className={css.popupButton}
       >
         <svg className={css.popupIcon}>
@@ -44,30 +87,11 @@ const PopupMoveCard = ({ onClose, onAttachTask }) => {
     </li>
   ));
 
-  return <ul className={css.popup}>{buttons}</ul>;
+  return (
+    <ul className={css.popup} ref={popupRef}>
+      {buttons}
+    </ul>
+  );
 };
 
 export default PopupMoveCard;
-
-//Базовий код, щоб подивитись вигляд поп-ап вікна з данними
-
-// const PopupMoveCard = ({ onClose }) => {
-//   return (
-//     <div className={css.popup}>
-//       <button onClick={onClose} className={css.popupButton}>
-//         <span className={css.text}>In progress</span>
-//         <svg className={css.popupIcon}>
-//           <Icon id="broken-right" />
-//         </svg>
-//       </button>
-//       <button onClick={onClose} className={css.popupButton}>
-//         <span>Done</span>
-//         <svg className={css.popupIcon}>
-//           <Icon id="broken-right" />
-//         </svg>
-//       </button>
-//     </div>
-//   );
-// };
-
-// export default PopupMoveCard;

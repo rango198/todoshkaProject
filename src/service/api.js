@@ -2,6 +2,7 @@ import axios from "axios";
 
 const BASE_URL = "https://todoshka-back-5xf7.onrender.com/api/";
 // const BASE_URL = "http://localhost:3000/api/";
+
 const $instance = axios.create({ baseURL: BASE_URL });
 
 export const setAccessToken = (token) => {
@@ -154,13 +155,29 @@ export const deleteTask = async (id) => {
   return data;
 };
 
-export const moveTask = async (id, source, destination) => {
-  const { data } = await $instance.patch(
-    `tasks/${id}/transfer`,
-    source,
-    destination
-  );
-  return data;
+export const moveTask = async (
+  sourceColumnId,
+  destinationColumnId,
+  taskId,
+  accessToken
+) => {
+  setAccessToken(accessToken);
+  try {
+    const { data } = await $instance.patch(`tasks/${taskId}/transfer`, {
+      source: {
+        index: 1,
+        transferId: sourceColumnId,
+      },
+      destination: {
+        index: 1,
+        transferId: destinationColumnId,
+      },
+    });
+    return data;
+  } catch (error) {
+    console.error("Error moving task:", error);
+    throw error;
+  }
 };
 
 // export const moveTask = async (id, body) => {

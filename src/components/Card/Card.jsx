@@ -8,7 +8,7 @@ import PopupMoveCard from "./PopupMoveCard/PopupMoveCard";
 import Icon from "../Icon/Icon";
 import css from "./Card.module.css";
 
-const Card = ({ task }) => {
+const Card = ({ task, columnId }) => {
   const columns = useSelector(selectedColumn);
   const { _id, title, description, priority, deadline } = task;
 
@@ -17,6 +17,12 @@ const Card = ({ task }) => {
   const [showPopupEdit, setShowPopupEdit] = useState(false);
   const [showFullText, setShowFullText] = useState(false);
   const [showPopupDelete, setShowPopupDelete] = useState(false);
+  const [showPopupMove, setShowPopupMove] = useState(false);
+
+  const handleClickPopupMove = () => {
+    console.log("Button clicked!");
+    setShowPopupMove(!showPopupMove);
+  };
 
   const handleClickPopup = () => {
     setShowPopup(!showPopup);
@@ -121,13 +127,20 @@ const Card = ({ task }) => {
             </svg>
           )}
           {columns.length > 1 && (
-            <button onClick={handleClickPopup} className={css.button}>
+            <button onClick={handleClickPopupMove} className={css.button}>
               <svg className={css.icon}>
                 <Icon id="broken-right" />
               </svg>
             </button>
           )}
-          {showPopup && <PopupMoveCard onClose={handleClickPopup} />}
+          {showPopupMove && (
+            <PopupMoveCard
+              taskId={_id}
+              columnId={columnId}
+              // onClose={handleClickPopupMove}
+              onClose={handleClickPopup}
+            />
+          )}
           <button onClick={handleClickEdit} className={css.button}>
             <svg className={css.icon}>
               <Icon id="pencil" />
