@@ -27,7 +27,7 @@
   justify-content: center;
   /* background-color: transparent; */
   /* margin-left: 20px; */
-  background-color: var(--calendar-background-color);
+  background-color: var(--back-another-column);
   color: var(--color-font);
   border-radius: 8px;
   border-style: none;
