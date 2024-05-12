@@ -13,6 +13,10 @@ import {
   selectModalContent,
   selectedColumn,
 } from "../../redux/selectors/serviceSelector";
+import {
+  setModalContent,
+  setModalStatus,
+} from "../../redux/slice/servicesSlice";
 
 const AddCardSchema = yup
   .object({
@@ -23,19 +27,12 @@ const AddCardSchema = yup
   .required();
 
 const AddCard = () => {
-  const columns = useSelector(selectedColumn);
+  // const columns = useSelector(selectedColumn);
   const { AddId } = useSelector(selectModalContent);
   const columnId = AddId._id;
   const dispatch = useDispatch();
   const [deadlineDate, setDeadlineDate] = useState(new Date());
   const [priority, setPriority] = useState(); // Стейт для даты дедлайна
-  //   const [radioChoose, setRadioChoose] = useState("without priority"); // Стейт для выбранного приоритета
-
-  // const columns = useColumns() || []; // Добавили проверку на существование columns
-
-  // Получение количества задач в выбранной колонке
-  // const tasksLength =
-  //   columns.find((column) => column._id === columnId)?.tasks.length || 0;
 
   const {
     register,
@@ -47,7 +44,6 @@ const AddCard = () => {
     setDeadlineDate(date);
   };
 
-  // Функция для обработки отправки формы
   const onSubmit = (data) => {
     const { title, description } = data;
 
@@ -58,13 +54,10 @@ const AddCard = () => {
       // Добавление даты дедлайна в новую задачу
       column: columnId,
     };
-    // Проверка формирования объекта newTask
-
-    // Диспатч экшена для добавления задачи
     dispatch(addTaskAsync(newTask));
+    dispatch(setModalStatus(false));
+    dispatch(setModalContent({ action: null, recordDataEdit: null }));
   };
-
-  // Функция для обновления выбранной даты дедлайна
 
   const handleClikc = (value) => {
     setPriority(value);
