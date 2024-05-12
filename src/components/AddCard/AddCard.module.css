@@ -137,7 +137,7 @@
 
 .buttonAdd:hover,
 .buttonAdd:focus {
-  background: #9dc888;
+  background: var(--bg-button-active);
   border-color: #151515;
 }
 @media screen and (min-width: 375px) {
