@@ -59,11 +59,6 @@ const RegisterForm = () => {
       });
   };
 
-  // if (error.response.status === 409) {
-  //   toast.error("Email has already in use");
-  //
-  // }
-
   return (
     <form className={styles.main} onSubmit={handleSubmit(onSubmit)}>
       <input
@@ -79,7 +74,7 @@ const RegisterForm = () => {
         placeholder="Enter your email"
         type="email"
         {...register("email", {
-          required: true,
+          required: "Required field",
         })}
       />
 
@@ -89,7 +84,7 @@ const RegisterForm = () => {
           className={styles.input}
           type={inputType}
           {...register("password", {
-            required: true,
+            required: "Required field",
           })}
         />
 
@@ -98,7 +93,7 @@ const RegisterForm = () => {
         </div>
       </div>
 
-      <div style={{ height: 15, color: "red" }}>
+      <div style={{ height: 10, color: "red" }}>
         {errors?.name && <p>{errors?.name?.message || "Error!"}</p>}
         {errors?.email && <p>{errors?.email?.message || "Error!"}</p>}
         {errors?.password && <p>{errors?.password?.message || "Error!"}</p>}
