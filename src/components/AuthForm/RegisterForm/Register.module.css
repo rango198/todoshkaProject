@@ -28,6 +28,11 @@
   height: 49px;
   background: var(--color-green);
   border-radius: 8px;
+  border: none;
+  font-family: "PoppinsMedium";
+  line-height: 1.5;
+  text-align: center;
+  letter-spacing: -0.02em;
 }
 
 .inputwithicon {

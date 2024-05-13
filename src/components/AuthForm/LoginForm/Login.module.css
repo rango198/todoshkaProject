@@ -32,6 +32,11 @@
   height: 49px;
   border-radius: 8px;
   background: var(--color-green);
+  border: none;
+  font-family: "PoppinsMedium";
+  line-height: 1.5;
+  text-align: center;
+  letter-spacing: -0.02em;
 }
 
 .svg_icon {
