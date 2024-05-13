@@ -79,14 +79,15 @@ const PopupMoveCard = ({ taskId, onClose }) => {
   const buttons = columns
     .filter((column) => column._id !== sourceColumnId)
     .map((column) => (
-      <div key={column._id} className={css.item}>
+      <div
+        key={column._id}
+        className={css.item}
+        onClick={() => {
+          handleMoveTask(sourceColumnId, column._id, taskId);
+        }}
+      >
         <span className={css.text}>{column.title}</span>
-        <button
-          onClick={() => {
-            handleMoveTask(sourceColumnId, column._id, taskId);
-          }}
-          className={css.popupButton}
-        >
+        <button className={css.popupButton}>
           <svg className={css.popupIcon}>
             <Icon id="broken-right" />
           </svg>
