@@ -2,6 +2,7 @@
   background-color: var(--bg-color);
   padding: 20px 18px;
   display: flex;
+  width: 100vw;
 }
 
 .box {
@@ -32,9 +33,6 @@
 }
 
 @media screen and (min-width: 768px) {
-  .header {
-    width: 768px;
-  }
   .menu_icon {
     width: 32px;
     height: 32px;
@@ -46,8 +44,5 @@
   }
   .box {
     margin-left: auto;
-  }
-  .header {
-    width: 1180px;
   }
 }

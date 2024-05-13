@@ -5,11 +5,11 @@
   display: none;
 }
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   .container {
-    width: 768px;
+    width: 100vw;
   }
-}
+} */
 
 @media screen and (min-width: 1440px) {
   .container {
@@ -19,8 +19,5 @@
   .sidebar {
     display: flex;
     width: 260px;
-  }
-  .main {
-    width: 1180px;
   }
 }
