@@ -21,7 +21,7 @@ const NewBoard = () => {
   const params = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { filterColumns } = useSelector(selectedBoard);
+  // const { filterColumns } = useSelector(selectedBoard);
   const filter = useSelector(getFilter);
   const boards = useSelector(selectAllBoards);
   const columns = useSelector(selectedColumn);
@@ -49,7 +49,7 @@ const NewBoard = () => {
       <div className={css.columns_container}>
         {columns && columns.length > 0 ? (
           <>
-            <FilteredColumns columns={filterColumns} filter={filter} />
+            <FilteredColumns columns={columns} filter={filter} />
 
             <ButtonAdd
               onClick={toggleAddColumn}
