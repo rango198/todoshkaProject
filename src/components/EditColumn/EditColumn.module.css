@@ -7,7 +7,7 @@
 
   width: 320px;
   height: 221px;
-  background-color: var(--calendar-background-color);
+  background-color: var(--bg-color);
 }
 
 @media screen and (min-width: 375px) {

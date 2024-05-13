@@ -36,7 +36,7 @@ export const StyledModalContent = styled.div`
   border-radius: 8px;
 
   @media screen and (min-width: 375px) and (max-width: 767px) {
-    max-width: 335px;
+    width: 335px;
   }
 
   @media screen and (min-width: 768px) {
