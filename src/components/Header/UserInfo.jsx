@@ -39,6 +39,7 @@ const UserInfo = () => {
   return (
     <div className={css.userInfoContainer}>
       <button
+        type="button"
         className={css.button_user}
         onClick={openModal}
         aria-label="user-profile"

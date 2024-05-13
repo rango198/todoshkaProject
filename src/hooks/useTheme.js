@@ -15,7 +15,5 @@ export const useTheme = () => {
     dispatch(changeThemeThunk({ theme }));
   }, [theme]);
 
-  // dispatch(changeThemeThunk({ theme }));
-
   return { theme, setTheme };
 };

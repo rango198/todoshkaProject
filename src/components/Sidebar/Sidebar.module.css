@@ -39,8 +39,6 @@
 }
 
 .sidebarItem {
-  /* padding-left: 24px; */
-
   margin-bottom: 8px;
 }
 
@@ -169,7 +167,6 @@
 @media screen and (min-width: 375px) {
   .sidebar {
     width: 225px;
-    /* height: 100%; */
   }
 }
 @media screen and (min-width: 768px) {

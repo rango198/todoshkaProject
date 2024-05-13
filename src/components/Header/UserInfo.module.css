@@ -20,8 +20,6 @@
   font-size: 14px;
 }
 .icon_user {
-  /* background-image: url("../../assets/img/userAvatar/user2x-min.png");
-  background-repeat: no-repeat; */
   object-fit: cover;
   height: 100%;
   width: 100%;
