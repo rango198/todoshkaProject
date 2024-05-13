@@ -7,8 +7,6 @@
   background-color: var(--bg-theme);
 }
 
-
-
 .newBoardTitle {
   margin: 0 0 24px 0;
   width: 96px;
@@ -65,10 +63,9 @@
   color: var(--color-font);
 }
 
-/*Колір при натисканні на іконку*/
 .selectedIcon {
   border: 2px solid var(--btn-add);
-border-radius: 2px;
+  border-radius: 2px;
 }
 
 .iconWrap {
@@ -76,15 +73,13 @@ border-radius: 2px;
   display: flex;
 }
 
-
 .iconStyle {
   margin-right: 8px;
   width: 18px;
   height: 18px;
   fill: transparent;
-  stroke:  var(--calendar-month);
+  stroke: var(--calendar-month);
   cursor: pointer;
-
 }
 
 .iconStyle.selected {
@@ -95,7 +90,6 @@ border-radius: 2px;
 .iconStyle:focus {
   stroke: var(--btn-add);
 }
-
 
 .backgroundTitle {
   margin: 0 0 14px 0;
@@ -120,24 +114,19 @@ border-radius: 2px;
   cursor: pointer;
   transition: transform 0.3s;
   border-radius: 6px;
-  /* overflow: hidden; */
   width: 28px;
   height: 28px;
   background: inherit;
-  stroke:  var(--calendar-month);
+  stroke: var(--calendar-month);
 }
 
 .backgroundItem.selected {
   border: 3px solid var(--btn-add);
 }
 
-
 .backgroundImage {
-  /* width: 28px;
-  height: 28px; */
   width: 100%;
   height: 100%;
-
 }
 
 .button {
@@ -157,8 +146,7 @@ border-radius: 2px;
   outline: none;
   border-radius: 8px;
   transition: background-color 250ms linear;
-  
 }
 .button:hover {
-  background-color: #9dc888;
+  background-color: var(--bg-button-active);
 }
