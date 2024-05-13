@@ -100,11 +100,18 @@ const Card = ({ task, columnId }) => {
     borderLeft: `4px solid ${priorityColor}`,
   };
 
+  // Функція, яка перевіряє, чи потрібно додати три точки
+  const shouldDisplayEllipsis = (text) => {
+    // Перевірка, чи текст має більше ніж 2 рядки
+    const lines = text.split("\n");
+    return lines.length > 2;
+  };
+
   return (
     <div className={css.wrapperCard} style={wrapperCardStyle}>
       <h4 className={css.title}>{title}</h4>
       <p
-        className={`${css.description} ${showFullText ? css.fullText : ""}`}
+        className={`${css.description} ${shouldDisplayEllipsis(description) ? css.ellipsis : ""} ${showFullText ? css.fullText : ""}`}
         onClick={handleFullText}
       >
         {description}

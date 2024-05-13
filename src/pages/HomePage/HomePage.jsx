@@ -7,7 +7,7 @@ import Loader from "../../components/Loader/Loader";
 import ScreensPage from "../ScreensPage/ScreensPage";
 import { useDispatch } from "react-redux";
 import { getBoardThunk } from "../../redux/thunk/servicesThunk";
-import NewBoard from "../../components/Screens/NewBoard/NewBoard";
+// import NewBoard from "../../components/Screens/NewBoard/NewBoard";
 
 // import { useDispatch } from "react-redux";
 // import { getBoardThunk } from "../../redux/thunk/servicesThunk";
@@ -21,12 +21,17 @@ const HomePage = () => {
   return (
     <div className={css.container}>
       <Suspense fallback={<Loader />}>
-        <div className={css.sidebar}>
+        {/* <div className={css.sidebar}>
           <Sidebar />
-        </div>
+        </div> */}
         <div className={css.main}>
-          <Header />
-          <ScreensPage />
+          <div className={css.sidebar}>
+            <Sidebar />
+          </div>
+          <div className={css.rrr}>
+            {/* <Header /> */}
+            <ScreensPage />
+          </div>
           {/* <NewBoard /> */}
           {}
           {/* <AddCard /> */}

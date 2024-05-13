@@ -35,9 +35,11 @@
   font-weight: 500;
   font-size: 16px;
   letter-spacing: -0.02em;
+  cursor: pointer;
   color: var(--color-dark);
 }
 
-.btn:hover {
-  background: var(--btn-icon-bg-anothet-column);
+.btn:hover,
+.btn:focus{
+  background: var(--bg-button-active);
 }

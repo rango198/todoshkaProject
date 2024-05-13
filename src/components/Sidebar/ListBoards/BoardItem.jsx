@@ -25,7 +25,10 @@ const BoardItem = ({ isActive, title, icon, id }) => {
   return (
     <>
       <Link to={`/home/${id}`}>
-        <div className={css.sidebarNewBoardList} data-isactive={isActive}>
+        <div
+          className={`${css.sidebarNewBoardList} ${isActive ? css.active : ""}`}
+          data-isactive={isActive}
+        >
           <svg className={css.sidebarNewBoardSvg}>
             <Icon id={icon} />
           </svg>

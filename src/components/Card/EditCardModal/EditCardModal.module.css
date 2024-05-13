@@ -1,9 +1,5 @@
-/* .form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-} */
-.modal {
+
+.modalContainer {
   width: 100%;
   padding: 24px;
   background: var(--bg-theme);
@@ -12,15 +8,9 @@
 }
 
 @media screen and (min-width: 375px) {
-  .modal {
+  .modalContainer {
     width: 350px;
   }
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .textNameModal {
@@ -30,6 +20,11 @@
   line-height: 1.5;
   letter-spacing: -0.02em;
   margin-bottom: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
 }
 
 .inputEdit {
@@ -55,14 +50,8 @@
 
 @media screen and (min-width: 375px) {
   .inputEdit {
-    width: 287px;
+    width: 302px;
   }
-}
-
-.inputEdit:hover,
-.inputEdit:focus,
-.inputEdit:active {
-  opacity: 1;
 }
 
 .inputEdit::placeholder {
@@ -71,6 +60,13 @@
   letter-spacing: -0.02em;
   line-height: 1.5;
 }
+
+.inputEdit:hover,
+.inputEdit:focus,
+.inputEdit:active {
+  opacity: 1;
+}
+
 
 .textAreaDescription {
   box-sizing: border-box;
@@ -96,7 +92,7 @@
 
 @media screen and (min-width: 375px) {
   .textAreaComment {
-    width: 287px;
+    width: 302px;
   }
 }
 
@@ -170,11 +166,12 @@
 
 @media screen and (min-width: 375px) {
   .buttonAdd {
-    width: 287px;
+    width: 302px;
   }
 }
 
 .buttonEdit:hover,
 .buttonEdit:focus {
   background: var(--bg-button-active);
+
 }

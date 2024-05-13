@@ -10,6 +10,7 @@ import {
   selectAllBoards,
   selectedBoard,
 } from "../../redux/selectors/serviceSelector";
+import Header from "../../components/Header/Header";
 
 const ScreensPage = () => {
   const [openFilter, setOpenFilter] = useState(false);
@@ -40,11 +41,14 @@ const ScreensPage = () => {
   return (
     <div className={color ? `background-${color}` : "background-color-body"}>
       <div className={css.screen}>
+        <Header />
+
         {openFilter && (
           <Modal open={handleOpenFilter} onClose={toggleFilter}>
             <Filter onClose={toggleFilter} />
           </Modal>
         )}
+
         <div className={css.title_container}>
           <span className={css.title_wrap}>
             <p className={css.title_board}>{title}</p>
