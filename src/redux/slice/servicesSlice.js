@@ -79,18 +79,6 @@ const serviceSlice = createSlice({
         state.isLoading = false;
         state.boards.push(action.payload);
       })
-
-      // .addCase(fetchSingleBoard.fulfilled, (state, action) => {
-      //   state.error = null;
-      //   state.isLoading = false;
-      //   if (action.payload.columns[0]) {
-      //     state.selectedBoard = action.payload;
-      //     return;
-      //   }
-      //   state.selectedBoard = action.payload;
-      //   state.selectedBoard.columns = [];
-      // })
-
       .addCase(fetchSingleBoard.fulfilled, (state, action) => {
         state.error = null;
         state.isLoading = false;
@@ -105,7 +93,6 @@ const serviceSlice = createSlice({
           state.selectedBoard.columns = [];
         }
       })
-
       .addCase(editBoardThunk.fulfilled, (state, action) => {
         state.isLoading = false;
         state.selectedBoard.title = action.payload.title;
@@ -145,7 +132,7 @@ const serviceSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-      // columns///////////////
+      // =====================COLUMN============================
       .addCase(deleteColumnAsync.pending, (state) => {
         state.isLoading = true;
       })
@@ -154,7 +141,6 @@ const serviceSlice = createSlice({
         const idx = state.selectedBoard.columns.findIndex(
           (el) => el._id === action.payload
         );
-
         if (idx === -1) {
           return state;
         }
@@ -164,7 +150,7 @@ const serviceSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-      //editColumn
+      //===================EDIT-COLUMN==========================
       .addCase(editColumnAsync.pending, (state) => {
         state.error = null;
         state.isLoading = true;
@@ -179,12 +165,11 @@ const serviceSlice = createSlice({
           state.selectedBoard.columns[columnIndex].title = title;
         }
       })
-
       .addCase(editColumnAsync.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       })
-      //addColumn
+      //=======================ADD-COLUMN========================
       .addCase(addColumnAsync.pending, (state) => {
         state.error = null;
         state.isLoading = true;
@@ -199,7 +184,7 @@ const serviceSlice = createSlice({
         state.error = action.payload;
       })
       // /////////////Tasks////////////
-      //-----------Pending--------------
+      //----------------------------Pending--------------------
       .addCase(addTaskAsync.pending, (state) => {
         state.isLoading = true;
         state.error = null;
@@ -216,22 +201,16 @@ const serviceSlice = createSlice({
       })
       //--------------Fulfilled-------------------
       .addCase(addTaskAsync.fulfilled, (state, action) => {
-        state.isLoading = false; // Зміна isLoading на false, оскільки завантаження завершене.
+        state.isLoading = false;
         state.error = null;
-
-        const task = action.payload; // Отримуємо завдання з action.payload
-
-        // Знаходимо стовпець, до якого потрібно додати завдання
+        const task = action.payload;
         const columnIndex = state.selectedBoard.columns.findIndex(
           (column) => column._id === task.column
         );
-
-        // Додаємо завдання до відповідного стовпця
         if (columnIndex !== -1) {
           state.selectedBoard.columns[columnIndex].tasks.push(task);
         } else {
-          // Якщо не вдалося знайти стовпець за його id, можливо, потрібно обробити помилку.
-          state.error = "Column not found"; // Наприклад, встановлюємо помилку.
+          state.error = "Column not found";
         }
       })
 
@@ -243,25 +222,43 @@ const serviceSlice = createSlice({
       .addCase(deleteTaskAsync.fulfilled, (state, action) => {
         state.isLoading = false;
         const { _id, column_id } = action.payload;
-
         const idx = state.selectedBoard.columns.findIndex(
           (column) => column._id === column_id
         );
-
         if (idx !== -1) {
           const column = state.selectedBoard.columns[idx];
-
           const taskIndex = column.tasks.findIndex((task) => task._id === _id);
           if (taskIndex !== -1) {
             column.tasks.splice(taskIndex, 1);
           }
         }
       })
+
+      // ====================================================================================
       .addCase(moveTaskAsync.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.boards = action.payload.boards;
+        const { taskId, sourceColumnId, destinationColumnId } = action.payload;
+        const sourceColumnIndex = state.boards.findIndex(
+          (column) => column._id === sourceColumnId
+        );
+        const destinationColumnIndex = state.boards.findIndex(
+          (column) => column._id === destinationColumnId
+        );
+        if (sourceColumnIndex !== -1 && destinationColumnIndex !== -1) {
+          const taskIndexInSourceColumn = state.boards[
+            sourceColumnIndex
+          ].tasks.findIndex((task) => task._id === taskId);
+          if (taskIndexInSourceColumn !== -1) {
+            const movedTask = state.boards[sourceColumnIndex].tasks.splice(
+              taskIndexInSourceColumn,
+              1
+            )[0];
+            state.boards[destinationColumnIndex].tasks.push(movedTask);
+          }
+        }
       })
+
       //-------------Rejected-------------
       .addCase(addTaskAsync.rejected, (state, action) => {
         state.isLoading = true;

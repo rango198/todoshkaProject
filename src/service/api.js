@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const BASE_URL = "https://todoshka-back-5xf7.onrender.com/api/";
-// const BASE_URL = "http://localhost:3000/api/";
 
 const $instance = axios.create({ baseURL: BASE_URL });
 
@@ -43,17 +42,6 @@ export const currentUser = async (token) => {
     throw error;
   }
 };
-
-// export const currentUser = async (params) => {
-//   const { data } = await $instance.get("users/current", params);
-//   const state = thunkAPI.getState();
-//   const persistedToken = state.auth.token;
-//   if (persistedToken === null) {
-//     return thunkAPI.rejectWithValue("Unable to fetch user");
-//   }
-//   setAccessToken(persistedToken);
-//   return data;
-// };
 
 export const updateUser = async (formData) => {
   const { data } = await $instance.put("users/update", formData);
@@ -123,27 +111,11 @@ export const editColumn = async (body) => {
   const { data } = await $instance.put(`columns/${id}`, column);
   return data;
 };
-
-// export const editColumn = async (id, body) => {
-//   const { data } = await $instance.put(`columns/${id}`, body);
-//   return data;
-// };
 // =================TASKS======================
-
-// export const getAllTasks = async () => {
-//   const { data } = await $instance.get("tasks");
-//   return data;
-// };
-
 export const addTask = async (body) => {
   const { data } = await $instance.post("tasks", body);
   return data;
 };
-
-// export const getSingleTask = async (id) => {
-//   const { data } = await $instance.get(`tasks/${id}`);
-//   return data;
-// };
 
 export const editTask = async (body) => {
   const { data } = await $instance.put(`tasks/${body.id}`, body);
@@ -161,29 +133,26 @@ export const moveTask = async (
   taskId,
   accessToken
 ) => {
-  setAccessToken(accessToken);
   try {
-    const { data } = await $instance.patch(`tasks/${taskId}/transfer`, {
-      source: {
-        index: 1,
-        transferId: sourceColumnId,
+    const { data } = await $instance.patch(
+      `tasks/${taskId}/transfer`,
+      {
+        source: {
+          index: 1,
+          transferId: sourceColumnId,
+        },
+        destination: {
+          index: 1,
+          transferId: destinationColumnId,
+        },
       },
-      destination: {
-        index: 1,
-        transferId: destinationColumnId,
-      },
-    });
+      {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      }
+    );
     return data;
   } catch (error) {
     console.error("Error moving task:", error);
     throw error;
   }
 };
-
-// export const moveTask = async (id, body) => {
-//   const { data } = await $instance.patch(
-//     `tasks/${id}/transfer`,
-//     body
-//   );
-//   return data;
-// };
