@@ -10,11 +10,18 @@ import {
   setModalContent,
   setModalStatus,
 } from "../../../redux/slice/servicesSlice";
-import { selectedColumn } from "../../../redux/selectors/serviceSelector";
+import {
+  selectedColumn,
+  getFilter,
+  selectedBoard,
+} from "../../../redux/selectors/serviceSelector";
+import { FilteredColumns } from "../../FiltredColumns/FiltredColumns";
 
 const NewBoard = () => {
   const params = useParams();
   const dispatch = useDispatch();
+  const { columns } = useSelector(selectedBoard);
+  const filter = useSelector(getFilter);
 
   const toggleAddColumn = () => {
     dispatch(
@@ -25,8 +32,6 @@ const NewBoard = () => {
     dispatch(setModalStatus(true));
   };
 
-  const columns = useSelector(selectedColumn);
-
   useEffect(() => {
     if (params.boardName) {
       dispatch(fetchSingleBoard(params.boardName));
@@ -36,14 +41,23 @@ const NewBoard = () => {
   return (
     <div className={css.container}>
       <div className={css.columns_container}>
-        {columns?.map((column) => (
-          <Column key={column._id} column={column} />
-        ))}
-        <ButtonAdd
-          onClick={toggleAddColumn}
-          title="Add another column"
-          className={css.button_create}
-        />
+        {columns && columns.length > 0 ? (
+          <>
+            <FilteredColumns columns={columns} filter={filter} />
+
+            <ButtonAdd
+              onClick={toggleAddColumn}
+              title="Add another column"
+              className={css.button_create}
+            />
+          </>
+        ) : (
+          <ButtonAdd
+            onClick={toggleAddColumn}
+            title="Add another column"
+            className={css.button_create}
+          />
+        )}
       </div>
     </div>
   );
