@@ -1,35 +1,43 @@
 import moment from "moment/moment";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectedColumn } from "../../redux/selectors/serviceSelector";
-import EditCardModal from "./EditCardModal/EditCardModal";
 import DeletePopup from "../DeletePopup/DeletePopup";
 import PopupMoveCard from "./PopupMoveCard/PopupMoveCard";
 import Icon from "../Icon/Icon";
 import css from "./Card.module.css";
+import {
+  setModalContent,
+  setModalStatus,
+} from "../../redux/slice/servicesSlice";
 
 const Card = ({ task, columnId }) => {
+  const dispatch = useDispatch();
   const columns = useSelector(selectedColumn);
   const { _id, title, description, priority, deadline } = task;
 
   const [currentDate, setCurrentDate] = useState(new Date());
   const [showPopup, setShowPopup] = useState(false);
-  const [showPopupEdit, setShowPopupEdit] = useState(false);
   const [showFullText, setShowFullText] = useState(false);
   const [showPopupDelete, setShowPopupDelete] = useState(false);
   const [showPopupMove, setShowPopupMove] = useState(false);
 
+  const editCard = () => {
+    dispatch(
+      setModalContent({
+        action: "editCard",
+        recordDataEdit: { _id, editTitle: title, editDescription: description, editPriority: priority, editDedline: deadline },
+      })
+    );
+    dispatch(setModalStatus(true));
+  };
+
   const handleClickPopupMove = () => {
-    console.log("Button clicked!");
     setShowPopupMove(!showPopupMove);
   };
 
   const handleClickPopup = () => {
     setShowPopup(!showPopup);
-  };
-
-  const handleClickEdit = () => {
-    setShowPopupEdit(!showPopupEdit);
   };
 
   const handleClickDelete = () => {
@@ -52,16 +60,6 @@ const Card = ({ task, columnId }) => {
 
     return () => clearInterval(interval);
   }, []);
-
-  // const formatDate = (dateString) => {
-  //   // перетворюємо дату на дд/мм/рр
-  //   const date = new Date(dateString);
-  //   const day = date.getDate().toString().padStart(2, "0");
-  //   const month = (date.getMonth() + 1).toString().padStart(2, "0");
-  //   const year = date.getFullYear();
-
-  //   return `${day}/${month}/${year}`;
-  // };
 
   const formatDate = (dateString) => {
     return moment(dateString).format("DD/MM/YYYY");
@@ -98,7 +96,7 @@ const Card = ({ task, columnId }) => {
 
   return (
     <div className={css.wrapperCard} style={wrapperCardStyle}>
-              <h4 className={css.title}>{title}</h4>
+      <h4 className={css.title}>{title}</h4>
       <p
         className={`${css.description} ${showFullText ? css.fullText : ""}`}
         onClick={handleFullText}
@@ -141,12 +139,12 @@ const Card = ({ task, columnId }) => {
               onClose={handleClickPopup}
             />
           )}
-          <button onClick={handleClickEdit} className={css.button}>
+          <button onClick={editCard} className={css.button}>
             <svg className={css.icon}>
               <Icon id="pencil" />
             </svg>
           </button>
-          {showPopupEdit && <EditCardModal onClose={handleClickEdit} />}
+
           <button onClick={handleClickDelete} className={css.button}>
             <svg className={css.icon}>
               <Icon id="trash" />

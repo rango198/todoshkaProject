@@ -3,64 +3,102 @@ import Calendar from "../../Calendar/Calendar";
 import RadioColorCard from "../../RadioButtons/RadioColorCard";
 import css from "./EditCardModal.module.css";
 import ButtonAdd from "../../ButtonAdd/ButtonAdd";
+import { selectModalContent } from "../../../redux/selectors/serviceSelector";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setModalContent,
+  setModalStatus,
+} from "../../../redux/slice/servicesSlice";
+import * as yup from "yup";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { editTaskAsync } from "../../../redux/thunk/tasksThunk";
+
+const AddCardSchema = yup
+  .object({
+    title: yup.string().required("Title is required"),
+    description: yup.string(),
+    priority: yup.string(),
+  })
+  .required();
 
 const EditCardModal = () => {
-  const [formData, setFormData] = useState({
-    titleEdit: "",
-    description: "",
-  });
+  const dispatch = useDispatch();
+  const { recordDataEdit } = useSelector(selectModalContent);
+  const { _id, editTitle, editDescription, editPriority, editDedline } =
+    recordDataEdit;
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  console.log(_id);
+  const [deadline, setDeadline] = useState(recordDataEdit.editDedline);
+  const [priority, setPriority] = useState("Without");
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(AddCardSchema) });
+
+  const onSubmit = (data) => {
+    const { title, description } = data;
+
+    const newTask = {
+      title,
+      description,
+      priority: priority || "Without",
+      deadline,
+    };
+
+    dispatch(editTaskAsync({ _id, newTask }));
+    dispatch(setModalStatus(false));
+    dispatch(setModalContent({ action: null, recordDataEdit: null }));
   };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleClick = (value) => {
+    setPriority(value);
   };
-
+  const handleDateChange = (date) => {
+    setDeadline(date);
+  };
   return (
     <>
       <div className={css.modalContainer}>
         <p className={css.textNameModal}>Edit card</p>
 
-        <form className={css.form} onSubmit={handleSubmit}>
+        <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
           <input
+            defaultValue={editTitle}
             className={css.inputEdit}
-            required
-            name="titleEdit"
-            type="text"
             placeholder="Title"
-            value={formData.titleEdit}
-            onChange={handleChange}
+            type="text"
+            {...register("title")}
+            name="titleEdit"
           />
           <textarea
+            {...register("description")}
+            defaultValue={editDescription}
             className={css.textAreaDescription}
             required
             name="description"
             type="text"
             placeholder="Description"
-            value={formData.description}
-            onChange={handleChange}
           />
           <div className={css.labelDiv}>
             <p className={css.textLabel}>Label color</p>
-            <RadioColorCard />
+            <RadioColorCard click={handleClick} />
           </div>
           <div className={css.deadlineDiv}>
             <p className={css.textDeadline}>Deadline</p>
-            <Calendar />
+            <Calendar
+              selected={deadline}
+              newData={handleDateChange}
+              dateFormat="EEEE MMMM dd"
+            />
           </div>
-          {/* <button className={css.buttonEdit} type="submit">
-            Send
-          </button> */}
+
           <ButtonAdd
-            onSubmit={handleSubmit}
             className={css.buttonEdit}
             title="Edit"
             type="submit"
+            onClick={handleSubmit(onSubmit)}
           />
         </form>
       </div>

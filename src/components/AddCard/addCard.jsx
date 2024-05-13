@@ -27,7 +27,7 @@ const AddCard = () => {
   const { AddId } = useSelector(selectModalContent);
   const columnId = AddId._id;
   const dispatch = useDispatch();
-  const [deadline, setDeadline] = useState(null);
+  const [deadline, setDeadline] = useState(new Date());
   const [priority, setPriority] = useState("Without"); // Стейт для даты дедлайна
 
   const {

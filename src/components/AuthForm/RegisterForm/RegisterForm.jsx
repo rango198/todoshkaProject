@@ -14,7 +14,6 @@ import { registerThunk } from "../../../redux/thunk/authThunk";
 const schema = yup.object({
   name: yup.string().min(2).max(32).required("Required field"),
   email: yup.string().email().required("Required field"),
-
   password: yup
     .string()
     .required("Required field")
@@ -66,6 +65,7 @@ const RegisterForm = () => {
         placeholder="Enter your name"
         {...register("name", {
           required: "Required field",
+          pattern: /^[a-zA-Z0-9 !@#$%^&*()_+,.:;'"?/-]+$/,
         })}
       />
 
@@ -75,6 +75,7 @@ const RegisterForm = () => {
         type="email"
         {...register("email", {
           required: "Required field",
+          pattern: /^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,3}$/,
         })}
       />
 
@@ -85,6 +86,7 @@ const RegisterForm = () => {
           type={inputType}
           {...register("password", {
             required: "Required field",
+            pattern: /^[a-zA-Z0-9\-!@#$%^&*()_+,.:;'"?/]+$/,
           })}
         />
 
