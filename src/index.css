@@ -404,110 +404,94 @@ html {
   background-color: var(--bg-color-body);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
 }
 
 .background-air {
   background-image: url("./assets/img/desk/air-desk-1x.webp");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
 }
 
 .background-ballons {
   background-image: url("./assets/img/desk/ballons-desk-2x.webp");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
 }
 
 .background-canyon {
   background-image: url("./assets/img/desk/canyon-desk-2x.webp");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
 }
 
 .background-circle {
   background-image: url("./assets/img/desk/circle-desk-2x.webp");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
 }
 
 .background-clouds {
   background-image: url("./assets/img/desk/clouds-desk-2x.webp");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
 }
 
 .background-magnolia {
   background-image: url("./assets/img/desk/magnolia-desk-2x.webp");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
 }
 
 .background-milkyway {
   background-image: url("./assets/img/desk/milkyway-desk-2x.webp");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
 }
 
 .background-moon {
   background-image: url("./assets/img/desk/moon-desk-2x.webp");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
 }
 
 .background-night {
   background-image: url("./assets/img/desk/night-desk-2x.webp");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
 }
 
 .background-palm {
   background-image: url("./assets/img/desk/palm-desk-2x.webp");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
 }
 
 .background-rocks {
   background-image: url("./assets/img/desk/rocks-desk-2x.webp");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
 }
 
 .background-sea {
   background-image: url("./assets/img/desk/sea-desk-2x.webp");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
 }
 
 .background-stars {
   background-image: url("./assets/img/desk/stars-desk-2x.webp");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
 }
 
 .background-tree {
   background-image: url("./assets/img/desk/tree-desk-2x.webp");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
 }
 
 .background-image15 {
   background-image: url("./assets/img/desk/yacht-desk-2x.webp");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
 }

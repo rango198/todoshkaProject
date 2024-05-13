@@ -5,7 +5,6 @@ import ReactDatePicker from "react-datepicker";
 import sprite from "../../assets/svg/sprite.svg";
 import "./calendar.css";
 
-
 const Calendar = ({ newData }) => {
   const [startDate, setStartDate] = useState(new Date());
   const getDateFormat = (startDate) => {
@@ -13,34 +12,32 @@ const Calendar = ({ newData }) => {
     const tomorrow = new Date();
     tomorrow.setDate(today.getDate() + 1);
     if (
-      date.getDate() === today.getDate() &&
-      date.getMonth() === today.getMonth() &&
-      date.getFullYear() === today.getFullYear()
+      startDate.getDate() === today.getDate() &&
+      startDate.getMonth() === today.getMonth() &&
+      startDate.getFullYear() === today.getFullYear()
     ) {
       return "'Today',  MMMM dd";
     } else if (
-      date.getDate() === tomorrow.getDate() &&
-      date.getMonth() === tomorrow.getMonth() &&
-      date.getFullYear() === tomorrow.getFullYear()
+      startDate.getDate() === tomorrow.getDate() &&
+      startDate.getMonth() === tomorrow.getMonth() &&
+      startDate.getFullYear() === tomorrow.getFullYear()
     ) {
       return "'Tomorrow',  MMMM dd";
     } else {
       return "EEEE,  MMMM dd";
     }
   };
-
   const CustomInput = forwardRef(({ value, onClick, className }, ref) => (
     <button className={className} type="button" onClick={onClick} ref={ref}>
       {value}
     </button>
   ));
-
   return (
     <div style={{ display: "flex", alignItems: "center" }}>
       <ReactDatePicker
         // locale="en-GB"
         calendarStartDay={1}
-        selected={date}
+        selected={startDate}
         name="name"
         onChange={(date) => {
           setStartDate(date);
@@ -48,7 +45,7 @@ const Calendar = ({ newData }) => {
         }}
         minDate={new Date()}
         customInput={<CustomInput />}
-        dateFormat={getDateFormat(date)}
+        dateFormat={getDateFormat(startDate)}
         // shouldCloseOnSelect={false}
       />
       <svg width={18} height={18}>
@@ -64,5 +61,4 @@ const Calendar = ({ newData }) => {
     </div>
   );
 };
-
 export default Calendar;
