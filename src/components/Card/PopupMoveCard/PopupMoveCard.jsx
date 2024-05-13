@@ -76,21 +76,23 @@ const PopupMoveCard = ({ taskId, onClose }) => {
     console.error("The column containing the task was not found.");
   }
 
-  const buttons = columns.map((column) => (
-    <div key={column._id} className={css.item}>
-      <span className={css.text}>{column.title}</span>
-      <button
-        onClick={() => {
-          handleMoveTask(sourceColumnId, column._id, taskId);
-        }}
-        className={css.popupButton}
-      >
-        <svg className={css.popupIcon}>
-          <Icon id="broken-right" />
-        </svg>
-      </button>
-    </div>
-  ));
+  const buttons = columns
+    .filter((column) => column._id !== sourceColumnId)
+    .map((column) => (
+      <div key={column._id} className={css.item}>
+        <span className={css.text}>{column.title}</span>
+        <button
+          onClick={() => {
+            handleMoveTask(sourceColumnId, column._id, taskId);
+          }}
+          className={css.popupButton}
+        >
+          <svg className={css.popupIcon}>
+            <Icon id="broken-right" />
+          </svg>
+        </button>
+      </div>
+    ));
 
   return (
     <div className={css.popup} ref={popupRef}>
