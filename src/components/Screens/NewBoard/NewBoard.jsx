@@ -14,10 +14,12 @@ import {
   selectAllBoards,
   selectedColumn,
 } from "../../../redux/selectors/serviceSelector";
+import { useNavigate } from "react-router-dom";
 
 const NewBoard = () => {
   const params = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const toggleAddColumn = () => {
     dispatch(
@@ -33,7 +35,8 @@ const NewBoard = () => {
 
   useEffect(() => {
     if (params.boardName === title?.title) {
-      dispatch(fetchSingleBoard(title?._id || boards[0]._id));
+      dispatch(fetchSingleBoard(title?._id || boards[0]?._id));
+      navigate(`/home/${title?.title}`);
     }
   }, [dispatch, params.boardName]);
 
