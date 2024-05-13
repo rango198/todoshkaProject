@@ -5,6 +5,18 @@
   background-color: transparent;
 }
 
+.sidebarNewBoard::-webkit-scrollbar {
+  width: 6px; /* Ширина скроллбару */
+}
+.sidebarNewBoard::-webkit-scrollbar-track {
+  background: var(--scroll-track); /* Колір треку фону */
+  border-radius: 4px; /* радіус кутів треку */
+}
+.sidebarNewBoard::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb); /* Колір повзунка */
+  border-radius: 4px; /* радіус кутів повзунка */
+}
+
 /* .scroll-box {
   width: 300px;
   height: 200px;

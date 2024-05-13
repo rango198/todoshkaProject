@@ -5,9 +5,10 @@ import ReactDatePicker from "react-datepicker";
 import sprite from "../../assets/svg/sprite.svg";
 import "./calendar.css";
 
-const Calendar = ({ date, changeDate }) => {
-  // const [startDate, setStartDate] = useState(new Date());
-  const getDateFormat = (date) => {
+
+const Calendar = ({ newData }) => {
+  const [startDate, setStartDate] = useState(new Date());
+  const getDateFormat = (startDate) => {
     const today = new Date();
     const tomorrow = new Date();
     tomorrow.setDate(today.getDate() + 1);
@@ -41,7 +42,10 @@ const Calendar = ({ date, changeDate }) => {
         calendarStartDay={1}
         selected={date}
         name="name"
-        onChange={changeDate}
+        onChange={(date) => {
+          setStartDate(date);
+          newData(date); // передача значення назад до AddCard
+        }}
         minDate={new Date()}
         customInput={<CustomInput />}
         dateFormat={getDateFormat(date)}

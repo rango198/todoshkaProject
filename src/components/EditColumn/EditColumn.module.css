@@ -62,7 +62,8 @@
   font-weight: 500;
 
   background-color: var(--bg-button);
-  color: var(--color-font);
+  color: var(--hover-title-another-column);
+  ;
 
   cursor: pointer;
   border: none;
