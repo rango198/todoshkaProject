@@ -26,7 +26,13 @@ const Card = ({ task, columnId }) => {
     dispatch(
       setModalContent({
         action: "editCard",
-        recordDataEdit: { _id, editTitle: title, editDescription: description, editPriority: priority, editDedline: deadline },
+        recordDataEdit: {
+          _id,
+          editTitle: title,
+          editDescription: description,
+          editPriority: priority,
+          editDedline: deadline,
+        },
       })
     );
     dispatch(setModalStatus(true));
@@ -137,6 +143,7 @@ const Card = ({ task, columnId }) => {
               columnId={columnId}
               // onClose={handleClickPopupMove}
               onClose={handleClickPopup}
+              sourceColumnId={columnId}
             />
           )}
           <button onClick={editCard} className={css.button}>

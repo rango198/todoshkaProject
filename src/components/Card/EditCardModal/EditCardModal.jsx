@@ -67,10 +67,9 @@ const EditCardModal = () => {
           <input
             defaultValue={editTitle}
             className={css.inputEdit}
-            placeholder="Title"
             type="text"
             {...register("title")}
-            name="titleEdit"
+            name="title"
           />
           <textarea
             {...register("description")}
@@ -79,7 +78,6 @@ const EditCardModal = () => {
             required
             name="description"
             type="text"
-            placeholder="Description"
           />
           <div className={css.labelDiv}>
             <p className={css.textLabel}>Label color</p>

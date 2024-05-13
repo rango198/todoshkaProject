@@ -33,6 +33,7 @@
 }
 
 @media screen and (min-width: 768px) {
+
   /* .header {
     width: 768px;
   } */
@@ -48,7 +49,9 @@
   .box {
     margin-left: auto;
   }
+
   /* .header {
     min-width: 1180px;
   } */
+
 }

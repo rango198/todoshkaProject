@@ -6,7 +6,7 @@
   background-color: transparent;
 }
 
-@media screen and (min-width: 375px)  {
+@media screen and (min-width: 375px) {
   .container {
     max-width: 348px;
   }
@@ -15,14 +15,16 @@
 .container_task {
   display: flex;
   flex-direction: column;
-  margin-bottom: 14px;
+  /* margin-bottom: 14px; */
   gap: 5px;
   border-radius: 8px;
-  padding: 5px;
-  /* max-height: 480px; */
-  /* max-width: 348px; */
+  padding: 0 5px 0 5px;
+  margin-bottom: 14px;
+
+  max-height: 480px;
+  max-width: 348px;
   width: 100%;
-  height: calc(-274px + 100vh);
+  /* height: calc(-274px + 100vh); */
   overflow-y: auto; /* вертикал скролл активуемо */
   overflow-x: hidden; /* горизонт скролл скриваемо*/
   background-color: inherit;
@@ -42,8 +44,8 @@
 }
 
 .item_task {
-  margin-right: 4px;
-  /* margin-bottom: 8px; */
+  /* margin-right: 4px; */
+  margin-bottom: 8px;
 }
 
 .column_header {
@@ -57,11 +59,9 @@
   border-radius: 8px;
   margin-bottom: 10px;
   overflow: hidden;
-  text-overflow: ellipsis;
   font-size: 14px;
-  font-weight: "PoppinsMedium";
+  font-weight: var(--font-medium);
 }
-
 
 .btn_container {
   display: flex;
@@ -84,7 +84,7 @@
 
 .button_create {
   display: flex;
-  margin-top: 16px;
+  /* margin-top: 16px; */
   gap: 8px;
   width: 335px;
   height: 56px;
@@ -97,8 +97,6 @@
   border-style: none;
   transition: background-color 250ms linear;
 }
-
-
 
 .button_create:hover {
   background-color: var(--bg-button-active);

@@ -1,29 +1,17 @@
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-
-// import { deleteBoardThunk } from "../../../redux/thunk/servicesThunk";
-
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import Icon from "../../Icon/Icon";
 import Modal from "../../Modal/Modal";
 import EditBoardModal from "../../ModalBoard/EditBoardModal/EditBoardModal";
 import DeletePopup from "../../DeletePopup/DeletePopup";
 import css from "./ListBoards.module.css";
-import { setModalContent } from "../../../redux/slice/servicesSlice";
-// import DeleteBoardModal from "../../ModalBoard/DeleteBoard/DeleteBoardModal";
 
 const BoardItem = ({ isActive, title, icon, id }) => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-  // const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  const [click, setClick] = useState(false);
   const [showPopupDelete, setShowPopupDelete] = useState(false);
 
   const handleClickDelete = () => {
     setShowPopupDelete(true);
-    console.log("click");
   };
 
   const handleCloseDelete = () => {
@@ -34,16 +22,13 @@ const BoardItem = ({ isActive, title, icon, id }) => {
     setIsEditModalOpen(!isEditModalOpen);
   };
 
-  useEffect(() => {
-    if (click) {
-      navigate("/home");
-    }
-  }, [click, navigate]);
-
   return (
     <>
       <Link to={`/home/${id}`}>
-        <div className={css.sidebarNewBoardList} data-isactive={isActive}>
+        <div
+          className={`${css.sidebarNewBoardList} ${isActive ? css.active : ""}`}
+          data-isactive={isActive}
+        >
           <svg className={css.sidebarNewBoardSvg}>
             <Icon id={icon} />
           </svg>
@@ -76,11 +61,6 @@ const BoardItem = ({ isActive, title, icon, id }) => {
           <EditBoardModal onClose={toggleEdit} />
         </Modal>
       )}
-      {/* {isDeleteModalOpen && (
-        <Modal open={isDeleteModalOpen} onClose={toggleDelete}>
-          <DeleteBoardModal onClose={toggleDelete} />
-        </Modal>
-      )} */}
     </>
   );
 };

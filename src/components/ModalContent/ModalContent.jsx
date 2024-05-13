@@ -7,13 +7,11 @@ import AddColumnModal from "../AddColumnModal/AddColumModal.jsx";
 import EditCardModal from "../Card/EditCardModal/EditCardModal.jsx";
 import AddCard from "../AddCard/addCard";
 import EditColumn from "../EditColumn/EditColumn";
+
 const ModalContent = () => {
   const modalContent = useSelector(selectModalContent);
 
   switch (modalContent.action) {
-    case "editCard":
-      return <EditCardModal />;
-
     case "editColumn":
       return <EditColumn />;
 
@@ -28,9 +26,6 @@ const ModalContent = () => {
 
     case "editProfile":
       return <EditProfileForm />;
-
-    case "addColum":
-      return <AddColumnModal />;
 
     case "editCard":
       return <EditCardModal />;

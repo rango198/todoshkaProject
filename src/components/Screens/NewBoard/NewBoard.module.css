@@ -21,6 +21,7 @@
   display: flex;
   /*  margin-top: 40px;*/
   gap: 8px;
+  min-width: 300px;
   width: 335px;
   height: 56px;
   align-items: center;
@@ -45,8 +46,20 @@
 } */
 
 .columns_container {
-  margin-top: 10px;
   display: flex;
-  flex-direction: row;
-  gap: 20px;
+  gap: 18px;
+  overflow: auto;
+  padding-bottom: 24px;
+}
+/* styles scroll */
+.columns_container::-webkit-scrollbar {
+  width: 4px; /* Ширина скроллбару */
+}
+.columns_container::-webkit-scrollbar-track {
+  background: #383737; /* Колір треку фону */
+  border-radius: 4px; /* радіус кутів треку */
+}
+.columns_container::-webkit-scrollbar-thumb {
+  background: #161616; /* Колір повзунка */
+  border-radius: 4px; /* радіус кутів повзунка */
 }
