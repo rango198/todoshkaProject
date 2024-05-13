@@ -231,16 +231,14 @@
   .modalContainer {
     width: 100%;
   }
-  .inputMail,
+  /* .inputMail,
   .inputPassword,
   .buttonSend {
     width: 352px;
-  }
+  } */
 }
 @media screen and (min-width: 1440px) {
-  .modalContainer{
+  .modalContainer {
     width: 100%;
   }
-  
-  
 }
