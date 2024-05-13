@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import css from "./EditProfileForm.module.css";
 
 import { useForm } from "react-hook-form";
@@ -73,6 +75,24 @@ const EditProfileForm = () => {
     formData.append("name", data.name);
     formData.append("email", data.email);
     formData.append("password", data.password);
+
+    if (
+      data.avatar[0] &&
+      !/\.(img|png)$/.test(data.avatar[0].name.toLowerCase())
+    ) {
+      toast.error(
+        "Invalid file format. Please use images in img or png formats.",
+        { autoClose: 4000 }
+      );
+      return;
+    }
+
+    if (!/^[a-zA-Z0-9 !@#$%^&*()_+,.:;'"?/-]+$/.test(data.name)) {
+      toast.error("Please enter your name using Latin characters.", {
+        autoClose: 4000,
+      });
+      return;
+    }
 
     const userData = { userId, formData };
     dispatch(updateUserThunk(userData));
