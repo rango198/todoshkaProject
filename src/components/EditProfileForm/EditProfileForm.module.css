@@ -1,7 +1,4 @@
 .modalContainer {
-  /* max-width: 335px;
-  min-width: 310px; */
-  /* width: 100%; */
   padding: 24px;
   background: var(--bg-color);
   box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.05);
@@ -9,7 +6,6 @@
   border: 1px solid var(--modal-border);
   margin: 0 auto;
   color: var(--color);
-  /* position: relative; */
 }
 .textNameModal {
   font-size: 18px;
@@ -26,8 +22,6 @@
   align-items: center;
 }
 .imgContainer {
-  /* background-image: url("../../assets/img/userAvatar.svg");
-  background-repeat: no-repeat; */
   width: 68px;
   height: 79px;
   position: absolute;
@@ -59,17 +53,6 @@
   border-radius: 8px;
 }
 
-/* labelAvatar {
-  position: absolute;
-  left: 30%;
-  bottom: -18%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 7px;
-  background-color: #bedbb0;
-  border-radius: 6px;
-} */
 .inputAvatar {
   position: absolute;
   z-index: 1;
@@ -231,11 +214,6 @@
   .modalContainer {
     width: 100%;
   }
-  /* .inputMail,
-  .inputPassword,
-  .buttonSend {
-    width: 352px;
-  } */
 }
 @media screen and (min-width: 1440px) {
   .modalContainer {

@@ -9,7 +9,7 @@ import {
 
 const PublicRoute = () => {
   const isLogin = useSelector(selectIsLoggedIn);
-  // const token = false;
+
   const token = useSelector(selectAuthToken);
 
   if (!isLogin && token) {

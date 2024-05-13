@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { logout } from "../../service/api.js";
 
 import flower from "../../assets/img/png/flower.png";
 import flowerTwoX from "../../assets/img/png/flower@2x.png";
@@ -14,10 +13,7 @@ import {
 } from "../../redux/slice/servicesSlice.js";
 import CreateNewBoardModal from "../ModalBoard/CreateNewBoardModal/CreateNewBoardModal.jsx";
 import Modal from "../Modal/Modal.jsx";
-import {
-  selectAllBoards,
-  selectedBoard,
-} from "../../redux/selectors/serviceSelector.js";
+import { selectAllBoards } from "../../redux/selectors/serviceSelector.js";
 import ListBoards from "./ListBoards/ListBoards.jsx";
 
 const SidebarActive = () => {
@@ -37,7 +33,7 @@ const SidebarActive = () => {
     dispatch(setModalStatus(true));
   };
   const handleClickLogout = () => dispatch(logoutThunk());
-  // const onLogout = () => dispatch(logout());
+
   return (
     <div>
       <aside className={css.sidebar}>
@@ -88,6 +84,7 @@ const SidebarActive = () => {
               </p>
             </div>
             <button
+              type="button"
               onClick={handleClickHelp}
               className={css.sidebarHelpbutton}
               aria-label="help"

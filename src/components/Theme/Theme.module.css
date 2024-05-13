@@ -5,7 +5,6 @@
   border: none;
   align-items: center;
   color: var(--color-theme);
-  /* position: relative; */
 }
 .chevron_down {
   width: 16px;

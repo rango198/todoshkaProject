@@ -12,7 +12,8 @@
   box-shadow: 0 4px 16px 0 var(--color-text-grey);
   background: #1f1f1f;
   padding-left: 10px;
-  color: var(--color);
+  /* color: var(--color); */
+  color: #fff;
 }
 
 .input::placeholder {
@@ -51,7 +52,7 @@
     height: 49px;
     box-shadow: 0 4px 16px 0 var(--color-text-grey);
     background: var(--bg-color-form-input);
-    color: var(--color);
+    /* color: var(--color); */
   }
   .btn {
     border-radius: 8px;
