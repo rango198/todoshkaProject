@@ -1,12 +1,16 @@
 .modal {
-  min-width: 320px;
+  width: 100%;
   padding: 24px;
   background: var(--bg-theme);
   border: 1px solid var(--bg-button-active);
   border-radius: 8px;
 }
 
-
+@media screen and (min-width: 375px) {
+  .modal {
+    width: 350px;
+  }
+}
 
 .title {
   color: var(--color-font);
@@ -16,9 +20,10 @@
   letter-spacing: -0.02em;
   margin-bottom: 24px;
 }
+
 .input {
   box-sizing: border-box;
-  width: 287px;
+  width: 100%;
   height: 49px;
   border-radius: 8px;
   outline: none;
@@ -37,6 +42,12 @@
   padding: 14px 18px;
 }
 
+@media screen and (min-width: 375px) {
+  .input {
+    width: 287px;
+  }
+}
+
 .input::placeholder {
   color: var(--color-font);
   font-size: 14px;
@@ -53,7 +64,7 @@
 .textAreaComment {
   box-sizing: border-box;
   resize: none;
-  width: 287px;
+  width: 100%;
   height: 154px;
   border-radius: 8px;
   outline: none;
@@ -71,6 +82,13 @@
   padding: 14px 18px;
   font-family: "PoppinsRegular";
 }
+
+@media screen and (min-width: 375px) {
+  .textAreaComment {
+    width: 287px;
+  }
+}
+
 .textAreaComment:hover,
 .textAreaComment:focus .textAreaComment:focus {
   opacity: 1;
@@ -114,7 +132,7 @@
   margin-bottom: 4px;
 }
 .buttonAdd {
-  width: 287px;
+  width: 100%;
   height: 49px;
   border-radius: 8px;
   background: var(--bg-button);
@@ -129,11 +147,18 @@
   justify-content: center;
 }
 
+@media screen and (min-width: 375px) {
+  .buttonAdd {
+    width: 287px;
+  }
+}
+
 .buttonAdd:hover,
 .buttonAdd:focus {
   background: var(--bg-button-active);
   border-color: #151515;
 }
+
 @media screen and (min-width: 375px) {
   .modal {
     max-width: 335px;
