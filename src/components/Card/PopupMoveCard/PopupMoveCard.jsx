@@ -5,11 +5,16 @@ import { moveTaskAsync } from "../../../redux/thunk/tasksThunk";
 import { selectedColumn } from "../../../redux/selectors/serviceSelector";
 import { selectAuthToken } from "../../../redux/selectors/selector";
 
+import { fetchSingleBoard } from "../../../redux/thunk/servicesThunk";
+import { selectedBoard } from "../../../redux/selectors/serviceSelector";
+
 import Icon from "../../Icon/Icon";
 import css from "./PopupMoveCard.module.css";
 
 const PopupMoveCard = ({ taskId, onClose }) => {
   const columns = useSelector(selectedColumn);
+  const selectedBoardData = useSelector(selectedBoard);
+  const selectedBoardId = selectedBoardData ? selectedBoardData._id : null;
   const dispatch = useDispatch();
   const popupRef = useRef(null);
   let sourceColumnId = null;
@@ -52,6 +57,9 @@ const PopupMoveCard = ({ taskId, onClose }) => {
           accessToken,
         })
       );
+
+      await dispatch(fetchSingleBoard(selectedBoardId));
+
       onClose();
     } catch (error) {
       console.error("Error moving task:", error);
@@ -69,13 +77,10 @@ const PopupMoveCard = ({ taskId, onClose }) => {
   }
 
   const buttons = columns.map((column) => (
-    <li key={column._id} className={css.item}>
+    <div key={column._id} className={css.item}>
       <span className={css.text}>{column.title}</span>
       <button
         onClick={() => {
-          console.log("source:", sourceColumnId);
-          console.log("destination:", column._id);
-          console.log("Task ID:", taskId);
           handleMoveTask(sourceColumnId, column._id, taskId);
         }}
         className={css.popupButton}
@@ -84,13 +89,13 @@ const PopupMoveCard = ({ taskId, onClose }) => {
           <Icon id="broken-right" />
         </svg>
       </button>
-    </li>
+    </div>
   ));
 
   return (
-    <ul className={css.popup} ref={popupRef}>
+    <div className={css.popup} ref={popupRef}>
       {buttons}
-    </ul>
+    </div>
   );
 };
 
