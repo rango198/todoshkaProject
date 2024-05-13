@@ -1,5 +1,4 @@
 .sidebar {
-  /* position: fixed; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -10,7 +9,6 @@
   height: 100vh;
   background-color: var(--bg-sidebar);
   padding: 14px 0 24px 14px;
-  /* transform: translateX(-100%); */
 }
 
 .sidebar.active {
@@ -25,6 +23,7 @@
 }
 
 .logo {
+  margin-left: 24px;
   width: 32px;
   height: 32px;
   background-image: var(--bg-image-logo);
@@ -150,6 +149,7 @@
 }
 
 .sidebarLogoutButton {
+  margin-left: 18px;
   display: flex;
   align-items: center;
   gap: 16px;
@@ -173,15 +173,21 @@
   }
 }
 @media screen and (min-width: 768px) {
+  .sidebarItemTitle {
+    margin-left: 24px;
+  }
+
   .sidebarBoard {
     margin-right: 24px;
+    margin-left: 24px;
   }
   .sidebarHelp {
     margin-right: 24px;
+    margin-left: 24px;
   }
   .sidebar {
     width: 260px;
-    padding: 24px 0 24px 24px;
+    padding: 24px 0 24px 0;
   }
   .sidebarHelpBoxItem {
     font-family: var(--font-regular);

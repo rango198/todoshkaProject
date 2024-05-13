@@ -6,7 +6,7 @@
 }
 
 .sidebarNewBoard::-webkit-scrollbar {
-  width: 6px; /* Ширина скроллбару */
+  width: 0px; /* Ширина скроллбару */
 }
 .sidebarNewBoard::-webkit-scrollbar-track {
   background: var(--scroll-track); /* Колір треку фону */
@@ -34,10 +34,16 @@
 .sidebarNewBoardList {
   display: flex;
   align-items: center;
-  padding: 20px 0;
+  padding: 20px 0 20px 24px;
 }
-.sidebarNewBoardList:hover,
-.sidebarNewBoardList:active {
+
+.sidebarNewBoardList:hover {
+  background-color: var(--bg-card);
+  border-right: 4px solid var(--border-cart);
+  border-radius: 4px 0px 0px 4px;
+}
+
+.active {
   background-color: var(--bg-card);
   border-right: 4px solid var(--border-cart);
   border-radius: 4px 0px 0px 4px;
