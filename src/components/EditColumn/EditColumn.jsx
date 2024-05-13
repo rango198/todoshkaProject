@@ -31,8 +31,10 @@ const EditColumn = () => {
     const data = {
       title: inputRef.current.value,
     };
-    
+
     dispatch(editColumnAsync([id, { title: data.title }]));
+    dispatch(setModalContent({ action: null, recordDataEdit: null }));
+    dispatch(setModalStatus(false));
   };
 
   const onClose = () => {

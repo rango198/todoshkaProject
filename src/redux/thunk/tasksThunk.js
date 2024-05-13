@@ -17,6 +17,7 @@ export const addTaskAsync = createAsyncThunk(
 export const editTaskAsync = createAsyncThunk(
   "tasks/editTask",
   async (body, thunkAPI) => {
+    console.log(body);
     try {
       const response = await editTask(body);
       return response;

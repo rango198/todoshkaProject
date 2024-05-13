@@ -11,6 +11,9 @@ const ModalContent = () => {
   const modalContent = useSelector(selectModalContent);
 
   switch (modalContent.action) {
+    case "editCard":
+      return <EditCardModal />;
+
     case "editColumn":
       return <EditColumn />;
 

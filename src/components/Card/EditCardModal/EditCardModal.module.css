@@ -5,7 +5,7 @@
 } */
 
 .modalContainer {
-  max-width: 335px;
+  max-width: 350px;
   padding: 24px;
   background: var(--bg-theme);
   border: 1px solid var(--bg-button-active);

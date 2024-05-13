@@ -5,7 +5,7 @@ import ReactDatePicker from "react-datepicker";
 import sprite from "../../assets/svg/sprite.svg";
 import "./calendar.css";
 
-const Calendar = ({ newData }) => {
+const Calendar = ({ selected, newData }) => {
   const [startDate, setStartDate] = useState(new Date());
   const getDateFormat = (startDate) => {
     const today = new Date();
@@ -37,7 +37,7 @@ const Calendar = ({ newData }) => {
       <ReactDatePicker
         // locale="en-GB"
         calendarStartDay={1}
-        selected={startDate}
+        selected={selected || startDate}
         name="name"
         onChange={(date) => {
           setStartDate(date);

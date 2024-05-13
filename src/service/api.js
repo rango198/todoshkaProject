@@ -118,7 +118,8 @@ export const addTask = async (body) => {
 };
 
 export const editTask = async (body) => {
-  const { data } = await $instance.put(`tasks/${body.id}`, body);
+  const { newTask } = body;
+  const { data } = await $instance.put(`tasks/${body._id}`, newTask);
   return data;
 };
 
