@@ -20,18 +20,3 @@
   padding: 18px 44px 18px 18px;
   color: var(--color-theme);
 }
-
-.dark:active,
-.dark:hover {
-  color: #bedbb0;
-}
-
-.light:active,
-.light:hover {
-  color: #bedbb0;
-}
-
-.violet:active,
-.violet:hover {
-  color: #5255bc;
-}
