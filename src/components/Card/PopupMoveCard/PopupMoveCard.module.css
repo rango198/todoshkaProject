@@ -28,7 +28,8 @@
   background-color: transparent;
   border: none;
   display: flex;
-  color: var(--color-icon-grey);
+  color: var(--calendar-month);
+
 }
 
 .item:hover .popupIcon {
@@ -46,7 +47,7 @@
   display: block;
   width: 16px;
   height: 16px;
-  stroke: var(--color-icon-grey);
+  stroke: var(--calendar-month);
 }
 
 .popupIcon:hover{

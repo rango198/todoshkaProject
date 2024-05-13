@@ -5,7 +5,7 @@
   padding: 24px;
   border-radius: 8px;
   border: 1px solid rgba(190, 219, 176, 0.5);
-  background-color: var(--calendar-background-color);
+  background-color: var(--bg-color);
 }
 
 .title {
