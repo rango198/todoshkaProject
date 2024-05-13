@@ -9,7 +9,7 @@ import { loginThunk } from "../../../redux/thunk/authThunk";
 import { useDispatch } from "react-redux";
 
 const schema = yup.object({
-  email: yup.string().required("Required field"),
+  email: yup.string().required("Required field").email(),
   password: yup
     .string()
     .required("Required field")
@@ -59,7 +59,10 @@ const LoginForm = () => {
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <input
           className={styles.input}
-          {...register("email")}
+          {...register("email", {
+            required: "Required field",
+            pattern: /^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,3}$/,
+          })}
           placeholder="Enter your email"
         />
         <p style={{ color: "red" }}>{errors.email?.message}</p>
@@ -68,7 +71,10 @@ const LoginForm = () => {
           <input
             className={styles.input}
             type={inputType}
-            {...register("password")}
+            {...register("password", {
+              required: "Required field",
+              pattern: /^[a-zA-Z0-9\-!@#$%^&*()_+,.:;'"?/]+$/,
+            })}
             placeholder=" Create a password"
           />
 
