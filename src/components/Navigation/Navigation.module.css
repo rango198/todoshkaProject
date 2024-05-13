@@ -8,8 +8,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 320px;
-  max-width: 768px;
 }
 
 .box_menu {
@@ -27,6 +25,6 @@
 
 @media screen and (min-width: 1440px) {
   .overlay {
-    min-width: 1440px;
+    display: none;
   }
 }
