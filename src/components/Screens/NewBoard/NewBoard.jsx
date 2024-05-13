@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import ButtonAdd from "../../ButtonAdd/ButtonAdd";
-import Column from "../../Column/Column";
-
 import css from "./NewBoard.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
@@ -14,14 +12,19 @@ import {
   selectedColumn,
   getFilter,
   selectedBoard,
+  selectAllBoards,
 } from "../../../redux/selectors/serviceSelector";
 import { FilteredColumns } from "../../FiltredColumns/FiltredColumns";
+import { useNavigate } from "react-router-dom";
 
 const NewBoard = () => {
   const params = useParams();
   const dispatch = useDispatch();
-  const { columns } = useSelector(selectedBoard);
+  const navigate = useNavigate();
+  const { filterColumns } = useSelector(selectedBoard);
   const filter = useSelector(getFilter);
+  const boards = useSelector(selectAllBoards);
+  const columns = useSelector(selectedColumn);
 
   const toggleAddColumn = () => {
     dispatch(
@@ -32,9 +35,12 @@ const NewBoard = () => {
     dispatch(setModalStatus(true));
   };
 
+  const title = boards.find((board) => board.title === params.boardName);
+
   useEffect(() => {
-    if (params.boardName) {
-      dispatch(fetchSingleBoard(params.boardName));
+    if (params.boardName === title?.title) {
+      dispatch(fetchSingleBoard(title?._id || boards[0]?._id));
+      navigate(`/home/${title?.title}`);
     }
   }, [dispatch, params.boardName]);
 
@@ -43,7 +49,7 @@ const NewBoard = () => {
       <div className={css.columns_container}>
         {columns && columns.length > 0 ? (
           <>
-            <FilteredColumns columns={columns} filter={filter} />
+            <FilteredColumns columns={filterColumns} filter={filter} />
 
             <ButtonAdd
               onClick={toggleAddColumn}
