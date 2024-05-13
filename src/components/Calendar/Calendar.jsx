@@ -5,6 +5,7 @@ import ReactDatePicker from "react-datepicker";
 import sprite from "../../assets/svg/sprite.svg";
 import "./calendar.css";
 
+
 const Calendar = ({ newData }) => {
   const [startDate, setStartDate] = useState(new Date());
   const getDateFormat = (startDate) => {
@@ -12,15 +13,15 @@ const Calendar = ({ newData }) => {
     const tomorrow = new Date();
     tomorrow.setDate(today.getDate() + 1);
     if (
-      startDate.getDate() === today.getDate() &&
-      startDate.getMonth() === today.getMonth() &&
-      startDate.getFullYear() === today.getFullYear()
+      date.getDate() === today.getDate() &&
+      date.getMonth() === today.getMonth() &&
+      date.getFullYear() === today.getFullYear()
     ) {
       return "'Today',  MMMM dd";
     } else if (
-      startDate.getDate() === tomorrow.getDate() &&
-      startDate.getMonth() === tomorrow.getMonth() &&
-      startDate.getFullYear() === tomorrow.getFullYear()
+      date.getDate() === tomorrow.getDate() &&
+      date.getMonth() === tomorrow.getMonth() &&
+      date.getFullYear() === tomorrow.getFullYear()
     ) {
       return "'Tomorrow',  MMMM dd";
     } else {
@@ -39,7 +40,7 @@ const Calendar = ({ newData }) => {
       <ReactDatePicker
         // locale="en-GB"
         calendarStartDay={1}
-        selected={startDate}
+        selected={date}
         name="name"
         onChange={(date) => {
           setStartDate(date);
@@ -47,7 +48,7 @@ const Calendar = ({ newData }) => {
         }}
         minDate={new Date()}
         customInput={<CustomInput />}
-        dateFormat={getDateFormat(startDate)}
+        dateFormat={getDateFormat(date)}
         // shouldCloseOnSelect={false}
       />
       <svg width={18} height={18}>
