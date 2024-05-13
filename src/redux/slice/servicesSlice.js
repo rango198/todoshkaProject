@@ -217,8 +217,31 @@ const serviceSlice = createSlice({
       .addCase(editTaskAsync.fulfilled, (state, action) => {
         state.isLoading = true;
         state.error = null;
-        state.tasks = action.payload.tasks;
+        const editTask = action.payload;
+        const idxColumn = state.selectedBoard.columns.findIndex(
+          (column) => column._id === editTask.column
+        );
+        if (idxColumn !== -1) {
+          const idxTask = state.selectedBoard.columns[
+            idxColumn
+          ].tasks.findIndex((task) => task._id === editTask._id);
+          if (idxTask !== -1) {
+            state.selectedBoard.columns[idxColumn].tasks[idxTask] =
+              action.payload;
+          }
+        }
       })
+
+      // {
+      //     "_id": "66423134382481f110046ec4",
+      //     "title": "zagolovokTest2",
+      //     "description": "Desk",
+      //     "priority": "Without",
+      //     "deadline": "2024-05-14T15:26:20.000Z",
+      //     "owner": "66412c2ebc935ea4ce9ce354",
+      //     "column": "66423111382481f110046eb6"
+      // }
+
       .addCase(deleteTaskAsync.fulfilled, (state, action) => {
         state.isLoading = false;
         const { _id, column_id } = action.payload;
