@@ -14,14 +14,14 @@ const Welcome = () => {
         Supercharge your productivity and take control of your tasks with Task
         Pro - Don't wait, start achieving your goals now!
       </p>
-      <div>
+      <div className={css.btnContainer}>
         <NavLink to="/auth/register">
-          <button className={css.btn} type="button" autoFocus>
+          <button className={css.btn_r} type="button" autoFocus>
             Registration
           </button>
         </NavLink>
         <NavLink to="/auth/login">
-          <button className={css.btn} type="button">
+          <button className={css.btn_l} type="button">
             Log In
           </button>
         </NavLink>
