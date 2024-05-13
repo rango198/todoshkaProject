@@ -1,5 +1,5 @@
 .container {
-  height: 680px;
+  /* height: 680px; */
   max-width: 348px;
   display: flex;
   flex-direction: column;
@@ -7,15 +7,21 @@
 }
 
 .container_task {
+   display: flex;
   flex-direction: column;
-  display: flex;
-  gap: 8px;
-  max-height: 480px;
-  max-width: 348px;
+ margin-bottom: 14px;
+  gap: 5px;
+  border-radius: 8px;
+  padding: 5px;
+  /* max-height: 480px; */
+  /* max-width: 348px; */
+  width: 100%;
+  height: calc(-274px + 100vh);
   overflow-y: auto; /* вертикал скролл активуемо */
   overflow-x: hidden; /* горизонт скролл скриваемо*/
   background-color: inherit;
 }
+
 /* styles scroll */
 .container_task::-webkit-scrollbar {
   width: 8px; /* Ширина скроллбару */
@@ -31,7 +37,10 @@
 
 .item_task {
   margin-right: 4px;
+  /* margin-bottom: 8px; */
 }
+
+
 
 .column_header {
   padding: 16px;
@@ -43,6 +52,10 @@
   background-color: var(--back-another-column);
   border-radius: 8px;
   margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ font-size: 14px;
+ font-weight: 'PoppinsMedium';
 }
 
 .btn_container {

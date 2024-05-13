@@ -98,7 +98,7 @@ const Card = ({ task, columnId }) => {
 
   return (
     <div className={css.wrapperCard} style={wrapperCardStyle}>
-      <h4 className={css.title}>{title}</h4>
+              <h4 className={css.title}>{title}</h4>
       <p
         className={`${css.description} ${showFullText ? css.fullText : ""}`}
         onClick={handleFullText}
