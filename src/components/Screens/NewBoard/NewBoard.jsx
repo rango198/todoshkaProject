@@ -10,7 +10,10 @@ import {
   setModalContent,
   setModalStatus,
 } from "../../../redux/slice/servicesSlice";
-import { selectedColumn } from "../../../redux/selectors/serviceSelector";
+import {
+  selectAllBoards,
+  selectedColumn,
+} from "../../../redux/selectors/serviceSelector";
 
 const NewBoard = () => {
   const params = useParams();
@@ -24,12 +27,13 @@ const NewBoard = () => {
     );
     dispatch(setModalStatus(true));
   };
-
+  const boards = useSelector(selectAllBoards);
   const columns = useSelector(selectedColumn);
+  const title = boards.find((board) => board.title === params.boardName);
 
   useEffect(() => {
-    if (params.boardName) {
-      dispatch(fetchSingleBoard(params.boardName));
+    if (params.boardName === title?.title) {
+      dispatch(fetchSingleBoard(title?._id || boards[0]._id));
     }
   }, [dispatch, params.boardName]);
 
