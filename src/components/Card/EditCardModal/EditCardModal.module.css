@@ -7,7 +7,13 @@
   border-radius: 8px;
 }
 
-@media screen and (min-width: 375px) {
+@media screen and (min-width: 375px) and (max-width: 767px){
+  .modalContainer {
+    width: 335px;
+  }
+}
+
+@media screen and (min-width: 768px){
   .modalContainer {
     width: 350px;
   }
@@ -46,13 +52,21 @@
   letter-spacing: -0.02em;
   color: var(--color-font);
   padding: 14px 18px;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 375px) {
   .inputEdit {
+    width: 287px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .inputEdit {
     width: 302px;
   }
 }
+
 
 .inputEdit::placeholder {
   color: var(--color-font);
@@ -88,10 +102,18 @@
   color: var(--color-font);
   padding: 14px 18px;
   font-family: "PoppinsRegular";
+  cursor: pointer;
+
 }
 
 @media screen and (min-width: 375px) {
-  .textAreaComment {
+  .textAreaDescription {
+    width: 287px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .textAreaDescription {
     width: 302px;
   }
 }
@@ -166,6 +188,12 @@
 
 @media screen and (min-width: 375px) {
   .buttonAdd {
+    width: 287px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .buttonAdd {
     width: 302px;
   }
 }
@@ -173,5 +201,4 @@
 .buttonEdit:hover,
 .buttonEdit:focus {
   background: var(--bg-button-active);
-
 }

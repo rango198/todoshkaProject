@@ -5,13 +5,14 @@
   border: none;
   align-items: center;
   color: var(--color-theme);
-  /* position: relative; */
 }
+
 .chevron_down {
   width: 16px;
   height: 16px;
   stroke: var(--color-theme);
 }
+
 .popover {
   border-radius: 8px;
   border: 1px solid var(--color-theme-shadow);
