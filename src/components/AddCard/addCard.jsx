@@ -27,7 +27,7 @@ const AddCard = () => {
   const { AddId } = useSelector(selectModalContent);
   const columnId = AddId._id;
   const dispatch = useDispatch();
-  const [deadline, setDeadline] = useState(new Date());
+  const [deadline, setDeadline] = useState(null);
   const [priority, setPriority] = useState("Without"); // Стейт для даты дедлайна
 
   const {
@@ -35,10 +35,6 @@ const AddCard = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(AddCardSchema) });
-
-  const handleDateChange = (startDate) => {
-    setDeadline(startDate);
-  };
 
   const onSubmit = (data) => {
     const { title, description } = data;
@@ -50,7 +46,6 @@ const AddCard = () => {
       column: columnId,
       deadline,
     };
-    console.log("New Task:", newTask);
 
     dispatch(addTaskAsync(newTask));
     dispatch(setModalStatus(false));
@@ -59,6 +54,9 @@ const AddCard = () => {
 
   const handleClick = (value) => {
     setPriority(value);
+  };
+  const handleDateChange = (date) => {
+    setDeadline(date);
   };
 
   return (
@@ -92,7 +90,7 @@ const AddCard = () => {
           <p className={css.textDeadline}>Deadline</p>
           <Calendar
             selected={deadline}
-            onChange={handleDateChange}
+            newData={handleDateChange}
             dateFormat="EEEE MMMM dd"
           />
         </div>

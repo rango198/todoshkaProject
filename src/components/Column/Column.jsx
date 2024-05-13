@@ -5,11 +5,7 @@ import {
   setModalContent,
   setModalStatus,
 } from "../../redux/slice/servicesSlice";
-
-
 import { selectedColumn } from "../../redux/selectors/serviceSelector";
-
-
 import Card from "../Card/Card";
 import DeletePopup from "../DeletePopup/DeletePopup";
 import ButtonAdd from "../ButtonAdd/ButtonAdd";
@@ -19,9 +15,7 @@ import Icon from "../Icon/Icon";
 const Column = ({ column }) => {
   const { _id, title, tasks } = column;
 
-
   const columnId = useSelector(selectedColumn);
-
 
   const [showPopupDelete, setShowPopupDelete] = useState(false);
 

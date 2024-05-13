@@ -40,7 +40,7 @@ export const StyledModalContent = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    width: 400px;
+    width: 350px;
   }
 `;
 

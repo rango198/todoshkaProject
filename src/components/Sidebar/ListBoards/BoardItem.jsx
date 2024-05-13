@@ -9,6 +9,7 @@ import Modal from "../../Modal/Modal";
 import EditBoardModal from "../../ModalBoard/EditBoardModal/EditBoardModal";
 import DeletePopup from "../../DeletePopup/DeletePopup";
 import css from "./ListBoards.module.css";
+import { setModalContent } from "../../../redux/slice/servicesSlice";
 // import DeleteBoardModal from "../../ModalBoard/DeleteBoard/DeleteBoardModal";
 
 const BoardItem = ({ isActive, title, icon, id }) => {
@@ -32,13 +33,6 @@ const BoardItem = ({ isActive, title, icon, id }) => {
   const toggleEdit = () => {
     setIsEditModalOpen(!isEditModalOpen);
   };
-  // const toggleDelete = () => {
-  //   setIsDeleteModalOpen(!isDeleteModalOpen);
-  // };
-  // const handleDelete = () => {
-  //   dispatch(deleteBoardThunk(id));
-  //   setClick(true);
-  // };
 
   useEffect(() => {
     if (click) {
