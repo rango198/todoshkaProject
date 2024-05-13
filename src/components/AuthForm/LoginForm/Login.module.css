@@ -37,7 +37,7 @@
 .svg_icon {
   width: 18px;
   position: absolute;
-  stroke: var(--color);
+  stroke: rgba(255, 255, 255, 0.5);
   right: 18px;
   margin-top: 18px;
   bottom: 0;
@@ -58,5 +58,6 @@
     width: 344px;
     height: 49px;
     background: var(--color-green);
+    border: none;
   }
 }
