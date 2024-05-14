@@ -22,7 +22,8 @@
   padding: 0 5px 0 0px;
   margin-bottom: 14px;
 
-  max-height: 310px;
+  max-height: 460px;
+  /*max-height: 310px;*/
   max-width: 348px;
   width: 100%;
   /* height: calc(-274px + 100vh); */
@@ -31,7 +32,7 @@
   background-color: inherit;
 }
 
-@media screen and (min-width: 375px) {
+/*@media screen and (min-width: 375px) {
   .container_task {
     max-height: 310px;
     gap: 2px;
@@ -46,10 +47,10 @@
 
 @media screen and (min-width: 1140px) {
   .container_task {
-    gap: 5px;
-    max-height: 480px;
+    gap: 8px;
+    max-height: 478px;
   }
-}
+}*/
 
 /* styles scroll */
 .container_task::-webkit-scrollbar {
