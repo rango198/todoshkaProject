@@ -6,26 +6,26 @@ The app has a tech support service. If you need help with Task Pro, you can send
 
 **Technologies used:**
 
-*React
-*Redux Toolkit
-*Axios
-*React Router
-*React Hook Form
-*Emotion
-*Yup
-*React Datepicker
-\*React Tabs
+- React
+- Redux Toolkit
+- Axios
+- React Router
+- React Hook Form
+- Emotion
+- Yup
+- React Datepicker
+- React Tabs
 
 **Our team:**
 
-*Serhii Safonov,
-*Serhii Busha,
-*Mariia Samodurova,
-*Natalia Potushynska,
-*Anastasiia Rodzina,
-*Inha Sydorchuk,
-*Tetiana Kubrak,
-*Oleksandra Koshyl,
-\*Anna Voitsekhovska
+- Serhii Safonov,
+- Serhii Busha,
+- Mariia Samodurova,
+- Natalia Potushynska,
+- Anastasiia Rodzina,
+- Inha Sydorchuk,
+- Tetiana Kubrak,
+- Oleksandra Koshyl,
+- Anna Voitsekhovska
 
 We hope that our application will be useful for you.
