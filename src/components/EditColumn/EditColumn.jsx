@@ -51,7 +51,7 @@ const EditColumn = () => {
           name="title"
           type="text"
         />
-        <ButtonAdd className={css.buttonSbt} type="submit" arial-label="Edit" />
+        <ButtonAdd className={css.buttonSbt} type="submit" title="Edit" />
       </form>
     </div>
   );

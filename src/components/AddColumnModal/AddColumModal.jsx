@@ -42,7 +42,7 @@ const AddColumnModal = () => {
           type="text"
           placeholder="Title"
         />
-        <ButtonAdd className={css.buttonSbt} type="submit" aria-label="Add" />
+        <ButtonAdd className={css.buttonSbt} type="submit" title="Add" />
       </form>
     </div>
   );

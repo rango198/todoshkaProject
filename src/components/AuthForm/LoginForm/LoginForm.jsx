@@ -91,7 +91,7 @@ const LoginForm = () => {
           {errors.password?.message}
         </p>
 
-        <button className={styles.btn} type="submit" title="Log in Now">
+        <button className={styles.btn} type="submit">
           Log in Now
         </button>
       </form>

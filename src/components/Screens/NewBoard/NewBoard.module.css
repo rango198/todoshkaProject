@@ -33,8 +33,9 @@
 
   max-width: 310px;
   width: 100%;
-  overflow-y: hidden;
-  overflow-x: auto;
+
+  overflow-y: hidden; /* вертикал скролл активуемо */
+  overflow-x: auto; /* горизонт скролл скриваемо*/
   background-color: inherit;
 }
 
@@ -82,7 +83,7 @@
   /* .container {
     height: calc(100vh - 120px);
   } */
-  
+
   .columns_container::-webkit-scrollbar {
     width: 12px;
   }

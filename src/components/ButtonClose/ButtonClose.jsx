@@ -3,12 +3,7 @@ import css from "./ButtonClose.module.css";
 
 const ButtonClose = ({ onClick }) => {
   return (
-    <button
-      onClick={onClick}
-      className={css.close_btn}
-      type="button"
-      title="Close"
-    >
+    <button onClick={onClick} className={css.close_btn} type="button">
       <Icon id="close" className={css.close_svg} />
     </button>
   );
