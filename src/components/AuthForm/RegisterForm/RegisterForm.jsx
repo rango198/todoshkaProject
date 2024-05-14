@@ -6,11 +6,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import Icon from "../../Icon/Icon";
 import { toast } from "react-toastify";
-import styles from "./Register.module.css";
+import css from "./Register.module.css";
 
 import { useDispatch } from "react-redux";
 import { registerThunk } from "../../../redux/thunk/authThunk";
-
 
 const schema = yup.object({
   name: yup.string().min(2).max(32).required("Required field"),
@@ -19,7 +18,7 @@ const schema = yup.object({
     .string()
     .required("Required field")
     .min(8, "min 8 characters")
-    .max(64),
+    .max(64, "max 64 characters"),
 });
 
 const RegisterForm = () => {
@@ -54,49 +53,51 @@ const RegisterForm = () => {
         toast.success("Registration successful");
         reset();
       })
-      .catch((error) => {
-        toast.error(`Registration failed: ${error}`);
+      .catch(() => {
+        toast.error("Email has already in use");
       });
   };
 
   return (
-    <form className={styles.main} onSubmit={handleSubmit(onSubmit)}>
+    <form className={css.main} onSubmit={handleSubmit(onSubmit)}>
       <input
-        className={styles.input}
+        className={css.input}
         placeholder="Enter your name"
         {...register("name", {
           required: "Required field",
+          pattern: /^[a-zA-Z0-9 !@#$%^&*()_+,.:;'"?/-]+$/,
         })}
       />
-
+      <p style={{ color: "red", fontSize: "12px" }}>{errors.name?.message}</p>
       <input
-        className={styles.input}
+        className={css.input}
         placeholder="Enter your email"
         type="email"
-        {...register("email", { required: true })}
+        {...register("email", {
+          required: "Required field",
+          pattern: /^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,3}$/,
+        })}
       />
-      <div className={styles.inputwithicon}>
+      <p style={{ color: "red", fontSize: "12px" }}>{errors.email?.message}</p>
+      <div className={css.inputwithicon}>
         <input
           placeholder="Create a password"
-          className={styles.input}
+          className={css.input}
           type={inputType}
           {...register("password", {
-            required: true,
+            required: "Required field",
+            pattern: /^[a-zA-Z0-9\-!@#$%^&*()_+,.:;'"?/]+$/,
           })}
         />
-
+        <p style={{ color: "red", fontSize: "12px" }}>
+          {errors.password?.message}
+        </p>
         <div onClick={togglePassword}>
-          <Icon id="eye" src={svg} className={styles.svg_icon} />
+          <Icon id="eye" src={svg} className={css.svg_icon} />
         </div>
       </div>
-
-      <div style={{ height: 20, color: "red" }}>
-        {errors?.name && <p>{errors?.name?.message || "Error!"}</p>}
-        {errors?.email && <p>{errors?.email?.message || "Error!"}</p>}
-        {errors?.password && <p>{errors?.password?.message || "Error!"}</p>}
-      </div>
-      <div className={styles.btn}>
-        <button className={styles.button} type="submit">
+      <div className={css.btn}>
+        <button className={css.button} type="submit">
           Register Now
         </button>
       </div>

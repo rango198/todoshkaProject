@@ -1,5 +1,3 @@
-import { toast } from "react-toastify";
-
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import {
@@ -19,7 +17,6 @@ export const registerThunk = createAsyncThunk(
       const response = await register(params);
       return response;
     } catch (error) {
-      toast.error(`Error during user registration: ${error.message}`);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -32,7 +29,6 @@ export const loginThunk = createAsyncThunk(
       const response = await login(params);
       return response;
     } catch (error) {
-      toast.error(`Incorrect email or password`);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -43,10 +39,8 @@ export const logoutThunk = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await logout();
-      // clearAuthHeader();
       return response;
     } catch (error) {
-      toast.error(`Error during user logout: ${error.message}`);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -54,14 +48,22 @@ export const logoutThunk = createAsyncThunk(
 
 export const currentUserThunk = createAsyncThunk(
   "auth/current",
-  async (params, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
-      const res = await currentUser(params);
-      return res.params;
+      const { auth } = thunkAPI.getState();
+      const res = await currentUser(auth.token);
+      return res;
     } catch (error) {
-      toast.error(`Error during user logout: ${error.response.data.message}`);
       return thunkAPI.rejectWithValue(error.message);
     }
+  },
+  {
+    condition: (_, { getState }) => {
+      const { auth } = getState();
+      if (!auth.token) {
+        return false;
+      }
+    },
   }
 );
 
@@ -69,10 +71,9 @@ export const updateUserThunk = createAsyncThunk(
   "auth/update",
   async (userData, thunkAPI) => {
     try {
-      const { data } = await updateUser(userData.formData);
+      const data = await updateUser(userData.formData);
       return data;
     } catch (error) {
-      toast.error(`Failed to update user data: ${error.message}`);
       return thunkAPI.rejectWithValue(error.message);
     }
   }

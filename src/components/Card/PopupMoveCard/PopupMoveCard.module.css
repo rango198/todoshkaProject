@@ -1,45 +1,55 @@
 .popup {
   border-radius: 8px;
-  box-shadow: 0px 0px 1px 0 rgba(249, 247, 247, 0.936);
-  background-color: var(--bg-color-form-input);
+  box-shadow: 0px 0px 2px 2px var(--color-theme-shadow);
+  background-color: var(--back-another-column);
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding: 18px;
   position: absolute;
+  z-index: 50;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
+.item {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  align-items: center;
+  color: var(--calendar-month);
+}
+
+.item:hover {
+  color: var(--hover-another-column);
+}
+
 .popupButton {
   background-color: transparent;
   border: none;
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: -0.02em;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-  color: var(--color-icon-grey);
+  color: var(--calendar-month);
 }
 
-.popupButton:hover {
-  color: var(--color-hover-green);
-}
-.popupButton:hover .popupIcon {
-  stroke: var(--color-hover-green);
+.item:hover .popupIcon {
+  stroke: var(--hover-another-column);
 }
 
 .text {
   text-align: left;
   margin-right: 8px;
+  font-size: 14px;
+  letter-spacing: -0.02em;
 }
 
 .popupIcon {
   display: block;
   width: 16px;
   height: 16px;
-  stroke: var(--color-icon-grey);
+  stroke: var(--calendar-month);
+}
+
+.popupIcon:hover {
+  stroke: var(--hover-another-column);
 }

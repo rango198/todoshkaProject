@@ -2,6 +2,8 @@
   background-color: var(--bg-color);
   padding: 20px 18px;
   display: flex;
+  width: 100%;
+  margin-bottom: 14px;
 }
 
 .box {
@@ -20,19 +22,6 @@
   height: 24px;
   stroke: var(--color);
 }
-.theme_button {
-  background-color: transparent;
-  display: flex;
-  gap: 4px;
-  border: none;
-  align-items: center;
-  color: var(--color-theme);
-}
-.chevron_down {
-  width: 16px;
-  height: 16px;
-  stroke: var(--color-theme);
-}
 
 .button_user {
   border: none;
@@ -44,18 +33,10 @@
   color: var(--color);
 }
 
-.avatar {
-  width: 32px;
-  height: 32px;
-  background-image: var(--background-image1);
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
 @media screen and (min-width: 768px) {
-  .header {
+  /* .header {
     width: 768px;
-  }
+  } */
   .menu_icon {
     width: 32px;
     height: 32px;
@@ -68,7 +49,8 @@
   .box {
     margin-left: auto;
   }
-  .header {
-    width: 1180px;
-  }
+
+  /* .header {
+    min-width: 1180px;
+  } */
 }

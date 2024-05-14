@@ -9,10 +9,9 @@ import {
 } from "../thunk/authThunk";
 
 const initialState = {
-
-  user: { name: "", email: "", avatar: "", id: "" },
-  token: "232232323",
-  isLogin: true,
+  user: { name: "", email: "", avatarURL: "", id: "", theme: "" },
+  token: "",
+  isLogin: false,
   isLoading: false,
   error: null,
 };
@@ -77,21 +76,23 @@ const authSlice = createSlice({
       .addCase(currentUserThunk.fulfilled, (state, action) => {
         state.user = action.payload;
         state.isLoading = false;
+        state.isLogin = true;
       })
       .addCase(currentUserThunk.rejected, (state, action) => {
         state.error = action.payload;
         state.isLoading = false;
+        state.token = "";
       })
       //Update user
       .addCase(updateUserThunk.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(updateUserThunk.fulfilled, (state, action) => {
-        console.log("action.payload:", action.payload);
         state.user.name = action.payload.name;
         state.user.email = action.payload.email;
-        state.user.avatar = action.payload.avatarUrl;
+        state.user.avatarURL = action.payload.avatarURL;
         state.user.id = action.payload._id;
+        state.isLogin = true;
         state.isLoading = false;
       })
       .addCase(updateUserThunk.rejected, (state, action) => {

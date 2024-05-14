@@ -1,22 +1,28 @@
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import css from "./EditProfileForm.module.css";
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import Icon from "../Icon/Icon";
 import sprite from "../../assets/svg/sprite.svg";
 import { useUserId, useUserName } from "../../hooks";
 
-// import { editProfile } from "../../redux/thunk/reduxThunk";
 import { updateUserThunk } from "../../redux/thunk/authThunk";
 import { UserSchema } from "../../schema/UserSchema";
 import { useUserEmail } from "../../hooks/useUserEmail";
+import { selectUserAvatar } from "../../redux/selectors/selector";
+import {
+  setModalContent,
+  setModalStatus,
+} from "../../redux/slice/servicesSlice";
 
-const EditProfileForm = ({ userAvatar, onClose }) => {
+const EditProfileForm = () => {
   const dispatch = useDispatch();
-
+  const avatarURL = useSelector(selectUserAvatar);
   const [type, setType] = useState("password");
   const userName = useUserName();
   const userId = useUserId();
@@ -70,35 +76,53 @@ const EditProfileForm = ({ userAvatar, onClose }) => {
     formData.append("email", data.email);
     formData.append("password", data.password);
 
+    if (
+      data.avatar[0] &&
+      !/\.(img|png)$/.test(data.avatar[0].name.toLowerCase())
+    ) {
+      toast.error(
+        "Invalid file format. Please use images in img or png formats.",
+        { autoClose: 4000 }
+      );
+      return;
+    }
+
+    if (!/^[a-zA-Z0-9 !@#$%^&*()_+,.:;'"?/-]+$/.test(data.name)) {
+      toast.error("Please enter your name using Latin characters.", {
+        autoClose: 4000,
+      });
+      return;
+    }
+
     const userData = { userId, formData };
-    dispatch(updateUserThunk(userData)).then(() => {
-      onClose();
-    });
+    dispatch(updateUserThunk(userData));
+    dispatch(setModalContent({ action: null, recordDataEdit: null }));
+    dispatch(setModalStatus(false));
     reset();
   };
 
-  // const handleClose = () => {
-  //   console.log(typeof onClose);
-  //   onClose();
-  // };
-
-
   return (
     <div className={css.modalContainer}>
-      {/* <button onClick={handleClose} className={css.closeModal}>
-        <Icon id="close" className={css.closeSvg} />
-      </button> */}
       <h2 className={css.textNameModal}>Edit profile</h2>
       <form className={css.formUser} onSubmit={handleSubmit(onSubmit)}>
         <div className={css.formData}>
           <div className={css.imgContainer}>
-            <img
-              width="68px"
-              height="79px"
-              className={css.profileImag}
-              src={newAvatar || userAvatar}
-              alt="user-avatar"
-            />
+            {avatarURL ? (
+              <div className={css.profileImag}>
+                <img
+                  className={css.icon_user}
+                  src={newAvatar || avatarURL}
+                  alt="user-avatar"
+                />
+              </div>
+            ) : (
+              <div className={css.avatar}>
+                {" "}
+                <div className={css.profileImag}>
+                  <img className={css.icon_user} src={newAvatar} />
+                </div>
+              </div>
+            )}
 
             <label className={css.labelAvatar}>
               <input

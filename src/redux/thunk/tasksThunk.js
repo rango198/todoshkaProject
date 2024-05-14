@@ -40,12 +40,13 @@ export const deleteTaskAsync = createAsyncThunk(
 
 export const moveTaskAsync = createAsyncThunk(
   "tasks/moveTask",
-  async (id, source, destination, thunkAPI) => {
+  async ({ sourceColumnId, destinationColumnId, taskId, accessToken }) => {
     try {
-      const response = await moveTask(id, source, destination);
-      return response;
+      await moveTask(sourceColumnId, destinationColumnId, taskId, accessToken);
+      return { taskId, sourceColumnId, destinationColumnId };
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      console.error("Error moving task:", error);
+      throw error;
     }
   }
 );

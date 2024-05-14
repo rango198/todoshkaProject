@@ -1,8 +1,5 @@
-
 .wrapper {
-    /* padding: 30px; */
     height: 100vh;
-  
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,7 +7,6 @@
   
     background-color: var(--color-bg-light);
     text-align: center;
-  
   }
   
   @media screen and (min-width: 768px) {

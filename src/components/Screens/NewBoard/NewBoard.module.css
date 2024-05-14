@@ -1,4 +1,4 @@
-.title_wrap {
+/*.title_wrap {
   background-color: transparent;
   margin: 0;
   border-radius: 8px;
@@ -10,27 +10,86 @@
   font-size: 14px;
   font-weight: 500;
   color: #161616;
+}
 
-  @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
+  .title_board {
     height: 28px;
     font-size: 18px;
   }
+}*/
+
+.container {
+  height: 100vh;
 }
+
 .button_create {
   display: flex;
-  margin-top: 40px;
+  /*  margin-top: 40px;*/
   gap: 8px;
+  min-width: 300px;
   width: 335px;
   height: 56px;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
+  /* background-color: transparent; */
   /* margin-left: 20px; */
+  background-color: var(--back-another-column);
+  color: var(--color-font);
   border-radius: 8px;
   border-style: none;
   transition: background-color 250ms linear;
 }
 
+.button_create:focus,
 .button_create:hover {
-  background-color: #bedbb0;
+  background-color: var(--btn-add);
+  color: var(--hover-title-another-column);
+}
+
+.columns_container {
+  display: flex;
+  gap: 18px;
+  overflow: auto;
+  padding-bottom: 24px;
+  padding-top: 5px;
+  padding-left: 24px;
+
+  max-width: 310px;
+  width: 100%;
+  /* height: calc(-274px + 100vh); */
+  overflow-y: hidden; /* вертикал скролл активуемо */
+  overflow-x: auto; /* горизонт скролл скриваемо*/
+  background-color: inherit;
+}
+/* styles scroll */
+.columns_container::-webkit-scrollbar {
+  width: 2px; /* Ширина скроллбару */
+}
+.columns_container::-webkit-scrollbar-track {
+  background: #383737; /* Колір треку фону */
+  border-radius: 4px; /* радіус кутів треку */
+}
+.columns_container::-webkit-scrollbar-thumb {
+  background: #161616; /* Колір повзунка */
+  border-radius: 4px; /* радіус кутів повзунка */
+}
+
+@media screen and (min-width: 375px) {
+  .columns_container {
+    max-width: 365px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .columns_container {
+    max-width: 740px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .columns_container {
+    max-width: 1132px;
+    padding-top: 40px;
+  }
 }

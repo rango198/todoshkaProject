@@ -1,0 +1,199 @@
+.modal {
+  width: 100%;
+  padding: 24px;
+  background: var(--bg-theme);
+  border: 1px solid var(--bg-button-active);
+  border-radius: 8px;
+}
+
+  @media screen and (min-width: 375px) and (max-width: 767px) {
+  .modal{
+  width: 335px;
+}}
+
+@media screen and (min-width: 768px) {
+  .modal{
+    width: 350px;
+  }
+} 
+
+.title {
+  color: var(--color-font);
+  font-family: "PoppinsMedium";
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+
+.input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 49px;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid var(--bg-button);
+  padding-inline: 0;
+  padding-block: 0;
+  background-color: var(--bg-theme);
+  margin-bottom: 14px;
+  padding: 0;
+  opacity: 0.4;
+  font-family: "PoppinsRegular";
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  color: var(--color-font);
+  padding: 14px 18px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 375px) {
+  .input {
+    width: 287px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .input {
+    width: 302px;
+  }
+}
+
+.input::placeholder {
+  color: var(--color-font);
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  line-height: 1.5;
+}
+
+.input:hover,
+.input:focus,
+.input:active {
+  opacity: 1;
+}
+
+.textAreaComment {
+  box-sizing: border-box;
+  resize: none;
+  width: 100%;
+  height: 154px;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid var(--bg-button);
+  padding-inline: 0;
+  padding-block: 0;
+  padding: 0;
+  background-color: var(--bg-theme);
+  margin-bottom: 24px;
+  opacity: 0.4;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  color: var(--color-font);
+  padding: 14px 18px;
+  font-family: "PoppinsRegular";
+  cursor: pointer;
+}
+
+@media screen and (min-width: 375px) {
+  .textAreaComment {
+    width: 287px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .textAreaComment {
+    width: 302px;
+  }
+}
+
+.textAreaComment:hover,
+.textAreaComment:focus {
+  opacity: 1;
+}
+
+.textAreaComment::placeholder {
+  color: var(--color-font);
+  font-family: "PoppinsRegular";
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  line-height: 1.5;
+}
+
+.textAreaComment::-webkit-scrollbar {
+  width: 0;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 12px;
+}
+
+.calendarContainer {
+  position: relative;
+}
+
+.labelDiv {
+  margin: 0 0 14px;
+}
+
+.deadlineDiv {
+  margin: 0 0 40px;
+}
+
+.textLabel {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  opacity: 0.4;
+  margin-bottom: 4px;
+  color: var(--color-font);
+}
+
+.textDeadline {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  opacity: 0.4;
+  color: var(--color-font);
+  margin-bottom: 4px;
+}
+
+.buttonAdd {
+  width: 100%;
+  height: 49px;
+  border-radius: 8px;
+  background: var(--bg-button);
+  border: none;
+  font-family: "PoppinsMedium";
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--color-dark);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 375px) {
+  .buttonAdd {
+    width: 287px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .buttonAdd {
+    width: 302px;
+  }
+}
+
+.buttonAdd:hover,
+.buttonAdd:focus {
+  background: var(--bg-button-active);
+}
+

@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+
 import { Box, FormControlLabel, RadioGroup, Radio } from "@mui/material";
 
 const RadioFilter = ({ onFilterChange, priority }) => {
+
   const [selectedValue, setSelectedValue] = useState(priority || 'Without');
 
   const radio = [
@@ -77,7 +80,7 @@ const RadioFilter = ({ onFilterChange, priority }) => {
                 margin: "0",
                 height: "24px",
                 "& .MuiTypography-root": {
-                  fontFamily: "Poppins",
+                  fontFamily: "PoppinsRegular",
                   fontSize: "12px",
                   color: labelColor,
                 },
@@ -104,6 +107,11 @@ const RadioFilter = ({ onFilterChange, priority }) => {
       </RadioGroup>
     </Box>
   );
+};
+
+RadioFilter.propTypes = {
+  onFilterChange: PropTypes.func.isRequired,
+  priority: PropTypes.string.isRequired,
 };
 
 export default RadioFilter;

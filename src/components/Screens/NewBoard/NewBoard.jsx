@@ -1,44 +1,70 @@
 import { useEffect, useState } from "react";
-
-import Modal from "../../Modal/Modal";
 import ButtonAdd from "../../ButtonAdd/ButtonAdd";
-import AddColumnModal from "../../AddColumnModal/AddColumModal";
-
 import css from "./NewBoard.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  selectIsBoardsLoading,
-  selectedBoard,
-} from "../../../redux/selectors/serviceSelector";
 import { useParams } from "react-router";
 import { fetchSingleBoard } from "../../../redux/thunk/servicesThunk";
+import {
+  setModalContent,
+  setModalStatus,
+} from "../../../redux/slice/servicesSlice";
+import {
+  selectedColumn,
+  getFilter,
+  selectedBoard,
+  selectAllBoards,
+} from "../../../redux/selectors/serviceSelector";
+import { FilteredColumns } from "../../FiltredColumns/FiltredColumns";
+import { useNavigate } from "react-router-dom";
 
 const NewBoard = () => {
-  const [isAddColumnOpen, setIsAddColumnOpen] = useState(false);
   const params = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  // const { filterColumns } = useSelector(selectedBoard);
+  const filter = useSelector(getFilter);
+  const boards = useSelector(selectAllBoards);
+  const columns = useSelector(selectedColumn);
 
   const toggleAddColumn = () => {
-    setIsAddColumnOpen(!isAddColumnOpen);
+    dispatch(
+      setModalContent({
+        action: "addColumn",
+      })
+    );
+    dispatch(setModalStatus(true));
   };
-  const isLoading = useSelector(selectIsBoardsLoading);
+
+  const title = boards.find((board) => board.title === params.boardName);
 
   useEffect(() => {
-    if (params.boardName) {
-      dispatch(fetchSingleBoard(params.boardName));
+    if (params.boardName === title?.title) {
+      dispatch(fetchSingleBoard(title?._id || boards[0]?._id));
+      navigate(`/home/${title?.title}`);
     }
   }, [dispatch, params.boardName]);
 
   return (
-    <div className={css.task_list_container}>
-      <ButtonAdd
-        onClick={toggleAddColumn}
-        title="Add another column"
-        className={css.button_create}
-      />
-      <Modal open={isAddColumnOpen} onClose={toggleAddColumn}>
-        <AddColumnModal onClose={toggleAddColumn} />
-      </Modal>
+    <div className={css.container}>
+      <div className={css.columns_container}>
+        {columns && columns.length > 0 ? (
+          <>
+            <FilteredColumns columns={columns} filter={filter} />
+
+            <ButtonAdd
+              onClick={toggleAddColumn}
+              title="Add another column"
+              className={css.button_create}
+            />
+          </>
+        ) : (
+          <ButtonAdd
+            onClick={toggleAddColumn}
+            title="Add another column"
+            className={css.button_create}
+          />
+        )}
+      </div>
     </div>
   );
 };

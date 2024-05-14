@@ -1,11 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { deleteColumn, editColumn } from "../../service/api";
+import { addColumn, deleteColumn, editColumn } from "../../service/api";
 
-export const deleteColumnAsync = createAsyncThunk(
-  "columns/deleteColumn",
-  async (columnId, thunkAPI) => {
+export const addColumnAsync = createAsyncThunk(
+  "service/addColumn",
+  async (data, thunkAPI) => {
     try {
-      const response = await deleteColumn(columnId);
+      const response = await addColumn(data);
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -15,10 +15,22 @@ export const deleteColumnAsync = createAsyncThunk(
 
 export const editColumnAsync = createAsyncThunk(
   "columns/editColumn",
-  async ({columnId, body}, thunkAPI) => {
+  async (body, thunkAPI) => {
     try {
-      const response = await editColumn(columnId, body);
+      const response = await editColumn(body);
       return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const deleteColumnAsync = createAsyncThunk(
+  "columns/deleteColumn",
+  async (columnId, thunkAPI) => {
+    try {
+      await deleteColumn(columnId);
+      return columnId;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

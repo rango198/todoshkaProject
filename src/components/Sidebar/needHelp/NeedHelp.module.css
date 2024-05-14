@@ -1,14 +1,31 @@
+
+.modalContainer {
+  width: 100%;
+  padding: 24px;
+  background: var(--bg-theme);
+  border: 1px solid var(--bg-button-active);
+  border-radius: 8px;
+  box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.05);
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .modalContainer{
+  width: 335px;
+}
+}
+
+@media screen and (min-width: 768px) {
+  .modalContainer{
+  width: 400px;
+}}
+
+
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.modalContainer {
-  max-width: 335px;
-  padding: 24px;
-  background: var(--bg-theme);
-}
 
 .textNameModal {
   color: var(--color-font);
@@ -21,7 +38,7 @@
 
 .inputMail {
   box-sizing: border-box;
-  width: 287px;
+  width: calc(100%);
   height: 49px;
   border-radius: 8px;
   outline: none;
@@ -38,6 +55,7 @@
   letter-spacing: -0.02em;
   color: var(--color-font);
   padding: 14px 18px;
+  cursor: pointer;
 }
 
 .inputMail:hover,
@@ -48,16 +66,16 @@
 
 .inputMail::placeholder {
   color: var(--color-font);
-  font-family: "PoppinsRegular";
   font-size: 14px;
   letter-spacing: -0.02em;
   line-height: 1.5;
+  cursor: pointer;
 }
 
 .textAreaComment {
   box-sizing: border-box;
   resize: none;
-  width: 287px;
+  width: calc(100%);
   height: 120px;
   border-radius: 8px;
   outline: none;
@@ -68,12 +86,13 @@
   background-color: var(--bg-theme);
   margin-bottom: 24px;
   opacity: 0.4;
-  font-family: "PoppinsRegular";
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.02em;
   color: var(--color-font);
   padding: 14px 18px;
+  font-family: "PoppinsRegular";
+  cursor: pointer;
 }
 
 .textAreaComment:hover,
@@ -91,7 +110,7 @@
 }
 
 .buttonSend {
-  width: 287px;
+  width: calc(100%);
   height: 49px;
   border-radius: 8px;
   background: var(--bg-button);
@@ -109,4 +128,16 @@
 
 .textAreaComment::-webkit-scrollbar {
   width: 0;
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .modalContainer {
+    max-width: 335px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .modalContainer {
+    width: 100%;
+  }
 }

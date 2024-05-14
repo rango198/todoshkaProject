@@ -1,22 +1,21 @@
 .sidebar {
   display: none;
 }
-
-@media screen and (min-width: 768px) {
-  .container {
-    width: 768px;
-  }
+.main {
+  display: flex;
+}
+.screenPage {
+  flex: 1;
 }
 
 @media screen and (min-width: 1440px) {
-  .container {
-    display: flex;
-  }
   .sidebar {
-    display: block;
+    display: flex;
+
     width: 260px;
+    height: 100hv;
   }
   .main {
-    width: 1180px;
+    min-width: 1180px;
   }
 }

@@ -1,37 +1,13 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
+
 import {
   addBoard,
   deleteBoard,
   editBoard,
   getAllBoards,
   getSingleBoard,
-    addColumn,
 } from "../../service/api";
-
-// export const fetchAllBoards = createAsyncThunk(
-//   "boards/getAll",
-//   async (_, thunkAPI) => {
-//     try {
-//       const res = await getBoards();
-//       return res;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
-
-// export const createBoard = createAsyncThunk(
-//   "boards/create",
-//   async (data, thunkAPI) => {
-//     try {
-//       await addBoard(data);
-//       return;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
 
 export const getBoardThunk = createAsyncThunk(
   "service/getBoard",
@@ -42,6 +18,7 @@ export const getBoardThunk = createAsyncThunk(
     } catch (error) {
       console.log(error);
       toast.error("Error get ", error);
+
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -56,6 +33,7 @@ export const addBoardThunk = createAsyncThunk(
     } catch (error) {
       console.log(error);
       toast.error("Error add", error);
+
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -65,7 +43,6 @@ export const fetchSingleBoard = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const data = await getSingleBoard(id);
-      console.log(id);
       return data;
     } catch (error) {
       toast.error(error.response.data.message);
@@ -79,12 +56,11 @@ export const editBoardThunk = createAsyncThunk(
   "service/editBoard",
   async (body, thunkAPI) => {
     try {
-      const response = await editBoard(body);
-
-      return response;
+      const data = await editBoard(body);
+      return data;
     } catch (error) {
-      console.log(error);
-      toast.error("Error edit ", error);
+      toast.error("Error edit", error);
+
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -94,29 +70,12 @@ export const deleteBoardThunk = createAsyncThunk(
   "service/deleteBoard",
   async (id, thunkAPI) => {
     try {
-      const response = await deleteBoard(id);
-      return response;
+      await deleteBoard(id);
+      return id;
     } catch (error) {
-      console.log(error);
-      toast.error("Error delete", error);
+      toast.error(error.response.data.message);
+
       return thunkAPI.rejectWithValue(error.message);
     }
   }
-);
-
-export const addColumnThunk = createAsyncThunk(
-    'service/addColumn',
-    async ( data, thunkAPI) => {
-        try {
-            const testData = {
-                title: data.title,
-                // сюда вставляем id борда до якого додаєм колонку, поки ще так щоб потестить - колонка додаэться в базу
-                id:'663bb99afc2f51b3c179afdd'
-            }
-            const res = await addColumn(testData);
-            return res;
-        } catch (error) {
-            return thunkAPI.rejectWithValue(error.message);
-        }
-    }
 );
