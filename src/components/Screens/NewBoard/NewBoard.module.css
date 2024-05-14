@@ -43,11 +43,11 @@
   width: 12px;
 }
 .columns_container::-webkit-scrollbar-track {
-  background: #161616;
+  background: var(--color-scroll-tracker-g);
   border-radius: 12px;
 }
 .columns_container::-webkit-scrollbar-thumb {
-  background: #383737;
+  background: var(--color-scroll-g);
   border-radius: 12px;
 }
 
