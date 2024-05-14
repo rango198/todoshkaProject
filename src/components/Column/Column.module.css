@@ -38,11 +38,11 @@
   width: 8px; /* Ширина скроллбару */
 }
 .container_task::-webkit-scrollbar-track {
-  background: #383737; /* Колір треку фону */
+  background: var(--color-scroll-tracker-v); /* Колір треку фону */
   border-radius: 4px; /* радіус кутів треку */
 }
 .container_task::-webkit-scrollbar-thumb {
-  background: #161616; /* Колір повзунка */
+  background: var(--color-scroll-v); /* Колір повзунка */
   border-radius: 4px; /* радіус кутів повзунка */
 }
 
