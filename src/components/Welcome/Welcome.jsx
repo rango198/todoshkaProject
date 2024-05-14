@@ -16,12 +16,17 @@ const Welcome = () => {
       </p>
       <div className={css.btnContainer}>
         <NavLink to="/auth/register">
-          <button className={css.btn_r} type="button" autoFocus>
+          <button
+            className={css.btn_r}
+            type="button"
+            aria-label="Registration"
+            autoFocus
+          >
             Registration
           </button>
         </NavLink>
         <NavLink to="/auth/login">
-          <button className={css.btn_l} type="button">
+          <button className={css.btn_l} type="button" aria-label="Log In">
             Log In
           </button>
         </NavLink>

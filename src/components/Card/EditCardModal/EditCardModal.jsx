@@ -97,6 +97,7 @@ const EditCardModal = () => {
             title="Edit"
             type="submit"
             onClick={handleSubmit(onSubmit)}
+            aria-label="Edit card"
           />
         </form>
       </div>

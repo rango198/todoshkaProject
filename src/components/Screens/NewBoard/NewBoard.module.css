@@ -52,13 +52,13 @@
 
 @media screen and (min-width: 375px) {
   .columns_container {
-    max-width: 365px;
+    max-width: 340px;
   }
 }
 
 @media screen and (min-width: 768px) {
   .columns_container {
-    max-width: 740px;
+    max-width: 720px;
   }
   .container {
     height: calc(100vh - 170px);

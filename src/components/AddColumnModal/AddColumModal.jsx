@@ -33,7 +33,7 @@ const AddColumnModal = () => {
 
   return (
     <div className={css.modal}>
-      <ButtonClose onClick={onClose} />
+      <ButtonClose onClick={onClose} aria-label="Close" />
       <h2 className={css.title}>Add column</h2>
       <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
         <input
@@ -42,7 +42,7 @@ const AddColumnModal = () => {
           type="text"
           placeholder="Title"
         />
-        <ButtonAdd className={css.buttonSbt} type="submit" title="Add" />
+        <ButtonAdd className={css.buttonSbt} type="submit" aria-label="Add" />
       </form>
     </div>
   );

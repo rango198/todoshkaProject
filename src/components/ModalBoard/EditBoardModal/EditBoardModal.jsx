@@ -6,18 +6,12 @@ import data from "../../../assets/img/small/data.js";
 import ButtonAdd from "../../ButtonAdd/ButtonAdd.jsx";
 import css from "./EditBoard.module.css";
 import ButtonClose from "../../ButtonClose/ButtonClose";
-// import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  editBoardThunk,
-  getBoardThunk,
-} from "../../../redux/thunk/servicesThunk";
+import { editBoardThunk } from "../../../redux/thunk/servicesThunk";
 import { selectedBoard } from "../../../redux/selectors/serviceSelector";
 
 const EditBoardModal = ({ onClose }) => {
   const { register, handleSubmit, setValue } = useForm();
-
-  // const navigate = useNavigate();
 
   const [selectedIcon, setSelectedIcon] = useState("");
   const [selectedBackgroundId, setSelectedBackgroundId] = useState("");
@@ -31,10 +25,6 @@ const EditBoardModal = ({ onClose }) => {
     setSelectedIcon(editBoard.icon);
     setSelectedBackgroundId(editBoard.background);
   }, [editBoard.background, editBoard.icon, editBoard.title, setValue]);
-
-  // useEffect(() => {
-  //   dispatch(getBoardThunk());
-  // }, [dispatch]);
 
   const handleTitleChange = (event) => {
     setValue("title", event.target.value.toString());
@@ -66,9 +56,7 @@ const EditBoardModal = ({ onClose }) => {
       <svg
         key={icon}
         className={`${css.iconStyle} ${selectedIcon === icon ? css.selectedIcon : ""}`}
-        // selected={selectedIcon === icon}
         onClick={() => handleIconSelect(icon)}
-        // className={css.iconStyle}
       >
         <use href={`${sprite}#${icon}`} />
       </svg>
@@ -79,7 +67,6 @@ const EditBoardModal = ({ onClose }) => {
     return data.map((item) => (
       <div
         className={`${css.backgroundItem} ${selectedBackgroundId === item.name ? css.selected : ""}`}
-        // className={css.backgroundItem}
         key={item.id}
         selected={selectedBackgroundId === item.name}
         onClick={() => handleBackgroundSelect(item.name)}
@@ -133,7 +120,7 @@ const EditBoardModal = ({ onClose }) => {
 
         <ButtonAdd type="submit" title="Edit" className={css.button} />
       </form>
-      <ButtonClose onClick={onClose} />
+      <ButtonClose onClick={onClose} aria-label="Close" />
     </div>
   );
 };

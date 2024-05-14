@@ -1,6 +1,4 @@
 .authContainer {
-  /* max-width: 375px;
-  min-width: 320px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,28 +9,4 @@
     rgba(196, 196, 196, 0) 25%,
     #bedbb0 92.19%
   );
-}
-
-/*MOBILE 375*/
-
-@media screen and (min-width: 375px) {
-  .authContainer {
-    /* max-width: 375px; */
-  }
-}
-
-/*TABLET 768*/
-
-@media screen and (min-width: 768px) {
-  .authContainer {
-    /* max-width: 768px; */
-  }
-}
-
-/*DEXTOP 1440*/
-
-@media screen and (min-width: 1440px) {
-  .authContainer {
-    /* max-width: 1440px; */
-  }
 }

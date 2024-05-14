@@ -1,13 +1,9 @@
 import { useSelector } from "react-redux";
 import BoardItem from "./BoardItem";
-import {
-  selectAllBoards,
-  selectedBoard,
-} from "../../../redux/selectors/serviceSelector";
+import { selectedBoard } from "../../../redux/selectors/serviceSelector";
 import css from "./ListBoards.module.css";
 
 const ListBoards = ({ boards }) => {
-  // const boards = useSelector(selectAllBoards);
   const currentBoard = useSelector(selectedBoard);
 
   return (
