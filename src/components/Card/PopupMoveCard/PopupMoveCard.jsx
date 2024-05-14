@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { moveTaskAsync } from "../../../redux/thunk/tasksThunk";
@@ -74,12 +74,13 @@ const PopupMoveCard = ({ taskId, onClose }) => {
       <div
         key={column._id}
         className={css.item}
+        aria-label="column"
         onClick={() => {
           handleMoveTask(sourceColumnId, column._id, taskId);
         }}
       >
         <span className={css.text}>{column.title}</span>
-        <button className={css.popupButton}>
+        <button className={css.popupButton} aria-label="Popup Move">
           <svg className={css.popupIcon}>
             <Icon id="broken-right" />
           </svg>

@@ -1,5 +1,5 @@
 .sidebarNewBoard {
-  max-height: 122px;
+  max-height: 242px;
   overflow: auto;
   margin-top: 40px;
   background-color: transparent;
@@ -16,12 +16,6 @@
   background: var(--scroll-thumb); /* Колір повзунка */
   border-radius: 4px; /* радіус кутів повзунка */
 }
-
-/* .scroll-box {
-  width: 300px;
-  height: 200px;
-  overflow: auto;
-} */
 
 .sidebarNewBoardNeon {
   margin-top: 4px;
@@ -47,6 +41,8 @@
   background-color: var(--bg-card);
   border-right: 4px solid var(--border-cart);
   border-radius: 4px 0px 0px 4px;
+  color: var(--color-fonts);
+  stroke: var(--color-item);
 }
 
 .sidebarNewBoardSvg {
@@ -66,6 +62,11 @@
 .sidebarNewBoardItem:hover,
 .sidebarNewBoardItem:active {
   color: var(--color-fonts);
+  stroke: var(--color-item);
+}
+.sidebarNewBoardItem:not(.active) .sidebarNewBoardButton {
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 .sidebarNewBoardButton {
@@ -89,6 +90,10 @@
   height: 16px;
   fill: transparent;
   stroke-width: 1.5px;
+  /* stroke: var(--color-item); */
+}
+.sidebarNewBoardIcon:hover {
+  filter: drop-shadow(0px 0px 3.7px rgba(0, 255, 0, 0.644));
   stroke: var(--color-item);
 }
 

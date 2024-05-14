@@ -5,6 +5,12 @@
   background-color: transparent;
 }
 
+@media screen and (min-width: 375px) {
+  .container {
+    max-width: 348px;
+  }
+}
+
 .container_task {
   display: flex;
   flex-direction: column;
@@ -13,26 +19,36 @@
   padding: 0 5px 0 0px;
   margin-bottom: 14px;
 
+
   /* max-height: 460px; */
   max-height: 100vh;
   /* max-width: 348px; */
   /* width: 100%; */
+
   width: calc(100% - 8px);
   overflow-y: auto;
   overflow-x: hidden;
   background-color: inherit;
 }
 
+@media screen and (min-width: 375px) {
+  .container_task {
+    max-width: 348px;
+    gap: 2px;
+  }
+}
+
+/* styles scroll */
 .container_task::-webkit-scrollbar {
-  width: 8px;
+  width: 8px; /* Ширина скроллбару */
 }
 .container_task::-webkit-scrollbar-track {
-  background: #383737;
-  border-radius: 4px;
+  background: #383737; /* Колір треку фону */
+  border-radius: 4px; /* радіус кутів треку */
 }
 .container_task::-webkit-scrollbar-thumb {
-  background: #161616;
-  border-radius: 4px;
+  background: #161616; /* Колір повзунка */
+  border-radius: 4px; /* радіус кутів повзунка */
 }
 
 .item_task {
@@ -54,6 +70,18 @@
   font-weight: var(--font-medium);
 }
 
+@media screen and (min-width: 375px) {
+  .column_header {
+    width: 315px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .column_header {
+    width: 334px;
+  }
+}
+
 .btn_container {
   display: flex;
   gap: 8px;
@@ -71,6 +99,7 @@
   width: 18px;
   height: 18px;
   stroke: var(--color-shadow);
+  filter: drop-shadow(0px 0px 3.7px rgba(0, 255, 0, 0.434));
 }
 
 .button_create {
@@ -81,17 +110,12 @@
   align-items: center;
   justify-content: center;
   background-color: var(--bg-button);
-
+  color: var(--button-color);
   border-radius: 8px;
   border-style: none;
   color: var(--button-color);
   transition: background-color 250ms linear;
 
-}
-
-.button_create:hover,
-.button_create:focus {
-  background-color: var(--bg-button-active);
 }
 
 @media screen and (min-width: 375px) {
@@ -104,25 +128,22 @@
   .button_create {
     width: 315px;
   }
-  .column_header {
-    width: 315px;
-  }
 }
 
 @media screen and (min-width: 768px) {
   .button_create {
     width: 334px;
   }
+
   .container {
     max-width: 350px;
   }
   .column_header {
     width: 334px;
   }
-}
 
-@media screen and (min-width: 1440px) {
-  .container_task {
-    max-height: 600px;
-  }
+}
+.button_create:hover,
+.button_create:focus {
+  background-color: var(--bg-button-active);
 }

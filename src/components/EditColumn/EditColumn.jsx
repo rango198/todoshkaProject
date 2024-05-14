@@ -2,10 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { useDispatch, useSelector } from "react-redux";
-import {
-  selectModalContent,
-  selectedColumn,
-} from "../../redux/selectors/serviceSelector";
+import { selectModalContent } from "../../redux/selectors/serviceSelector";
 import { editColumnAsync } from "../../redux/thunk/columnsThunk";
 
 import ButtonAdd from "../ButtonAdd/ButtonAdd";
@@ -44,7 +41,7 @@ const EditColumn = () => {
 
   return (
     <div className={css.wrapper}>
-      <ButtonClose onClick={onClose} />
+      <ButtonClose onClick={onClose} arial-label="Close" />
       <h2 className={css.title}>Edit column</h2>
       <form onSubmit={handleSubmit}>
         <input
@@ -54,7 +51,7 @@ const EditColumn = () => {
           name="title"
           type="text"
         />
-        <ButtonAdd className={css.buttonSbt} type="submit" title="Add" />
+        <ButtonAdd className={css.buttonSbt} type="submit" arial-label="Edit" />
       </form>
     </div>
   );

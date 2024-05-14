@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useState } from "react";
+import PropTypes from "prop-types";
 
 import { Box, FormControlLabel, RadioGroup, Radio } from "@mui/material";
 
 const RadioFilter = ({ onFilterChange, priority }) => {
-
-  const [selectedValue, setSelectedValue] = useState(priority || 'Without');
+  const [selectedValue, setSelectedValue] = useState(priority || "Without");
 
   const radio = [
     {
       value: "Without",
       label: "Without priority",
-      labelColor: selectedValue === 'Without' ? 'var(--datepicker-focused)' : 'var(--datepicker-grey)',
+      labelColor:
+        selectedValue === "Without"
+          ? "var(--datepicker-focused)"
+          : "var(--datepicker-grey)",
       radioColor: {
         static: "var(--datepicker-grey-lable)",
         onChecked: "var(--datepicker-checked)",
@@ -20,7 +22,10 @@ const RadioFilter = ({ onFilterChange, priority }) => {
     {
       value: "Low",
       label: "Low",
-      labelColor: selectedValue === 'Low' ? 'var(--datepicker-focused)' : 'var(--datepicker-grey)',
+      labelColor:
+        selectedValue === "Low"
+          ? "var(--datepicker-focused)"
+          : "var(--datepicker-grey)",
       radioColor: {
         static: "var(--color-blue)",
         onChecked: "var(--bg-color-form)",
@@ -29,7 +34,10 @@ const RadioFilter = ({ onFilterChange, priority }) => {
     {
       value: "Medium",
       label: "Medium",
-      labelColor: selectedValue === 'Medium' ? 'var(--datepicker-focused)' : 'var(--datepicker-grey)',
+      labelColor:
+        selectedValue === "Medium"
+          ? "var(--datepicker-focused)"
+          : "var(--datepicker-grey)",
       radioColor: {
         static: "var(--color-pink)",
         onChecked: "var(--bg-color-form)",
@@ -38,7 +46,10 @@ const RadioFilter = ({ onFilterChange, priority }) => {
     {
       value: "High",
       label: "High",
-      labelColor: selectedValue === 'High' ? 'var(--datepicker-focused)' : 'var(--datepicker-grey)',
+      labelColor:
+        selectedValue === "High"
+          ? "var(--datepicker-focused)"
+          : "var(--datepicker-grey)",
       radioColor: {
         static: "var(--color-green)",
         onChecked: "var(--bg-color-form)",
@@ -115,7 +126,6 @@ RadioFilter.propTypes = {
 };
 
 export default RadioFilter;
-
 
 //   --datepicker-grey: rgba(255, 255, 255, 0.5);
 //   --datepicker-grey: rgba(22, 22, 22, 0.5);
