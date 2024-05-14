@@ -75,14 +75,9 @@
 
   .columns_container {
     max-width: 1080px;
-    /* height: 800px; */
     padding: 0 0 16px 0;
     margin: 10px 0 0 24px;
   }
-
-  /* .container {
-    height: calc(100vh - 120px);
-  } */
 
   .columns_container::-webkit-scrollbar {
     width: 12px;
