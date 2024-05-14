@@ -25,10 +25,10 @@ const AddCardSchema = yup
 const EditCardModal = () => {
   const dispatch = useDispatch();
   const { recordDataEdit } = useSelector(selectModalContent);
-  const { _id, editTitle, editDescription, editPriority, editDedline } =
+  const { _id, editTitle, editDescription } =
     recordDataEdit;
 
-  console.log(_id);
+ 
   const [deadline, setDeadline] = useState(recordDataEdit.editDedline);
   const [priority, setPriority] = useState("Without");
 

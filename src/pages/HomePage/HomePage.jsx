@@ -11,7 +11,7 @@ const HomePage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getBoardThunk());
-  }, [dispatch]);
+  }, []);
   return (
     <div className={css.main}>
       <div className={css.sidebar}>
