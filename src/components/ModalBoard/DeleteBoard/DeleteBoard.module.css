@@ -60,6 +60,7 @@
   border-radius: 8px;
   transition: background-color 250ms linear;
 }
+.button:focus,
 .button:hover {
   background-color: #9dc888;
 }

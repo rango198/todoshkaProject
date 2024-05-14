@@ -27,7 +27,7 @@
   stroke: var(--color);
   transition: stroke 250ms linear;
 }
-
+.close_svg:focus,
 .close_svg:hover {
   stroke: #bedbb0;
 }
@@ -67,7 +67,7 @@
   background-color: transparent;
   transition: color 250ms linear;
 }
-
+.show_all_btn:focus,
 .show_all_btn:hover {
   color: var(--accent);
 }
@@ -80,7 +80,7 @@
   color: var(--color-radioDescr);
   transition: color 250ms linear;
 }
-
+.radioDescription:focus,
 .radioDescription:hover {
   color: var(--accent);
 }
