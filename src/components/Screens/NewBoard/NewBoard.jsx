@@ -45,7 +45,7 @@ const NewBoard = () => {
   return (
     <div className={css.container}>
       <div className={css.columns_container}>
-        {columns && columns.length > 0 ? (
+        {columns && columns?.length > 0 ? (
           <>
             <FilteredColumns columns={columns} filter={filter} />
 

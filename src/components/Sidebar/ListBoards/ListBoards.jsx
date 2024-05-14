@@ -12,12 +12,12 @@ const ListBoards = ({ boards }) => {
 
   return (
     <ul className={css.sidebarNewBoard}>
-      {boards.map(({ title, icon, _id }) => (
+      {boards?.map(({ title, icon, _id }) => (
         <li key={_id}>
           <BoardItem
             title={title}
             icon={icon}
-            isActive={_id === currentBoard._id}
+            isActive={_id === currentBoard?._id}
             id={_id}
           />
         </li>

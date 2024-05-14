@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import {
   setModalContent,
@@ -14,8 +13,6 @@ import Icon from "../Icon/Icon";
 
 const Column = ({ column }) => {
   const { _id, title, tasks } = column;
-
-  const columnId = useSelector(selectedColumn);
 
   const [showPopupDelete, setShowPopupDelete] = useState(false);
 

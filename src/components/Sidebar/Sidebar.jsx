@@ -8,6 +8,7 @@ import { logoutThunk } from "../../redux/thunk/authThunk.js";
 import css from "./Sidebar.module.css";
 import Icon from "../Icon/Icon";
 import {
+  setBoards,
   setModalContent,
   setModalStatus,
 } from "../../redux/slice/servicesSlice.js";
@@ -32,7 +33,10 @@ const SidebarActive = () => {
     );
     dispatch(setModalStatus(true));
   };
-  const handleClickLogout = () => dispatch(logoutThunk());
+  const handleClickLogout = () => {
+    dispatch(setBoards(null));
+    dispatch(logoutThunk());
+  };
 
   return (
     <div>

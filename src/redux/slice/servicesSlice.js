@@ -44,6 +44,10 @@ const serviceSlice = createSlice({
     setModalContent: (state, action) => {
       state.modalContent = { ...state.modalContent, ...action.payload };
     },
+    setBoards: (state, action) => {
+      state.selectedBoard = action.payload;
+      state.boards = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -231,17 +235,6 @@ const serviceSlice = createSlice({
           }
         }
       })
-
-      // {
-      //     "_id": "66423134382481f110046ec4",
-      //     "title": "zagolovokTest2",
-      //     "description": "Desk",
-      //     "priority": "Without",
-      //     "deadline": "2024-05-14T15:26:20.000Z",
-      //     "owner": "66412c2ebc935ea4ce9ce354",
-      //     "column": "66423111382481f110046eb6"
-      // }
-
       .addCase(deleteTaskAsync.fulfilled, (state, action) => {
         state.isLoading = false;
         const { _id, column_id } = action.payload;
@@ -302,7 +295,7 @@ const serviceSlice = createSlice({
   },
 });
 
-export const { setModalStatus, setModalContent, addColumnSuccess } =
+export const { setModalStatus, setModalContent, addColumnSuccess, setBoards } =
   serviceSlice.actions;
 const serviceReducer = serviceSlice.reducer;
 export default serviceReducer;

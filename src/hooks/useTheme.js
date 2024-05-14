@@ -13,7 +13,7 @@ export const useTheme = () => {
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
     dispatch(changeThemeThunk({ theme }));
-  }, [theme]);
+  }, []);
 
   return { theme, setTheme };
 };
