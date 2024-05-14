@@ -1,17 +1,21 @@
 import { useEffect, useState } from "react";
-
+import { useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
+
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
+
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 import sprite from "../../../assets/svg/sprite.svg";
 import data from "../../../assets/img/small/data.js";
 
-import ButtonAdd from "../../ButtonAdd/ButtonAdd.jsx";
 import css from "./CreateNewBoard.module.css";
+
+import ButtonAdd from "../../ButtonAdd/ButtonAdd.jsx";
 import ButtonClose from "../../ButtonClose/ButtonClose";
-import { useNavigate } from "react-router";
+
 import { useDispatch, useSelector } from "react-redux";
 import {
   addBoardThunk,

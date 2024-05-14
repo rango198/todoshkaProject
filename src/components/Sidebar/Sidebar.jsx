@@ -4,18 +4,22 @@ import { useState } from "react";
 import flower from "../../assets/img/png/flower.png";
 import flowerTwoX from "../../assets/img/png/flower@2x.png";
 import flowerThreeX from "../../assets/img/png/flower@3x.png";
-import { logoutThunk } from "../../redux/thunk/authThunk.js";
+
 import css from "./Sidebar.module.css";
-import Icon from "../Icon/Icon";
+
+import { logoutThunk } from "../../redux/thunk/authThunk.js";
+import { selectAllBoards } from "../../redux/selectors/serviceSelector.js";
+
 import {
   setBoards,
   setModalContent,
   setModalStatus,
 } from "../../redux/slice/servicesSlice.js";
-import CreateNewBoardModal from "../ModalBoard/CreateNewBoardModal/CreateNewBoardModal.jsx";
+
+import Icon from "../Icon/Icon";
 import Modal from "../Modal/Modal.jsx";
-import { selectAllBoards } from "../../redux/selectors/serviceSelector.js";
 import ListBoards from "./ListBoards/ListBoards.jsx";
+import CreateNewBoardModal from "../ModalBoard/CreateNewBoardModal/CreateNewBoardModal.jsx";
 
 const SidebarActive = () => {
   const boards = useSelector(selectAllBoards);

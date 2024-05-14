@@ -1,17 +1,19 @@
 import { useCallback, useEffect, useMemo } from "react";
 import { createPortal } from "react-dom";
 import { useDispatch } from "react-redux";
+
 import {
   CloseModalButton,
   StyledBackdrop,
   StyledModalContent,
   SvgClose,
 } from "./Modal.styled";
-import Icon from "../Icon/Icon";
 import {
   setModalContent,
   setModalStatus,
 } from "../../redux/slice/servicesSlice";
+
+import Icon from "../Icon/Icon";
 
 const modalRootElement = document.querySelector("#modal");
 

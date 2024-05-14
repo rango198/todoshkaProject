@@ -6,15 +6,15 @@
 }
 
 .sidebarNewBoard::-webkit-scrollbar {
-  width: 0px; /* Ширина скроллбару */
+  width: 0px; 
 }
 .sidebarNewBoard::-webkit-scrollbar-track {
-  background: var(--scroll-track); /* Колір треку фону */
-  border-radius: 4px; /* радіус кутів треку */
+  background: var(--scroll-track); 
+  border-radius: 4px;
 }
 .sidebarNewBoard::-webkit-scrollbar-thumb {
-  background: var(--scroll-thumb); /* Колір повзунка */
-  border-radius: 4px; /* радіус кутів повзунка */
+  background: var(--scroll-thumb); 
+  border-radius: 4px; 
 }
 
 .sidebarNewBoardNeon {

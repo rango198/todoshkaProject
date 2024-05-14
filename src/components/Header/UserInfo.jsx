@@ -1,16 +1,19 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import {
   setModalContent,
   setModalStatus,
 } from "../../redux/slice/servicesSlice";
-import Modal from "../Modal/Modal";
-import EditProfileForm from "../EditProfileForm/EditProfileForm";
-import css from "./UserInfo.module.css";
+
 import {
   selectUserAvatar,
   selectUserName,
 } from "../../redux/selectors/selector";
+
+import Modal from "../Modal/Modal";
+import EditProfileForm from "../EditProfileForm/EditProfileForm";
+import css from "./UserInfo.module.css";
 
 const UserInfo = () => {
   const avatarURL = useSelector(selectUserAvatar);

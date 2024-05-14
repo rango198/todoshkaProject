@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+
 import {
   setModalContent,
   setModalStatus,
 } from "../../redux/slice/servicesSlice";
+
 import Card from "../Card/Card";
+import Icon from "../Icon/Icon";
 import DeletePopup from "../DeletePopup/DeletePopup";
 import ButtonAdd from "../ButtonAdd/ButtonAdd";
+
 import css from "./Column.module.css";
-import Icon from "../Icon/Icon";
 
 const Column = ({ column }) => {
   const { _id, title, tasks } = column;

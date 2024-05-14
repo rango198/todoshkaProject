@@ -3,7 +3,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import ReactDatePicker from "react-datepicker";
 
 import sprite from "../../assets/svg/sprite.svg";
-import "./calendar.css";
+import "./Calendar.css";
 
 const Calendar = ({ selected, newData }) => {
   const [startDate, setStartDate] = useState(new Date());

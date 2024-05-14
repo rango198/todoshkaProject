@@ -1,16 +1,20 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+
 import Calendar from "../../Calendar/Calendar";
 import RadioColorCard from "../../RadioButtons/RadioColorCard";
+
 import css from "./EditCardModal.module.css";
 import ButtonAdd from "../../ButtonAdd/ButtonAdd";
-import { selectModalContent } from "../../../redux/selectors/serviceSelector";
-import { useDispatch, useSelector } from "react-redux";
+
 import {
   setModalContent,
   setModalStatus,
 } from "../../../redux/slice/servicesSlice";
+import { selectModalContent } from "../../../redux/selectors/serviceSelector";
+
 import * as yup from "yup";
-import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { editTaskAsync } from "../../../redux/thunk/tasksThunk";
 
@@ -28,7 +32,6 @@ const EditCardModal = () => {
   const { _id, editTitle, editDescription, editPriority, editDedline } =
     recordDataEdit;
 
-  console.log(_id);
   const [deadline, setDeadline] = useState(recordDataEdit.editDedline);
   const [priority, setPriority] = useState("Without");
 

@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
 import Icon from "../../Icon/Icon";
 import Modal from "../../Modal/Modal";
+
 import EditBoardModal from "../../ModalBoard/EditBoardModal/EditBoardModal";
 import DeletePopup from "../../DeletePopup/DeletePopup";
+
 import css from "./ListBoards.module.css";
 
 const BoardItem = ({ isActive, title, icon, id }) => {

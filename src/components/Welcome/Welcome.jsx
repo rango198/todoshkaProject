@@ -1,4 +1,4 @@
-import css from "./welcome.module.css";
+import css from "./Welcome.module.css";
 import start from "../../assets/img/png/Start-mob-2x.png";
 import { NavLink } from "react-router-dom";
 import Icon from "../Icon/Icon";
@@ -9,6 +9,7 @@ import {
   textAnimation,
 } from "./WelcomeAnimation";
 import { motion } from "framer-motion";
+
 const Welcome = () => {
   return (
     <div className={css.section_welcome}>

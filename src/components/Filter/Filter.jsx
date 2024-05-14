@@ -1,10 +1,12 @@
 import { useState } from "react";
-import css from "./filter.module.css";
-import ButtonClose from "../ButtonClose/ButtonClose";
 import { useDispatch } from "react-redux";
+
 import { setFilter } from "../../redux/slice/filterSlice";
 
+import ButtonClose from "../ButtonClose/ButtonClose";
 import RadioFilter from "../RadioButtons/RadioFilter";
+
+import css from "./Filter.module.css";
 
 const Filter = ({ onClose }) => {
   const dispatch = useDispatch();

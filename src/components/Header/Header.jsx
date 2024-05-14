@@ -1,11 +1,11 @@
-import Icon from "../Icon/Icon";
-import Theme from "../Theme/Theme";
-
-import css from "./header.module.css";
 import { useState } from "react";
 import { Navigation } from "../Navigation/Navigation";
 
+import Icon from "../Icon/Icon";
 import UserInfo from "./UserInfo";
+import Theme from "../Theme/Theme";
+
+import css from "./Header.module.css";
 
 const Header = () => {
   const [isOpen, setOpen] = useState(false);

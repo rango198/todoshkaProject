@@ -2,18 +2,19 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import css from "./EditProfileForm.module.css";
 
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
 import Icon from "../Icon/Icon";
 import sprite from "../../assets/svg/sprite.svg";
+
+import { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
 import { useUserId, useUserName } from "../../hooks";
 
-import { updateUserThunk } from "../../redux/thunk/authThunk";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { UserSchema } from "../../schema/UserSchema";
 import { useUserEmail } from "../../hooks/useUserEmail";
+
+import { updateUserThunk } from "../../redux/thunk/authThunk";
 import { selectUserAvatar } from "../../redux/selectors/selector";
 import {
   setModalContent,

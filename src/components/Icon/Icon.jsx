@@ -1,4 +1,5 @@
 import sprite from "../../assets/svg/sprite.svg";
+
 const Icon = ({ id, className }) => {
   return (
     <svg className={className}>

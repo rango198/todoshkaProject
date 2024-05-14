@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import css from "./DeletePopup.module.css";
-import { deleteBoardThunk } from "../../redux/thunk/servicesThunk";
 
+import { deleteBoardThunk } from "../../redux/thunk/servicesThunk";
 import { deleteColumnAsync } from "../../redux/thunk/columnsThunk";
 import { deleteTaskAsync } from "../../redux/thunk/tasksThunk";
 
