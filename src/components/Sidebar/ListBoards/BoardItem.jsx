@@ -33,24 +33,28 @@ const BoardItem = ({ isActive, title, icon, id }) => {
             <Icon id={icon} />
           </svg>
           <p className={css.sidebarNewBoardItem}>{title}</p>
-          <button
-            onClick={toggleEdit}
-            className={css.sidebarNewBoardButton}
-            type="button"
-          >
-            <svg className={css.sidebarNewBoardIcon}>
-              <Icon id="pencil" />
-            </svg>
-          </button>
-          <button
-            onClick={handleClickDelete}
-            className={css.sidebarNewBoardButtonCurrent}
-            type="button"
-          >
-            <svg className={css.sidebarNewBoardIcon}>
-              <Icon id="trash" />
-            </svg>
-          </button>
+          {isActive && (
+            <>
+              <button
+                onClick={toggleEdit}
+                className={css.sidebarNewBoardButton}
+                type="button"
+              >
+                <svg className={css.sidebarNewBoardIcon}>
+                  <Icon id="pencil" />
+                </svg>
+              </button>
+              <button
+                onClick={handleClickDelete}
+                className={css.sidebarNewBoardButtonCurrent}
+                type="button"
+              >
+                <svg className={css.sidebarNewBoardIcon}>
+                  <Icon id="trash" />
+                </svg>
+              </button>
+            </>
+          )}
         </div>
       </Link>
       {showPopupDelete && (
