@@ -65,7 +65,9 @@ const LoginForm = () => {
           })}
           placeholder="Enter your email"
         />
-        <p style={{ color: "red" }}>{errors.email?.message}</p>
+        <p style={{ color: "red", fontSize: "12px" }}>
+          {errors.email?.message}
+        </p>
 
         <div className={styles.inputwithicon}>
           <input
@@ -83,7 +85,9 @@ const LoginForm = () => {
           </div>
         </div>
 
-        <p style={{ color: "red" }}>{errors.password?.message}</p>
+        <p style={{ color: "red", fontSize: "12px" }}>
+          {errors.password?.message}
+        </p>
 
         <button className={styles.btn} type="submit">
           Log in Now
