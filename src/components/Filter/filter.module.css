@@ -102,13 +102,6 @@
   display: none;
 }
 
-/* .label > div{
-   background-color: rgba(22, 22, 22, 0.3);
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-
-} */
 .label > div {
   display: flex;
   justify-content: center;

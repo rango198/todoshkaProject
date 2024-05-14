@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import {
   setModalContent,
   setModalStatus,
 } from "../../redux/slice/servicesSlice";
-import { selectedColumn } from "../../redux/selectors/serviceSelector";
 import Card from "../Card/Card";
 import DeletePopup from "../DeletePopup/DeletePopup";
 import ButtonAdd from "../ButtonAdd/ButtonAdd";
@@ -14,8 +12,6 @@ import Icon from "../Icon/Icon";
 
 const Column = ({ column }) => {
   const { _id, title, tasks } = column;
-
-  const columnId = useSelector(selectedColumn);
 
   const [showPopupDelete, setShowPopupDelete] = useState(false);
 
@@ -58,13 +54,19 @@ const Column = ({ column }) => {
           <button
             type="button"
             className={css.btn}
+            aria-label="Edit column"
             onClick={() => editColumn(_id)}
           >
             <svg className={css.icon_svg}>
               <Icon id="pencil" />
             </svg>
           </button>
-          <button type="button" className={css.btn} onClick={handleClickDelete}>
+          <button
+            type="button"
+            aria-label="Delete"
+            className={css.btn}
+            onClick={handleClickDelete}
+          >
             <svg className={css.icon_svg}>
               <Icon id="trash" />
             </svg>

@@ -6,16 +6,17 @@
   border-radius: 8px;
 }
 
-  @media screen and (min-width: 375px) and (max-width: 767px) {
-  .modal{
-  width: 335px;
-}}
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .modal {
+    width: 335px;
+  }
+}
 
 @media screen and (min-width: 768px) {
-  .modal{
+  .modal {
     width: 350px;
   }
-} 
+}
 
 .title {
   color: var(--color-font);
@@ -196,4 +197,3 @@
 .buttonAdd:focus {
   background: var(--bg-button-active);
 }
-

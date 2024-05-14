@@ -56,6 +56,7 @@ const ScreensPage = () => {
             <button
               className={css.button_filter}
               type="button"
+              aria-label="Filter"
               onClick={handleOpenFilter}
             >
               <Icon id="filter" className={css.button_filter_icon} />

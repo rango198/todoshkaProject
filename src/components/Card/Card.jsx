@@ -17,7 +17,6 @@ const Card = ({ task, columnId }) => {
   const { _id, title, description, priority, deadline } = task;
 
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [showPopup, setShowPopup] = useState(false);
   const [showFullText, setShowFullText] = useState(false);
   const [showPopupDelete, setShowPopupDelete] = useState(false);
   const [showPopupMove, setShowPopupMove] = useState(false);
@@ -40,10 +39,6 @@ const Card = ({ task, columnId }) => {
 
   const handleClickPopupMove = () => {
     setShowPopupMove(!showPopupMove);
-  };
-
-  const handleClickPopup = () => {
-    setShowPopup(!showPopup);
   };
 
   const handleClickDelete = () => {
@@ -102,7 +97,6 @@ const Card = ({ task, columnId }) => {
 
   // Функція, яка перевіряє, чи потрібно додати три точки
   const shouldDisplayEllipsis = (text) => {
-    // Перевірка, чи текст має більше ніж 2 рядки
     const lines = text.split("\n");
     return lines.length > 2;
   };
@@ -138,7 +132,11 @@ const Card = ({ task, columnId }) => {
             </svg>
           )}
           {columns.length > 1 && (
-            <button onClick={handleClickPopupMove} className={css.button}>
+            <button
+              onClick={handleClickPopupMove}
+              className={css.button}
+              aria-label="Move Popup"
+            >
               <svg className={css.icon}>
                 <Icon id="broken-right" />
               </svg>
@@ -148,18 +146,25 @@ const Card = ({ task, columnId }) => {
             <PopupMoveCard
               taskId={_id}
               columnId={columnId}
-              // onClose={handleClickPopupMove}
               onClose={handleClickPopupMove}
               sourceColumnId={columnId}
             />
           )}
-          <button onClick={editCard} className={css.button}>
+          <button
+            onClick={editCard}
+            className={css.button}
+            aria-label="Edit card"
+          >
             <svg className={css.icon}>
               <Icon id="pencil" />
             </svg>
           </button>
 
-          <button onClick={handleClickDelete} className={css.button}>
+          <button
+            onClick={handleClickDelete}
+            className={css.button}
+            aria-label="Delete"
+          >
             <svg className={css.icon}>
               <Icon id="trash" />
             </svg>
