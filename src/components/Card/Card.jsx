@@ -22,8 +22,6 @@ const Card = ({ task, columnId }) => {
   const [showPopupDelete, setShowPopupDelete] = useState(false);
   const [showPopupMove, setShowPopupMove] = useState(false);
 
-  console.log(showPopupMove);
-
   const editCard = () => {
     dispatch(
       setModalContent({

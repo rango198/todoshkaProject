@@ -1,4 +1,4 @@
-.title_wrap {
+/*.title_wrap {
   background-color: transparent;
   margin: 0;
   border-radius: 8px;
@@ -10,11 +10,17 @@
   font-size: 14px;
   font-weight: 500;
   color: #161616;
+}
 
-  @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
+  .title_board {
     height: 28px;
     font-size: 18px;
   }
+}*/
+
+.container {
+  height: 100vh;
 }
 
 .button_create {
@@ -40,11 +46,6 @@
   background-color: var(--btn-add);
   color: var(--hover-title-another-column);
 }
-
-/* .container {
-  display: flex;
-  flex-direction: row;
-} */
 
 .columns_container {
   display: flex;
