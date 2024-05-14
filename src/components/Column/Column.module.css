@@ -19,7 +19,12 @@
   padding: 0 5px 0 0px;
   margin-bottom: 14px;
 
-  max-height: 460px;
+
+  /* max-height: 460px; */
+  max-height: 100vh;
+  /* max-width: 348px; */
+  /* width: 100%; */
+
   width: calc(100% - 8px);
   overflow-y: auto;
   overflow-x: hidden;
@@ -108,10 +113,18 @@
   color: var(--button-color);
   border-radius: 8px;
   border-style: none;
+  color: var(--button-color);
   transition: background-color 250ms linear;
+
 }
 
 @media screen and (min-width: 375px) {
+
+.container_task{
+  max-width: 347px;
+  width: 100%;
+}
+
   .button_create {
     width: 315px;
   }
@@ -121,6 +134,14 @@
   .button_create {
     width: 334px;
   }
+
+  .container {
+    max-width: 350px;
+  }
+  .column_header {
+    width: 334px;
+  }
+
 }
 .button_create:hover,
 .button_create:focus {

@@ -66,15 +66,23 @@
 }
 
 @media screen and (min-width: 1440px) {
+  .container {
+    width: calc(-260px + 100vw);
+    padding: 10px 24px 36px;
+    /* height: calc(100vh - 120px); */
+  }
+
   .columns_container {
-    max-width: 1420px;
-    height: 800px;
+    max-width: 1080px;
+    /* height: 800px; */
     padding: 0 0 16px 0;
     margin: 10px 0 0 24px;
   }
-  .container {
+
+  /* .container {
     height: calc(100vh - 120px);
-  }
+  } */
+  
   .columns_container::-webkit-scrollbar {
     width: 12px;
   }
