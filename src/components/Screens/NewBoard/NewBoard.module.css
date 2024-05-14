@@ -50,12 +50,19 @@
   gap: 18px;
   overflow: auto;
   padding-bottom: 24px;
-  padding-top: 40px;
+  padding-top: 5px;
   padding-left: 24px;
+
+  max-width: 310px;
+  width: 100%;
+  /* height: calc(-274px + 100vh); */
+  overflow-y: hidden; /* вертикал скролл активуемо */
+  overflow-x: auto; /* горизонт скролл скриваемо*/
+  background-color: inherit;
 }
 /* styles scroll */
 .columns_container::-webkit-scrollbar {
-  width: 4px; /* Ширина скроллбару */
+  width: 2px; /* Ширина скроллбару */
 }
 .columns_container::-webkit-scrollbar-track {
   background: #383737; /* Колір треку фону */
@@ -64,4 +71,23 @@
 .columns_container::-webkit-scrollbar-thumb {
   background: #161616; /* Колір повзунка */
   border-radius: 4px; /* радіус кутів повзунка */
+}
+
+@media screen and (min-width: 375px) {
+  .columns_container {
+    max-width: 365px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .columns_container {
+    max-width: 740px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .columns_container {
+    max-width: 1132px;
+    padding-top: 40px;
+  }
 }

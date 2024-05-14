@@ -1,6 +1,7 @@
 .container {
   /* height: 680px; */
   max-width: 100%;
+  /*min-width: 100%;*/
   display: flex;
   flex-direction: column;
   background-color: transparent;
@@ -16,18 +17,38 @@
   display: flex;
   flex-direction: column;
   /* margin-bottom: 14px; */
-  gap: 5px;
+  gap: 2px;
   border-radius: 8px;
-  padding: 0 5px 0 5px;
+  padding: 0 5px 0 0px;
   margin-bottom: 14px;
 
-  max-height: 480px;
+  max-height: 310px;
   max-width: 348px;
   width: 100%;
   /* height: calc(-274px + 100vh); */
   overflow-y: auto; /* вертикал скролл активуемо */
   overflow-x: hidden; /* горизонт скролл скриваемо*/
   background-color: inherit;
+}
+
+@media screen and (min-width: 375px) {
+  .container_task {
+    max-height: 310px;
+    gap: 2px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container_task {
+    max-height: 310px;
+  }
+}
+
+@media screen and (min-width: 1140px) {
+  .container_task {
+    gap: 5px;
+    max-height: 480px;
+  }
 }
 
 /* styles scroll */
@@ -54,13 +75,25 @@
   justify-content: space-between;
   align-items: center;
   height: 56px;
-  width: 334px;
+  width: 273px;
   background-color: var(--back-another-column);
   border-radius: 8px;
   margin-bottom: 10px;
   overflow: hidden;
   font-size: 14px;
   font-weight: var(--font-medium);
+}
+
+@media screen and (min-width: 375px) {
+  .column_header {
+    width: 315px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .column_header {
+    width: 334px;
+  }
 }
 
 .btn_container {
@@ -86,7 +119,7 @@
   display: flex;
   /* margin-top: 16px; */
   gap: 8px;
-  width: 335px;
+  width: 273px;
   height: 56px;
   align-items: center;
   justify-content: center;
@@ -98,6 +131,17 @@
   transition: background-color 250ms linear;
 }
 
+@media screen and (min-width: 375px) {
+  .button_create {
+    width: 315px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .button_create {
+    width: 334px;
+  }
+}
 .button_create:hover {
   background-color: var(--bg-button-active);
 }

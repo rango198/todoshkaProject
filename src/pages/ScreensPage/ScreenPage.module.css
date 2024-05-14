@@ -10,6 +10,12 @@
   color: var(--color);
 }
 
+@media screen and (min-width: 1440px) {
+  .screen {
+    height: 100vh;
+  }
+}
+
 .title_container {
   height: 20px;
   display: flex;
