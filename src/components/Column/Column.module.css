@@ -65,7 +65,6 @@
 }
 
 .item_task {
-  /* margin-right: 4px; */
   margin-bottom: 8px;
 }
 
@@ -117,14 +116,12 @@
 
 .button_create {
   display: flex;
-  /* margin-top: 16px; */
   gap: 8px;
   width: 273px;
   height: 56px;
   align-items: center;
   justify-content: center;
   background-color: var(--bg-button);
-  /* margin-left: 20px; */
 
   border-radius: 8px;
   border-style: none;
@@ -142,6 +139,7 @@
     width: 334px;
   }
 }
-.button_create:hover {
+.button_create:hover,
+.button_create:focus {
   background-color: var(--bg-button-active);
 }

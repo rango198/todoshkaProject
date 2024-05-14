@@ -26,15 +26,15 @@
   width: 100%;
   height: 49px;
   padding-left: 20px;
-  /* background: transparent; */
   opacity: 0.4;
   border: 1px solid var(--bg-button);
   background-color: var(--bg-theme);
-
   box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
   border-radius: 8px;
   color: var(--color-font);
+  cursor: pointer;
 }
+
 .input::placeholder {
   width: 28px;
   height: 21px;
@@ -46,8 +46,11 @@
   line-height: 21px;
   letter-spacing: -0.02em;
   color: var(--color-font);
+  transition: border 350 ms linear ;
 }
-.input:focus {
+
+.input:focus,
+.input:hover {
   opacity: 1;
   outline: none;
   border: 1px solid var(--hover-another-column);
@@ -73,7 +76,6 @@
   display: flex;
 }
 
-
 .iconStyle {
   margin-right: 8px;
   width: 18px;
@@ -81,18 +83,17 @@
   fill: transparent;
   stroke: var(--calendar-month);
   cursor: pointer;
-
 }
 
 .iconStyle.selected {
   border-color: var(--btn-add);
+  cursor: pointer;
 }
 
 .iconStyle:hover,
 .iconStyle:focus {
   stroke: var(--btn-add);
 }
-
 
 .backgroundTitle {
   margin: 0 0 14px 0;
@@ -122,17 +123,15 @@
   background: inherit;
   stroke: var(--calendar-month);
 }
+
 .backgroundItem.selected {
   border: 3px solid var(--btn-add);
 }
 
 
 .backgroundImage {
-  /* width: 28px;
-  height: 28px; */
   width: 100%;
   height: 100%;
-
 }
 
 .button {
@@ -154,6 +153,8 @@
   transition: background-color 250ms linear;
   
 }
-.button:hover {
+
+.button:hover,
+.button:focus {
   background-color: var(--bg-button-active);
 }
