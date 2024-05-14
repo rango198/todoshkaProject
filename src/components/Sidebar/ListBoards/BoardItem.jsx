@@ -24,7 +24,7 @@ const BoardItem = ({ isActive, title, icon, id }) => {
 
   return (
     <>
-      <Link to={`/home/${title}`}>
+      <Link to={title ? `/home/${title}` : "/home"}>
         <div
           className={`${css.sidebarNewBoardList} ${isActive ? css.active : ""}`}
           data-isactive={isActive}
