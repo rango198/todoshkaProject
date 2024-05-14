@@ -7,21 +7,18 @@ import ScreensPage from "../ScreensPage/ScreensPage";
 import { useDispatch } from "react-redux";
 import { getBoardThunk } from "../../redux/thunk/servicesThunk";
 
-
 const HomePage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getBoardThunk());
   }, [dispatch]);
   return (
-    <div className={css.container}>
-      <div className={css.main}>
-        <div className={css.sidebar}>
-          <Sidebar />
-        </div>
-        <div className={css.rrr}>
-          <ScreensPage />
-        </div>
+    <div className={css.main}>
+      <div className={css.sidebar}>
+        <Sidebar />
+      </div>
+      <div className={css.screenPage}>
+        <ScreensPage />
       </div>
     </div>
   );

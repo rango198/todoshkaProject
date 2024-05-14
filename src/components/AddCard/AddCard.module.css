@@ -6,11 +6,16 @@
   border-radius: 8px;
 }
 
-@media screen and (min-width: 375px) {
-  .modal {
+  @media screen and (min-width: 375px) and (max-width: 767px) {
+  .modal{
+  width: 335px;
+}}
+
+@media screen and (min-width: 768px) {
+  .modal{
     width: 350px;
   }
-}
+} 
 
 .title {
   color: var(--color-font);
@@ -40,9 +45,16 @@
   letter-spacing: -0.02em;
   color: var(--color-font);
   padding: 14px 18px;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 375px) {
+  .input {
+    width: 287px;
+  }
+}
+
+@media screen and (min-width: 768px) {
   .input {
     width: 302px;
   }
@@ -81,9 +93,16 @@
   color: var(--color-font);
   padding: 14px 18px;
   font-family: "PoppinsRegular";
+  cursor: pointer;
 }
 
 @media screen and (min-width: 375px) {
+  .textAreaComment {
+    width: 287px;
+  }
+}
+
+@media screen and (min-width: 768px) {
   .textAreaComment {
     width: 302px;
   }
@@ -162,6 +181,12 @@
 }
 
 @media screen and (min-width: 375px) {
+  .buttonAdd {
+    width: 287px;
+  }
+}
+
+@media screen and (min-width: 768px) {
   .buttonAdd {
     width: 302px;
   }
