@@ -25,7 +25,7 @@ const store = configureStore({
   reducer: {
     auth: persistReducer(persistConfig, authReducer),
     service: persistReducer(persistConfig, serviceReducer),
-    filter: persistReducer(persistConfig, filterReducer),
+    filter: filterReducer,
   },
 
   middleware: (getDefaultMiddleware) =>

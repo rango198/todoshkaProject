@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { moveTaskAsync } from "../../../redux/thunk/tasksThunk";
@@ -26,18 +26,10 @@ const PopupMoveCard = ({ taskId, onClose }) => {
       }
     };
 
-    const handleClickOutside = (event) => {
-      if (popupRef.current && !event.target.closest(`.${css.popup}`)) {
-        onClose();
-      }
-    };
-
     document.addEventListener("keydown", handleEscapeKeyPress);
-    document.addEventListener("click", handleClickOutside);
 
     return () => {
       document.removeEventListener("keydown", handleEscapeKeyPress);
-      document.removeEventListener("click", handleClickOutside);
     };
   }, [onClose]);
 
