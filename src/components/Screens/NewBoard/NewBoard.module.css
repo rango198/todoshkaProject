@@ -35,6 +35,7 @@
   transition: background-color 250ms linear;
 }
 
+.button_create:focus,
 .button_create:hover {
   background-color: var(--btn-add);
   color: var(--hover-title-another-column);

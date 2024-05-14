@@ -151,7 +151,7 @@
   outline: none;
   border-radius: 8px;
   transition: background-color 250ms linear;
-  
+  color: var(--button-color);
 }
 
 .button:hover,

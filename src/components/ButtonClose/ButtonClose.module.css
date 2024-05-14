@@ -17,6 +17,8 @@
   stroke: var(--color);
   transition: stroke 250ms linear;
 }
+
+.close_svg:focus,
 .close_svg:hover {
   stroke: var(--color-theme-active);
 }

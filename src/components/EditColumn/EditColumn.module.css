@@ -38,8 +38,9 @@
   color: var(--color-font);
   line-height: 1.5;
 }
-
-.input:focus {
+.input:hover,
+.input:focus,
+.input:active {
   outline: none;
   opacity: 1;
 }

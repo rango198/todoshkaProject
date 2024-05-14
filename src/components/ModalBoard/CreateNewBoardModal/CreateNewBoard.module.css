@@ -59,8 +59,9 @@
   letter-spacing: -0.02em;
   color: var(--color-font);
 }
-
-.input:focus {
+.input:hover,
+.input:focus,
+.input:active {
   opacity: 1;
   outline: none;
   border: 1px solid var(--hover-another-column);
@@ -157,8 +158,10 @@
   border: none;
   outline: none;
   border-radius: 8px;
+  color: var(--button-color);
   transition: background-color 250ms linear;
 }
+
 .button:hover,
 .button:focus {
   background-color: var(--bg-button-active);
