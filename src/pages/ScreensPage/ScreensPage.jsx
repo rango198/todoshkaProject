@@ -39,10 +39,9 @@ const ScreensPage = () => {
   };
 
   return (
-    <div className={color ? `background-${color}` : "background-color-body"}>
-      <div className={css.screen}>
-        <Header />
-
+    <div className={css.screen}>
+      <Header />
+      <div className={color ? `background-${color}` : "background-color-body"}>
         {openFilter && (
           <Modal open={handleOpenFilter} onClose={toggleFilter}>
             <Filter onClose={toggleFilter} />

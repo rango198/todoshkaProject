@@ -1,9 +1,11 @@
-import { useForm } from "react-hook-form";
-import { useSelector } from "react-redux";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useForm } from "react-hook-form";
+
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useSelector, useDispatch } from "react-redux";
+
 import { addTaskAsync } from "../../redux/thunk/tasksThunk";
+
 import css from "./AddCard.module.css";
 import ButtonAdd from "../ButtonAdd/ButtonAdd";
 import RadioColorCard from "../RadioButtons/RadioColorCard";
