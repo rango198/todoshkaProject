@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { NavLink, useLocation } from "react-router-dom";
+
 import styles from "./AuthComponent.module.css";
 import RegisterForm from "../RegisterForm/RegisterForm";
 import LoginForm from "../LoginForm/LoginForm";

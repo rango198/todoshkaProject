@@ -67,6 +67,7 @@ const RegisterForm = () => {
           required: "Required field",
           pattern: /^[a-zA-Z0-9 !@#$%^&*()_+,.:;'"?/-]+$/,
         })}
+        autoComplete="name"
       />
       <p style={{ color: "red", fontSize: "12px" }}>{errors.name?.message}</p>
       <input
@@ -77,6 +78,7 @@ const RegisterForm = () => {
           required: "Required field",
           pattern: /^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,3}$/,
         })}
+        autoComplete="email"
       />
       <p style={{ color: "red", fontSize: "12px" }}>{errors.email?.message}</p>
       <div className={css.inputwithicon}>
@@ -88,6 +90,7 @@ const RegisterForm = () => {
             required: "Required field",
             pattern: /^[a-zA-Z0-9\-!@#$%^&*()_+,.:;'"?/]+$/,
           })}
+          autocomplete="current-password"
         />
         <p style={{ color: "red", fontSize: "12px" }}>
           {errors.password?.message}
