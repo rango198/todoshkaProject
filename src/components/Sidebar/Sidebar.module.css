@@ -7,6 +7,7 @@
   z-index: 100;
   width: 200px;
   height: 100vh;
+
   background-color: var(--bg-sidebar);
   padding: 14px 0 24px 14px;
 }
@@ -203,7 +204,7 @@
 
 @media screen and (min-width: 1440px) {
   .sidebar {
-    height: 100%;
+    position: sticky;
   }
   .sidebarLogoutButton {
     font-size: 16px;

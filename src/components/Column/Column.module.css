@@ -1,68 +1,36 @@
 .container {
-  /* height: 680px; */
   max-width: 100%;
-  /*min-width: 100%;*/
   display: flex;
   flex-direction: column;
   background-color: transparent;
 }
 
-@media screen and (min-width: 375px) {
-  .container {
-    max-width: 348px;
-  }
-}
-
 .container_task {
   display: flex;
   flex-direction: column;
-  /* margin-bottom: 14px; */
   gap: 2px;
   border-radius: 8px;
   padding: 0 5px 0 0px;
   margin-bottom: 14px;
 
   max-height: 460px;
-  /*max-height: 310px;*/
   max-width: 348px;
   width: 100%;
-  /* height: calc(-274px + 100vh); */
-  overflow-y: auto; /* вертикал скролл активуемо */
-  overflow-x: hidden; /* горизонт скролл скриваемо*/
+  overflow-y: auto;
+  overflow-x: hidden;
   background-color: inherit;
 }
 
-/*@media screen and (min-width: 375px) {
-  .container_task {
-    max-height: 310px;
-    gap: 2px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .container_task {
-    max-height: 310px;
-  }
-}
-
-@media screen and (min-width: 1140px) {
-  .container_task {
-    gap: 8px;
-    max-height: 478px;
-  }
-}*/
-
-/* styles scroll */
 .container_task::-webkit-scrollbar {
-  width: 8px; /* Ширина скроллбару */
+  width: 8px;
 }
 .container_task::-webkit-scrollbar-track {
-  background: #383737; /* Колір треку фону */
-  border-radius: 4px; /* радіус кутів треку */
+  background: #383737;
+  border-radius: 4px;
 }
 .container_task::-webkit-scrollbar-thumb {
-  background: #161616; /* Колір повзунка */
-  border-radius: 4px; /* радіус кутів повзунка */
+  background: #161616;
+  border-radius: 4px;
 }
 
 .item_task {
@@ -82,18 +50,6 @@
   overflow: hidden;
   font-size: 14px;
   font-weight: var(--font-medium);
-}
-
-@media screen and (min-width: 375px) {
-  .column_header {
-    width: 315px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .column_header {
-    width: 334px;
-  }
 }
 
 .btn_container {
@@ -129,8 +85,16 @@
   transition: background-color 250ms linear;
 }
 
+.button_create:hover,
+.button_create:focus {
+  background-color: var(--bg-button-active);
+}
+
 @media screen and (min-width: 375px) {
   .button_create {
+    width: 315px;
+  }
+  .column_header {
     width: 315px;
   }
 }
@@ -139,8 +103,16 @@
   .button_create {
     width: 334px;
   }
+  .container {
+    max-width: 348px;
+  }
+  .column_header {
+    width: 334px;
+  }
 }
-.button_create:hover,
-.button_create:focus {
-  background-color: var(--bg-button-active);
+
+@media screen and (min-width: 1440px) {
+  .container_task {
+    max-height: 600px;
+  }
 }

@@ -3,7 +3,6 @@
   padding: 20px 18px;
   display: flex;
   width: 100%;
-  margin-bottom: 14px;
 }
 
 .box {
@@ -34,9 +33,6 @@
 }
 
 @media screen and (min-width: 768px) {
-  /* .header {
-    width: 768px;
-  } */
   .menu_icon {
     width: 32px;
     height: 32px;
@@ -49,8 +45,4 @@
   .box {
     margin-left: auto;
   }
-
-  /* .header {
-    min-width: 1180px;
-  } */
 }
