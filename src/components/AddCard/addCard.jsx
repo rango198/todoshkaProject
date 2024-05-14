@@ -98,7 +98,7 @@ const AddCard = () => {
         </div>
         <ButtonAdd
           className={css.buttonAdd}
-          aria-label="Add"
+          title="Add"
           type="submit"
           onClick={handleSubmit(onSubmit)}
         />
