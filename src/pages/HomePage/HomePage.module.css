@@ -1,21 +1,40 @@
+.main {
+  display: flex;
+  height: calc(100vh - 60px);
+  width: 100vw;
+  padding: 14px 10px 24px 10px;
+}
 .sidebar {
   display: none;
 }
-.main {
-  display: flex;
-}
+
 .screenPage {
   flex: 1;
 }
 
+@media screen and (min-width: 375px) {
+  .main{
+  padding: 14px 20px 24px 20px;
+}}
+
+@media screen and (min-width: 768px) {
+  .main{
+  padding: 26px 32px 52px 32px;
+  height: calc(100vh - 68px);}
+  }
+
 @media screen and (min-width: 1440px) {
+  .main {
+    /* min-width: 1180px; */
+    width: calc(100vw - 260px);
+    padding: 10px 24px 36px 24px;
+
+  } 
   .sidebar {
     display: flex;
 
     width: 260px;
-    height: 100hv;
+    height: 100vh;
   }
-  .main {
-    min-width: 1180px;
-  }
+ 
 }
