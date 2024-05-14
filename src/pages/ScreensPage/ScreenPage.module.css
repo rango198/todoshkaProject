@@ -36,10 +36,10 @@
   color: var(--color-shadow);
   border: none;
   background: transparent;
-  text-shadow: 1px 1px 1px #000000a6;
   padding: 12px;
   background-color: rgba(0, 0, 0, 0.17);
   border-radius: 12px;
+  filter: drop-shadow(1px 1px 0.7px black);
 }
 
 .button_filter:hover {
