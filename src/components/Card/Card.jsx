@@ -10,6 +10,7 @@ import {
   setModalContent,
   setModalStatus,
 } from "../../redux/slice/servicesSlice";
+import { NavigationPoPUp } from "../Navigation/NavigationPoPUp";
 
 const Card = ({ task, columnId }) => {
   const dispatch = useDispatch();
@@ -17,10 +18,10 @@ const Card = ({ task, columnId }) => {
   const { _id, title, description, priority, deadline } = task;
 
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [showPopup, setShowPopup] = useState(false);
   const [showFullText, setShowFullText] = useState(false);
   const [showPopupDelete, setShowPopupDelete] = useState(false);
   const [showPopupMove, setShowPopupMove] = useState(false);
+  const [clickCoordinates, setClickCoordinates] = useState({ x: 0, y: 0 });
 
   const editCard = () => {
     dispatch(
@@ -38,12 +39,13 @@ const Card = ({ task, columnId }) => {
     dispatch(setModalStatus(true));
   };
 
-  const handleClickPopupMove = () => {
+  const handleClickPopupMove = (e) => {
+    setClickCoordinates({ x: e.clientX, y: e.clientY });
     setShowPopupMove(!showPopupMove);
   };
 
-  const handleClickPopup = () => {
-    setShowPopup(!showPopup);
+  const handleClickPopupClose = () => {
+    setShowPopupMove(!showPopupMove);
   };
 
   const handleClickDelete = () => {
@@ -102,9 +104,8 @@ const Card = ({ task, columnId }) => {
 
   // Функція, яка перевіряє, чи потрібно додати три точки
   const shouldDisplayEllipsis = (text) => {
-    // Перевірка, чи текст має більше ніж 2 рядки
     const lines = text.split("\n");
-    return lines.length > 2;
+    return lines.length > 1;
   };
 
   return (
@@ -138,28 +139,38 @@ const Card = ({ task, columnId }) => {
             </svg>
           )}
           {columns.length > 1 && (
-            <button onClick={handleClickPopupMove} className={css.button}>
+            <button
+              onClick={handleClickPopupMove}
+              className={css.button}
+              aria-label="Move Popup"
+            >
               <svg className={css.icon}>
                 <Icon id="broken-right" />
               </svg>
             </button>
           )}
           {showPopupMove && (
-            <PopupMoveCard
+            <NavigationPoPUp
+              close={handleClickPopupClose}
               taskId={_id}
-              columnId={columnId}
-              // onClose={handleClickPopupMove}
-              onClose={handleClickPopupMove}
-              sourceColumnId={columnId}
+              coordinates={clickCoordinates}
             />
           )}
-          <button onClick={editCard} className={css.button}>
+          <button
+            onClick={editCard}
+            className={css.button}
+            aria-label="Edit card"
+          >
             <svg className={css.icon}>
               <Icon id="pencil" />
             </svg>
           </button>
 
-          <button onClick={handleClickDelete} className={css.button}>
+          <button
+            onClick={handleClickDelete}
+            className={css.button}
+            aria-label="Delete"
+          >
             <svg className={css.icon}>
               <Icon id="trash" />
             </svg>

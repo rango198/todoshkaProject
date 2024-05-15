@@ -1,6 +1,6 @@
 .wrapperCard {
   display: block;
-  height: 154px;
+  height: 100%;
   min-width: 240px;
   border-radius: 10px;
   padding: 14px;
@@ -36,7 +36,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
 
@@ -51,7 +51,7 @@
   cursor: pointer;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
 
@@ -141,6 +141,29 @@
   width: 16px;
   height: 16px;
   stroke: var(--calendar-month);
+  filter: drop-shadow(0px 0px 3.7px rgba(44, 46, 44, 0.5));
+}
+
+.icon:hover {
+  filter: drop-shadow(0px 0px 3.7px rgba(0, 255, 0, 0.644));
+}
+
+@keyframes ringing {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 .bellIkon {
@@ -148,4 +171,6 @@
   width: 16px;
   height: 16px;
   stroke: var(--color-green);
+  animation: ringing 1s infinite alternate;
+  filter: drop-shadow(0px 0px 3.7px rgba(0, 255, 0, 0.5));
 }

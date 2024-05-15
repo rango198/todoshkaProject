@@ -1,8 +1,6 @@
 import { useCallback, useEffect, useMemo } from "react";
 import { createPortal } from "react-dom";
-
 import { useDispatch } from "react-redux";
-
 import {
   CloseModalButton,
   StyledBackdrop,
@@ -24,11 +22,11 @@ const Modal = ({ open, onClose, children }) => {
 
   if (open) {
     const scrollbarWidth =
-      window.innerWidth - document.documentElement.clientWidth; // Вычисляем ширину вертикального скролла
-    document.body.style.paddingRight = `${scrollbarWidth}px`; // Добавляем padding-right для компенсации ширины скролла
+      window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.paddingRight = `${scrollbarWidth}px`; 
     document.body.style.overflowY = "hidden";
   } else {
-    document.body.style.paddingRight = "0"; // Сбрасываем padding-right при закрытии модального окна
+    document.body.style.paddingRight = "0";
     document.body.style.overflowY = "auto";
   }
 
@@ -92,41 +90,3 @@ const Modal = ({ open, onClose, children }) => {
 };
 
 export default Modal;
-
-// import React, { useEffect } from "react";
-// import css from "./modal.module.css";
-// import { createPortal } from "react-dom";
-// import Icon from "../Icon/Icon.jsx";
-
-// const modalRoot = document.querySelector("#modal");
-
-// const Modal = ({ children, openModal }) => {
-//   useEffect(() => {
-//     const handleKeyDown = (e) => {
-//       if (e.code === "Escape") {
-//         openModal();
-//       }
-//     };
-
-//     window.addEventListener("keydown", handleKeyDown);
-
-//     return () => {
-//       window.removeEventListener("keydown", handleKeyDown);
-//     };
-//   }, [openModal]);
-
-//   const handleBackdropClick = (event) => {
-//     if (event.currentTarget === event.target) {
-//       openModal();
-//     }
-//   };
-
-//   return createPortal(
-//     <div className={css.backdrop} onClick={handleBackdropClick}>
-//       <div className={css.modal}>{children}</div>
-//     </div>,
-//     modalRoot
-//   );
-// };
-
-// export default Modal;

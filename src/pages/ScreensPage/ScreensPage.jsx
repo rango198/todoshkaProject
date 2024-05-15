@@ -17,11 +17,11 @@ const ScreensPage = () => {
   const [openFilter, setOpenFilter] = useState(false);
   const isBoards = useSelector(selectAllBoards);
   const [color, setColor] = useState(null);
-  const { title, background } = useSelector(selectedBoard);
+  const board = useSelector(selectedBoard);
 
   useEffect(() => {
-    reloadColor(background);
-  }, [background]);
+    reloadColor(board?.background);
+  }, [board?.background]);
 
   const reloadColor = (background) => {
     if (background === "default") {
@@ -43,7 +43,6 @@ const ScreensPage = () => {
     <div className={color ? `background-${color}` : "background-color-body"}>
       <div className={css.screen}>
         <Header />
-
         {openFilter && (
           <Modal open={handleOpenFilter} onClose={toggleFilter}>
             <Filter onClose={toggleFilter} />
@@ -52,12 +51,13 @@ const ScreensPage = () => {
 
         <div className={css.title_container}>
           <span className={css.title_wrap}>
-            <p className={css.title_board}>{title}</p>
+            <p className={css.title_board}>{board?.title}</p>
           </span>
           <span className={css.title_wrap}>
             <button
               className={css.button_filter}
               type="button"
+              aria-label="Filter"
               onClick={handleOpenFilter}
             >
               <Icon id="filter" className={css.button_filter_icon} />
@@ -65,7 +65,7 @@ const ScreensPage = () => {
             </button>
           </span>
         </div>
-        {isBoards.length === 0 ? <Board /> : <NewBoard />}
+        {isBoards?.length === 0 ? <Board /> : <NewBoard />}
       </div>
     </div>
   );

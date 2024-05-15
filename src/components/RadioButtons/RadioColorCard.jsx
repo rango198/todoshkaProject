@@ -1,6 +1,5 @@
 import { Box, RadioGroup, FormControlLabel, Radio } from "@mui/material";
 
-// const RadioColorCard = ({ onColorChange, currentPriority }) => {
 const RadioColorCard = ({ click }) => {
   const radio = [
     {
@@ -84,13 +83,3 @@ const RadioColorCard = ({ click }) => {
 };
 
 export default RadioColorCard;
-
-//green+
-
-//  --datepicker-checked(#151512)
-//  --datepicker-checked(#ffffff;)
-//  --datepicker-checked(#ffffff;)
-
-// --datepicker-grey-lable: rgba(255, 255, 255, 0.3);
-// --datepicker-grey-lable: rgba(22, 22, 22, 0.3);
-// --datepicker-grey-lable: rgba(22, 22, 22, 0.3);

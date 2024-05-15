@@ -33,10 +33,11 @@ const AddColumnModal = () => {
 
   return (
     <div className={css.modal}>
-      <ButtonClose onClick={onClose} />
+      <ButtonClose onClick={onClose} aria-label="Close" />
       <h2 className={css.title}>Add column</h2>
       <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
         <input
+          autoComplete="off"
           {...register("title", { required: true })}
           className={css.input}
           type="text"

@@ -35,10 +35,10 @@ const NewBoard = () => {
     dispatch(setModalStatus(true));
   };
 
-  const title = boards.find((board) => board.title === params.boardName);
+  const title = boards?.find((board) => board.title === params.boardName);
 
   useEffect(() => {
-    if (params.boardName === title?.title) {
+    if (params.boardName && params.boardName === title?.title) {
       dispatch(fetchSingleBoard(title?._id || boards[0]?._id));
       navigate(`/home/${title?.title}`);
     }
@@ -47,7 +47,7 @@ const NewBoard = () => {
   return (
     <div className={css.container}>
       <div className={css.columns_container}>
-        {columns && columns.length > 0 ? (
+        {columns && columns?.length > 0 ? (
           <>
             <FilteredColumns columns={columns} filter={filter} />
 

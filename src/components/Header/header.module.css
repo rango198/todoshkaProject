@@ -1,9 +1,20 @@
 .header {
   background-color: var(--bg-color);
-  padding: 20px 18px;
+  padding: 14px 20px;
   display: flex;
   width: 100%;
-  margin-bottom: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    padding: 18px 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .header {
+    padding: 18px 24px;
+  }
 }
 
 .box {
@@ -34,9 +45,6 @@
 }
 
 @media screen and (min-width: 768px) {
-  /* .header {
-    width: 768px;
-  } */
   .menu_icon {
     width: 32px;
     height: 32px;
@@ -49,8 +57,4 @@
   .box {
     margin-left: auto;
   }
-
-  /* .header {
-    min-width: 1180px;
-  } */
 }

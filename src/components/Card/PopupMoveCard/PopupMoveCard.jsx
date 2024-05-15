@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { moveTaskAsync } from "../../../redux/thunk/tasksThunk";
@@ -11,27 +11,13 @@ import { selectedBoard } from "../../../redux/selectors/serviceSelector";
 import Icon from "../../Icon/Icon";
 import css from "./PopupMoveCard.module.css";
 
-const PopupMoveCard = ({ taskId, onClose }) => {
+const PopupMoveCard = ({ taskId }) => {
   const columns = useSelector(selectedColumn);
   const selectedBoardData = useSelector(selectedBoard);
   const selectedBoardId = selectedBoardData ? selectedBoardData._id : null;
   const dispatch = useDispatch();
   const popupRef = useRef(null);
   let sourceColumnId = null;
-
-  useEffect(() => {
-    const handleEscapeKeyPress = (event) => {
-      if (event.key === "Escape") {
-        onClose();
-      }
-    };
-
-    document.addEventListener("keydown", handleEscapeKeyPress);
-
-    return () => {
-      document.removeEventListener("keydown", handleEscapeKeyPress);
-    };
-  }, [onClose]);
 
   const accessToken = useSelector(selectAuthToken);
 
@@ -74,12 +60,13 @@ const PopupMoveCard = ({ taskId, onClose }) => {
       <div
         key={column._id}
         className={css.item}
+        aria-label="column"
         onClick={() => {
           handleMoveTask(sourceColumnId, column._id, taskId);
         }}
       >
         <span className={css.text}>{column.title}</span>
-        <button className={css.popupButton}>
+        <button className={css.popupButton} aria-label="Popup Move">
           <svg className={css.popupIcon}>
             <Icon id="broken-right" />
           </svg>

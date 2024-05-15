@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Column from "../Column/Column";
 
 export const FilteredColumns = ({ columns, filter }) => {
   const [filteredColumns, setFilteredColumns] = useState(columns);
 
   useEffect(() => {
-    const updatedFilteredColumns = columns.map((column) => {
-      if (column.tasks) {
+    const updatedFilteredColumns = columns?.map((column) => {
+      if (column?.tasks) {
         return {
           ...column,
           tasks: column.tasks.filter((card) => {
@@ -23,7 +23,7 @@ export const FilteredColumns = ({ columns, filter }) => {
 
   return (
     <>
-      {filteredColumns.map((column) => {
+      {filteredColumns?.map((column) => {
         return <Column key={column._id} column={column} />;
       })}
     </>

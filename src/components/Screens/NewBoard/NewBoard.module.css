@@ -1,39 +1,15 @@
-/*.title_wrap {
-  background-color: transparent;
-  margin: 0;
-  border-radius: 8px;
-}
-
-.title_board {
-  margin: 0;
-  height: 24px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #161616;
-}
-
-@media screen and (min-width: 768px) {
-  .title_board {
-    height: 28px;
-    font-size: 18px;
-  }
-}*/
-
 .container {
   height: 100vh;
 }
 
 .button_create {
   display: flex;
-  /*  margin-top: 40px;*/
   gap: 8px;
   min-width: 300px;
   width: 335px;
   height: 56px;
   align-items: center;
   justify-content: center;
-  /* background-color: transparent; */
-  /* margin-left: 20px; */
   background-color: var(--back-another-column);
   color: var(--color-font);
   border-radius: 8px;
@@ -57,39 +33,52 @@
 
   max-width: 310px;
   width: 100%;
-  /* height: calc(-274px + 100vh); */
+
   overflow-y: hidden; /* вертикал скролл активуемо */
   overflow-x: auto; /* горизонт скролл скриваемо*/
   background-color: inherit;
 }
-/* styles scroll */
+
 .columns_container::-webkit-scrollbar {
-  width: 2px; /* Ширина скроллбару */
+  width: 12px;
 }
 .columns_container::-webkit-scrollbar-track {
-  background: #383737; /* Колір треку фону */
-  border-radius: 4px; /* радіус кутів треку */
+  background: var(--color-scroll-tracker-g);
+  border-radius: 12px;
 }
 .columns_container::-webkit-scrollbar-thumb {
-  background: #161616; /* Колір повзунка */
-  border-radius: 4px; /* радіус кутів повзунка */
+  background: var(--color-scroll-g);
+  border-radius: 12px;
 }
 
 @media screen and (min-width: 375px) {
   .columns_container {
-    max-width: 365px;
+    max-width: 340px;
   }
 }
 
 @media screen and (min-width: 768px) {
   .columns_container {
-    max-width: 740px;
+    max-width: 720px;
+  }
+  .container {
+    height: calc(100vh - 170px);
   }
 }
 
 @media screen and (min-width: 1440px) {
+  .container {
+    width: calc(-260px + 100vw);
+    height: calc(100vh - 110px);
+  }
+
   .columns_container {
-    max-width: 1132px;
-    padding-top: 40px;
+    max-width: 1080px;
+    padding: 0 0 16px 0;
+    margin: 10px 0 0 24px;
+  }
+
+  .columns_container::-webkit-scrollbar {
+    width: 12px;
   }
 }

@@ -19,6 +19,7 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 24px;
+  margin-top: 24px;
 
   font-size: 28px;
   font-weight: 600;
@@ -26,6 +27,7 @@
   letter-spacing: -1.12px;
 }
 .logo_icon {
+  display: flex;
   width: 40px;
   height: 40px;
 }

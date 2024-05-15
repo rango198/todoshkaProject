@@ -163,7 +163,7 @@ const EditProfileForm = () => {
             <span className={css.errorMessage}>{errors.password?.message}</span>
           </div>
         </div>
-        <button className={css.buttonSend} type="submit">
+        <button className={css.buttonSend} type="submit" aria-label="Send">
           Send
         </button>
       </form>

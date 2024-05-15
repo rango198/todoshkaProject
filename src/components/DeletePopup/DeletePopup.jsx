@@ -5,7 +5,6 @@ import { deleteBoardThunk } from "../../redux/thunk/servicesThunk";
 import { deleteColumnAsync } from "../../redux/thunk/columnsThunk";
 import { deleteTaskAsync } from "../../redux/thunk/tasksThunk";
 
-
 const DeletePopup = ({ onClose, type, id }) => {
   const dispatch = useDispatch();
 
@@ -23,17 +22,12 @@ const DeletePopup = ({ onClose, type, id }) => {
 
   return (
     <div className={css.wrapper}>
-      <p className={css.text}>Du you confirm the deletion?</p>
+      <p className={css.text}>
+        Are you sure you want <br />
+        to delete?
+      </p>
       <ul>
         <li className={css.list}>
-          <button
-            className={css.btn}
-            type="button"
-            onClick={onClose}
-            aria-label="No, do not delete"
-          >
-            No
-          </button>
           <button
             className={css.btn}
             type="submit"
@@ -41,6 +35,14 @@ const DeletePopup = ({ onClose, type, id }) => {
             aria-label="Yes, delete"
           >
             Yes
+          </button>
+          <button
+            className={css.btn}
+            type="button"
+            onClick={onClose}
+            aria-label="No, do not delete"
+          >
+            No
           </button>
         </li>
       </ul>

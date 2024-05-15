@@ -61,6 +61,7 @@ const RegisterForm = () => {
   return (
     <form className={css.main} onSubmit={handleSubmit(onSubmit)}>
       <input
+        autoComplete="off"
         className={css.input}
         placeholder="Enter your name"
         {...register("name", {
@@ -70,6 +71,7 @@ const RegisterForm = () => {
       />
       <p style={{ color: "red", fontSize: "12px" }}>{errors.name?.message}</p>
       <input
+        autoComplete="off"
         className={css.input}
         placeholder="Enter your email"
         type="email"
@@ -81,6 +83,7 @@ const RegisterForm = () => {
       <p style={{ color: "red", fontSize: "12px" }}>{errors.email?.message}</p>
       <div className={css.inputwithicon}>
         <input
+          autoComplete="off"
           placeholder="Create a password"
           className={css.input}
           type={inputType}

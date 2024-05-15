@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -77,9 +77,7 @@ const CreateNewBoardModal = ({ onClose }) => {
       <svg
         key={icon}
         className={`${css.iconStyle} ${selectedIcon === icon ? css.selectedIcon : ""}`}
-        // selected={selectedIcon === icon}
         onClick={() => handleIconSelect(icon)}
-        // className={css.iconStyle}
       >
         <use href={`${sprite}#${icon}`} />
       </svg>
@@ -90,7 +88,6 @@ const CreateNewBoardModal = ({ onClose }) => {
     return data.map((item) => (
       <div
         className={`${css.backgroundItem} ${selectedBackgroundId === item.name ? css.selected : ""}`}
-        // className={css.backgroundItem}
         key={item.id}
         selected={selectedBackgroundId === item.name}
         onClick={() => handleBackgroundSelect(item.name)}
@@ -138,6 +135,7 @@ const CreateNewBoardModal = ({ onClose }) => {
 
       <form onSubmit={handleSubmit(handleCreateBoard)}>
         <input
+          autoComplete="off"
           name="title"
           id="newBoardInput"
           type="text"
@@ -157,7 +155,7 @@ const CreateNewBoardModal = ({ onClose }) => {
 
         <ButtonAdd type="submit" title="Create" className={css.button} />
       </form>
-      <ButtonClose onClick={onClose} />
+      <ButtonClose onClick={onClose} aria-label="Close" />
     </div>
   );
 };

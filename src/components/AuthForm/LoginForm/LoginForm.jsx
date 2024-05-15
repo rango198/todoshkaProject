@@ -64,6 +64,7 @@ const LoginForm = () => {
             pattern: /^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,3}$/,
           })}
           placeholder="Enter your email"
+          autoComplete="off"
         />
         <p style={{ color: "red", fontSize: "12px" }}>
           {errors.email?.message}
@@ -78,6 +79,7 @@ const LoginForm = () => {
               pattern: /^[a-zA-Z0-9\-!@#$%^&*()_+,.:;'"?/]+$/,
             })}
             placeholder=" Create a password"
+            autoComplete="off"
           />
 
           <div onClick={togglePassword}>
