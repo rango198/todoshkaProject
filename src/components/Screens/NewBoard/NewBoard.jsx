@@ -55,6 +55,9 @@ const NewBoard = () => {
               onClick={toggleAddColumn}
               title="Add another column"
               className={css.button_create}
+              iconSpan={css.button_icon_bg}
+              iconStyle={css.button_icon}
+
             />
           </>
         ) : (
@@ -62,6 +65,8 @@ const NewBoard = () => {
             onClick={toggleAddColumn}
             title="Add another column"
             className={css.button_create}
+            iconSpan={css.button_icon_bg}
+            iconStyle={css.button_icon}
           />
         )}
       </div>

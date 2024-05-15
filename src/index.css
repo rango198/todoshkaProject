@@ -174,6 +174,11 @@ html[data-theme="dark"] {
   --color-border-card: rgba(255, 255, 255, 0.1);
   --icon-stroke-card: #161616;
   --color-shadow: #bedbb0;
+  --colol-span: #ffffff;
+  --color-span-hover: #ffffff ;
+  --color-btn-plus: #ffffff;
+  --color-bg-btn:  #161616;
+
 }
 
 html[data-theme="light"] {
@@ -226,6 +231,7 @@ html[data-theme="light"] {
   --bg-button-plus: #bedbb0;
   --button-plus: #fff;
   --button-color: #161616;
+  
 
   /* Icon Avatar Default */
 
@@ -263,6 +269,13 @@ html[data-theme="light"] {
 
   --color-border-card: rgba(22, 22, 22, 0.1);
   --icon-stroke-card: #161616;
+  --colol-span: #bedbb0;
+  --color-span-hover: #ffffff ;
+  --color-btn-plus: #ffffff;
+  --color-bg-btn:  #161616;
+
+
+
 }
 
 html[data-theme="violet"] {
@@ -351,6 +364,12 @@ html[data-theme="violet"] {
   --back-another-column: #fff;
   --color-border-card: rgba(22, 22, 22, 0.1);
   --icon-stroke-card: #161616;
+  --colol-span: #5255bc;
+  --color-btn-plus: #ffffff;
+  --color-bg-btn:   #7b7ede;
+
+
+
 }
 
 h1,

@@ -22,14 +22,14 @@
 @media screen and (min-width: 768px) {
   .main {
     /* padding: 26px 32px 52px 32px; */
-    height: calc(100vh - 68px);
+    /* height: calc(100vh - 68px); */
   }
 }
 
 @media screen and (min-width: 1440px) {
   .main {
     /* min-width: 1180px; */
-    width: 100vw;
+    /* width: 100vw; */
     /* padding: 10px 24px 36px 24px; */
   }
 
