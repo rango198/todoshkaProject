@@ -1,5 +1,5 @@
 .sidebarNewBoard {
-  max-height: 242px;
+  max-height: 123px;
   overflow: auto;
   margin-top: 40px;
   background-color: transparent;
@@ -116,4 +116,10 @@
 
 .sidebarLogoutIcon {
   stroke: var(--color-green);
+}
+
+@media screen and (min-width: 1440px) {
+  .sidebarNewBoard {
+    max-height: 242px;
+  }
 }
