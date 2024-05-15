@@ -37,6 +37,7 @@ const AddColumnModal = () => {
       <h2 className={css.title}>Add column</h2>
       <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
         <input
+          autoComplete="off"
           {...register("title", { required: true })}
           className={css.input}
           type="text"

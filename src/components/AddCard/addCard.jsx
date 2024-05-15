@@ -67,6 +67,7 @@ const AddCard = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>
           <input
+            autoComplete="off"
             className={css.input}
             placeholder="Title"
             type="text"
@@ -76,6 +77,7 @@ const AddCard = () => {
         </label>
         <label>
           <textarea
+            autoComplete="off"
             className={css.textAreaComment}
             placeholder="Description"
             {...register("description")}

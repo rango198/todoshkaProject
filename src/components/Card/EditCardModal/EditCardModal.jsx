@@ -25,10 +25,8 @@ const AddCardSchema = yup
 const EditCardModal = () => {
   const dispatch = useDispatch();
   const { recordDataEdit } = useSelector(selectModalContent);
-  const { _id, editTitle, editDescription } =
-    recordDataEdit;
+  const { _id, editTitle, editDescription } = recordDataEdit;
 
- 
   const [deadline, setDeadline] = useState(recordDataEdit.editDedline);
   const [priority, setPriority] = useState("Without");
 
@@ -65,6 +63,7 @@ const EditCardModal = () => {
 
         <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
           <input
+            autoComplete="off"
             defaultValue={editTitle}
             className={css.inputEdit}
             type="text"
@@ -72,6 +71,7 @@ const EditCardModal = () => {
             name="title"
           />
           <textarea
+            autoComplete="off"
             {...register("description")}
             defaultValue={editDescription}
             className={css.textAreaDescription}

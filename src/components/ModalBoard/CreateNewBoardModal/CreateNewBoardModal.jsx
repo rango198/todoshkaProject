@@ -135,6 +135,7 @@ const CreateNewBoardModal = ({ onClose }) => {
 
       <form onSubmit={handleSubmit(handleCreateBoard)}>
         <input
+          autoComplete="off"
           name="title"
           id="newBoardInput"
           type="text"
