@@ -1,6 +1,6 @@
 .wrapperCard {
   display: block;
-  height: 100%px;
+  height: 100%;
   min-width: 240px;
   border-radius: 10px;
   padding: 14px;
@@ -36,9 +36,8 @@
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-  text-shadow: 0px 0px 1px #0000004d;
 }
 
 .description {
@@ -52,7 +51,7 @@
   cursor: pointer;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
 
