@@ -10,6 +10,11 @@
   align-items: center;
 }
 
+.overlayy {
+
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 .box_menu {
   position: fixed;
   top: 0;

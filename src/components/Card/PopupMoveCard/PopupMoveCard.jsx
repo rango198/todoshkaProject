@@ -11,27 +11,13 @@ import { selectedBoard } from "../../../redux/selectors/serviceSelector";
 import Icon from "../../Icon/Icon";
 import css from "./PopupMoveCard.module.css";
 
-const PopupMoveCard = ({ taskId, onClose }) => {
+const PopupMoveCard = ({ taskId }) => {
   const columns = useSelector(selectedColumn);
   const selectedBoardData = useSelector(selectedBoard);
   const selectedBoardId = selectedBoardData ? selectedBoardData._id : null;
   const dispatch = useDispatch();
   const popupRef = useRef(null);
   let sourceColumnId = null;
-
-  useEffect(() => {
-    const handleEscapeKeyPress = (event) => {
-      if (event.key === "Escape") {
-        onClose();
-      }
-    };
-
-    document.addEventListener("keydown", handleEscapeKeyPress);
-
-    return () => {
-      document.removeEventListener("keydown", handleEscapeKeyPress);
-    };
-  }, [onClose]);
 
   const accessToken = useSelector(selectAuthToken);
 

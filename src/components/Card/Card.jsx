@@ -10,6 +10,7 @@ import {
   setModalContent,
   setModalStatus,
 } from "../../redux/slice/servicesSlice";
+import { NavigationPoPUp } from "../Navigation/NavigationPoPUp";
 
 const Card = ({ task, columnId }) => {
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ const Card = ({ task, columnId }) => {
   const [showFullText, setShowFullText] = useState(false);
   const [showPopupDelete, setShowPopupDelete] = useState(false);
   const [showPopupMove, setShowPopupMove] = useState(false);
+  const [clickCoordinates, setClickCoordinates] = useState({ x: 0, y: 0 });
 
   const editCard = () => {
     dispatch(
@@ -37,7 +39,12 @@ const Card = ({ task, columnId }) => {
     dispatch(setModalStatus(true));
   };
 
-  const handleClickPopupMove = () => {
+  const handleClickPopupMove = (e) => {
+    setClickCoordinates({ x: e.clientX, y: e.clientY });
+    setShowPopupMove(!showPopupMove);
+  };
+
+  const handleClickPopupClose = () => {
     setShowPopupMove(!showPopupMove);
   };
 
@@ -143,11 +150,10 @@ const Card = ({ task, columnId }) => {
             </button>
           )}
           {showPopupMove && (
-            <PopupMoveCard
+            <NavigationPoPUp
+              close={handleClickPopupClose}
               taskId={_id}
-              columnId={columnId}
-              onClose={handleClickPopupMove}
-              sourceColumnId={columnId}
+              coordinates={clickCoordinates}
             />
           )}
           <button
