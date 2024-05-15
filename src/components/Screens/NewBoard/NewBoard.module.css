@@ -23,6 +23,17 @@
   color: var(--hover-title-another-column);
 }
 
+.button_icon_bg{
+  background-color: var(--color-bg-btn);
+border: 1px solid var(--color-btn-plus);
+}
+
+
+.button_icon{
+  stroke: var(--color-btn-plus);
+}
+
+
 .columns_container {
   display: flex;
   gap: 18px;
