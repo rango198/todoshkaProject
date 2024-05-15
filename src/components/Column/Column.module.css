@@ -18,7 +18,7 @@
   border-radius: 8px;
   padding: 0 5px 0 0px;
   margin-bottom: 14px;
-  width: 100%;
+  max-height: 430px;
 
   width: calc(100% - 8px);
   overflow-y: auto;
