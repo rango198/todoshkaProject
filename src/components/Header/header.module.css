@@ -1,8 +1,20 @@
 .header {
   background-color: var(--bg-color);
-  padding: 20px 18px;
+  padding: 14px 20px;
   display: flex;
   width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    padding: 18px 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .header {
+    padding: 18px 24px;
+  }
 }
 
 .box {

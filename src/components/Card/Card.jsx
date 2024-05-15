@@ -98,7 +98,7 @@ const Card = ({ task, columnId }) => {
   // Функція, яка перевіряє, чи потрібно додати три точки
   const shouldDisplayEllipsis = (text) => {
     const lines = text.split("\n");
-    return lines.length > 2;
+    return lines.length > 1;
   };
 
   return (

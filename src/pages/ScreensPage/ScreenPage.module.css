@@ -94,7 +94,7 @@
 
 @media screen and (min-width: 768px) {
   .title_container {
-    padding: 20px 32px;
+    padding: 0px 20px;
   }
   .title_board {
     height: 28px;
