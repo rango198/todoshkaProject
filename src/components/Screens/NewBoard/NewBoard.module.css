@@ -1,5 +1,5 @@
 .container {
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .button_create {
@@ -70,7 +70,7 @@
   .container {
     width: calc(-260px + 100vw);
     padding: 10px 24px 36px;
-    /* height: calc(100vh - 120px); */
+    height: calc(100vh - 110px);
   }
 
   .columns_container {
