@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
 import {
   setModalContent,
@@ -9,10 +9,33 @@ import DeletePopup from "../DeletePopup/DeletePopup";
 import ButtonAdd from "../ButtonAdd/ButtonAdd";
 import css from "./Column.module.css";
 import Icon from "../Icon/Icon";
+import { SortableContext, useSortable } from "@dnd-kit/sortable";
 
 const Column = ({ column }) => {
   const { _id, title, tasks } = column;
+  const tasksIds = useMemo(() => {
+    return tasks.map((task) => task._id);
+  }, [tasks]);
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({
+    id: column._id,
+    data: {
+      type: "Column",
+      column,
+    },
+    // disabled: editMode,
+  });
 
+  const style = {
+    transition,
+    transform: transform ? `translate3d(${transform.x}px, 0, 0)` : undefined,
+  };
   const [showPopupDelete, setShowPopupDelete] = useState(false);
 
   const dispatch = useDispatch();
@@ -47,7 +70,13 @@ const Column = ({ column }) => {
   };
 
   return (
-    <div className={css.container}>
+    <div
+      className={css.container}
+      style={{ ...style }}
+      ref={setNodeRef}
+      {...attributes}
+      {...listeners}
+    >
       <div className={css.column_header}>
         <span>{title}</span>
         <div className={css.btn_container}>
@@ -78,11 +107,13 @@ const Column = ({ column }) => {
       </div>
 
       <ul className={css.container_task}>
-        {tasks?.map((task) => (
-          <li key={task._id} className={css.item_task}>
-            <Card task={task} />
-          </li>
-        ))}
+        <SortableContext items={tasksIds}>
+          {tasks?.map((task) => (
+            <li key={task._id} className={css.item_task}>
+              <Card task={task} />
+            </li>
+          ))}
+        </SortableContext>
       </ul>
       <ButtonAdd
         onClick={toggleAddCard}

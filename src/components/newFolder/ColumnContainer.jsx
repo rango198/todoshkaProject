@@ -1,21 +1,21 @@
 import React, { useMemo, useState } from "react";
 import { SortableContext, useSortable } from "@dnd-kit/sortable";
-import TaskCard from "./TaskCard";
+// import TaskCard from "./TaskCard";
 
 function ColumnContainer({
   column,
   deleteColumn,
   updateColumn,
-  createTask,
-  tasks,
+  // createTask,
+  // tasks,
   deleteTask,
   updateTask,
 }) {
   const [editMode, setEditMode] = useState(false);
 
-  const tasksIds = useMemo(() => {
-    return tasks.map((task) => task.id);
-  }, [tasks]);
+  // const tasksIds = useMemo(() => {
+  //   return tasks.map((task) => task.id);
+  // }, [tasks]);
 
   const {
     attributes,
@@ -25,7 +25,7 @@ function ColumnContainer({
     transition,
     isDragging,
   } = useSortable({
-    id: column.id,
+    id: column._id,
     data: {
       type: "Column",
       column,
@@ -67,7 +67,7 @@ function ColumnContainer({
               borderRadius: "9999px",
             }}
           >
-            {tasks.length}
+            {/* {tasks.length} */}
           </p>
           {!editMode && (
             <span
@@ -135,7 +135,7 @@ function ColumnContainer({
 
       {/* Column task container */}
       <div>
-        <SortableContext items={tasksIds}>
+        {/* <SortableContext items={tasksIds}>
           {tasks.map((task) => (
             <TaskCard
               key={task.id}
@@ -144,7 +144,7 @@ function ColumnContainer({
               updateTask={updateTask}
             />
           ))}
-        </SortableContext>
+        </SortableContext> */}
       </div>
       {/* Column footer */}
       <button

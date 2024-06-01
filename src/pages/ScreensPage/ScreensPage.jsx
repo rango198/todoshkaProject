@@ -10,7 +10,6 @@ import {
   selectAllBoards,
   selectedBoard,
 } from "../../redux/selectors/serviceSelector";
-import { useSelector } from "react-redux";
 import Header from "../../components/Header/Header";
 
 const ScreensPage = () => {

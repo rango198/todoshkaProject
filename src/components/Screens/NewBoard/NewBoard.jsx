@@ -16,6 +16,7 @@ import {
 } from "../../../redux/selectors/serviceSelector";
 import { FilteredColumns } from "../../FiltredColumns/FiltredColumns";
 import { useNavigate } from "react-router-dom";
+import KanbanBoard from "../../newFolder/Board";
 
 const NewBoard = () => {
   const params = useParams();
